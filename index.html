@@ -1,0 +1,1368 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#F2F5F3">
+<meta name="description" content="Kidney anatomy, the principles of dialysis, and how haemodialysis works when kidneys fail. A visual teaching companion.">
+<title>Renal · a visual companion</title>
+
+<link rel="manifest" href="./manifest.webmanifest">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Renal">
+<link rel="apple-touch-icon" href="./apple-touch-icon.png">
+<link rel="icon" type="image/png" href="./icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --porcelain:#F2F5F3; --card:#FBFCFB; --card-2:#F6F9F7;
+  --ink:#16242B; --ink-soft:#455A61; --ink-faint:#829699;
+  --petrol:#0E5B62; --petrol-deep:#0A464C; --petrol-tint:#E4EEEC;
+  --crimson:#B23A32; --crimson-soft:#D96A60; --crimson-tint:#F4E2DF;
+  --amber:#D8912B; --amber-soft:#EEC57E; --amber-tint:#F6ECD9;
+  --sage:#6DA08B; --sage-tint:#E1ECE6;
+  --violet:#7A6B9E;
+  --mist:#D8E2DE; --mist-2:#E7EEEB;
+  --shadow:0 1px 2px rgba(16,36,43,.04),0 8px 24px rgba(16,36,43,.06);
+  --shadow-lg:0 2px 6px rgba(16,36,43,.06),0 18px 44px rgba(16,36,43,.10);
+  --r:18px; --r-sm:12px; --r-lg:26px;
+  --topbar:56px; --botbar:64px;
+  --serif:"Fraunces",ui-serif,Georgia,"Times New Roman",serif;
+  --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html,body{height:100%}
+body{
+  font-family:var(--sans); color:var(--ink); background:var(--porcelain);
+  line-height:1.5; -webkit-font-smoothing:antialiased; overscroll-behavior-y:none;
+}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.12;letter-spacing:-.01em}
+.mono{font-family:var(--mono)}
+
+/* ---------- Top bar ---------- */
+.topbar{
+  position:fixed;top:0;left:0;right:0;height:calc(var(--topbar) + env(safe-area-inset-top));
+  padding-top:env(safe-area-inset-top);
+  display:flex;align-items:center;gap:12px;padding-left:18px;padding-right:12px;
+  background:rgba(242,245,243,.82);backdrop-filter:saturate(1.4) blur(14px);
+  -webkit-backdrop-filter:saturate(1.4) blur(14px);
+  border-bottom:1px solid var(--mist);z-index:40;
+}
+.brand{display:flex;align-items:baseline;gap:8px;font-family:var(--mono);font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--petrol)}
+.brand b{font-weight:500}
+.brand .dot{width:6px;height:6px;border-radius:50%;background:var(--crimson);align-self:center}
+.crumb{margin-left:auto;font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--ink-faint);text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:44vw}
+.menu-btn{width:40px;height:40px;border-radius:11px;display:grid;place-items:center;flex:none}
+.menu-btn:hover,.menu-btn:focus-visible{background:var(--mist-2)}
+.menu-btn svg{width:20px;height:20px}
+
+/* ---------- Layout / router ---------- */
+main{padding-top:calc(var(--topbar) + env(safe-area-inset-top));padding-bottom:calc(var(--botbar) + env(safe-area-inset-bottom))}
+.chapter{display:none;max-width:760px;margin:0 auto;padding:22px 18px 40px;animation:rise .42s cubic-bezier(.2,.7,.2,1)}
+.chapter.active{display:block}
+@keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+/* ---------- Home ---------- */
+.hero{padding:14px 4px 8px}
+.eyebrow{font-family:var(--mono);font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--petrol);margin-bottom:14px}
+.hero h1{font-size:clamp(34px,9vw,52px);letter-spacing:-.025em}
+.hero h1 em{font-style:italic;color:var(--crimson);font-weight:500}
+.hero p{margin-top:14px;font-size:16.5px;color:var(--ink-soft);max-width:46ch}
+.hero-art{margin:20px 0 6px;display:grid;place-items:center}
+.chapter-list{margin-top:14px;display:flex;flex-direction:column;gap:10px}
+.ch-card{
+  display:flex;align-items:center;gap:16px;padding:16px 18px;background:var(--card);
+  border:1px solid var(--mist);border-radius:var(--r);box-shadow:var(--shadow);
+  text-align:left;width:100%;transition:transform .18s ease,box-shadow .18s ease,border-color .18s;
+}
+.ch-card:hover,.ch-card:focus-visible{transform:translateY(-2px);box-shadow:var(--shadow-lg);border-color:var(--sage)}
+.ch-card:active{transform:translateY(0) scale(.995)}
+.ch-num{font-family:var(--mono);font-size:13px;color:var(--petrol);min-width:26px;font-weight:500}
+.ch-meta{flex:1;min-width:0}
+.ch-meta h3{font-size:18px;font-weight:600;letter-spacing:-.01em}
+.ch-meta p{font-size:13.5px;color:var(--ink-faint);margin-top:1px}
+.ch-arrow{color:var(--ink-faint);flex:none}
+.ch-card:hover .ch-arrow{color:var(--petrol)}
+.disclaimer{margin-top:22px;font-size:12.5px;color:var(--ink-faint);text-align:center;line-height:1.6;padding:0 6px}
+
+/* ---------- Chapter headers ---------- */
+.ch-head{margin-bottom:20px}
+.ch-kicker{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--petrol);display:flex;align-items:center;gap:10px}
+.ch-kicker .line{height:1px;flex:1;background:var(--mist)}
+.ch-head h2{font-size:clamp(26px,6.5vw,36px);margin-top:12px}
+.ch-head .lede{margin-top:10px;color:var(--ink-soft);font-size:15.5px;max-width:56ch}
+
+/* ---------- Generic cards ---------- */
+.card{background:var(--card);border:1px solid var(--mist);border-radius:var(--r);box-shadow:var(--shadow);padding:18px;margin:14px 0}
+.card h3{font-size:19px;margin-bottom:8px}
+.panel-note{background:var(--card-2);border:1px solid var(--mist-2);border-radius:var(--r-sm);padding:13px 15px;font-size:14px;color:var(--ink-soft)}
+.panel-note strong{color:var(--ink);font-weight:600}
+
+/* ---------- Expandable (details) ---------- */
+.acc{display:flex;flex-direction:column;gap:10px;margin:14px 0}
+details.item{background:var(--card);border:1px solid var(--mist);border-radius:var(--r);box-shadow:var(--shadow);overflow:hidden;transition:border-color .2s}
+details.item[open]{border-color:var(--sage)}
+details.item>summary{list-style:none;padding:15px 17px;display:flex;align-items:center;gap:14px;font-weight:600;font-size:15.5px}
+details.item>summary::-webkit-details-marker{display:none}
+.tag{width:34px;height:34px;border-radius:10px;flex:none;display:grid;place-items:center;font-family:var(--mono);font-size:14px;font-weight:500}
+.summary-txt{flex:1}
+.summary-txt small{display:block;font-family:var(--sans);font-weight:400;font-size:12.5px;color:var(--ink-faint);margin-top:1px}
+.chev{color:var(--ink-faint);transition:transform .25s ease;flex:none}
+details.item[open] .chev{transform:rotate(90deg);color:var(--petrol)}
+.reveal{padding:0 17px 17px;font-size:14.5px;color:var(--ink-soft);line-height:1.6}
+.reveal p+p{margin-top:9px}
+.reveal .why{margin-top:12px;padding:11px 13px;background:var(--petrol-tint);border-radius:10px;font-size:13.5px;color:var(--petrol-deep)}
+.reveal .why b{font-weight:600}
+
+/* colour tokens for tags */
+.t-blood{background:var(--crimson-tint);color:var(--crimson)}
+.t-fluid{background:var(--petrol-tint);color:var(--petrol)}
+.t-amber{background:var(--amber-tint);color:#9C6410}
+.t-sage{background:var(--sage-tint);color:#3F7361}
+.t-violet{background:#EBE7F2;color:var(--violet)}
+
+/* ---------- Segmented toggle ---------- */
+.seg{display:inline-flex;background:var(--mist-2);border-radius:12px;padding:4px;gap:2px;flex-wrap:wrap}
+.seg button{padding:8px 13px;border-radius:9px;font-size:13px;font-weight:500;color:var(--ink-soft);font-family:var(--mono);letter-spacing:.02em;transition:all .18s}
+.seg button.on{background:var(--card);color:var(--petrol);box-shadow:0 1px 3px rgba(16,36,43,.12)}
+
+/* ---------- Anatomy ---------- */
+.stage{position:relative;background:var(--card);border:1px solid var(--mist);border-radius:var(--r-lg);box-shadow:var(--shadow);padding:10px;overflow:hidden}
+.stage svg{display:block;width:100%;height:auto}
+.hotspot{cursor:pointer}
+.hotspot circle.hit{fill:transparent}
+.hotspot .pin{fill:var(--card);stroke:var(--petrol);stroke-width:2;transition:all .2s}
+.hotspot .pin-core{fill:var(--petrol);transition:all .2s}
+.hotspot.on .pin{fill:var(--petrol);stroke:var(--petrol)}
+.hotspot.on .pin-core{fill:var(--card)}
+.hotspot:hover .pin{stroke-width:3}
+.info-panel{margin-top:14px;background:var(--card);border:1px solid var(--mist);border-left:4px solid var(--petrol);border-radius:var(--r-sm);padding:15px 17px;min-height:78px;transition:border-color .2s}
+.info-panel .lbl{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--petrol);margin-bottom:5px}
+.info-panel h4{font-family:var(--serif);font-size:19px;font-weight:600;margin-bottom:5px}
+.info-panel p{font-size:14.5px;color:var(--ink-soft)}
+.hint{font-family:var(--mono);font-size:11px;color:var(--ink-faint);text-align:center;margin-top:10px;letter-spacing:.04em}
+
+/* ---------- eGFR ladder ---------- */
+.gfr-wrap{text-align:center}
+.gauge{margin:6px auto 2px;position:relative;width:min(320px,86vw)}
+.gfr-read{font-family:var(--mono);margin-top:8px}
+.gfr-read .big{font-size:44px;font-weight:500;color:var(--ink);letter-spacing:-.02em;line-height:1}
+.gfr-read .unit{font-size:12px;color:var(--ink-faint);letter-spacing:.1em}
+.stage-badge{display:inline-block;margin-top:12px;padding:7px 16px;border-radius:999px;font-family:var(--mono);font-size:13px;font-weight:500;letter-spacing:.05em;transition:all .3s}
+.gfr-desc{margin-top:14px;font-size:15px;color:var(--ink-soft);min-height:44px;max-width:48ch;margin-left:auto;margin-right:auto}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:8px;border-radius:99px;background:linear-gradient(90deg,var(--sage),var(--amber-soft),var(--crimson-soft));outline:none;margin:22px 0 6px}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:30px;height:30px;border-radius:50%;background:var(--card);border:3px solid var(--petrol);box-shadow:var(--shadow);cursor:grab}
+input[type=range]::-webkit-slider-thumb:active{cursor:grabbing;transform:scale(1.08)}
+input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;background:var(--card);border:3px solid var(--petrol);cursor:grab}
+.range-ends{display:flex;justify-content:space-between;font-family:var(--mono);font-size:11px;color:var(--ink-faint)}
+
+/* ---------- Membrane / diffusion canvas ---------- */
+.sim{background:linear-gradient(180deg,#0d3438,#0a2b2f);border-radius:var(--r-lg);box-shadow:var(--shadow-lg);padding:8px;overflow:hidden;position:relative}
+.sim canvas{display:block;width:100%;border-radius:16px}
+.sim-side{position:absolute;top:14px;font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.55)}
+.sim-side.l{left:16px}.sim-side.r{right:16px;text-align:right}
+.legend{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;margin-top:14px;font-size:12.5px;color:var(--ink-soft)}
+.legend span{display:inline-flex;align-items:center;gap:7px}
+.legend i{width:11px;height:11px;border-radius:50%;display:inline-block}
+.cap{margin-top:14px;font-size:14.5px;color:var(--ink-soft);line-height:1.6}
+.cap b{color:var(--ink);font-weight:600}
+
+/* ---------- Circuit ---------- */
+.circuit-stage{background:var(--card);border:1px solid var(--mist);border-radius:var(--r-lg);box-shadow:var(--shadow);padding:8px;overflow:hidden}
+.circuit-stage svg{display:block;width:100%;height:auto}
+.flow{stroke-linecap:round;fill:none}
+.flow-blood{stroke:var(--crimson);stroke-dasharray:2 13;animation:flowdash 1s linear infinite}
+.flow-blood-r{stroke:var(--crimson-soft);stroke-dasharray:2 13;animation:flowdash 1s linear infinite}
+.flow-dial{stroke:var(--amber);stroke-dasharray:2 15;animation:flowdash-rev 1.4s linear infinite}
+@keyframes flowdash{to{stroke-dashoffset:-15}}
+@keyframes flowdash-rev{to{stroke-dashoffset:15}}
+.rotor{transform-origin:center;animation:spin 1.4s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.hotzone{fill:transparent;cursor:pointer}
+.hotzone:hover~.zlabel,.zlabel.on{opacity:1}
+.readout{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.dial-box{flex:1;min-width:120px;background:var(--card-2);border:1px solid var(--mist-2);border-radius:var(--r-sm);padding:12px 14px}
+.dial-box .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint)}
+.dial-box .v{font-family:var(--mono);font-size:24px;font-weight:500;color:var(--petrol);margin-top:3px}
+.dial-box .v small{font-size:12px;color:var(--ink-faint);font-weight:400}
+.slider-row{margin-top:14px}
+.slider-row label{display:flex;justify-content:space-between;font-family:var(--mono);font-size:12px;color:var(--ink-soft);letter-spacing:.03em}
+.slider-row label b{color:var(--petrol);font-weight:500}
+.slider-row input[type=range]{background:var(--mist);height:6px;margin:12px 0 4px}
+.slider-row input[type=range]::-webkit-slider-thumb{width:24px;height:24px;border-width:3px}
+
+/* ---------- Access comparison ---------- */
+.pill-row{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 4px}
+.pref{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--sage);background:var(--sage-tint);padding:6px 12px;border-radius:99px}
+
+/* ---------- Bottom nav ---------- */
+.botbar{
+  position:fixed;bottom:0;left:0;right:0;height:calc(var(--botbar) + env(safe-area-inset-bottom));
+  padding-bottom:env(safe-area-inset-bottom);
+  display:flex;align-items:center;justify-content:space-between;gap:12px;padding-left:16px;padding-right:16px;
+  background:rgba(242,245,243,.9);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-top:1px solid var(--mist);z-index:40;transition:transform .3s ease;
+}
+.botbar.hidden{transform:translateY(120%)}
+.nav-btn{display:flex;align-items:center;gap:7px;font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--petrol);padding:10px 14px;border-radius:12px;font-weight:500}
+.nav-btn:disabled{opacity:.28;pointer-events:none}
+.nav-btn:hover:not(:disabled){background:var(--mist-2)}
+.dots{display:flex;gap:7px;align-items:center}
+.dots i{width:7px;height:7px;border-radius:50%;background:var(--mist);transition:all .25s}
+.dots i.on{background:var(--petrol);width:22px;border-radius:99px}
+
+/* ---------- Menu overlay ---------- */
+.overlay{position:fixed;inset:0;z-index:60;background:rgba(16,36,43,.34);backdrop-filter:blur(3px);opacity:0;pointer-events:none;transition:opacity .28s}
+.overlay.show{opacity:1;pointer-events:auto}
+.sheet{position:absolute;bottom:0;left:0;right:0;background:var(--porcelain);border-radius:24px 24px 0 0;padding:10px 14px calc(20px + env(safe-area-inset-bottom));max-height:82vh;overflow-y:auto;transform:translateY(100%);transition:transform .34s cubic-bezier(.2,.8,.2,1);box-shadow:0 -10px 40px rgba(16,36,43,.2)}
+.overlay.show .sheet{transform:none}
+.grab{width:40px;height:4px;border-radius:99px;background:var(--mist);margin:6px auto 12px}
+.sheet h3{font-size:14px;font-family:var(--mono);font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);padding:0 6px 10px}
+.menu-item{display:flex;align-items:center;gap:14px;padding:13px 12px;border-radius:14px;width:100%;text-align:left;transition:background .15s}
+.menu-item:hover,.menu-item:focus-visible{background:var(--mist-2)}
+.menu-item.current{background:var(--petrol-tint)}
+.menu-item .n{font-family:var(--mono);font-size:12px;color:var(--petrol);min-width:24px;font-weight:500}
+.menu-item .t{font-weight:600;font-size:15.5px}
+.menu-item.current .t{color:var(--petrol-deep)}
+
+/* ---------- Toast ---------- */
+.toast{
+  position:fixed;left:50%;bottom:calc(var(--botbar) + env(safe-area-inset-bottom) + 14px);
+  transform:translate(-50%,140%);z-index:70;
+  display:flex;align-items:center;gap:12px;padding:11px 12px 11px 18px;
+  background:var(--ink);color:var(--porcelain);border-radius:99px;
+  box-shadow:var(--shadow-lg);font-size:13.5px;max-width:calc(100vw - 32px);
+  transition:transform .4s cubic-bezier(.2,.8,.2,1);
+}
+.toast.show{transform:translate(-50%,0)}
+.toast button{background:var(--porcelain);color:var(--ink);padding:7px 15px;border-radius:99px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:500;flex:none}
+.toast .x{background:none;color:var(--ink-faint);padding:6px 8px}
+
+/* ---------- misc ---------- */
+.two{display:grid;gap:12px}
+@media(min-width:560px){.two{grid-template-columns:1fr 1fr}}
+.mnem{font-family:var(--serif);font-style:italic;color:var(--crimson);font-weight:500}
+:focus-visible{outline:2.5px solid var(--petrol);outline-offset:2px;border-radius:6px}
+::selection{background:var(--amber-soft)}
+
+/* ---------- Quiz ---------- */
+.quiz-hero{text-align:center;padding:10px 6px}
+.q-badge{width:74px;height:74px;border-radius:20px;background:var(--petrol-tint);display:grid;place-items:center;margin:0 auto 16px}
+.q-badge svg{width:34px;height:34px;color:var(--petrol)}
+.q-start-btns{display:flex;flex-direction:column;gap:11px;margin-top:22px;max-width:420px;margin-left:auto;margin-right:auto}
+.q-btn{padding:16px 18px;border-radius:var(--r);font-weight:600;font-size:16px;font-family:var(--sans);transition:transform .16s ease,box-shadow .16s ease,border-color .16s}
+.q-btn.primary{background:var(--petrol);color:#fff;box-shadow:var(--shadow)}
+.q-btn.primary:hover{transform:translateY(-2px);box-shadow:var(--shadow-lg)}
+.q-btn.ghost{background:var(--card);border:1px solid var(--mist);color:var(--ink)}
+.q-btn.ghost:hover{border-color:var(--sage);transform:translateY(-2px)}
+.q-progress{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.q-bar{flex:1;height:7px;border-radius:99px;background:var(--mist-2);overflow:hidden}
+.q-bar span{display:block;height:100%;background:linear-gradient(90deg,var(--sage),var(--petrol));border-radius:99px;transition:width .45s cubic-bezier(.2,.8,.2,1);width:0}
+.q-count{font-family:var(--mono);font-size:12px;color:var(--ink-faint);white-space:nowrap}
+.q-score{font-family:var(--mono);font-size:12px;color:var(--sage);white-space:nowrap;font-weight:500}
+.q-card{background:var(--card);border:1px solid var(--mist);border-radius:var(--r-lg);box-shadow:var(--shadow);padding:22px 20px}
+.q-kicker{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--petrol);margin-bottom:10px}
+.q-text{font-family:var(--serif);font-size:21px;font-weight:600;line-height:1.28;margin-bottom:18px;letter-spacing:-.01em}
+.q-opts{display:flex;flex-direction:column;gap:10px}
+.q-opt{display:flex;align-items:center;gap:13px;text-align:left;padding:15px 16px;border-radius:14px;background:var(--card-2);border:1.5px solid var(--mist-2);font-size:15px;font-weight:500;color:var(--ink);transition:all .16s;width:100%;font-family:var(--sans)}
+.q-opt .k{font-family:var(--mono);font-size:13px;color:var(--ink-faint);width:18px;flex:none}
+.q-opt>span:nth-child(2){flex:1}
+.q-opt:hover:not(:disabled){border-color:var(--sage);background:var(--card)}
+.q-opt:disabled{cursor:default}
+.q-opt.correct{border-color:var(--sage);background:var(--sage-tint)}
+.q-opt.correct .k{color:var(--sage)}
+.q-opt.wrong{border-color:var(--crimson-soft);background:var(--crimson-tint)}
+.q-opt.wrong .k{color:var(--crimson)}
+.q-opt .mark{margin-left:auto;font-weight:700;font-size:16px}
+.q-opt.correct .mark{color:var(--sage)}
+.q-opt.wrong .mark{color:var(--crimson)}
+.q-feedback{margin-top:16px;padding:0 16px;border-radius:14px;font-size:14.5px;line-height:1.55;max-height:0;overflow:hidden;transition:max-height .32s ease,padding .32s ease}
+.q-feedback.show{max-height:240px;padding:14px 16px}
+.q-feedback.ok{background:var(--sage-tint);color:#35604F}
+.q-feedback.no{background:var(--crimson-tint);color:#8A2B23}
+.q-feedback b{font-weight:600}
+.q-next{margin-top:16px;width:100%;padding:15px;border-radius:14px;background:var(--petrol);color:#fff;font-weight:600;font-size:15.5px;font-family:var(--sans);opacity:0;transform:translateY(6px);transition:all .25s;pointer-events:none}
+.q-next.show{opacity:1;transform:none;pointer-events:auto}
+.q-result{text-align:center;padding:6px 4px}
+.q-ring{width:180px;height:180px;margin:0 auto;display:block}
+.q-tier{font-family:var(--serif);font-size:27px;font-weight:600;margin-top:10px;letter-spacing:-.01em}
+.q-sub{color:var(--ink-soft);margin-top:8px;font-size:15px;max-width:44ch;margin-left:auto;margin-right:auto}
+.q-review{margin-top:24px;text-align:left}
+.q-review h4{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:12px}
+.q-miss{background:var(--card);border:1px solid var(--mist);border-left:4px solid var(--crimson-soft);border-radius:var(--r-sm);padding:14px 16px;margin-bottom:10px}
+.q-miss .qm{font-weight:600;font-size:14.5px;margin-bottom:5px}
+.q-miss .qa{font-size:13.5px;color:var(--ink-soft)}
+.q-miss .qa b{color:var(--sage);font-weight:600}
+.q-miss button{margin-top:9px;font-family:var(--mono);font-size:11.5px;color:var(--petrol);letter-spacing:.04em;font-weight:500}
+.q-miss button:hover{text-decoration:underline}
+.q-allright{background:var(--sage-tint);border-radius:var(--r);padding:20px;text-align:center;color:#35604F;font-weight:500;margin-top:20px}
+
+@media (prefers-reduced-motion: reduce){
+  *{animation-duration:.001s !important;animation-iteration-count:1 !important;transition-duration:.05s !important}
+  .flow-blood,.flow-blood-r,.flow-dial{animation:none;stroke-dasharray:0}
+  .rotor{animation:none}
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand"><b>Renal</b><span class="dot"></span></div>
+  <div class="crumb" id="crumb">A visual companion</div>
+  <button class="menu-btn" id="menuBtn" aria-label="Open chapters">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+  </button>
+</header>
+
+<main id="main">
+
+<!-- ===== HOME ===== -->
+<section class="chapter active" id="ch-0">
+  <div class="hero">
+    <div class="eyebrow">Kidneys · dialysis · haemodialysis</div>
+    <h1>The kidney,<br>and how we <em>replace</em> it.</h1>
+    <p>A quick, visual walk through the anatomy, the physics of dialysis, and how haemodialysis stands in when kidneys fail — built to help you teach it clearly.</p>
+  </div>
+
+  <div class="hero-art">
+    <svg viewBox="0 0 320 200" width="300" aria-hidden="true">
+      <defs>
+        <linearGradient id="kg" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#C64A40"/><stop offset="1" stop-color="#8F2C24"/>
+        </linearGradient>
+        <linearGradient id="kg2" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#D9695F"/><stop offset="1" stop-color="#B23A32"/>
+        </linearGradient>
+      </defs>
+      <!-- two kidneys -->
+      <g transform="translate(96,100)">
+        <path d="M0,-52 C30,-52 42,-30 42,-4 C42,26 26,52 -6,52 C-30,52 -40,34 -40,10 C-40,-6 -34,-14 -34,-28 C-34,-44 -22,-52 0,-52 Z" fill="url(#kg)"/>
+        <path d="M-34,-6 C-18,-6 -14,-2 -2,-2" fill="none" stroke="#F2C879" stroke-width="4" stroke-linecap="round" opacity=".85"/>
+        <circle cx="-30" cy="-2" r="7" fill="#7C1F19" opacity=".55"/>
+      </g>
+      <g transform="translate(224,100) scale(-1,1)">
+        <path d="M0,-52 C30,-52 42,-30 42,-4 C42,26 26,52 -6,52 C-30,52 -40,34 -40,10 C-40,-6 -34,-14 -34,-28 C-34,-44 -22,-52 0,-52 Z" fill="url(#kg2)"/>
+        <path d="M-34,-6 C-18,-6 -14,-2 -2,-2" fill="none" stroke="#F2C879" stroke-width="4" stroke-linecap="round" opacity=".85"/>
+        <circle cx="-30" cy="-2" r="7" fill="#7C1F19" opacity=".55"/>
+      </g>
+      <!-- pulsing filtrate dots -->
+      <g fill="#D8912B">
+        <circle cx="160" cy="70" r="3"><animate attributeName="cy" values="70;150;70" dur="3s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;0" dur="3s" repeatCount="indefinite"/></circle>
+        <circle cx="160" cy="70" r="2.4"><animate attributeName="cy" values="70;150;70" dur="3s" begin="1s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;0" dur="3s" begin="1s" repeatCount="indefinite"/></circle>
+        <circle cx="160" cy="70" r="2.4"><animate attributeName="cy" values="70;150;70" dur="3s" begin="2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;0" dur="3s" begin="2s" repeatCount="indefinite"/></circle>
+      </g>
+    </svg>
+  </div>
+
+  <nav class="chapter-list" id="homeList"></nav>
+
+  <p class="disclaimer">An educational companion for teaching, not a clinical protocol. Always follow your local ENHT / UKKA guidance, formulary and machine SOPs in practice.</p>
+</section>
+
+<!-- ===== 01 ANATOMY ===== -->
+<section class="chapter" id="ch-1">
+  <div class="ch-head">
+    <div class="ch-kicker"><span>01 · Anatomy</span><span class="line"></span></div>
+    <h2>The kidney, up close</h2>
+    <p class="lede">Two fist-sized organs sitting behind the abdomen. Each holds around a million nephrons — the tiny filters that do the real work. Tap a marker to explore.</p>
+  </div>
+
+  <div class="stage">
+    <svg viewBox="0 0 360 300" id="kidneySvg" aria-label="Cross-section of a kidney">
+      <defs>
+        <linearGradient id="cortexG" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#D9695F"/><stop offset="1" stop-color="#C1483E"/></linearGradient>
+        <linearGradient id="medullaG" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#B23A32"/><stop offset="1" stop-color="#8F2C24"/></linearGradient>
+      </defs>
+      <!-- capsule / cortex outline -->
+      <path d="M150,30 C215,30 250,72 250,150 C250,228 210,270 150,270 C120,270 95,250 88,214 C84,192 96,182 96,150 C96,120 84,110 88,86 C95,50 118,30 150,30 Z" fill="url(#cortexG)"/>
+      <!-- medulla pyramids -->
+      <g fill="url(#medullaG)">
+        <path d="M150,66 C176,70 190,96 188,140 C186,168 168,164 150,150 C136,138 128,110 132,88 C136,70 150,66 150,66Z" opacity=".9"/>
+        <path d="M150,234 C176,230 190,204 188,160 C186,150 168,158 150,172 C136,184 130,206 134,224 C138,238 150,234 150,234Z" opacity=".9"/>
+      </g>
+      <!-- renal pelvis (funnel) -->
+      <path d="M150,150 C170,150 182,158 196,172 L220,196 C210,208 196,206 182,196 C166,184 150,172 150,150 Z" fill="#F2C879" opacity=".85"/>
+      <!-- ureter -->
+      <path d="M205,196 C232,224 250,248 260,282" fill="none" stroke="#E7C583" stroke-width="12" stroke-linecap="round"/>
+      <path d="M205,196 C232,224 250,248 260,282" fill="none" stroke="#F6E3B4" stroke-width="4" stroke-linecap="round"/>
+      <!-- artery + vein -->
+      <path d="M96,150 C64,148 44,140 20,132" fill="none" stroke="#B23A32" stroke-width="12" stroke-linecap="round"/>
+      <path d="M96,166 C66,172 46,182 22,192" fill="none" stroke="#5E7C9E" stroke-width="12" stroke-linecap="round"/>
+
+      <!-- hotspots -->
+      <g class="hotspot" data-k="cortex"><circle class="hit" cx="120" cy="76" r="26"/><circle class="pin" cx="120" cy="76" r="11"/><circle class="pin-core" cx="120" cy="76" r="3.4"/></g>
+      <g class="hotspot" data-k="medulla"><circle class="hit" cx="160" cy="112" r="24"/><circle class="pin" cx="160" cy="112" r="11"/><circle class="pin-core" cx="160" cy="112" r="3.4"/></g>
+      <g class="hotspot" data-k="pelvis"><circle class="hit" cx="192" cy="180" r="24"/><circle class="pin" cx="192" cy="180" r="11"/><circle class="pin-core" cx="192" cy="180" r="3.4"/></g>
+      <g class="hotspot" data-k="ureter"><circle class="hit" cx="250" cy="262" r="24"/><circle class="pin" cx="250" cy="262" r="11"/><circle class="pin-core" cx="250" cy="262" r="3.4"/></g>
+      <g class="hotspot" data-k="artery"><circle class="hit" cx="40" cy="136" r="22"/><circle class="pin" cx="40" cy="136" r="11"/><circle class="pin-core" cx="40" cy="136" r="3.4"/></g>
+      <g class="hotspot" data-k="vein"><circle class="hit" cx="42" cy="188" r="22"/><circle class="pin" cx="42" cy="188" r="11"/><circle class="pin-core" cx="42" cy="188" r="3.4"/></g>
+    </svg>
+  </div>
+  <p class="hint">Tap the pins ↑</p>
+  <div class="info-panel" id="kidneyInfo">
+    <div class="lbl">Kidney anatomy</div>
+    <h4>Pick a structure</h4>
+    <p>Each part has a job in turning blood into urine. Tap a marker to see how.</p>
+  </div>
+
+  <div class="card">
+    <h3>Zoom in: the nephron</h3>
+    <p style="font-size:14.5px;color:var(--ink-soft);margin-bottom:12px">The nephron does three things, in order. Watch a drop of blood become urine:</p>
+    <svg viewBox="0 0 360 150" aria-label="Nephron process">
+      <!-- glomerulus -->
+      <circle cx="46" cy="60" r="22" fill="none" stroke="var(--crimson)" stroke-width="3"/>
+      <path d="M34,52 q12,-10 24,0 q-12,10 -24,4 q12,8 22,-2" fill="none" stroke="var(--crimson-soft)" stroke-width="2.4"/>
+      <!-- tubule path -->
+      <path id="nephronPath" d="M62,74 C96,96 92,40 128,58 C150,68 150,120 186,116 C214,112 208,44 240,58 C270,70 262,120 300,110 L330,110" fill="none" stroke="var(--amber-soft)" stroke-width="9"/>
+      <path d="M62,74 C96,96 92,40 128,58 C150,68 150,120 186,116 C214,112 208,44 240,58 C270,70 262,120 300,110 L330,110" fill="none" stroke="var(--amber)" stroke-width="2" stroke-dasharray="1 7" stroke-linecap="round"><animate attributeName="stroke-dashoffset" values="0;-8" dur=".9s" repeatCount="indefinite"/></path>
+      <!-- moving drop -->
+      <circle r="5" fill="var(--crimson)"><animateMotion dur="4s" repeatCount="indefinite" rotate="auto"><mpath href="#nephronPath"/></animateMotion></circle>
+      <text x="46" y="102" font-family="IBM Plex Mono" font-size="9" fill="var(--ink-faint)" text-anchor="middle">filter</text>
+      <text x="150" y="140" font-family="IBM Plex Mono" font-size="9" fill="var(--ink-faint)" text-anchor="middle">reabsorb</text>
+      <text x="300" y="132" font-family="IBM Plex Mono" font-size="9" fill="var(--ink-faint)" text-anchor="middle">secrete → urine</text>
+    </svg>
+    <div class="acc" style="margin-top:6px">
+      <details class="item"><summary><span class="tag t-blood">1</span><span class="summary-txt">Filtration<small>Glomerulus + Bowman's capsule</small></span><span class="chev">›</span></summary><div class="reveal"><p>Blood arrives under pressure at a tuft of leaky capillaries — the glomerulus. Water and small solutes are pushed out into the capsule, forming filtrate. Blood cells and proteins are too big to pass, so they stay behind.</p></div></details>
+      <details class="item"><summary><span class="tag t-amber">2</span><span class="summary-txt">Reabsorption<small>Proximal tubule · loop of Henle · distal tubule</small></span><span class="chev">›</span></summary><div class="reveal"><p>Most of the filtrate is worth keeping. As it travels the tubule, the body reclaims water, glucose, salts and bicarbonate back into the blood — fine-tuning exactly how much to keep.</p></div></details>
+      <details class="item"><summary><span class="tag t-fluid">3</span><span class="summary-txt">Secretion &amp; concentration<small>Distal tubule · collecting duct</small></span><span class="chev">›</span></summary><div class="reveal"><p>Extra waste and surplus ions (like potassium and hydrogen) are actively added into the tubule. Water is drawn back out in the collecting duct, concentrating what remains into urine, which drains to the pelvis and ureter.</p></div></details>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 02 FUNCTIONS ===== -->
+<section class="chapter" id="ch-2">
+  <div class="ch-head">
+    <div class="ch-kicker"><span>02 · Function</span><span class="line"></span></div>
+    <h2>What healthy kidneys do</h2>
+    <p class="lede">Filtering waste is only part of it. The kidneys are a control centre for the whole body's chemistry. A handy way to remember the jobs: <span class="mnem">A WET BED</span>.</p>
+  </div>
+
+  <div class="acc">
+    <details class="item" open><summary><span class="tag t-fluid">A</span><span class="summary-txt">Acid–base balance<small>Keeps the blood's pH steady</small></span><span class="chev">›</span></summary><div class="reveal"><p>Kidneys excrete acid and reclaim bicarbonate, holding blood pH in a narrow safe range. When they fail, acid builds up — metabolic acidosis.</p></div></details>
+    <details class="item"><summary><span class="tag t-fluid">W</span><span class="summary-txt">Water balance<small>Sets how much fluid the body holds</small></span><span class="chev">›</span></summary><div class="reveal"><p>By adjusting how much water is reabsorbed, kidneys decide urine volume and keep total body fluid in check. Failure leads to fluid overload and oedema.</p></div></details>
+    <details class="item"><summary><span class="tag t-blood">E</span><span class="summary-txt">Erythropoietin<small>Signals the marrow to make red cells</small></span><span class="chev">›</span></summary><div class="reveal"><p>Kidneys release the hormone EPO, which tells bone marrow to produce red blood cells. Less EPO in kidney failure means anaemia.</p></div></details>
+    <details class="item"><summary><span class="tag t-amber">T</span><span class="summary-txt">Toxin &amp; waste removal<small>Clears urea, creatinine, drugs</small></span><span class="chev">›</span></summary><div class="reveal"><p>Nitrogen waste from protein breakdown and many drugs leave the body via the kidneys. When clearance drops, these accumulate — the state we call uraemia.</p></div></details>
+    <details class="item"><summary><span class="tag t-fluid">B</span><span class="summary-txt">Blood pressure control<small>The renin–angiotensin system</small></span><span class="chev">›</span></summary><div class="reveal"><p>Kidneys sense pressure and release renin, triggering a cascade that manages salt, water and vessel tone. Kidney disease and high blood pressure feed each other.</p></div></details>
+    <details class="item"><summary><span class="tag t-violet">E</span><span class="summary-txt">Electrolyte balance<small>Sodium, potassium, calcium, phosphate</small></span><span class="chev">›</span></summary><div class="reveal"><p>Fine control of key ions keeps nerves and the heart working. Failure commonly causes a rise in potassium and phosphate — both clinically dangerous.</p></div></details>
+    <details class="item"><summary><span class="tag t-sage">D</span><span class="summary-txt">Vitamin D activation<small>The final step for strong bones</small></span><span class="chev">›</span></summary><div class="reveal"><p>Kidneys convert vitamin D into its active form so the gut can absorb calcium. Without it, bones and the calcium–phosphate balance suffer — renal bone disease.</p></div></details>
+  </div>
+  <div class="panel-note"><strong>Teaching point:</strong> notice how each failed function on this list maps to a treatment later — EPO loss → anaemia drugs, phosphate rise → binders, acid → buffered dialysate. The kidney's job list <em>is</em> the treatment list.</div>
+</section>
+
+<!-- ===== 03 WHEN IT FAILS ===== -->
+<section class="chapter" id="ch-3">
+  <div class="ch-head">
+    <div class="ch-kicker"><span>03 · Failure</span><span class="line"></span></div>
+    <h2>When kidneys fail</h2>
+    <p class="lede">Function is measured by eGFR — an estimate of how much blood the kidneys clear each minute. Drag the slider to move through the stages of chronic kidney disease.</p>
+  </div>
+
+  <div class="card gfr-wrap">
+    <div class="gauge">
+      <svg viewBox="0 0 200 116" aria-hidden="true">
+        <path d="M14,104 A86,86 0 0 1 186,104" fill="none" stroke="var(--mist)" stroke-width="14" stroke-linecap="round"/>
+        <path id="gfrArc" d="M14,104 A86,86 0 0 1 186,104" fill="none" stroke="var(--sage)" stroke-width="14" stroke-linecap="round" stroke-dasharray="270" stroke-dashoffset="0"/>
+      </svg>
+    </div>
+    <div class="gfr-read"><span class="big" id="gfrVal">95</span> <span class="unit">mL/min/1.73m²</span></div>
+    <div class="stage-badge" id="gfrBadge">G1 · Normal</div>
+    <input type="range" id="gfrRange" min="4" max="120" value="95" step="1" aria-label="eGFR value">
+    <div class="range-ends"><span>failure · 4</span><span>normal · 120</span></div>
+    <p class="gfr-desc" id="gfrDesc"></p>
+  </div>
+
+  <div class="card">
+    <h3>Acute vs chronic</h3>
+    <div class="seg" id="akiToggle" style="margin-bottom:12px">
+      <button class="on" data-t="aki">Acute (AKI)</button>
+      <button data-t="ckd">Chronic (CKD)</button>
+    </div>
+    <p id="akiText" style="font-size:14.5px;color:var(--ink-soft);line-height:1.6"></p>
+  </div>
+
+  <div class="card">
+    <h3>When is dialysis needed?</h3>
+    <p style="font-size:14.5px;color:var(--ink-soft);margin-bottom:6px">Not every failing kidney needs dialysis today. The urgent triggers spell <span class="mnem">AEIOU</span> — when medicine alone can't hold the line.</p>
+    <div class="acc">
+      <details class="item"><summary><span class="tag t-fluid">A</span><span class="summary-txt">Acidosis<small>Severe metabolic acidosis</small></span><span class="chev">›</span></summary><div class="reveal"><p>Blood too acidic and not correcting with treatment.</p></div></details>
+      <details class="item"><summary><span class="tag t-violet">E</span><span class="summary-txt">Electrolytes<small>Refractory hyperkalaemia</small></span><span class="chev">›</span></summary><div class="reveal"><p>Dangerously high potassium that won't settle with medical measures — a risk to the heart.</p></div></details>
+      <details class="item"><summary><span class="tag t-amber">I</span><span class="summary-txt">Intoxication<small>Certain dialysable poisons/drugs</small></span><span class="chev">›</span></summary><div class="reveal"><p>Some toxins can be cleared directly across the dialyser.</p></div></details>
+      <details class="item"><summary><span class="tag t-fluid">O</span><span class="summary-txt">Overload<small>Fluid overload not shifting</small></span><span class="chev">›</span></summary><div class="reveal"><p>Pulmonary oedema or overload unresponsive to diuretics.</p></div></details>
+      <details class="item"><summary><span class="tag t-blood">U</span><span class="summary-txt">Uraemia<small>Symptomatic build-up of waste</small></span><span class="chev">›</span></summary><div class="reveal"><p>Complications of uraemia such as pericarditis or encephalopathy.</p></div></details>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 04 PRINCIPLES ===== -->
+<section class="chapter" id="ch-4">
+  <div class="ch-head">
+    <div class="ch-kicker"><span>04 · Principles</span><span class="line"></span></div>
+    <h2>How dialysis actually works</h2>
+    <p class="lede">Strip it back and dialysis is just physics across a semipermeable membrane. Pick a principle and watch it happen — blood on the left, dialysate on the right.</p>
+  </div>
+
+  <div class="seg" id="simToggle" style="margin-bottom:12px">
+    <button class="on" data-m="diffusion">Diffusion</button>
+    <button data-m="uf">Ultrafiltration</button>
+    <button data-m="osmosis">Osmosis</button>
+    <button data-m="counter">Countercurrent</button>
+  </div>
+
+  <div class="sim">
+    <span class="sim-side l">Blood</span>
+    <span class="sim-side r">Dialysate</span>
+    <canvas id="memCanvas" width="700" height="360"></canvas>
+  </div>
+  <div class="legend">
+    <span><i style="background:#E8B24B"></i>Urea &amp; small waste</span>
+    <span><i style="background:#9585C0"></i>Potassium</span>
+    <span><i style="background:#C64A40"></i>Cells &amp; protein (stay)</span>
+  </div>
+  <p class="cap" id="simCap"></p>
+
+  <div class="card">
+    <h3>The three forces, together</h3>
+    <div class="acc">
+      <details class="item"><summary><span class="tag t-amber">›</span><span class="summary-txt">Diffusion<small>Clears solutes</small></span><span class="chev">›</span></summary><div class="reveal"><p>Waste moves from where it's crowded (blood) to where it's sparse (dialysate), down its concentration gradient. This is how urea, creatinine and potassium are cleared. Fresh dialysate keeps the gradient steep.</p></div></details>
+      <details class="item"><summary><span class="tag t-fluid">›</span><span class="summary-txt">Ultrafiltration<small>Removes water</small></span><span class="chev">›</span></summary><div class="reveal"><p>A pressure difference across the membrane pushes excess water out of the blood. This is how the machine takes off a patient's fluid gain between sessions — set as the UF goal.</p></div></details>
+      <details class="item"><summary><span class="tag t-sage">›</span><span class="summary-txt">Countercurrent flow<small>Keeps it efficient</small></span><span class="chev">›</span></summary><div class="reveal"><p>Blood and dialysate flow in opposite directions along the fibres. This keeps a concentration gradient the whole length of the dialyser, so clearance never stalls. Running them the same way would let them reach equilibrium and stop.</p></div></details>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 05 THE CIRCUIT ===== -->
+<section class="chapter" id="ch-5">
+  <div class="ch-head">
+    <div class="ch-kicker"><span>05 · The machine</span><span class="line"></span></div>
+    <h2>The haemodialysis circuit</h2>
+    <p class="lede">Blood leaves the body, gets cleaned outside it, and returns — the extracorporeal circuit. Tap any part to learn its role, and move the sliders to see the flow change.</p>
+  </div>
+
+  <div class="circuit-stage">
+    <svg viewBox="0 0 360 300" id="circuitSvg" aria-label="Haemodialysis circuit">
+      <!-- patient arm -->
+      <rect x="8" y="120" width="46" height="70" rx="22" fill="var(--crimson-tint)" stroke="var(--crimson-soft)" stroke-width="2"/>
+      <text x="31" y="205" font-family="IBM Plex Mono" font-size="9" fill="var(--ink-faint)" text-anchor="middle">patient</text>
+
+      <!-- arterial line: arm -> pump -> dialyser top -->
+      <path id="artPath" class="flow flow-blood" d="M52,140 C110,140 96,60 150,60 L150,90" stroke-width="7"/>
+      <!-- heparin -->
+      <path d="M118,60 L118,40" stroke="var(--petrol)" stroke-width="4" fill="none" stroke-linecap="round"/>
+      <rect x="110" y="26" width="16" height="16" rx="3" fill="var(--petrol-tint)" stroke="var(--petrol)" stroke-width="2"/>
+      <!-- blood pump rotor -->
+      <circle cx="96" cy="106" r="20" fill="var(--card)" stroke="var(--mist)" stroke-width="2"/>
+      <g transform="translate(96,106)">
+        <circle r="4" fill="var(--petrol)"/>
+        <g class="rotor" id="rotor" style="transform-box:fill-box;transform-origin:center">
+          <circle cx="13" cy="0" r="4.5" fill="var(--crimson-soft)"/>
+          <circle cx="-13" cy="0" r="4.5" fill="var(--crimson-soft)"/>
+          <circle cx="0" cy="13" r="4.5" fill="var(--crimson-soft)"/>
+          <circle cx="0" cy="-13" r="4.5" fill="var(--crimson-soft)"/>
+        </g>
+      </g>
+
+      <!-- DIALYSER body -->
+      <rect x="132" y="90" width="36" height="120" rx="14" fill="#F7EFE0" stroke="var(--amber-soft)" stroke-width="2"/>
+      <!-- fibres (blood top->bottom) -->
+      <g stroke="var(--crimson)" stroke-width="2" opacity=".55">
+        <line x1="142" y1="96" x2="142" y2="204" stroke-dasharray="2 8"><animate attributeName="stroke-dashoffset" values="0;-10" dur="1s" repeatCount="indefinite"/></line>
+        <line x1="150" y1="96" x2="150" y2="204" stroke-dasharray="2 8"><animate attributeName="stroke-dashoffset" values="0;-10" dur="1s" begin=".3s" repeatCount="indefinite"/></line>
+        <line x1="158" y1="96" x2="158" y2="204" stroke-dasharray="2 8"><animate attributeName="stroke-dashoffset" values="0;-10" dur="1s" begin=".6s" repeatCount="indefinite"/></line>
+      </g>
+      <!-- dialysate wash (bottom->top) -->
+      <g stroke="var(--amber)" stroke-width="1.6" opacity=".5">
+        <line x1="138" y1="204" x2="138" y2="96" stroke-dasharray="1 10"><animate attributeName="stroke-dashoffset" values="0;10" dur="1.4s" repeatCount="indefinite"/></line>
+        <line x1="162" y1="204" x2="162" y2="96" stroke-dasharray="1 10"><animate attributeName="stroke-dashoffset" values="0;10" dur="1.4s" begin=".5s" repeatCount="indefinite"/></line>
+      </g>
+
+      <!-- dialysate inflow (bottom) and outflow (top) -->
+      <path class="flow flow-dial" d="M168,196 C220,196 232,236 280,236" stroke-width="6"/>
+      <path class="flow flow-dial" d="M280,72 C232,72 220,104 168,104" stroke-width="6"/>
+      <text x="300" y="240" font-family="IBM Plex Mono" font-size="8" fill="var(--ink-faint)" text-anchor="middle">fresh</text>
+      <text x="300" y="69" font-family="IBM Plex Mono" font-size="8" fill="var(--ink-faint)" text-anchor="middle">to drain</text>
+
+      <!-- venous line: dialyser bottom -> air trap -> arm -->
+      <path id="venPath" class="flow flow-blood-r" d="M150,210 L150,236 C150,268 96,250 52,172" stroke-width="7"/>
+      <!-- air trap chamber -->
+      <rect x="86" y="228" width="18" height="26" rx="6" fill="var(--crimson-tint)" stroke="var(--crimson-soft)" stroke-width="2"/>
+
+      <!-- component hotzones -->
+      <rect class="hotzone" data-c="access" x="6" y="118" width="52" height="74"/>
+      <circle class="hotzone" data-c="pump" cx="96" cy="106" r="24"/>
+      <rect class="hotzone" data-c="heparin" x="104" y="24" width="30" height="40"/>
+      <rect class="hotzone" data-c="dialyser" x="130" y="88" width="42" height="124"/>
+      <rect class="hotzone" data-c="dialysate" x="250" y="60" width="90" height="190"/>
+      <rect class="hotzone" data-c="airtrap" x="82" y="224" width="28" height="36"/>
+    </svg>
+  </div>
+
+  <div class="info-panel" id="circuitInfo">
+    <div class="lbl">The circuit</div>
+    <h4>Tap a component</h4>
+    <p>Follow the blood: out through access, past the pump, across the dialyser, and safely back.</p>
+  </div>
+
+  <div class="readout">
+    <div class="dial-box"><div class="k">Blood pump · Qb</div><div class="v" id="qbVal">300 <small>mL/min</small></div></div>
+    <div class="dial-box"><div class="k">Dialysate · Qd</div><div class="v">500 <small>mL/min</small></div></div>
+    <div class="dial-box"><div class="k">UF goal</div><div class="v" id="ufVal">2.0 <small>L</small></div></div>
+  </div>
+  <div class="slider-row">
+    <label>Blood pump speed <b id="qbLabel">300 mL/min</b></label>
+    <input type="range" id="qbRange" min="150" max="400" value="300" step="10">
+  </div>
+  <div class="slider-row">
+    <label>Fluid to remove (UF) <b id="ufLabel">2.0 L</b></label>
+    <input type="range" id="ufRange" min="0" max="40" value="20" step="1">
+  </div>
+  <div class="panel-note" style="margin-top:14px"><strong>Typical session:</strong> around 4 hours, 3 times a week. Faster blood flow clears more per minute; the UF goal is the patient's fluid gain since last time. Both are set to the patient, within safe limits.</div>
+</section>
+
+<!-- ===== 06 ACCESS ===== -->
+<section class="chapter" id="ch-6">
+  <div class="ch-head">
+    <div class="ch-kicker"><span>06 · Access</span><span class="line"></span></div>
+    <h2>Getting to the blood</h2>
+    <p class="lede">Haemodialysis needs a reliable, high-flow route into the circulation. There's a clear order of preference — the phrase is <span class="mnem">fistula first</span>.</p>
+  </div>
+
+  <div class="pill-row"><span class="pref">◆ Most preferred</span></div>
+  <div class="acc">
+    <details class="item" open><summary><span class="tag t-sage">1</span><span class="summary-txt">Arteriovenous fistula (AVF)<small>Artery joined to a vein</small></span><span class="chev">›</span></summary><div class="reveal"><p>A surgeon connects an artery to a nearby vein, usually in the arm. Over weeks the vein toughens and enlarges under arterial flow — it "matures" — giving a durable vessel to cannulate.</p><div class="why"><b>Why first:</b> lowest infection and clotting risk, longest lasting. The trade-off is it must be planned ahead and needs time to mature before use.</div></div></details>
+    <details class="item"><summary><span class="tag t-amber">2</span><span class="summary-txt">Arteriovenous graft (AVG)<small>Synthetic tube bridges the two</small></span><span class="chev">›</span></summary><div class="reveal"><p>When veins aren't suitable for a fistula, a soft synthetic tube links artery to vein. It can be used sooner than a fistula.</p><div class="why"><b>Trade-off:</b> more prone to clotting and infection than a fistula, but a strong option when native vessels won't do.</div></div></details>
+    <details class="item"><summary><span class="tag t-blood">3</span><span class="summary-txt">Central venous catheter (CVC)<small>Line into a large central vein</small></span><span class="chev">›</span></summary><div class="reveal"><p>A tube sits in a large vein (often in the neck). It works immediately, so it's used when access is needed urgently or while a fistula matures.</p><div class="why"><b>Why last:</b> highest risk of bloodstream infection and can damage the vein over time. Best kept temporary where possible.</div></div></details>
+  </div>
+
+  <div class="card">
+    <h3>Watch the access for trouble</h3>
+    <div class="two">
+      <div class="panel-note"><strong>Infection</strong> — redness, discharge or fever, especially with lines. The leading serious risk.</div>
+      <div class="panel-note"><strong>Thrombosis / stenosis</strong> — narrowing or clot. A weak or absent thrill, or poor flows, are warning signs.</div>
+      <div class="panel-note"><strong>Aneurysm</strong> — ballooning from repeated needling in one spot. Rotate cannulation sites.</div>
+      <div class="panel-note"><strong>Steal syndrome</strong> — the access diverts too much blood, leaving the hand cold or painful.</div>
+    </div>
+    <p style="font-size:13.5px;color:var(--ink-faint);margin-top:12px;font-style:italic">A quick "look, listen, feel" each session — inspect the site, listen for a bruit, feel for a thrill — catches most problems early.</p>
+  </div>
+</section>
+
+<!-- ===== 07 COMPLICATIONS ===== -->
+<section class="chapter" id="ch-7">
+  <div class="ch-head">
+    <div class="ch-kicker"><span>07 · Complications</span><span class="line"></span></div>
+    <h2>What can go wrong</h2>
+    <p class="lede">Two timescales to know: things that happen <em>during</em> a session, and the longer-term effects of living with kidney failure.</p>
+  </div>
+
+  <div class="seg" id="compToggle" style="margin-bottom:12px">
+    <button class="on" data-t="acute">During dialysis</button>
+    <button data-t="chronic">Long-term</button>
+  </div>
+
+  <div class="acc" id="acuteList">
+    <details class="item"><summary><span class="tag t-blood">↓</span><span class="summary-txt">Hypotension<small>The most common intradialytic event</small></span><span class="chev">›</span></summary><div class="reveal"><p>Removing fluid too fast, or more than the patient can refill from the tissues, drops the blood pressure — causing dizziness, nausea or cramps. Managed by adjusting fluid removal and the target weight.</p></div></details>
+    <details class="item"><summary><span class="tag t-fluid">✱</span><span class="summary-txt">Muscle cramps<small>Often legs, late in the session</small></span><span class="chev">›</span></summary><div class="reveal"><p>Linked to rapid fluid and electrolyte shifts. Common alongside hypotension.</p></div></details>
+    <details class="item"><summary><span class="tag t-amber">◐</span><span class="summary-txt">Nausea, headache &amp; fatigue<small>The "washed-out" feeling</small></span><span class="chev">›</span></summary><div class="reveal"><p>Frequently follow blood-pressure and fluid changes during and just after treatment.</p></div></details>
+    <details class="item"><summary><span class="tag t-violet">≈</span><span class="summary-txt">Disequilibrium syndrome<small>Clearing waste too fast</small></span><span class="chev">›</span></summary><div class="reveal"><p>If urea is removed very quickly — usually early in a patient's dialysis life — fluid shifts into the brain, causing headache and confusion. Prevented by starting gently.</p></div></details>
+    <details class="item"><summary><span class="tag t-blood">!</span><span class="summary-txt">Access &amp; circuit events<small>Bleeding, clotting, reactions</small></span><span class="chev">›</span></summary><div class="reveal"><p>Needle dislodgement, clotting of the circuit, or reactions to the membrane. Why the circuit is monitored closely throughout — pressures, air detection and alarms.</p></div></details>
+  </div>
+
+  <div class="acc" id="chronicList" style="display:none">
+    <details class="item"><summary><span class="tag t-blood">◔</span><span class="summary-txt">Anaemia<small>Too few red cells</small></span><span class="chev">›</span></summary><div class="reveal"><p>Falling EPO and iron stores leave patients tired and breathless. Managed with EPO-type medicines and iron.</p></div></details>
+    <details class="item"><summary><span class="tag t-sage">⬡</span><span class="summary-txt">Bone–mineral disorder<small>Calcium, phosphate &amp; vitamin D</small></span><span class="chev">›</span></summary><div class="reveal"><p>Phosphate builds up and active vitamin D falls, disturbing calcium and weakening bone (renal bone disease). Managed with diet, binders and vitamin D.</p></div></details>
+    <details class="item"><summary><span class="tag t-blood">♥</span><span class="summary-txt">Cardiovascular disease<small>The leading cause of death</small></span><span class="chev">›</span></summary><div class="reveal"><p>Fluid load, high blood pressure and mineral changes strain the heart and vessels over time.</p></div></details>
+    <details class="item"><summary><span class="tag t-fluid">◇</span><span class="summary-txt">Fluid &amp; diet limits<small>Living between sessions</small></span><span class="chev">›</span></summary><div class="reveal"><p>Patients often limit fluid, potassium, phosphate and salt to stay safe between treatments — a big part of daily life on dialysis.</p></div></details>
+    <details class="item"><summary><span class="tag t-amber">⌘</span><span class="summary-txt">Infection risk<small>Especially with lines</small></span><span class="chev">›</span></summary><div class="reveal"><p>Repeated access to the bloodstream and an altered immune response raise infection risk — a major reason to protect and prefer fistulas.</p></div></details>
+  </div>
+</section>
+
+<!-- ===== 08 MEDICATIONS ===== -->
+<section class="chapter" id="ch-8">
+  <div class="ch-head">
+    <div class="ch-kicker"><span>08 · Medicines</span><span class="line"></span></div>
+    <h2>The medicine, by the problem it solves</h2>
+    <p class="lede">Almost every renal medicine replaces a job the kidney can no longer do. Read each one as: kidney fails → this problem → this group fixes it.</p>
+  </div>
+
+  <div class="acc">
+    <details class="item" open><summary><span class="tag t-blood">◔</span><span class="summary-txt">Anaemia agents<small>EPO-type medicines + iron</small></span><span class="chev">›</span></summary><div class="reveal"><p>Replace the red-cell signal and its raw materials, easing tiredness and breathlessness.</p><div class="why"><b>Why:</b> failing kidneys make less <b>erythropoietin</b>, so the marrow makes fewer red cells. Iron is given alongside because the marrow needs it to respond.</div></div></details>
+
+    <details class="item"><summary><span class="tag t-amber">⬢</span><span class="summary-txt">Phosphate binders<small>Taken with food</small></span><span class="chev">›</span></summary><div class="reveal"><p>Bind phosphate in the gut so less is absorbed from meals.</p><div class="why"><b>Why:</b> kidneys normally clear phosphate. When they can't, it rises and pulls calcium from bone — driving renal bone disease. Binders must be taken <b>with meals</b> to work.</div></div></details>
+
+    <details class="item"><summary><span class="tag t-sage">☀</span><span class="summary-txt">Active vitamin D<small>The form the body can use</small></span><span class="chev">›</span></summary><div class="reveal"><p>Supplies vitamin D already in its active form.</p><div class="why"><b>Why:</b> the kidney does the final activation step. Without it, calcium isn't absorbed and bones suffer — so the active form is given directly.</div></div></details>
+
+    <details class="item"><summary><span class="tag t-violet">⚡</span><span class="summary-txt">Potassium-lowering agents<small>Binders taken by mouth</small></span><span class="chev">›</span></summary><div class="reveal"><p>Bind potassium in the gut to bring dangerously high levels down.</p><div class="why"><b>Why:</b> kidneys normally excrete potassium. When it accumulates it threatens the heart's rhythm, so binders help control it between sessions.</div></div></details>
+
+    <details class="item"><summary><span class="tag t-fluid">↓</span><span class="summary-txt">Blood-pressure medicines<small>Plus fluid removal on dialysis</small></span><span class="chev">›</span></summary><div class="reveal"><p>Lower blood pressure and, together with ultrafiltration, manage fluid load.</p><div class="why"><b>Why:</b> kidney disease and high blood pressure worsen each other. Much of a patient's fluid control also comes from the UF goal at each session.</div></div></details>
+
+    <details class="item"><summary><span class="tag t-fluid">≋</span><span class="summary-txt">Buffer for acidosis<small>Delivered in the dialysate</small></span><span class="chev">›</span></summary><div class="reveal"><p>Bicarbonate in the dialysate neutralises the acid that builds up.</p><div class="why"><b>Why:</b> the kidney's acid-clearing job is taken over by the treatment itself — the dialysate is buffered to correct blood pH.</div></div></details>
+
+    <details class="item"><summary><span class="tag t-blood">✚</span><span class="summary-txt">Anticoagulation<small>During the session only</small></span><span class="chev">›</span></summary><div class="reveal"><p>Keeps blood from clotting as it moves through the tubing and dialyser.</p><div class="why"><b>Why:</b> blood clots on contact with the artificial surfaces of the circuit. A short-acting anticoagulant during treatment keeps it flowing.</div></div></details>
+
+    <details class="item"><summary><span class="tag t-sage">◈</span><span class="summary-txt">Water-soluble vitamins<small>Replacing what's washed out</small></span><span class="chev">›</span></summary><div class="reveal"><p>Top up vitamins lost across the membrane during each session.</p><div class="why"><b>Why:</b> small water-soluble vitamins (B and C groups) diffuse into the dialysate along with the waste, so they're replaced.</div></div></details>
+  </div>
+  <div class="panel-note"><strong>Remember:</strong> this app names <em>groups and reasons</em>, not doses or specific drugs. Always check the individual patient's plan and your local formulary.</div>
+</section>
+
+<!-- ===== 09 QUIZ ===== -->
+<section class="chapter" id="ch-9">
+  <div class="ch-head">
+    <div class="ch-kicker"><span>Quiz · Test yourself</span><span class="line"></span></div>
+    <h2>Check your understanding</h2>
+    <p class="lede">A quick self-test across everything in the companion — good for your own recap, or to run through with trainees.</p>
+  </div>
+  <div id="quizHost"></div>
+</section>
+
+</main>
+
+<!-- ===== Bottom nav ===== -->
+<nav class="botbar hidden" id="botbar">
+  <button class="nav-btn" id="prevBtn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M15 6l-6 6 6 6"/></svg>Back</button>
+  <div class="dots" id="dots"></div>
+  <button class="nav-btn" id="nextBtn">Next<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></button>
+</nav>
+
+<!-- ===== Toast ===== -->
+<div class="toast" id="toast" role="status" aria-live="polite">
+  <span id="toastMsg"></span>
+  <button id="toastAct" hidden></button>
+  <button class="x" id="toastX" aria-label="Dismiss">✕</button>
+</div>
+
+<!-- ===== Menu sheet ===== -->
+<div class="overlay" id="overlay">
+  <div class="sheet" role="dialog" aria-label="Chapters">
+    <div class="grab"></div>
+    <h3>Chapters</h3>
+    <div id="menuList"></div>
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  var chapters = [
+    {t:"The kidney", d:"Anatomy & the nephron"},
+    {t:"What it does", d:"The seven jobs · A WET BED"},
+    {t:"When it fails", d:"eGFR, CKD stages & AEIOU"},
+    {t:"Dialysis basics", d:"Diffusion, UF & countercurrent"},
+    {t:"The HD circuit", d:"The machine, part by part"},
+    {t:"Vascular access", d:"Fistula, graft & line"},
+    {t:"Complications", d:"During & long-term"},
+    {t:"Medications", d:"By the problem they solve"},
+    {t:"Test yourself", d:"Quick quiz for trainees"}
+  ];
+
+  // ---- build home list + menu + dots ----
+  var homeList = document.getElementById('homeList');
+  var menuList = document.getElementById('menuList');
+  var dots = document.getElementById('dots');
+  chapters.forEach(function(c,i){
+    var n = (i+1<10?'0':'')+(i+1);
+    var b = document.createElement('button');
+    b.className='ch-card'; b.setAttribute('aria-label',c.t);
+    b.innerHTML='<span class="ch-num">'+n+'</span><span class="ch-meta"><h3>'+c.t+'</h3><p>'+c.d+'</p></span><span class="ch-arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></span>';
+    b.addEventListener('click',function(){go(i+1)});
+    homeList.appendChild(b);
+
+    var m = document.createElement('button');
+    m.className='menu-item'; m.dataset.i=i+1;
+    m.innerHTML='<span class="n">'+n+'</span><span class="t">'+c.t+'</span>';
+    m.addEventListener('click',function(){go(i+1); closeMenu()});
+    menuList.appendChild(m);
+
+    var dot=document.createElement('i'); dots.appendChild(dot);
+  });
+  // home menu entry
+  var mh=document.createElement('button');
+  mh.className='menu-item'; mh.dataset.i=0;
+  mh.innerHTML='<span class="n">◆</span><span class="t">Home</span>';
+  mh.addEventListener('click',function(){go(0); closeMenu()});
+  menuList.insertBefore(mh, menuList.firstChild);
+
+  // ---- router ----
+  var cur=0;
+  var crumb=document.getElementById('crumb');
+  var botbar=document.getElementById('botbar');
+  var prevBtn=document.getElementById('prevBtn');
+  var nextBtn=document.getElementById('nextBtn');
+
+  function go(n){
+    if(n<0||n>chapters.length) return;
+    document.getElementById('ch-'+cur).classList.remove('active');
+    stopAnim(cur);
+    cur=n;
+    var el=document.getElementById('ch-'+cur);
+    el.classList.add('active');
+    window.scrollTo(0,0);
+    crumb.textContent = cur===0 ? 'A visual companion' : (cur<10?'0':'')+cur+' · '+chapters[cur-1].t;
+    botbar.classList.toggle('hidden', cur===0);
+    prevBtn.disabled = (cur===0);
+    nextBtn.disabled = (cur===chapters.length);
+    // dots
+    Array.prototype.forEach.call(dots.children,function(d,i){d.classList.toggle('on',i===cur-1)});
+    // menu current
+    Array.prototype.forEach.call(menuList.children,function(m){m.classList.toggle('current', +m.dataset.i===cur)});
+    if(cur===9) quizReset();
+    startAnim(cur);
+  }
+  prevBtn.addEventListener('click',function(){ cur<=1?go(0):go(cur-1) });
+  nextBtn.addEventListener('click',function(){ go(cur+1) });
+  document.addEventListener('keydown',function(e){
+    if(e.target.tagName==='INPUT') return;
+    if(e.key==='ArrowRight' && cur<chapters.length) go(cur+1);
+    if(e.key==='ArrowLeft') cur<=1?go(0):go(cur-1);
+    if(e.key==='Escape') closeMenu();
+  });
+
+  // ---- menu overlay ----
+  var overlay=document.getElementById('overlay');
+  document.getElementById('menuBtn').addEventListener('click',function(){overlay.classList.add('show')});
+  overlay.addEventListener('click',function(e){if(e.target===overlay) closeMenu()});
+  function closeMenu(){overlay.classList.remove('show')}
+
+  // ================= ANATOMY hotspots =================
+  var kidneyData={
+    cortex:{l:'Renal cortex',t:'Where filtering begins. The outer layer packed with glomeruli — the filtering units where blood first meets the nephron.'},
+    medulla:{l:'Renal medulla',t:'The inner pyramids. Home to the loops and ducts that fine-tune water and concentrate the urine.'},
+    pelvis:{l:'Renal pelvis',t:'The collecting funnel. Finished urine gathers here before draining into the ureter.'},
+    ureter:{l:'Ureter',t:'The drainpipe. Carries urine from the kidney down to the bladder.'},
+    artery:{l:'Renal artery',t:'Blood in. Delivers around a fifth of the heart\'s output to be cleaned — the kidneys are hugely well-supplied.'},
+    vein:{l:'Renal vein',t:'Blood out. Returns the cleaned, filtered blood back to the circulation.'}
+  };
+  var kInfo=document.getElementById('kidneyInfo');
+  document.querySelectorAll('#kidneySvg .hotspot').forEach(function(h){
+    h.addEventListener('click',function(){
+      document.querySelectorAll('#kidneySvg .hotspot').forEach(function(o){o.classList.remove('on')});
+      h.classList.add('on');
+      var d=kidneyData[h.dataset.k];
+      kInfo.innerHTML='<div class="lbl">Kidney anatomy</div><h4>'+d.l+'</h4><p>'+d.t+'</p>';
+    });
+  });
+
+  // ================= eGFR ladder =================
+  var stages=[
+    {min:90,name:'G1 · Normal',col:'#6DA08B',bg:'#E1ECE6',fg:'#3F7361',d:'Normal kidney function. If there\'s no other sign of kidney damage, this is simply healthy.'},
+    {min:60,name:'G2 · Mild',col:'#7BA46E',bg:'#E6EEDF',fg:'#4C6B3E',d:'Mildly reduced. Often no symptoms — usually only significant if there are other markers of damage.'},
+    {min:45,name:'G3a · Mild–moderate',col:'#C9A94A',bg:'#F3ECD7',fg:'#8A6E1C',d:'Moderate loss. Monitoring begins in earnest; complications like anaemia and blood-pressure changes may start.'},
+    {min:30,name:'G3b · Moderate–severe',col:'#D8912B',bg:'#F6ECD9',fg:'#9C6410',d:'A substantial drop. Bone, blood and blood-pressure effects become more common and are actively managed.'},
+    {min:15,name:'G4 · Severe',col:'#CD6A3C',bg:'#F5E4D7',fg:'#9A4A1C',d:'Severely reduced. This is when planning for dialysis or transplant usually begins — access can be created ahead of need.'},
+    {min:0,name:'G5 · Kidney failure',col:'#B23A32',bg:'#F4E2DF',fg:'#B23A32',d:'Established kidney failure. Kidney replacement — dialysis or transplant — is needed to sustain the body\'s chemistry.'}
+  ];
+  var gfrRange=document.getElementById('gfrRange'), gfrVal=document.getElementById('gfrVal'),
+      gfrBadge=document.getElementById('gfrBadge'), gfrDesc=document.getElementById('gfrDesc'),
+      gfrArc=document.getElementById('gfrArc');
+  var ARC=270;
+  function stageFor(v){for(var i=0;i<stages.length;i++){if(v>=stages[i].min) return stages[i];}return stages[stages.length-1];}
+  function updGfr(){
+    var v=+gfrRange.value;
+    var s=stageFor(v);
+    gfrVal.textContent=v;
+    gfrBadge.textContent=s.name; gfrBadge.style.background=s.bg; gfrBadge.style.color=s.fg;
+    gfrDesc.textContent=s.d;
+    gfrArc.style.stroke=s.col;
+    var frac=Math.min(v,120)/120;
+    gfrArc.style.strokeDashoffset=(ARC*(1-frac)).toFixed(1);
+  }
+  gfrRange.addEventListener('input',updGfr); updGfr();
+
+  // AKI / CKD toggle
+  var akiText=document.getElementById('akiText');
+  var akiData={
+    aki:'A sudden, often reversible drop in function over hours to days — from dehydration, low blood pressure, sepsis, obstruction or certain drugs. If severe, dialysis may support the patient temporarily until the kidneys recover.',
+    ckd:'A gradual, lasting loss of function over months to years — commonly from diabetes and high blood pressure. It\'s staged by eGFR (above) and usually progresses slowly, so damage is permanent but manageable for a long time.'
+  };
+  akiText.textContent=akiData.aki;
+  document.querySelectorAll('#akiToggle button').forEach(function(b){
+    b.addEventListener('click',function(){
+      document.querySelectorAll('#akiToggle button').forEach(function(o){o.classList.remove('on')});
+      b.classList.add('on'); akiText.textContent=akiData[b.dataset.t];
+    });
+  });
+
+  // ================= MEMBRANE simulation =================
+  var canvas=document.getElementById('memCanvas'), ctx=canvas.getContext('2d');
+  var simMode='diffusion', simRunning=false, particles=[], simCap=document.getElementById('simCap');
+  var caps={
+    diffusion:'<b>Diffusion.</b> Small waste is crowded in the blood and sparse in the dialysate, so it drifts across the membrane down its gradient. Big cells and proteins can\'t fit — they stay in the blood.',
+    uf:'<b>Ultrafiltration.</b> A pressure push (arrow) drives water from blood to dialysate, dragging some solute with it. This is how the machine removes a patient\'s excess fluid.',
+    osmosis:'<b>Osmosis.</b> Water itself moves toward the side with more dissolved particles, chasing balance. The membrane lets water through freely while holding back the large molecules.',
+    counter:'<b>Countercurrent.</b> Blood flows down, dialysate flows up. Because they never reach balance, a fresh gradient is held along the whole length — clearance stays efficient end to end.'
+  };
+  function resizeCanvas(){
+    var dpr=Math.min(window.devicePixelRatio||1,2);
+    var w=canvas.clientWidth, h=w*0.5;
+    canvas.width=w*dpr; canvas.height=h*dpr;
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+    canvas._w=w; canvas._h=h;
+  }
+  function seed(){
+    particles=[];
+    var w=canvas._w, h=canvas._h, mid=w*0.5;
+    // waste: urea (amber) + potassium (violet) mostly on blood side
+    for(var i=0;i<34;i++) particles.push(mk(w,h,'#E8B24B',3,true,0.86));
+    for(var j=0;j<14;j++) particles.push(mk(w,h,'#9585C0',3.4,true,0.86));
+    // cells / protein (crimson, big, can't cross), blood side
+    for(var k=0;k<7;k++) particles.push(mk(w,h,'#C64A40',7,false,0.9));
+  }
+  function mk(w,h,c,r,cross,leftBias){
+    var onLeft=Math.random()<leftBias;
+    return{
+      x: onLeft ? 20+Math.random()*(w*0.5-40) : w*0.5+20+Math.random()*(w*0.5-40),
+      y: 16+Math.random()*(h-32),
+      vx:(Math.random()-.5)*1.1, vy:(Math.random()-.5)*1.1,
+      r:r, c:c, cross:cross
+    };
+  }
+  function step(){
+    var w=canvas._w, h=canvas._h, mid=w*0.5;
+    ctx.clearRect(0,0,w,h);
+    // compartment tints
+    ctx.fillStyle='rgba(178,58,50,0.10)'; ctx.fillRect(0,0,mid,h);
+    ctx.fillStyle='rgba(216,145,43,0.10)'; ctx.fillRect(mid,0,w-mid,h);
+    // membrane (dotted)
+    ctx.strokeStyle='rgba(255,255,255,0.5)'; ctx.lineWidth=2; ctx.setLineDash([2,6]);
+    ctx.beginPath(); ctx.moveTo(mid,6); ctx.lineTo(mid,h-6); ctx.stroke(); ctx.setLineDash([]);
+
+    // mode overlays
+    if(simMode==='uf'){
+      ctx.fillStyle='rgba(255,255,255,0.55)'; ctx.font='11px "IBM Plex Mono"';
+      drawArrow(mid-46,h/2,mid+46,h/2);
+    }
+    if(simMode==='counter'){
+      drawFlowArrow(w*0.25,'down'); drawFlowArrow(w*0.75,'up');
+    }
+
+    for(var i=0;i<particles.length;i++){
+      var p=particles[i];
+      // motion
+      p.x+=p.vx; p.y+=p.vy;
+      // mode forces
+      if(simMode==='uf' && p.cross){ p.x+=0.35; }
+      if(simMode==='osmosis' && p.cross){ /* handled as gentle drift below */ }
+      if(simMode==='counter'){
+        if(p.x<mid) p.y+=0.5; else p.y-=0.5;
+      }
+      // brownian jitter
+      p.vx+=(Math.random()-.5)*0.12; p.vy+=(Math.random()-.5)*0.12;
+      p.vx*=0.98; p.vy*=0.98;
+      // walls
+      if(p.x<p.r+4){p.x=p.r+4;p.vx=Math.abs(p.vx)}
+      if(p.x>w-p.r-4){p.x=w-p.r-4;p.vx=-Math.abs(p.vx)}
+      if(p.y<p.r+4){p.y=p.r+4;p.vy=Math.abs(p.vy)}
+      if(p.y>h-p.r-4){p.y=h-p.r-4;p.vy=-Math.abs(p.vy)}
+      // wrap vertically for countercurrent flow feel
+      if(simMode==='counter'){
+        if(p.y<6){p.y=h-8} if(p.y>h-6){p.y=8}
+      }
+      // membrane crossing
+      var crossingNow = (p.x>mid-p.r && p.x<mid+p.r);
+      if(crossingNow && !p.cross){
+        if(p.x<mid){p.x=mid-p.r; p.vx=-Math.abs(p.vx);}
+        else{p.x=mid+p.r; p.vx=Math.abs(p.vx);}
+      }
+      // draw
+      ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,6.283);
+      ctx.fillStyle=p.c; ctx.fill();
+      if(!p.cross){ctx.lineWidth=1.5;ctx.strokeStyle='rgba(255,255,255,.3)';ctx.stroke();}
+    }
+    if(simRunning) requestAnimationFrame(step);
+  }
+  function drawArrow(x1,y,x2){
+    ctx.strokeStyle='rgba(255,255,255,.6)'; ctx.lineWidth=2.5; ctx.setLineDash([]);
+    ctx.beginPath(); ctx.moveTo(x1,y); ctx.lineTo(x2,y); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(x2,y); ctx.lineTo(x2-8,y-5); ctx.lineTo(x2-8,y+5); ctx.closePath();
+    ctx.fillStyle='rgba(255,255,255,.6)'; ctx.fill();
+  }
+  function drawFlowArrow(x,dir){
+    var h=canvas._h; ctx.strokeStyle='rgba(255,255,255,.28)'; ctx.lineWidth=2; ctx.setLineDash([4,7]);
+    ctx.beginPath(); ctx.moveTo(x,14); ctx.lineTo(x,h-14); ctx.stroke(); ctx.setLineDash([]);
+    var ay= dir==='down'? h-16 : 16, s= dir==='down'?-1:1;
+    ctx.beginPath(); ctx.moveTo(x,ay); ctx.lineTo(x-5,ay+8*s); ctx.lineTo(x+5,ay+8*s); ctx.closePath();
+    ctx.fillStyle='rgba(255,255,255,.4)'; ctx.fill();
+  }
+  var simToggle=document.getElementById('simToggle');
+  simToggle.addEventListener('click',function(e){
+    var b=e.target.closest('button'); if(!b) return;
+    simToggle.querySelectorAll('button').forEach(function(o){o.classList.remove('on')});
+    b.classList.add('on'); simMode=b.dataset.m; simCap.innerHTML=caps[simMode];
+    seed();
+  });
+  simCap.innerHTML=caps.diffusion;
+
+  // ================= CIRCUIT =================
+  var circuitData={
+    access:{l:'Vascular access',t:'The route into the bloodstream — a fistula, graft or line. Two needles: one draws blood out (arterial), one returns it (venous).'},
+    pump:{l:'Blood pump',t:'A roller pump gently squeezes the tubing to move blood round the circuit at a set speed (Qb) — the engine of the whole system.'},
+    heparin:{l:'Anticoagulant',t:'A short-acting anticoagulant is infused so blood doesn\'t clot against the artificial surfaces of the tubing and dialyser.'},
+    dialyser:{l:'Dialyser',t:'The artificial kidney: thousands of hollow fibres. Blood flows inside them, dialysate bathes the outside — waste crosses the membrane between.'},
+    dialysate:{l:'Dialysate',t:'A precisely mixed fluid flowing counter to the blood. Fresh in at the bottom, spent out at the top — carrying away the waste it collects.'},
+    airtrap:{l:'Air trap & detector',t:'Before blood returns, it passes a chamber and sensor that catch any air bubbles — a key safety step that will alarm and stop the pump if needed.'}
+  };
+  var cInfo=document.getElementById('circuitInfo');
+  document.querySelectorAll('#circuitSvg .hotzone').forEach(function(z){
+    z.addEventListener('click',function(){
+      var d=circuitData[z.dataset.c];
+      cInfo.innerHTML='<div class="lbl">The circuit</div><h4>'+d.l+'</h4><p>'+d.t+'</p>';
+    });
+  });
+  // sliders
+  var qbRange=document.getElementById('qbRange'), qbVal=document.getElementById('qbVal'),
+      qbLabel=document.getElementById('qbLabel'), rotor=document.getElementById('rotor');
+  var flows=document.querySelectorAll('#circuitSvg .flow-blood, #circuitSvg .flow-blood-r');
+  function updQb(){
+    var v=+qbRange.value;
+    qbVal.innerHTML=v+' <small>mL/min</small>'; qbLabel.textContent=v+' mL/min';
+    var dur=(140/v).toFixed(2); // faster pump -> shorter duration
+    if(!reduce){
+      rotor.style.animationDuration=(dur*2.2)+'s';
+      flows.forEach(function(f){f.style.animationDuration=(dur*1.4)+'s'});
+    }
+  }
+  qbRange.addEventListener('input',updQb); updQb();
+  var ufRange=document.getElementById('ufRange'), ufVal=document.getElementById('ufVal'), ufLabel=document.getElementById('ufLabel');
+  function updUf(){var v=(+ufRange.value/10).toFixed(1); ufVal.innerHTML=v+' <small>L</small>'; ufLabel.textContent=v+' L';}
+  ufRange.addEventListener('input',updUf); updUf();
+
+  // ================= COMPLICATIONS toggle =================
+  var compToggle=document.getElementById('compToggle');
+  var acuteList=document.getElementById('acuteList'), chronicList=document.getElementById('chronicList');
+  compToggle.addEventListener('click',function(e){
+    var b=e.target.closest('button'); if(!b) return;
+    compToggle.querySelectorAll('button').forEach(function(o){o.classList.remove('on')});
+    b.classList.add('on');
+    var acute=b.dataset.t==='acute';
+    acuteList.style.display=acute?'flex':'none';
+    chronicList.style.display=acute?'none':'flex';
+  });
+
+  // ================= animation lifecycle =================
+  function startAnim(n){
+    if(n===4){ // membrane sim
+      resizeCanvas(); seed();
+      if(reduce){ simRunning=false; step(); } // one static frame
+      else { simRunning=true; requestAnimationFrame(step); }
+    }
+  }
+  function stopAnim(n){
+    if(n===4){ simRunning=false; }
+  }
+  window.addEventListener('resize',function(){
+    if(cur===4){ var run=simRunning; simRunning=false; resizeCanvas(); seed(); if(run&&!reduce){simRunning=true;requestAnimationFrame(step);} else {step();} }
+  });
+
+  // ================= QUIZ =================
+  // ch = chapter number (1-8) · c = index of the correct answer in a[]
+  var QBANK=[
+    // --- 1 Anatomy ---
+    {ch:1,q:"Where does filtration actually happen?",a:["In the renal pelvis","In the glomerulus, in the cortex","In the ureter","In the medullary pyramids"],c:1,
+     e:"Blood arrives at the glomerulus — a tuft of leaky capillaries in the cortex — and pressure pushes water and small solutes into Bowman's capsule."},
+    {ch:1,q:"Roughly how much of the heart's output goes to the kidneys?",a:["About 2%","About 5%","About 20%","About 50%"],c:2,
+     e:"Around a fifth. They're hugely well-supplied — which is also why they're so vulnerable to any drop in blood pressure."},
+    {ch:1,q:"Which of these should normally stay in the blood at the glomerulus?",a:["Urea","Water","Sodium","Albumin"],c:3,
+     e:"Blood cells and proteins are too large to pass the filter. Protein appearing in the urine is a sign the filter itself is damaged."},
+    {ch:1,q:"Once filtrate has travelled the tubule, what route does it take?",a:["Collecting duct → pelvis → ureter","Ureter → pelvis → collecting duct","Pelvis → collecting duct → ureter","Collecting duct → ureter → pelvis"],c:0,
+     e:"Urine drains from the collecting ducts into the renal pelvis — the funnel — then down the ureter to the bladder."},
+
+    // --- 2 Function ---
+    {ch:2,q:"Which hormone do the kidneys release to tell bone marrow to make red cells?",a:["Renin","Erythropoietin","Aldosterone","Active vitamin D"],c:1,
+     e:"Erythropoietin. Less EPO in kidney failure is exactly why anaemia is so common — and why EPO-type medicines are given."},
+    {ch:2,q:"What is the kidney's role in vitamin D?",a:["It absorbs it from food","It stores it","It performs the final activation step","It excretes it"],c:2,
+     e:"The kidney converts vitamin D to its active form so the gut can absorb calcium — which is why the active form has to be given directly in failure."},
+    {ch:2,q:"Why do patients in kidney failure become acidotic?",a:["They can't excrete acid or reclaim bicarbonate","They produce too much bicarbonate","Their lungs stop compensating","Dialysis removes bicarbonate"],c:0,
+     e:"Acid handling is a kidney job. When it fails, acid accumulates — which is why dialysate is buffered with bicarbonate."},
+    {ch:2,q:"A patient's blood pressure is hard to control and their kidney function is declining. How do the two relate?",a:["They're unrelated","Each one drives the other","Kidney disease lowers blood pressure","Only blood pressure affects kidneys"],c:1,
+     e:"They worsen each other. The kidney both senses and controls pressure via renin, so damage and hypertension feed back in a loop."},
+
+    // --- 3 Failure ---
+    {ch:3,q:"An eGFR of 22 places a patient at which stage?",a:["G3a","G3b","G4","G5"],c:2,
+     e:"G4 is 15–29 — severely reduced. This is typically when planning for dialysis or transplant begins, including creating access ahead of need."},
+    {ch:3,q:"What most distinguishes AKI from CKD?",a:["AKI only affects one kidney","AKI develops over hours to days and is often reversible","CKD never needs dialysis","AKI has a higher eGFR"],c:1,
+     e:"Timescale and reversibility. AKI is sudden and often recoverable; CKD is a gradual, lasting loss over months to years."},
+    {ch:3,q:"Which of these is NOT one of the urgent AEIOU indications for dialysis?",a:["Refractory hyperkalaemia","Fluid overload not responding to diuretics","An eGFR of 28 with no symptoms","Uraemic pericarditis"],c:2,
+     e:"AEIOU = Acidosis, Electrolytes, Intoxication, Overload, Uraemia. A number on its own doesn't trigger dialysis — the clinical picture does."},
+    {ch:3,q:"At roughly which stage would you expect vascular access to be planned?",a:["G1","G2","G4","Only at G5, once symptoms start"],c:2,
+     e:"Access is planned ahead of need. A fistula takes weeks to mature, so waiting until failure arrives means starting on a line."},
+
+    // --- 4 Principles ---
+    {ch:4,q:"Which principle removes a patient's excess fluid?",a:["Diffusion","Ultrafiltration","Osmosis","Countercurrent flow"],c:1,
+     e:"A pressure difference pushes water across the membrane. That's what the UF goal on the machine is setting."},
+    {ch:4,q:"Which principle clears urea and potassium?",a:["Diffusion","Ultrafiltration","Countercurrent flow","Filtration"],c:0,
+     e:"Solutes move from where they're crowded (blood) to where they're sparse (dialysate), down the concentration gradient."},
+    {ch:4,q:"Why do blood and dialysate flow in opposite directions?",a:["To reduce clotting","To keep a concentration gradient along the whole dialyser","To warm the blood","To lower the pressure"],c:1,
+     e:"Countercurrent stops the two sides reaching equilibrium, so clearance stays efficient from end to end."},
+    {ch:4,q:"If blood and dialysate flowed in the same direction, what would happen?",a:["Clearance would improve","They'd equilibrate partway and clearance would fall","Nothing would change","The blood would clot"],c:1,
+     e:"Once the concentrations match, diffusion stops — and the rest of the dialyser does nothing at all."},
+    {ch:4,q:"Why can't red cells and protein cross into the dialysate?",a:["They're electrically repelled","They're too large for the membrane pores","The pump prevents it","They're bound to the anticoagulant"],c:1,
+     e:"It's a semipermeable membrane — size-selective, much like the glomerulus it's imitating."},
+
+    // --- 5 Circuit ---
+    {ch:5,q:"What does the blood pump set?",a:["How much fluid comes off","The rate blood moves round the circuit","The dialysate temperature","The anticoagulant dose"],c:1,
+     e:"Qb is the engine speed. Faster flow clears more per minute — set to the patient, within safe limits for their access."},
+    {ch:5,q:"Why is an anticoagulant given during dialysis?",a:["The patient has a clotting disorder","To thin the blood long-term","Blood clots on contact with the circuit's artificial surfaces","To lower blood pressure"],c:2,
+     e:"It's short-acting and for the session only — protecting the tubing and dialyser, not treating the patient."},
+    {ch:5,q:"What is the air detector for?",a:["Measuring dialysate flow","Detecting air before blood returns, alarming and stopping the pump","Warming the blood","Checking the UF goal"],c:1,
+     e:"A core safety step on the venous side, working with the air trap chamber to keep air out of the patient."},
+    {ch:5,q:"What is the UF goal actually based on?",a:["The patient's height","The dialysate flow rate","The fluid the patient has gained since the last session","A fixed 2 litres for everyone"],c:2,
+     e:"It's the gap between their current weight and their target weight — worked out individually, every session."},
+    {ch:5,q:"Functionally, what is a dialyser made of?",a:["A single wide tube","Thousands of hollow fibres, blood inside and dialysate outside","A charcoal filter","A centrifuge"],c:1,
+     e:"The fibres pack a huge surface area into a small cartridge — that's what makes the exchange fast enough to work."},
+
+    // --- 6 Access ---
+    {ch:6,q:"Which access is preferred, and why?",a:["A line, because it works immediately","A graft, because it's synthetic","A fistula, because it lasts longest with the lowest infection risk","Whichever is quickest to place"],c:2,
+     e:"Fistula first. The trade-off is that it must be planned ahead and needs weeks to mature before it can be used."},
+    {ch:6,q:"Why does a fistula need to mature before use?",a:["To let the skin heal","The vein must toughen and enlarge under arterial flow","To let the anticoagulant clear","To confirm there's no infection"],c:1,
+     e:"Arterial pressure remodels the vein over weeks into a vessel strong enough to cannulate again and again."},
+    {ch:6,q:"A patient's fistula has a weak thrill and flows have been poor. What does this suggest?",a:["Infection","Steal syndrome","Stenosis or thrombosis","Normal maturation"],c:2,
+     e:"A narrowing or a clot. Look, listen, feel every session — a weak or absent thrill is one of the earliest warnings you get."},
+    {ch:6,q:"Which access carries the highest bloodstream infection risk?",a:["Fistula","Graft","Central venous catheter","They're all equal"],c:2,
+     e:"A line sits in a large central vein with a direct route in from outside. It's exactly why lines are kept temporary wherever possible."},
+    {ch:6,q:"Why rotate cannulation sites along a fistula?",a:["To reduce pain","Repeated needling in one spot causes aneurysm","To speed up maturation","To reduce the anticoagulant needed"],c:1,
+     e:"Ballooning from repeated puncture in one place weakens the vessel wall over time."},
+    {ch:6,q:"A patient's hand is cold and painful below their new fistula. What should you think of?",a:["Steal syndrome","Disequilibrium","Aneurysm","Normal maturation"],c:0,
+     e:"The access is diverting too much blood away from the hand — 'stealing' it. It needs review, not reassurance."},
+
+    // --- 7 Complications ---
+    {ch:7,q:"What's the most common complication during a dialysis session?",a:["Cramps","Hypotension","Disequilibrium","Circuit clotting"],c:1,
+     e:"Removing fluid faster than the tissues can refill the circulation drops the blood pressure — often with dizziness, nausea or cramps alongside."},
+    {ch:7,q:"A new patient develops headache and confusion during an early session. What should you think of?",a:["Disequilibrium syndrome","Steal syndrome","Air embolism","Anaemia"],c:0,
+     e:"Urea cleared too quickly causes fluid to shift into the brain. It's precisely why the first few sessions are deliberately gentle."},
+    {ch:7,q:"What's the leading cause of death in people on long-term dialysis?",a:["Infection","Cardiovascular disease","Bone disease","Anaemia"],c:1,
+     e:"Fluid load, hypertension and mineral disturbance strain the heart and vessels over years."},
+    {ch:7,q:"Why do dialysis patients often limit potassium and phosphate in their diet?",a:["To lose weight","The kidneys can no longer clear them between sessions","To reduce the anticoagulant needed","To help the fistula mature"],c:1,
+     e:"Dialysis is intermittent, but eating isn't. Between sessions there's nothing clearing the load, so intake has to be managed."},
+
+    // --- 8 Medications ---
+    {ch:8,q:"When should phosphate binders be taken?",a:["On an empty stomach","With meals","At bedtime","Only on dialysis days"],c:1,
+     e:"They bind phosphate in food, so they only work if the food is actually there. One of the most common practical teaching points."},
+    {ch:8,q:"Why is the active form of vitamin D given rather than an ordinary supplement?",a:["It's cheaper","The kidney can no longer perform the activation step","It tastes better","Plain vitamin D is removed by dialysis"],c:1,
+     e:"Without the kidney's final conversion, ordinary vitamin D can't do its job of helping the gut absorb calcium."},
+    {ch:8,q:"Why is iron given alongside EPO-type medicines?",a:["To prevent clotting","The marrow needs iron as raw material to respond","To bind phosphate","To lower potassium"],c:1,
+     e:"Give the signal without the materials and the marrow still can't build red cells. The two go together."},
+    {ch:8,q:"Why are water-soluble vitamins replaced in dialysis patients?",a:["They aren't absorbed from food","They're small enough to diffuse into the dialysate and be lost","They're bound by phosphate binders","The kidney normally makes them"],c:1,
+     e:"The B and C groups cross the membrane along with the waste, so they're topped up."},
+    {ch:8,q:"How is acidosis corrected in a haemodialysis patient?",a:["An oral tablet only","Bicarbonate buffer in the dialysate","By raising the blood pump speed","By the anticoagulant"],c:1,
+     e:"The treatment itself takes over the kidney's acid-clearing job — the dialysate is buffered to correct blood pH."}
+  ];
+
+  var MIXED_N=10;
+  var host=document.getElementById('quizHost');
+  var qs={pool:[],i:0,score:0,answered:false,missed:[]};
+
+  function shuffle(a){for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t}return a}
+  function esc(s){return String(s).replace(/[&<>"]/g,function(m){return({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'})[m]})}
+
+  // shuffle options too, so answer position never becomes the tell
+  function prep(q){
+    var opts=q.a.map(function(t,i){return{t:t,ok:i===q.c}});
+    shuffle(opts);
+    return{q:q.q,e:q.e,ch:q.ch,opts:opts};
+  }
+
+  function quizReset(){ renderStart() }
+
+  function renderStart(){
+    var rows=chapters.slice(0,8).map(function(c,i){
+      return '<button class="q-btn ghost" data-ch="'+(i+1)+'">'+esc(c.t)+'</button>';
+    }).join('');
+    host.innerHTML=
+      '<div class="quiz-hero">'+
+        '<div class="q-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>'+
+        '<h3 style="font-size:23px">Ready when you are</h3>'+
+        '<p class="q-sub">Every question explains its answer, so a wrong one still teaches. '+QBANK.length+' questions in the bank.</p>'+
+        '<div class="q-start-btns">'+
+          '<button class="q-btn primary" id="qMixed">Start · '+MIXED_N+' mixed questions</button>'+
+          '<button class="q-btn ghost" id="qPick" aria-expanded="false">Drill a single chapter</button>'+
+          '<div id="qChapList" style="display:none;flex-direction:column;gap:11px">'+rows+'</div>'+
+        '</div>'+
+      '</div>';
+
+    document.getElementById('qMixed').addEventListener('click',function(){start(null)});
+    var pick=document.getElementById('qPick'), list=document.getElementById('qChapList');
+    pick.addEventListener('click',function(){
+      // toggle display directly — an inline display would beat the [hidden] attribute
+      var open=list.style.display==='none';
+      list.style.display=open?'flex':'none';
+      pick.setAttribute('aria-expanded',open?'true':'false');
+      pick.textContent=open?'Hide chapters':'Drill a single chapter';
+    });
+    list.querySelectorAll('[data-ch]').forEach(function(b){
+      b.addEventListener('click',function(){start(+b.dataset.ch)});
+    });
+  }
+
+  function start(ch){
+    var pool = ch ? shuffle(QBANK.filter(function(q){return q.ch===ch}))
+                  : shuffle(QBANK.slice()).slice(0,MIXED_N);
+    qs={pool:pool.map(prep),i:0,score:0,answered:false,missed:[]};
+    renderQ();
+  }
+
+  function renderQ(){
+    qs.answered=false;                       // must reset, or every question after the first locks
+    var q=qs.pool[qs.i], n=qs.pool.length;
+    var pct=Math.round((qs.i/n)*100);
+    var keys=['A','B','C','D'];
+    host.innerHTML=
+      '<div class="q-progress">'+
+        '<span class="q-count">'+(qs.i+1)+' / '+n+'</span>'+
+        '<div class="q-bar"><span id="qFill" style="width:'+pct+'%"></span></div>'+
+        '<span class="q-score">'+qs.score+' right</span>'+
+      '</div>'+
+      '<div class="q-card">'+
+        '<div class="q-kicker">'+esc(chapters[q.ch-1].t)+'</div>'+
+        '<div class="q-text">'+esc(q.q)+'</div>'+
+        '<div class="q-opts">'+
+          q.opts.map(function(o,i){
+            return '<button class="q-opt" data-i="'+i+'"><span class="k">'+keys[i]+'</span><span>'+esc(o.t)+'</span><span class="mark"></span></button>';
+          }).join('')+
+        '</div>'+
+        '<div class="q-feedback" id="qFb"></div>'+
+        '<button class="q-next" id="qNext">'+(qs.i===n-1?'See results':'Next question')+'</button>'+
+      '</div>';
+
+    host.querySelectorAll('.q-opt').forEach(function(b){
+      b.addEventListener('click',function(){answer(+b.dataset.i)});
+    });
+    document.getElementById('qNext').addEventListener('click',function(){
+      qs.i++;
+      if(qs.i>=qs.pool.length) renderResults(); else renderQ();
+      window.scrollTo({top:0,behavior:reduce?'auto':'smooth'});
+    });
+  }
+
+  function answer(i){
+    if(qs.answered) return;
+    qs.answered=true;
+    var q=qs.pool[qs.i], right=q.opts[i].ok;
+    if(right) qs.score++; else qs.missed.push(q);
+
+    host.querySelectorAll('.q-opt').forEach(function(b,j){
+      b.disabled=true;
+      if(q.opts[j].ok){ b.classList.add('correct'); b.querySelector('.mark').textContent='✓'; }
+      else if(j===i){ b.classList.add('wrong'); b.querySelector('.mark').textContent='✕'; }
+    });
+
+    var fb=document.getElementById('qFb');
+    fb.className='q-feedback show '+(right?'ok':'no');
+    fb.innerHTML='<b>'+(right?'That\u2019s right. ':'Not quite. ')+'</b>'+esc(q.e);
+    document.getElementById('qNext').classList.add('show');
+    document.getElementById('qFill').style.width=Math.round(((qs.i+1)/qs.pool.length)*100)+'%';
+    qs.answered=true;
+  }
+
+  function renderResults(){
+    var n=qs.pool.length, s=qs.score, pct=s/n;
+    var tier, sub, col;
+    if(pct===1){tier='Spotless';sub='Every one. You could teach this session tomorrow.';col='#6DA08B'}
+    else if(pct>=.8){tier='Solid ground';sub='Strong recall. Glance at the ones below and you\u2019re there.';col='#6DA08B'}
+    else if(pct>=.6){tier='Nearly there';sub='The shape is right — a couple of details to firm up.';col='#D8912B'}
+    else if(pct>=.4){tier='Worth a revisit';sub='Good instincts, but the reasoning needs another pass.';col='#D8912B'}
+    else{tier='Start with the basics';sub='Work through the chapters once more — the why matters more than the what.';col='#B23A32'}
+
+    var C=314.16;
+    var miss = qs.missed.length ? qs.missed.map(function(q){
+      var right=q.opts.filter(function(o){return o.ok})[0].t;
+      return '<div class="q-miss"><div class="qm">'+esc(q.q)+'</div>'+
+             '<div class="qa">Answer: <b>'+esc(right)+'</b><br>'+esc(q.e)+'</div>'+
+             '<button data-go="'+q.ch+'">Revisit ' +esc(chapters[q.ch-1].t)+' \u2192</button></div>';
+    }).join('') : '<div class="q-allright">Nothing missed. Clean sweep.</div>';
+
+    host.innerHTML=
+      '<div class="q-result">'+
+        '<svg class="q-ring" viewBox="0 0 120 120" aria-hidden="true">'+
+          '<circle cx="60" cy="60" r="50" fill="none" stroke="var(--mist)" stroke-width="9"/>'+
+          '<circle id="qArc" cx="60" cy="60" r="50" fill="none" stroke="'+col+'" stroke-width="9" stroke-linecap="round" '+
+            'stroke-dasharray="'+C+'" stroke-dashoffset="'+C+'" transform="rotate(-90 60 60)" '+
+            'style="transition:stroke-dashoffset .9s cubic-bezier(.2,.8,.2,1)"/>'+
+          '<text x="60" y="58" text-anchor="middle" style="font-family:var(--mono);font-size:30px;fill:var(--ink)">'+s+'</text>'+
+          '<text x="60" y="76" text-anchor="middle" style="font-family:var(--mono);font-size:9px;letter-spacing:1.5px;fill:var(--ink-faint)">OF '+n+'</text>'+
+        '</svg>'+
+        '<div class="q-tier">'+tier+'</div>'+
+        '<p class="q-sub">'+sub+'</p>'+
+        '<div class="q-review"><h4>'+(qs.missed.length?'Worth another look':'Review')+'</h4>'+miss+'</div>'+
+        '<div class="q-start-btns">'+
+          '<button class="q-btn primary" id="qAgain">Try again</button>'+
+          '<button class="q-btn ghost" id="qHome">Back to chapters</button>'+
+        '</div>'+
+      '</div>';
+
+    var arc=document.getElementById('qArc');
+    requestAnimationFrame(function(){
+      requestAnimationFrame(function(){ arc.style.strokeDashoffset=(C*(1-pct)).toFixed(1) });
+    });
+
+    host.querySelectorAll('[data-go]').forEach(function(b){
+      b.addEventListener('click',function(){ go(+b.dataset.go) });
+    });
+    document.getElementById('qAgain').addEventListener('click',renderStart);
+    document.getElementById('qHome').addEventListener('click',function(){ go(0) });
+  }
+
+  // ================= Service worker + update toast =================
+  var toast=document.getElementById('toast'), toastMsg=document.getElementById('toastMsg'),
+      toastAct=document.getElementById('toastAct'), toastX=document.getElementById('toastX');
+  var toastTimer, updateRequested=false, reloading=false;
+  function showToast(msg,actLabel,onAct,autoHide){
+    clearTimeout(toastTimer);
+    toastMsg.textContent=msg;
+    if(actLabel){ toastAct.hidden=false; toastAct.textContent=actLabel; toastAct.onclick=onAct; }
+    else toastAct.hidden=true;
+    toast.classList.add('show');
+    if(autoHide) toastTimer=setTimeout(hideToast,4200);
+  }
+  function hideToast(){ toast.classList.remove('show') }
+  toastX.addEventListener('click',hideToast);
+
+  if('serviceWorker' in navigator && location.protocol!=='file:'){
+    window.addEventListener('load',function(){
+      navigator.serviceWorker.register('./sw.js').then(function(reg){
+        // already an update sitting ready from a previous visit
+        if(reg.waiting && navigator.serviceWorker.controller) offerUpdate(reg.waiting);
+
+        reg.addEventListener('updatefound',function(){
+          var sw=reg.installing;
+          if(!sw) return;
+          sw.addEventListener('statechange',function(){
+            if(sw.state!=='installed') return;
+            if(navigator.serviceWorker.controller) offerUpdate(sw);           // new version ready
+            else showToast('Ready to use offline.',null,null,true);            // first install
+          });
+        });
+
+        // catch a redeploy while the app is open
+        setTimeout(function(){reg.update().catch(function(){})},3000);
+        document.addEventListener('visibilitychange',function(){
+          if(!document.hidden) reg.update().catch(function(){});
+        });
+      }).catch(function(){/* offline or unsupported — app still works */});
+
+      // Only reload if the user actually asked to update. The service worker also
+      // fires controllerchange when it claims the page on first install, and
+      // reloading on that would bounce the page out from under them.
+      navigator.serviceWorker.addEventListener('controllerchange',function(){
+        if(!updateRequested || reloading) return;
+        reloading=true; location.reload();
+      });
+    });
+  }
+  function offerUpdate(sw){
+    showToast('A newer version is ready.','Update',function(){
+      hideToast(); updateRequested=true; sw.postMessage('skip-waiting');
+    },false);
+  }
+
+  // init
+  go(0);
+})();
+</script>
+</body>
+</html>
