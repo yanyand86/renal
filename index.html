@@ -303,6 +303,69 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
 .q-miss button:hover{text-decoration:underline}
 .q-allright{background:var(--sage-tint);border-radius:var(--r);padding:20px;text-align:center;color:#35604F;font-weight:500;margin-top:20px}
 
+/* ---------- Listen mode ---------- */
+.tts-reading{
+  outline:2.5px solid var(--amber); outline-offset:4px; border-radius:14px;
+  box-shadow:0 0 0 7px rgba(216,145,43,.12);
+  scroll-margin-top:82px; scroll-margin-bottom:180px;
+  transition:outline-color .3s ease, box-shadow .3s ease;
+}
+.fab-listen{
+  position:fixed; right:16px; z-index:45;
+  bottom:calc(var(--botbar) + env(safe-area-inset-bottom) + 16px);
+  display:inline-flex; align-items:center; gap:9px;
+  padding:12px 18px 12px 15px; border-radius:999px;
+  background:var(--petrol); color:#fff; font-family:var(--mono);
+  font-size:12.5px; letter-spacing:.08em; text-transform:uppercase; font-weight:500;
+  box-shadow:0 6px 20px rgba(14,91,98,.34), 0 2px 6px rgba(16,36,43,.16);
+  transition:transform .2s ease, opacity .2s ease;
+}
+.fab-listen svg{width:19px;height:19px;fill:none;stroke:#fff;stroke-width:1.7}
+.fab-listen:hover{transform:translateY(-2px)}
+.fab-listen:active{transform:translateY(0) scale(.97)}
+.fab-listen.gone{opacity:0;transform:translateY(14px) scale(.9);pointer-events:none}
+
+.player{
+  position:fixed; left:0; right:0; z-index:45;
+  bottom:calc(var(--botbar) + env(safe-area-inset-bottom));
+  display:flex; align-items:center; gap:7px; padding:9px 12px;
+  background:rgba(248,250,249,.94); backdrop-filter:saturate(1.4) blur(16px);
+  -webkit-backdrop-filter:saturate(1.4) blur(16px);
+  border-top:1px solid var(--mist);
+  transform:translateY(120%); transition:transform .32s cubic-bezier(.2,.8,.2,1);
+  box-shadow:0 -8px 26px rgba(16,36,43,.10);
+}
+.player.show{transform:none}
+.pl-btn{width:38px;height:38px;flex:none;border-radius:11px;display:grid;place-items:center;color:var(--petrol)}
+.pl-btn svg{width:22px;height:22px;fill:currentColor}
+.pl-btn.stroke svg,.pl-btn svg.stroke{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.pl-btn:hover{background:var(--mist-2)}
+.pl-btn:active{transform:scale(.93)}
+.pl-main{width:44px;height:44px;background:var(--petrol);color:#fff;border-radius:13px;box-shadow:0 3px 10px rgba(14,91,98,.3)}
+.pl-main:hover{background:var(--petrol-deep)}
+.pl-mid{flex:1;min-width:0;display:flex;flex-direction:column;gap:5px;padding:0 3px}
+.pl-label{font-family:var(--mono);font-size:11px;letter-spacing:.05em;color:var(--ink-soft);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pl-bar{height:4px;border-radius:99px;background:var(--mist);overflow:hidden}
+.pl-bar span{display:block;height:100%;width:0;background:var(--amber);border-radius:99px;transition:width .4s ease}
+.pl-chip{flex:none;font-family:var(--mono);font-size:12px;font-weight:500;color:var(--petrol);background:var(--mist-2);padding:8px 9px;border-radius:10px;min-width:42px;text-align:center}
+.pl-chip:active{transform:scale(.95)}
+
+.voice-row{display:flex;flex-direction:column;align-items:flex-start;gap:1px;padding:12px 14px;border-radius:12px;width:100%;text-align:left;transition:background .15s}
+.voice-row:hover,.voice-row:focus-visible{background:var(--mist-2)}
+.voice-row.on{background:var(--petrol-tint)}
+.voice-row .vn{font-weight:600;font-size:15px}
+.voice-row.on .vn{color:var(--petrol-deep)}
+.voice-row .vl{font-family:var(--mono);font-size:11px;color:var(--ink-faint);letter-spacing:.03em}
+.cfg-empty{font-size:13.5px;color:var(--ink-soft);padding:8px 14px 4px;line-height:1.55}
+.cfg-row{display:flex;align-items:center;gap:14px;padding:16px 14px 6px;margin-top:6px;border-top:1px solid var(--mist)}
+.cfg-row>div{flex:1}
+.cfg-row b{font-weight:600;font-size:15px;display:block}
+.cfg-row small{color:var(--ink-faint);font-size:12.5px}
+.toggle{flex:none;width:50px;height:30px;border-radius:99px;background:var(--mist);position:relative;transition:background .22s}
+.toggle span{position:absolute;top:3px;left:3px;width:24px;height:24px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(16,36,43,.24);transition:transform .22s}
+.toggle.on{background:var(--sage)}
+.toggle.on span{transform:translateX(20px)}
+
 @media (prefers-reduced-motion: reduce){
   *{animation-duration:.001s !important;animation-iteration-count:1 !important;transition-duration:.05s !important}
   .flow-blood,.flow-blood-r,.flow-dial{animation:none;stroke-dasharray:0}
@@ -744,6 +807,37 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
   </div>
 </div>
 
+<!-- ===== Listen mode ===== -->
+<button class="fab-listen gone" id="fabListen" aria-label="Listen to this chapter">
+  <svg viewBox="0 0 24 24"><path d="M4 13v-1a8 8 0 0116 0v1"/><rect x="3" y="13" width="4" height="7" rx="1.6"/><rect x="17" y="13" width="4" height="7" rx="1.6"/></svg>
+  Listen
+</button>
+
+<div class="player" id="player" role="region" aria-label="Narration player">
+  <button class="pl-btn" id="plPrev" aria-label="Previous section"><svg viewBox="0 0 24 24"><path d="M7 6v12h-2V6zM20 6v12l-9-6z"/></svg></button>
+  <button class="pl-btn pl-main" id="plPlay" aria-label="Play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button>
+  <button class="pl-btn" id="plNext" aria-label="Next section"><svg viewBox="0 0 24 24"><path d="M17 6v12h2V6zM4 6v12l9-6z"/></svg></button>
+  <div class="pl-mid">
+    <div class="pl-label" id="plLabel">Listening</div>
+    <div class="pl-bar"><span id="plFill"></span></div>
+  </div>
+  <button class="pl-chip" id="plRate">1×</button>
+  <button class="pl-btn" id="plCfg" aria-label="Voice settings"><svg class="stroke" viewBox="0 0 24 24"><path d="M4 7h10M4 17h6"/><circle cx="18" cy="7" r="2.4"/><circle cx="14" cy="17" r="2.4"/></svg></button>
+  <button class="pl-btn stroke" id="plStop" aria-label="Stop"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+</div>
+
+<div class="overlay" id="voiceOverlay">
+  <div class="sheet" role="dialog" aria-label="Voice settings">
+    <div class="grab"></div>
+    <h3>Voice</h3>
+    <div id="voiceList"></div>
+    <div class="cfg-row">
+      <div><b>Continue to next chapter</b><small>Play the chapters straight through</small></div>
+      <button class="toggle on" id="contToggle" role="switch" aria-checked="true"><span></span></button>
+    </div>
+  </div>
+</div>
+
 <script>
 (function(){
   "use strict";
@@ -813,6 +907,8 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
     Array.prototype.forEach.call(menuList.children,function(m){m.classList.toggle('current', +m.dataset.i===cur)});
     if(cur===9) quizReset();
     startAnim(cur);
+    if(!ttsNarratorNav && typeof ttsStop==='function') ttsStop();
+    if(typeof ttsUpdateFab==='function') ttsUpdateFab();
   }
   prevBtn.addEventListener('click',function(){ cur<=1?go(0):go(cur-1) });
   nextBtn.addEventListener('click',function(){ go(cur+1) });
@@ -1360,9 +1456,273 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
     },false);
   }
 
+  /* ================= LISTEN MODE (speech synthesis) ================= */
+  var ttsNarratorNav=false, ttsStop, ttsUpdateFab;
+  (function(){
+    if(!('speechSynthesis' in window)){ return; }
+    var synth=window.speechSynthesis;
+    var fab=document.getElementById('fabListen'), player=document.getElementById('player');
+    var plPlay=document.getElementById('plPlay'), plPrev=document.getElementById('plPrev'),
+        plNext=document.getElementById('plNext'), plStop=document.getElementById('plStop'),
+        plRate=document.getElementById('plRate'), plCfg=document.getElementById('plCfg'),
+        plLabel=document.getElementById('plLabel'), plFill=document.getElementById('plFill');
+    var voiceOverlay=document.getElementById('voiceOverlay'), voiceList=document.getElementById('voiceList'),
+        contToggle=document.getElementById('contToggle');
+
+    function lsGet(k,d){ try{ var v=localStorage.getItem(k); return v===null?d:v; }catch(e){ return d; } }
+    function lsSet(k,v){ try{ localStorage.setItem(k,v); }catch(e){} }
+
+    // keep the screen awake while narrating (iOS Safari 16.4+, Android, desktop)
+    var wakeLock=null;
+    function acquireWake(){
+      try{
+        if('wakeLock' in navigator && document.visibilityState==='visible'){
+          navigator.wakeLock.request('screen').then(function(wl){ wakeLock=wl; }).catch(function(){});
+        }
+      }catch(e){}
+    }
+    function releaseWake(){ try{ if(wakeLock){ wakeLock.release(); wakeLock=null; } }catch(e){} }
+
+    var RATES=[0.85,1.0,1.15,1.3];
+    var rate=+lsGet('renal.rate','1')||1.0;
+    var voiceName=lsGet('renal.voice','');
+    var contPlay=lsGet('renal.cont','1')!=='0';
+    var queue=[], qi=0, playing=false, paused=false, stopping=false;
+    var voices=[], voice=null, lastHi=null, lastOpen=null;
+
+    // ---- voices ----
+    function loadVoices(){ voices=synth.getVoices()||[]; voice=pickVoice(); renderVoiceList(); }
+    function pickVoice(){
+      if(voiceName){ for(var i=0;i<voices.length;i++) if(voices[i].name===voiceName) return voices[i]; }
+      var gb=voices.filter(function(v){return /en[-_]GB/i.test(v.lang)});
+      var local=gb.filter(function(v){return v.localService});
+      var en=voices.filter(function(v){return /^en/i.test(v.lang)});
+      return local[0]||gb[0]||en[0]||voices[0]||null;
+    }
+    try{ synth.onvoiceschanged=loadVoices; }catch(e){}
+    loadVoices();
+
+    // ---- text preparation ----
+    function clean(s){
+      s=String(s).replace(/<[^>]+>/g,' ');
+      s=s.replace(/[\u2019]/g,"'").replace(/[\u2018]/g,"'");
+      var map=[[/\beGFR\b/g,'e-G-F-R'],[/\bAEIOU\b/g,'A E I O U'],[/\bAKI\b/g,'A-K-I'],
+        [/\bCKD-MBD\b/gi,'C-K-D bone mineral disorder'],[/\bCKD\b/g,'C-K-D'],
+        [/\bAVF\b/g,'A-V-F'],[/\bAVG\b/g,'A-V-G'],[/\bCVC\b/g,'C-V-C'],
+        [/\bEPO\b/g,'E-P-O'],[/\bUF\b/g,'U-F'],[/\bQb\b/g,'Q-B'],[/\bQd\b/g,'Q-D'],
+        [/mL\/min/g,'mils per minute'],[/\be\.g\.\s*/gi,'for example '],[/\bi\.e\.\s*/gi,'that is ']];
+      map.forEach(function(m){ s=s.replace(m[0],m[1]); });
+      s=s.replace(/[\u2013\u2014]/g,' ').replace(/[\u00b7\u2022]/g,', ').replace(/\//g,' ').replace(/\s+/g,' ').trim();
+      return s;
+    }
+    function splitSentences(s){
+      var m=s.match(/[^.!?]+[.!?]+|\S[^.!?]*$/g);
+      return m ? m.map(function(x){return x.trim()}).filter(Boolean) : (s?[s]:[]);
+    }
+    function txt(el){ return el?el.textContent:''; }
+
+    function detailBlocks(scope){
+      var out=[];
+      if(!scope) return out;
+      scope.querySelectorAll('details.item').forEach(function(d){
+        var st=d.querySelector('.summary-txt'), main='';
+        var small=st?st.querySelector('small'):null;
+        var sub=small?small.textContent:'';
+        if(st){ Array.prototype.forEach.call(st.childNodes,function(nd){ if(nd.nodeType===3) main+=nd.textContent; }); }
+        var rev=d.querySelector('.reveal');
+        var text=main.trim()+(sub?'. '+sub:'')+'. '+(rev?rev.textContent:'');
+        out.push({el:d, text:text, open:d});
+      });
+      return out;
+    }
+
+    // ---- per-chapter narration, drawn from the live DOM + data objects ----
+    function fxHotspot(k){ return function(){ var el=document.querySelector('#kidneySvg .hotspot[data-k="'+k+'"]'); if(el) el.dispatchEvent(new MouseEvent('click',{bubbles:true})); }; }
+    function fxHotzone(k){ return function(){ var el=document.querySelector('#circuitSvg .hotzone[data-c="'+k+'"]'); if(el) el.dispatchEvent(new MouseEvent('click',{bubbles:true})); }; }
+    function fxSim(m){ return function(){ var b=document.querySelector('#simToggle [data-m="'+m+'"]'); if(b) b.click(); }; }
+    function fxGfr(v){ return function(){ var r=document.getElementById('gfrRange'); if(r){ r.value=v; r.dispatchEvent(new Event('input',{bubbles:true})); } }; }
+    function fxSeg(sel,t){ return function(){ var b=document.querySelector(sel+' [data-t="'+t+'"]'); if(b) b.click(); }; }
+
+    function chapterScript(n){
+      var ch=document.getElementById('ch-'+n), B=[];
+      var h2=ch.querySelector('.ch-head h2'); if(h2) B.push({el:h2,text:txt(h2)});
+      var lede=ch.querySelector('.ch-head .lede'); if(lede) B.push({el:lede,text:txt(lede)});
+
+      if(n===1){
+        var stage=ch.querySelector('.stage');
+        B.push({el:stage,text:'Let us follow the blood through the main structures.'});
+        ['artery','cortex','medulla','pelvis','ureter','vein'].forEach(function(k){
+          B.push({el:stage,text:kidneyData[k].l+'. '+kidneyData[k].t, fx:fxHotspot(k)});
+        });
+        var card=ch.querySelector('.card');
+        B.push({el:card,text:txt(card.querySelector('h3'))+'. '+txt(card.querySelector('p'))});
+        detailBlocks(card).forEach(function(b){B.push(b)});
+      } else if(n===2){
+        detailBlocks(ch.querySelector('.acc')).forEach(function(b){B.push(b)});
+        var note=ch.querySelector('.panel-note'); if(note) B.push({el:note,text:txt(note)});
+      } else if(n===3){
+        var g=ch.querySelector('.gfr-wrap');
+        B.push({el:g,text:'Function is measured by e-G-F-R, an estimate of how much blood the kidneys clear each minute. As it falls, the stages of chronic kidney disease progress.'});
+        stages.forEach(function(s){ var v=s.min+(s.min===0?8:5); if(v>118)v=118; B.push({el:g,text:s.name+'. '+s.d, fx:fxGfr(v)}); });
+        var cards=ch.querySelectorAll('.card');
+        B.push({el:cards[1],text:'Acute kidney injury. '+akiData.aki, fx:fxSeg('#akiToggle','aki')});
+        B.push({el:cards[1],text:'Chronic kidney disease. '+akiData.ckd, fx:fxSeg('#akiToggle','ckd')});
+        B.push({el:cards[2],text:txt(cards[2].querySelector('h3'))+'. '+txt(cards[2].querySelector('p'))});
+        detailBlocks(cards[2]).forEach(function(b){B.push(b)});
+      } else if(n===4){
+        var sim=ch.querySelector('.sim');
+        [['diffusion'],['uf'],['osmosis'],['counter']].forEach(function(m){
+          B.push({el:sim,text:clean(caps[m[0]]), fx:fxSim(m[0])});
+        });
+        var card=ch.querySelector('.card');
+        B.push({el:card,text:txt(card.querySelector('h3'))+'.'});
+        detailBlocks(card).forEach(function(b){B.push(b)});
+      } else if(n===5){
+        var cs=ch.querySelector('.circuit-stage');
+        ['access','pump','heparin','dialyser','dialysate','airtrap'].forEach(function(k){
+          B.push({el:cs,text:circuitData[k].l+'. '+circuitData[k].t, fx:fxHotzone(k)});
+        });
+        var note=ch.querySelector('.panel-note'); if(note) B.push({el:note,text:txt(note)});
+      } else if(n===6){
+        detailBlocks(ch.querySelector('.acc')).forEach(function(b){B.push(b)});
+        var card=ch.querySelector('.card'), parts=[txt(card.querySelector('h3'))];
+        card.querySelectorAll('.panel-note').forEach(function(pn){parts.push(txt(pn))});
+        var it=card.querySelector('p[style]'); if(it) parts.push(txt(it));
+        B.push({el:card,text:parts.join('. ')});
+      } else if(n===7){
+        B.push({el:ch.querySelector('#acuteList'),text:'First, what can happen during a session.', fx:fxSeg('#compToggle','acute')});
+        detailBlocks(ch.querySelector('#acuteList')).forEach(function(b){B.push(b)});
+        B.push({el:ch.querySelector('#chronicList'),text:'Now the longer term picture, living with kidney failure.', fx:fxSeg('#compToggle','chronic')});
+        detailBlocks(ch.querySelector('#chronicList')).forEach(function(b){B.push(b)});
+      } else if(n===8){
+        detailBlocks(ch.querySelector('.acc')).forEach(function(b){B.push(b)});
+        var note=ch.querySelector('.panel-note'); if(note) B.push({el:note,text:txt(note)});
+      }
+      return B;
+    }
+
+    // ---- queue + playback ----
+    function buildQueue(n){
+      queue=[]; qi=0;
+      chapterScript(n).forEach(function(b){
+        splitSentences(clean(b.text)).forEach(function(sent,idx){ queue.push({text:sent, block:b, first:idx===0}); });
+      });
+    }
+    function progress(){
+      plFill.style.width=(queue.length?Math.min(100,Math.round((qi/queue.length)*100)):0)+'%';
+      plLabel.textContent=(cur>=1&&cur<=8)?chapters[cur-1].t:'Listening';
+    }
+    function setHighlight(el){
+      if(lastHi&&lastHi!==el) lastHi.classList.remove('tts-reading');
+      if(el){ el.classList.add('tts-reading'); lastHi=el; try{ el.scrollIntoView({block:'center',behavior:reduce?'auto':'smooth'}); }catch(e){} }
+    }
+    function clearHighlight(){ if(lastHi){ lastHi.classList.remove('tts-reading'); lastHi=null; } }
+
+    function speakCurrent(){
+      if(qi>=queue.length){ chapterEnd(); return; }
+      var item=queue[qi];
+      if(item.first){
+        var b=item.block;
+        if(b.open){ if(lastOpen&&lastOpen!==b.open) lastOpen.open=false; b.open.open=true; lastOpen=b.open; }
+        if(b.fx){ try{ b.fx(); }catch(e){} }
+        setHighlight(b.el);
+      }
+      progress();
+      var u=new SpeechSynthesisUtterance(item.text);
+      if(voice) u.voice=voice;
+      u.rate=rate; u.pitch=1; u.lang=(voice&&voice.lang)||'en-GB';
+      u.onend=function(){ if(stopping||!playing||paused) return; qi++; speakCurrent(); };
+      u.onerror=function(){ if(stopping||!playing||paused) return; qi++; speakCurrent(); };
+      try{ synth.speak(u); }catch(e){}
+    }
+    function cancelSpeech(){ stopping=true; try{ synth.cancel(); }catch(e){} stopping=false; }
+
+    function start(){
+      if(!(cur>=1&&cur<=8)) return;
+      cancelSpeech(); buildQueue(cur);
+      playing=true; paused=false; showPlayer(true); setPlayIcon(true); progress(); speakCurrent(); acquireWake();
+      if(lsGet('renal.hint','')!=='1'){ lsSet('renal.hint','1'); showToast('Playing aloud \u2014 the screen will stay awake while it reads. Audio still pauses if you leave the app or lock the screen.',null,null,true); }
+    }
+    function pause(){ if(!playing||paused) return; paused=true; cancelSpeech(); setPlayIcon(false); releaseWake(); }
+    function resume(){ if(!playing||!paused) return; paused=false; setPlayIcon(true); speakCurrent(); acquireWake(); }
+    function toggle(){ if(!playing) start(); else if(paused) resume(); else pause(); }
+    ttsStop=function(){ playing=false; paused=false; cancelSpeech(); clearHighlight(); showPlayer(false); releaseWake(); ttsUpdateFab(); };
+
+    function blockStart(i){ for(var k=Math.min(i,queue.length-1);k>=0;k--){ if(queue[k]&&queue[k].first) return k; } return 0; }
+    function nextBlock(i){ for(var k=i+1;k<queue.length;k++){ if(queue[k].first) return k; } return queue.length; }
+    function skipNext(){ if(!playing) return; qi=nextBlock(qi); paused=false; setPlayIcon(true); cancelSpeech(); speakCurrent(); }
+    function skipPrev(){ if(!playing) return; var s=blockStart(qi); qi=(qi>s)?s:blockStart(s-1); paused=false; setPlayIcon(true); cancelSpeech(); speakCurrent(); }
+
+    function chapterEnd(){
+      clearHighlight();
+      if(contPlay&&cur<8){
+        ttsNarratorNav=true; go(cur+1); ttsNarratorNav=false;
+        buildQueue(cur); playing=true; paused=false; setPlayIcon(true); progress();
+        setTimeout(function(){ if(playing&&!paused) speakCurrent(); },380);
+      } else { ttsStop(); showToast('Finished.',null,null,true); }
+    }
+
+    // ---- UI ----
+    var PLAY='<svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>';
+    var PAUSE='<svg viewBox="0 0 24 24"><path d="M7 5h3.2v14H7zM13.8 5H17v14h-3.2z"/></svg>';
+    function setPlayIcon(on){ plPlay.innerHTML=on?PAUSE:PLAY; plPlay.setAttribute('aria-label',on?'Pause':'Play'); }
+    function showPlayer(on){ player.classList.toggle('show',on); fab.classList.toggle('gone',on); }
+    ttsUpdateFab=function(){ var can=(cur>=1&&cur<=8)&&!playing&&!paused; fab.classList.toggle('gone',!can); if(!playing&&!paused) player.classList.remove('show'); };
+
+    function fmtRate(r){ return (Math.round(r*100)/100)+'\u00d7'; }
+    function cycleRate(){
+      var idx=RATES.indexOf(rate); if(idx<0) idx=1; rate=RATES[(idx+1)%RATES.length];
+      lsSet('renal.rate',String(rate)); plRate.textContent=fmtRate(rate);
+      if(playing&&!paused){ cancelSpeech(); speakCurrent(); }
+    }
+    function renderVoiceList(){
+      if(!voiceList) return;
+      var en=voices.filter(function(v){return /^en/i.test(v.lang)});
+      var rest=voices.filter(function(v){return !/^en/i.test(v.lang)});
+      var all=en.concat(rest);
+      if(!all.length){ voiceList.innerHTML='<p class="cfg-empty">No extra voices found yet. On iPhone or iPad you can add higher-quality ones in Settings, Accessibility, Spoken Content, Voices.</p>'; return; }
+      voiceList.innerHTML='';
+      all.slice(0,40).forEach(function(v){
+        var b=document.createElement('button');
+        b.className='voice-row'+((voice&&voice.name===v.name)?' on':'');
+        b.innerHTML='<span class="vn">'+esc(v.name)+'</span><span class="vl">'+esc(v.lang)+(v.localService?' \u00b7 on-device':'')+'</span>';
+        b.addEventListener('click',function(){ selectVoice(v); });
+        voiceList.appendChild(b);
+      });
+    }
+    function selectVoice(v){
+      voice=v; voiceName=v.name; lsSet('renal.voice',v.name); renderVoiceList();
+      cancelSpeech();
+      if(playing&&!paused){ speakCurrent(); }
+      else { var s=new SpeechSynthesisUtterance('Haemodialysis. This is the voice you will hear.'); s.voice=v; s.rate=rate; s.lang=v.lang||'en-GB'; try{ synth.speak(s); }catch(e){} }
+    }
+    function renderCont(){ contToggle.classList.toggle('on',contPlay); contToggle.setAttribute('aria-checked',contPlay?'true':'false'); }
+
+    fab.addEventListener('click',start);
+    plPlay.addEventListener('click',toggle);
+    plPrev.addEventListener('click',skipPrev);
+    plNext.addEventListener('click',skipNext);
+    plStop.addEventListener('click',function(){ ttsStop(); });
+    plRate.addEventListener('click',cycleRate);
+    plCfg.addEventListener('click',function(){ renderVoiceList(); voiceOverlay.classList.add('show'); });
+    voiceOverlay.addEventListener('click',function(e){ if(e.target===voiceOverlay) voiceOverlay.classList.remove('show'); });
+    contToggle.addEventListener('click',function(){ contPlay=!contPlay; lsSet('renal.cont',contPlay?'1':'0'); renderCont(); });
+    window.addEventListener('pagehide',function(){ try{ synth.cancel(); }catch(e){} releaseWake(); });
+    document.addEventListener('visibilitychange',function(){ if(document.visibilityState==='visible' && playing && !paused) acquireWake(); });
+    document.addEventListener('keydown',function(e){ if(e.key==='Escape') voiceOverlay.classList.remove('show'); });
+
+    plRate.textContent=fmtRate(rate); setPlayIcon(false); renderCont();
+
+    // expose a tiny read-only hook for testing / debugging
+    window.renalListen={ buildQueue:function(n){ buildQueue(n); return queue.map(function(q){return q.text;}); },
+      state:function(){ return {playing:playing,paused:paused,qi:qi,len:queue.length,voice:voice&&voice.name,rate:rate,cont:contPlay}; },
+      _start:start, _advance:function(){ if(playing&&!paused){ qi++; speakCurrent(); } }, _stop:function(){ ttsStop(); } };
+  })();
+
   // init
   go(0);
 })();
 </script>
+
 </body>
 </html>
