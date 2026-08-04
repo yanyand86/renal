@@ -772,8 +772,179 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
   <div class="panel-note"><strong>Remember:</strong> this app names <em>groups and reasons</em>, not doses or specific drugs. Always check the individual patient's plan and your local formulary.</div>
 </section>
 
-<!-- ===== 09 QUIZ ===== -->
+<!-- ===== 09 MONTHLY BLOODS ===== -->
 <section class="chapter" id="ch-9">
+  <div class="ch-head">
+    <div class="ch-kicker"><span>09 &middot; Monitoring</span><span class="line"></span></div>
+    <h2>QA bloods &amp; urine</h2>
+    <p class="lede">Quality Assurance is how we prove the dialysis is doing enough, and how each patient's dose gets individualised. The numbers only mean something if the samples were taken exactly right &mdash; so here, technique <em>is</em> the test.</p>
+  </div>
+
+  <div class="card">
+    <h3>What it's all for</h3>
+    <p style="font-size:14.5px;color:var(--ink-soft);line-height:1.6">The delivered dose of dialysis is directly linked to how patients do, so the department uses <strong>urea kinetic modelling</strong> to check what each patient is actually receiving and to set an individualised prescription. Two measurements feed it: how much the dialyser cleared (the QA pre/post pair) and how much the patient's own kidneys still clear (KRU, from the urine collection). Results are reviewed at the weekly QA meetings, and a Kt/V that is under- or over-achieving gets referred to the senior nurse or doctor.</p>
+    <div class="panel-note" style="margin-top:12px"><strong>Teaching line:</strong> we aren't collecting numbers for a file. A wrong sample can change how long someone sits in that chair every week.</div>
+  </div>
+
+  <div class="card">
+    <h3>Taking the samples</h3>
+    <p style="font-size:14.5px;color:var(--ink-soft);margin-bottom:12px">Two samples around one session, each with its own procedure. Tap between them.</p>
+    <div class="seg" id="bloodToggle" style="margin-bottom:12px">
+      <button class="on" data-t="pre">Pre-dialysis</button>
+      <button data-t="post">Post-dialysis</button>
+    </div>
+    <div class="acc" id="preList">
+      <details class="item" open><summary><span class="tag t-fluid">1</span><span class="summary-txt">Before dialysis starts<small>After needling or removing the line lock</small></span><span class="chev">&rsaquo;</span></summary><div class="reveal"><p>The sample is taken as part of putting the patient on, once the needle is in or the line limb lock is off, and <em>before</em> haemodialysis begins.</p><div class="why"><b>Non-negotiable:</b> dilution with saline or anticoagulant must be avoided. If dialysis has already started, or the sample is diluted, the result is inaccurate and the sample should be <b>discarded</b> &mdash; not sent and caveated.</div></div></details>
+      <details class="item"><summary><span class="tag t-blood">2</span><span class="summary-txt">Fistula only &mdash; discard 10 mL<small>The step most often missed</small></span><span class="chev">&rsaquo;</span></summary><div class="reveal"><p>With a fistula or graft, withdraw 10 mL of blood and discard it first. Clamp the needle, remove the syringe and place it carefully at the edge of the sterile pack.</p><div class="why"><b>Why:</b> it clears diluted blood from the needle so what you sample is the patient's actual circulating blood.</div></div></details>
+      <details class="item"><summary><span class="tag t-fluid">3</span><span class="summary-txt">Draw the sample<small>Connector to needle or RDC limb</small></span><span class="chev">&rsaquo;</span></summary><div class="reveal"><p>Connect the blood sampling connector and tube to the fistula needle or RDC limb, release the needle clamp (fistula only) and withdraw what's needed. Dispose of the connector into the sharps bin, then initiate haemodialysis as prescribed so the access doesn't clot.</p></div></details>
+      <details class="item"><summary><span class="tag t-amber">4</span><span class="summary-txt">Label at the patient's side<small>Never away from the chair</small></span><span class="chev">&rsaquo;</span></summary><div class="reveal"><p>Label the tubes while still with the patient, so the sample can't be misattributed.</p></div></details>
+      <details class="item"><summary><span class="tag t-violet">5</span><span class="summary-txt">Centrifuge if potassium or U&amp;E<small>Other pre bloods don't need it</small></span><span class="chev">&rsaquo;</span></summary><div class="reveal"><p>A serum potassium or U&amp;E must be centrifuged for an accurate serum result. Other pre-dialysis bloods don't require it. Send everything with the ICE request form, then document in the patient's electronic record.</p></div></details>
+    </div>
+    <div class="acc" id="postList" style="display:none">
+      <details class="item" open><summary><span class="tag t-sage">1</span><span class="summary-txt">PPE and swab the port<small>30 seconds, and let it dry</small></span><span class="chev">&rsaquo;</span></summary><div class="reveal"><p>Hand hygiene, then gloves, apron and eye protection &mdash; this step risks blood splashes. Swab the <b>arterial sampling port</b> with an alcohol or chlorhexidine 2% wipe for a full 30 seconds.</p></div></details>
+      <details class="item"><summary><span class="tag t-blood">2</span><span class="summary-txt">Drop to 100 mL/min for 30 seconds<small>The critical step</small></span><span class="chev">&rsaquo;</span></summary><div class="reveal"><p>At the completion of dialysis, decrease the blood flow to <b>100 mL/min for 30 seconds</b>.</p><div class="why"><b>Why:</b> it fills the arterial blood line with non-recirculated blood, so you sample the patient rather than blood that has just crossed the dialyser. Skip it and the urea reads falsely low.</div></div></details>
+      <details class="item"><summary><span class="tag t-fluid">3</span><span class="summary-txt">Draw with the pump still running<small>From the arterial sampling port</small></span><span class="chev">&rsaquo;</span></summary><div class="reveal"><p>Leave the blood pump running and withdraw the sample from the arterial sampling port using the appropriate connector, needle and tube. Dispose of sharps, then continue with disconnection as normal.</p></div></details>
+      <details class="item"><summary><span class="tag t-amber">4</span><span class="summary-txt">Label, centrifuge, send<small>And document</small></span><span class="chev">&rsaquo;</span></summary><div class="reveal"><p>Label at the patient's side, centrifuge the sample, and send to pathology with the ICE request form &mdash; by courier if needed. Record in the patient's electronic notes that the bloods have gone.</p></div></details>
+      <details class="item"><summary><span class="tag t-violet">◔</span><span class="summary-txt">Mid-dialysis samples<small>Mainly blood sugar</small></span><span class="chev">&rsaquo;</span></summary><div class="reveal"><p>A mid-dialysis sample may be needed for blood glucose monitoring, taken the same way from the swabbed arterial port but without the flow reduction &mdash; then continue with point-of-care testing.</p></div></details>
+    </div>
+    <div class="panel-note" style="margin-top:12px;border-left:4px solid var(--crimson);background:var(--crimson-tint)"><strong>The three-minute rule:</strong> if dialysis has been interrupted for more than three minutes for any reason, the samples are inaccurate and must not be used for urea kinetic modelling.</div>
+  </div>
+
+  <div class="card">
+    <h3>Why the flow reduction matters</h3>
+    <p style="font-size:14.5px;color:var(--ink-soft);margin-bottom:6px">Those 30 seconds at 100 mL/min are the difference between measuring the patient and measuring the machine. Three things work against you:</p>
+    <div class="acc">
+      <details class="item" open><summary><span class="tag t-blood">&#8634;</span><span class="summary-txt">Access recirculation<small>Clean blood re-entering the arterial needle</small></span><span class="chev">&rsaquo;</span></summary><div class="reveal"><p>Blood returning through the venous needle can be drawn straight back into the arterial needle &mdash; especially if the needles sit close together, the lines are reversed, or access flow is poor. That blood has already crossed the dialyser, so its urea is low.</p></div></details>
+      <details class="item"><summary><span class="tag t-fluid">&#9829;</span><span class="summary-txt">Cardiopulmonary recirculation<small>Clean blood round the heart and lungs</small></span><span class="chev">&rsaquo;</span></summary><div class="reveal"><p>Cleaned blood returning to the heart and lungs can come back round to the access before it has mixed with the urea still sitting in the body's tissues. Again &mdash; a falsely low reading.</p></div></details>
+      <details class="item"><summary><span class="tag t-amber">&#8599;</span><span class="summary-txt">Urea rebound<small>Why the number climbs after you stop</small></span><span class="chev">&rsaquo;</span></summary><div class="reveal"><p>Once the pump stops, urea moves out of the tissues back into the blood, so the level rises again over the next half hour or so. This is why the sample is taken at the completion of dialysis rather than later, and why an equilibrated Kt/V reads lower than the simple one.</p></div></details>
+    </div>
+    <div class="panel-note" style="border-left:4px solid var(--crimson);background:var(--crimson-tint)"><strong>What's at stake:</strong> a falsely low post urea makes the URR and Kt/V look <em>better</em> &mdash; so an under-dialysed patient appears adequate and nobody acts. The 30 seconds is a patient-safety step, not a formality.</div>
+  </div>
+
+  <div class="card">
+    <h3>The adequacy sum</h3>
+    <p style="font-size:14.5px;color:var(--ink-soft);margin-bottom:2px">The pre and post pair answer one question: <em>did this session clear enough?</em> The laboratory does the calculation &mdash; but knowing how it moves tells you when a result looks wrong. Drag the sliders.</p>
+    <div class="slider-row">
+      <label>Pre-dialysis urea <b id="preLabel">24.0 mmol/L</b></label>
+      <input type="range" id="preUrea" min="100" max="400" value="240" step="5">
+    </div>
+    <div class="slider-row">
+      <label>Post-dialysis urea <b id="postLabel">7.0 mmol/L</b></label>
+      <input type="range" id="postUrea" min="15" max="200" value="70" step="5">
+    </div>
+    <div class="gfr-wrap" style="margin-top:8px">
+      <div class="gfr-read"><span class="big" id="urrVal">70</span> <span class="unit">% urea reduction</span></div>
+      <div class="stage-badge" id="urrBadge">Adequate</div>
+      <p class="gfr-desc" id="urrDesc"></p>
+    </div>
+    <div class="acc" style="margin-top:4px">
+      <details class="item"><summary><span class="tag t-sage">%</span><span class="summary-txt">URR &mdash; urea reduction ratio<small>The simple one</small></span><span class="chev">&rsaquo;</span></summary><div class="reveal"><p>The percentage fall in urea across one session: pre minus post, divided by pre. Quick to picture and easy to explain, but it ignores the fluid removed and the patient's size.</p><div class="why"><b>Commonly used minimum:</b> at least 65%.</div></div></details>
+      <details class="item"><summary><span class="tag t-fluid">Kt/V</span><span class="summary-txt">Kt/V<small>What the prescription is set on</small></span><span class="chev">&rsaquo;</span></summary><div class="reveal"><p>Goes further than URR by also accounting for the fluid removed and the patient's total body water, so it compares fairly between a large patient and a small one. This is the figure used for urea kinetic modelling and the one reviewed at QA meetings.</p><div class="why"><b>The figures:</b> around 1.2 is the usual minimum for three sessions a week, and results here typically sit in the <b>1.4</b> range. Both under-achieving <em>and</em> over-achieving Kt/V get referred to the senior nurse or doctor.</div></div></details>
+      <details class="item"><summary><span class="tag t-violet">&#8644;</span><span class="summary-txt">Cross-check the pair<small>When a result doesn't add up</small></span><span class="chev">&rsaquo;</span></summary><div class="reveal"><p>URR and Kt/V come from the same two bottles, so they move together &mdash; a Kt/V around 1.4 sits roughly alongside a URR near 70%. If one month they disagree sharply, or a patient's usually steady figures swing without their prescription changing, suspect the sampling before you suspect the dialysis.</p></div></details>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>The two QA sets</h3>
+    <p style="font-size:14.5px;color:var(--ink-soft);margin-bottom:12px">The round is ordered as two request sets across two sessions &mdash; the names below match the screen you'll order from.</p>
+    <div class="seg" id="qaToggle" style="margin-bottom:12px">
+      <button class="on" data-t="start">QA START &middot; Mon&ndash;Tues</button>
+      <button data-t="end">QA END &middot; Weds&ndash;Thurs</button>
+    </div>
+    <div class="acc" id="qaStartList">
+      <details class="item" open><summary><span class="tag t-violet">1</span><span class="summary-txt">Urea, Electrolytes and Creat (U&amp;E)<small>Pre-dialysis, at connection</small></span><span class="chev">&rsaquo;</span></summary><div class="reveal"><p>The pre sample for the adequacy pair, taken before the anticoagulant and before any flush. Centrifuge it, since it's a U&amp;E.</p></div></details>
+      <details class="item"><summary><span class="tag t-blood">2</span><span class="summary-txt">Post Dialysis urea &amp; Creatinine<small>End of the same session</small></span><span class="chev">&rsaquo;</span></summary><div class="reveal"><p>Drawn after 30 seconds at 100 mL/min. It does two jobs: it pairs with the pre U&amp;E for URR and Kt/V, and it establishes the blood urea at the <em>start</em> of the KRU collection.</p></div></details>
+      <details class="item"><summary><span class="tag t-fluid">3</span><span class="summary-txt">Urine Interdialytic (IDUR)<small>Containers issued</small></span><span class="chev">&rsaquo;</span></summary><div class="reveal"><p>Give the patient the right number of two-litre containers for their usual output, labelled with name and hospital number, plus the patient information sheet. The ICE request form is printed today and kept in their dialysis equipment box, ready for the next session.</p></div></details>
+    </div>
+    <div class="acc" id="qaEndList" style="display:none">
+      <details class="item" open><summary><span class="tag t-blood">&#9684;</span><span class="summary-txt">Full Blood Count (FBC)<small>Haemoglobin</small></span><span class="chev">&rsaquo;</span></summary><div class="reveal"><p>Sets the anaemia treatment &mdash; whether the EPO-type medicine goes up, down or holds. The trend matters more than any single value.</p></div></details>
+      <details class="item"><summary><span class="tag t-fluid">&#8779;</span><span class="summary-txt">Bicarbonate<small>Ordered separately here</small></span><span class="chev">&rsaquo;</span></summary><div class="reveal"><p>Shows whether the acid load is being corrected between sessions. A persistently low result can prompt a change to the dialysate buffer.</p></div></details>
+      <details class="item"><summary><span class="tag t-violet">&#9889;</span><span class="summary-txt">Urea, Electrolytes and Creat (U&amp;E)<small>Pre-dialysis</small></span><span class="chev">&rsaquo;</span></summary><div class="reveal"><p>Potassium, sodium, urea and creatinine. This one also <em>closes</em> the KRU window &mdash; but only take it once you've confirmed the urine collection is complete and over 150 mL.</p></div></details>
+      <details class="item"><summary><span class="tag t-sage">&#11041;</span><span class="summary-txt">Bone Profile<small>Calcium, phosphate, alkaline phosphatase</small></span><span class="chev">&rsaquo;</span></summary><div class="reveal"><p>Drives binder and vitamin D decisions. A rising phosphate is often a conversation about diet and about whether binders are being taken <em>with</em> meals, rather than a straight dose increase.</p></div></details>
+      <details class="item"><summary><span class="tag t-amber">Fe</span><span class="summary-txt">Transferrin Saturation<small>Iron actually available</small></span><span class="chev">&rsaquo;</span></summary><div class="reveal"><p>How much iron is available to the marrow right now, as opposed to how much is in store. Read together with ferritin and the haemoglobin.</p></div></details>
+      <details class="item"><summary><span class="tag t-blood">CRP</span><span class="summary-txt">C Reactive Protein (CRP)<small>Inflammation</small></span><span class="chev">&rsaquo;</span></summary><div class="reveal"><p>Flags infection or inflammation &mdash; which both blunts the response to anaemia treatment and pushes ferritin up. A high CRP changes how you read the iron results, so it isn't an optional extra.</p></div></details>
+      <details class="item"><summary><span class="tag t-amber">&#9672;</span><span class="summary-txt">Ferritin<small>Iron stores</small></span><span class="chev">&rsaquo;</span></summary><div class="reveal"><p>The stored iron figure. There's no point pushing an EPO-type medicine into a patient with nothing to build red cells from &mdash; but ferritin rises with inflammation, so it's read next to the CRP.</p></div></details>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>The extra tiers</h3>
+    <p style="font-size:14.5px;color:var(--ink-soft);margin-bottom:6px">Alongside the monthly QA sets, three further sets run on longer cycles.</p>
+    <div class="acc">
+      <details class="item"><summary><span class="tag t-amber">3m</span><span class="summary-txt">3 monthly extra HD tests<small>Seven items</small></span><span class="chev">&rsaquo;</span></summary><div class="reveal"><p>Liver function test, glucose, HbA1c monitoring, parathyroid hormone, the RDU 3-monthly dialysis screen, a Staph aureus screen, and a haemodialysis catheter exit site culture.</p><div class="why"><b>Note the pattern:</b> PTH sits here rather than monthly because it's read as a slower trend alongside the bone profile. The screens and exit-site culture are infection surveillance &mdash; they protect the whole unit, not just that patient.</div></div></details>
+      <details class="item"><summary><span class="tag t-sage">6m</span><span class="summary-txt">6 monthly extra HD tests<small>Two items</small></span><span class="chev">&rsaquo;</span></summary><div class="reveal"><p>Glucose, and beta-2 microglobulin.</p><div class="why"><b>Why beta-2:</b> it's a middle molecule that healthy kidneys clear but dialysis removes far less efficiently. Over years it can accumulate and deposit in joints, so it's tracked over the long term.</div></div></details>
+      <details class="item"><summary><span class="tag t-blood">1y</span><span class="summary-txt">Annual extra HD tests<small>One item</small></span><span class="chev">&rsaquo;</span></summary><div class="reveal"><p>Hepatitis B immunity, post-vaccination.</p><div class="why"><b>Why annually:</b> vaccine protection wanes, and immunity is often weaker in kidney failure. Checking the antibody level shows whether a patient is still protected or needs a booster &mdash; important where patients share a unit.</div></div></details>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>The urine collection (KRU)</h3>
+    <p style="font-size:14.5px;color:var(--ink-soft);line-height:1.6;margin-bottom:4px">KRU is residual renal urea clearance &mdash; how much the patient's own kidneys still clear. It contributes to their total clearance, so it directly shapes the prescription. It declines rapidly once dialysis starts, which is why every patient who passes urine has it measured.</p>
+    <div class="acc">
+      <details class="item" open><summary><span class="tag t-fluid">1</span><span class="summary-txt">Start day &mdash; empty first<small>Before dialysis begins</small></span><span class="chev">&rsaquo;</span></summary><div class="reveal"><p>The patient must completely empty their bladder, urostomy bag or catheter bag <em>before</em> the session starts. That urine is not collected &mdash; it starts the window from empty.</p><div class="why"><b>Then, on completion of that session:</b> take the post-dialysis urea and creatinine. That establishes the blood urea at the start of the KRU window.</div></div></details>
+      <details class="item"><summary><span class="tag t-amber">2</span><span class="summary-txt">Issue the containers<small>Two-litre, named and numbered</small></span><span class="chev">&rsaquo;</span></summary><div class="reveal"><p>Give the right number of two-litre containers for that patient's usual interdialytic output, labelled with their name and hospital number, along with the patient information sheet. If they pass more than two litres in two days, they need an extra bottle. Instruct them to collect <em>all</em> urine up to their next appointment.</p></div></details>
+      <details class="item"><summary><span class="tag t-sage">3</span><span class="summary-txt">Which sessions?<small>Different for twice-weekly patients</small></span><span class="chev">&rsaquo;</span></summary><div class="reveal"><p>On <b>three-times-weekly</b> dialysis the collection starts on the <b>first</b> dialysis of the week and finishes on the <b>second</b>.</p><p>On <b>twice-weekly</b> dialysis it starts on the <b>second</b> dialysis of the week and finishes on the <b>first dialysis of the following week</b>.</p></div></details>
+      <details class="item"><summary><span class="tag t-blood">4</span><span class="summary-txt">End day &mdash; ask before you take<small>The order matters</small></span><span class="chev">&rsaquo;</span></summary><div class="reveal"><p>First, check with the patient whether any of the collection was missed. Remember they empty their bladder before this session too, and that goes in.</p><div class="why"><b>Only if the collection is complete and over 150 mL:</b> take the pre-dialysis U&amp;E, then send the blood and the urine together with the ICE forms. The urine goes for urea, protein, creatinine and volume.</div></div></details>
+      <details class="item"><summary><span class="tag t-blood">5</span><span class="summary-txt">Incomplete or under 150 mL<small>Send nothing</small></span><span class="chev">&rsaquo;</span></summary><div class="reveal"><p>If any was missed, or the volume is under 150 mL, <b>do not send the urine or the blood</b>. Discard the collection, cancel the test, and tell the dialysis nurse so it can be rescheduled.</p><div class="why"><b>Why so strict:</b> an incomplete collection understates residual function &mdash; and since KRU feeds the prescription, that can wrongly lengthen a patient's dialysis time. Saying "some was missed" is the right answer, every time.</div></div></details>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>The QA cycle</h3>
+    <p style="font-size:14.5px;color:var(--ink-soft)">Two sessions, two request sets, and the urine collected across the gap between them &mdash; but the gap differs by dialysis pattern:</p>
+    <svg viewBox="0 0 360 200" style="width:100%;height:auto;margin-top:12px" aria-label="KRU collection windows for three times weekly and twice weekly patients">
+      <text x="6" y="14" font-family="IBM Plex Mono" font-size="9.5" fill="var(--petrol)" letter-spacing="1">3&times; WEEKLY</text>
+      <rect x="6" y="22" width="122" height="46" rx="12" fill="var(--crimson-tint)" stroke="var(--crimson-soft)" stroke-width="2"/>
+      <rect x="232" y="22" width="122" height="46" rx="12" fill="var(--petrol-tint)" stroke="var(--petrol)" stroke-width="2"/>
+      <text x="67" y="42" font-family="Inter" font-size="10.5" font-weight="600" fill="var(--ink)" text-anchor="middle">1st dialysis</text>
+      <text x="67" y="57" font-family="Inter" font-size="9" fill="var(--ink-faint)" text-anchor="middle">of the week</text>
+      <text x="293" y="42" font-family="Inter" font-size="10.5" font-weight="600" fill="var(--ink)" text-anchor="middle">2nd dialysis</text>
+      <text x="293" y="57" font-family="Inter" font-size="9" fill="var(--ink-faint)" text-anchor="middle">of the week</text>
+      <path d="M132,45 L224,45" stroke="var(--amber)" stroke-width="3" stroke-dasharray="3 5" fill="none"/>
+      <path d="M226,45 L217,40 L217,50 Z" fill="var(--amber)"/>
+      <text x="178" y="36" font-family="Inter" font-size="8.5" fill="#9C6410" text-anchor="middle" font-weight="600">urine collected</text>
+
+      <text x="6" y="98" font-family="IBM Plex Mono" font-size="9.5" fill="var(--petrol)" letter-spacing="1">2&times; WEEKLY</text>
+      <rect x="6" y="106" width="122" height="46" rx="12" fill="var(--crimson-tint)" stroke="var(--crimson-soft)" stroke-width="2"/>
+      <rect x="232" y="106" width="122" height="46" rx="12" fill="var(--petrol-tint)" stroke="var(--petrol)" stroke-width="2"/>
+      <text x="67" y="126" font-family="Inter" font-size="10.5" font-weight="600" fill="var(--ink)" text-anchor="middle">2nd dialysis</text>
+      <text x="67" y="141" font-family="Inter" font-size="9" fill="var(--ink-faint)" text-anchor="middle">of the week</text>
+      <text x="293" y="126" font-family="Inter" font-size="10.5" font-weight="600" fill="var(--ink)" text-anchor="middle">1st dialysis</text>
+      <text x="293" y="141" font-family="Inter" font-size="9" fill="var(--ink-faint)" text-anchor="middle">following week</text>
+      <path d="M132,129 L224,129" stroke="var(--amber)" stroke-width="3" stroke-dasharray="3 5" fill="none"/>
+      <path d="M226,129 L217,124 L217,134 Z" fill="var(--amber)"/>
+      <text x="178" y="120" font-family="Inter" font-size="8.5" fill="#9C6410" text-anchor="middle" font-weight="600">urine collected</text>
+
+      <line x1="6" y1="168" x2="354" y2="168" stroke="var(--mist)" stroke-width="1"/>
+      <text x="67" y="184" font-family="Inter" font-size="8.5" fill="var(--ink-soft)" text-anchor="middle">empty bladder &middot; post urea</text>
+      <text x="67" y="195" font-family="Inter" font-size="8.5" fill="var(--ink-soft)" text-anchor="middle">containers issued</text>
+      <text x="293" y="184" font-family="Inter" font-size="8.5" fill="var(--ink-soft)" text-anchor="middle">check complete &amp; &gt;150 mL</text>
+      <text x="293" y="195" font-family="Inter" font-size="8.5" fill="var(--ink-soft)" text-anchor="middle">then pre U&amp;E</text>
+    </svg>
+    <div class="acc" style="margin-top:12px">
+      <details class="item"><summary><span class="tag t-sage">&#9719;</span><span class="summary-txt">Who's in and who isn't<small>Scope of the programme</small></span><span class="chev">&rsaquo;</span></summary><div class="reveal"><p>All chronic kidney disease patients on the haemodialysis programme, including those transferring in from other units or therapies. Holiday patients are excluded, as are patients who decline to follow the procedure.</p></div></details>
+      <details class="item"><summary><span class="tag t-amber">&#9998;</span><span class="summary-txt">Rescheduling<small>Whose job it is</small></span><span class="chev">&rsaquo;</span></summary><div class="reveal"><p>Re-scheduling incomplete tests sits with the registered nurses and primary nurses, and support workers are expected to report when a requested test hasn't been taken. Both halves of the pair need rebooking together &mdash; one set without the other gives neither adequacy nor KRU.</p></div></details>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Getting it right &mdash; the usual slips</h3>
+    <div class="two">
+      <div class="panel-note"><strong>Post sample at full speed</strong> &mdash; skipping the 30 seconds at 100 mL/min. Flatters both URR and Kt/V.</div>
+      <div class="panel-note"><strong>Forgetting the 10 mL discard</strong> &mdash; fistula and graft pre samples only. Without it you're measuring diluted blood.</div>
+      <div class="panel-note"><strong>Sampling after dialysis has started</strong> &mdash; or after a flush. Discard it; don't send it caveated.</div>
+      <div class="panel-note"><strong>Not centrifuging</strong> &mdash; potassium and U&amp;E samples need it for an accurate serum result.</div>
+      <div class="panel-note"><strong>Haemolysis</strong> &mdash; damaged cells leak potassium and give a falsely high result. Avoid excessive suction and rough handling.</div>
+      <div class="panel-note"><strong>Sending a short collection</strong> &mdash; under 150 mL or incomplete goes nowhere. Cancel and reschedule.</div>
+      <div class="panel-note"><strong>Interrupted session</strong> &mdash; over three minutes and the samples can't be used for modelling.</div>
+      <div class="panel-note"><strong>Labelling away from the chair</strong> &mdash; label at the patient's side, every time.</div>
+    </div>
+    <div class="panel-note" style="margin-top:12px"><strong>Source:</strong> this chapter follows the Trust's Procedures for Obtaining Haemodialysis Blood Samples (Doc 2077), the Procedure for Interdialytic Urine Collection &mdash; KRU (REN 029), and the Protocol for Urea Kinetic Modelling in Haemodialysis Patients (REN 034). Always check the current version on the intranet.</div>
+  </div>
+</section>
+
+<!-- ===== 10 QUIZ ===== -->
+<section class="chapter" id="ch-10">
   <div class="ch-head">
     <div class="ch-kicker"><span>Quiz · Test yourself</span><span class="line"></span></div>
     <h2>Check your understanding</h2>
@@ -852,6 +1023,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
     {t:"Vascular access", d:"Fistula, graft & line"},
     {t:"Complications", d:"During & long-term"},
     {t:"Medications", d:"By the problem they solve"},
+    {t:"QA bloods & urine", d:"Sampling, adequacy & KRU"},
     {t:"Test yourself", d:"Quick quiz for trainees"}
   ];
 
@@ -905,7 +1077,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
     Array.prototype.forEach.call(dots.children,function(d,i){d.classList.toggle('on',i===cur-1)});
     // menu current
     Array.prototype.forEach.call(menuList.children,function(m){m.classList.toggle('current', +m.dataset.i===cur)});
-    if(cur===9) quizReset();
+    if(cur===10) quizReset();
     startAnim(cur);
     if(!ttsNarratorNav && typeof ttsStop==='function') ttsStop();
     if(typeof ttsUpdateFab==='function') ttsUpdateFab();
@@ -1128,6 +1300,51 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
   function updUf(){var v=(+ufRange.value/10).toFixed(1); ufVal.innerHTML=v+' <small>L</small>'; ufLabel.textContent=v+' L';}
   ufRange.addEventListener('input',updUf); updUf();
 
+  // ================= QA BLOODS =================
+  // pre / post sampling procedure — swap two step lists
+  var bloodToggle=document.getElementById('bloodToggle'),
+      preList=document.getElementById('preList'), postList=document.getElementById('postList');
+  bloodToggle.addEventListener('click',function(e){
+    var b=e.target.closest('button'); if(!b) return;
+    bloodToggle.querySelectorAll('button').forEach(function(o){o.classList.remove('on')});
+    b.classList.add('on');
+    var isPre=b.dataset.t==='pre';
+    preList.style.display=isPre?'flex':'none';
+    postList.style.display=isPre?'none':'flex';
+  });
+
+  // URR calculator — sliders hold urea ×10 so we get one decimal without float steps
+  var preUrea=document.getElementById('preUrea'), postUrea=document.getElementById('postUrea'),
+      preLabel=document.getElementById('preLabel'), postLabel=document.getElementById('postLabel'),
+      urrVal=document.getElementById('urrVal'), urrBadge=document.getElementById('urrBadge'), urrDesc=document.getElementById('urrDesc');
+  function updUrr(){
+    var pre=+preUrea.value/10, post=+postUrea.value/10;
+    if(post>pre){ post=pre; postUrea.value=preUrea.value; }
+    preLabel.textContent=pre.toFixed(1)+' mmol/L';
+    postLabel.textContent=post.toFixed(1)+' mmol/L';
+    var urr = pre>0 ? Math.round(((pre-post)/pre)*100) : 0;
+    urrVal.textContent=urr;
+    var s;
+    if(urr<65) s={n:'Below target',bg:'#F4E2DF',fg:'#B23A32',d:'Under the figure most units work to. Prompts a look at session time, blood and dialysate flow, the access, and whether the patient is cutting sessions short — and a check that the post sample itself was taken correctly.'};
+    else if(urr<70) s={n:'Adequate',bg:'#F6ECD9',fg:'#9C6410',d:'At or just above the commonly used minimum. Acceptable, but with little margin — worth watching the trend rather than treating one result as settled.'};
+    else s={n:'Comfortably above',bg:'#E1ECE6',fg:'#3F7361',d:'A good clearance for this session. Remember Kt/V is read alongside it, since URR alone ignores the fluid removed and the patient\u2019s size.'};
+    urrBadge.textContent=s.n; urrBadge.style.background=s.bg; urrBadge.style.color=s.fg;
+    urrDesc.textContent=s.d;
+  }
+  preUrea.addEventListener('input',updUrr); postUrea.addEventListener('input',updUrr); updUrr();
+
+  // QA START / QA END request-set toggle
+  var qaToggle=document.getElementById('qaToggle'),
+      qaStartList=document.getElementById('qaStartList'), qaEndList=document.getElementById('qaEndList');
+  qaToggle.addEventListener('click',function(e){
+    var b=e.target.closest('button'); if(!b) return;
+    qaToggle.querySelectorAll('button').forEach(function(o){o.classList.remove('on')});
+    b.classList.add('on');
+    var isStart=b.dataset.t==='start';
+    qaStartList.style.display=isStart?'flex':'none';
+    qaEndList.style.display=isStart?'none':'flex';
+  });
+
   // ================= COMPLICATIONS toggle =================
   var compToggle=document.getElementById('compToggle');
   var acuteList=document.getElementById('acuteList'), chronicList=document.getElementById('chronicList');
@@ -1246,8 +1463,44 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
     {ch:8,q:"Why are water-soluble vitamins replaced in dialysis patients?",a:["They aren't absorbed from food","They're small enough to diffuse into the dialysate and be lost","They're bound by phosphate binders","The kidney normally makes them"],c:1,
      e:"The B and C groups cross the membrane along with the waste, so they're topped up."},
     {ch:8,q:"How is acidosis corrected in a haemodialysis patient?",a:["An oral tablet only","Bicarbonate buffer in the dialysate","By raising the blood pump speed","By the anticoagulant"],c:1,
-     e:"The treatment itself takes over the kidney's acid-clearing job — the dialysate is buffered to correct blood pH."}
-  ];
+     e:"The treatment itself takes over the kidney's acid-clearing job — the dialysate is buffered to correct blood pH."},
+
+    // --- 9 QA bloods & urine ---
+    {ch:9,q:"For the post-dialysis sample, what exactly do you do first?",a:["Stop the blood pump completely","Reduce blood flow to 100 mL/min for 30 seconds","Reduce blood flow to 50 mL/min for 2 minutes","Clamp the venous line"],c:1,
+     e:"100 mL/min for 30 seconds fills the arterial line with non-recirculated blood, with the pump still running. Then draw from the arterial sampling port."},
+    {ch:9,q:"A post-dialysis urea taken at full pump speed will make the URR look:",a:["Falsely low","Falsely high","Unchanged","Impossible to calculate"],c:1,
+     e:"Recirculated blood has already been cleaned, so the post urea reads low, the apparent fall is bigger, and an under-dialysed patient looks adequate."},
+    {ch:9,q:"Before a pre-dialysis sample from a fistula, what must you do?",a:["Flush with 10 mL saline","Withdraw and discard 10 mL of blood","Run the pump for 30 seconds","Nothing extra"],c:1,
+     e:"Fistulas and grafts only: discard 10 mL first, so you sample circulating blood rather than diluted blood sitting in the needle."},
+    {ch:9,q:"Dialysis was interrupted for five minutes during the session. What does that mean for the QA samples?",a:["Nothing, carry on","They can't be used for urea kinetic modelling","Only the pre sample is affected","Repeat the post sample in an hour"],c:1,
+     e:"An interruption of more than three minutes makes the samples inaccurate for modelling."},
+    {ch:9,q:"Which pre-dialysis samples need centrifuging?",a:["All of them","None of them","Potassium and U&E","Only the FBC"],c:2,
+     e:"A serum potassium or U&E must be centrifuged for an accurate serum result. Other pre-dialysis bloods don't need it."},
+    {ch:9,q:"A pre-dialysis sample is accidentally taken after dialysis has started. What should you do?",a:["Send it and note the timing","Discard it","Send it but cancel the urea","Centrifuge it twice"],c:1,
+     e:"Dilution makes it inaccurate. The procedure says discard — not send with a caveat."},
+    {ch:9,q:"For a three-times-weekly patient, when does the KRU urine collection run?",a:["First to second dialysis of the week","Across the long weekend break","Any 24-hour period","Second dialysis to the following week"],c:0,
+     e:"Three-times-weekly: starts on the first dialysis of the week, finishes on the second."},
+    {ch:9,q:"For a twice-weekly patient, when does the collection run?",a:["First to second dialysis of the week","Second dialysis of the week to the first dialysis of the following week","Any 48 hours","It isn't collected"],c:1,
+     e:"Twice-weekly patients start on their second dialysis of the week and finish on the first dialysis of the following week."},
+    {ch:9,q:"The urine collection comes back at 120 mL and the patient says it was complete. What happens?",a:["Send it with a note","Send the blood only","Don't send either — cancel and reschedule","Double the volume"],c:2,
+     e:"Under 150 mL, or incomplete, means neither the urine nor the blood goes to the lab. Discard, cancel, and tell the dialysis nurse to rebook."},
+    {ch:9,q:"On the start day of a urine collection, what must the patient do before dialysis?",a:["Drink 500 mL of water","Completely empty their bladder, and that urine is not collected","Pass urine into the container","Avoid passing urine at all"],c:1,
+     e:"Emptying first means the window starts from empty. That void is discarded, not collected."},
+    {ch:9,q:"What does KRU actually measure?",a:["The dialyser's clearance","Residual renal urea clearance — what the patient's own kidneys still clear","Total body water","The urea reduction ratio"],c:1,
+     e:"It's the patient's own remaining kidney clearance, which feeds the kinetically modelled prescription."},
+    {ch:9,q:"Why does an incomplete urine collection matter so much to the patient?",a:["It wastes a bottle","It understates residual function and can wrongly lengthen their dialysis time","It affects their potassium","It delays their transport"],c:1,
+     e:"KRU feeds the prescription. Understate it and the modelling calls for more dialysis than the patient actually needs."},
+    {ch:9,q:"Which set contains the post-dialysis urea and creatinine?",a:["QA START, Mon–Tues","QA END, Weds–Thurs","Both sets","The 3-monthly extras"],c:0,
+     e:"QA START holds the pre U&E, the post urea and creatinine, and the IDUR containers — so adequacy comes from that one session."},
+    {ch:9,q:"Where does parathyroid hormone sit in the testing schedule?",a:["Monthly with QA END","3-monthly extras","6-monthly extras","Annual extras"],c:1,
+     e:"PTH is in the 3-monthly set, alongside LFTs, glucose, HbA1c and the infection screens."},
+    {ch:9,q:"Which test is done annually?",a:["Beta-2 microglobulin","Hepatitis B immunity post-vaccination","Parathyroid hormone","Transferrin saturation"],c:1,
+     e:"Hepatitis B immunity is the annual check — protection wanes and is often weaker in kidney failure."},
+    {ch:9,q:"Why does Kt/V give a fairer comparison between patients than URR?",a:["It uses a different bottle","It accounts for fluid removed and body water","It's measured weekly","It doesn't need a post sample"],c:1,
+     e:"Factoring in ultrafiltration and total body water compares a large and a small patient fairly. It's the figure used for kinetic modelling."},
+    {ch:9,q:"A patient's Kt/V comes back well above target with no change to their prescription. What should happen?",a:["Nothing — high is good","Refer to the senior nurse or doctor","Reduce their session time immediately","Repeat next month"],c:1,
+     e:"Both under-achieving and over-achieving Kt/V get referred, since either may mean the prescription or the sampling needs review."}
+  ];;
 
   var MIXED_N=10;
   var host=document.getElementById('quizHost');
@@ -1266,7 +1519,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
   function quizReset(){ renderStart() }
 
   function renderStart(){
-    var rows=chapters.slice(0,8).map(function(c,i){
+    var rows=chapters.slice(0,9).map(function(c,i){
       return '<button class="q-btn ghost" data-ch="'+(i+1)+'">'+esc(c.t)+'</button>';
     }).join('');
     host.innerHTML=
@@ -1510,6 +1763,12 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
         [/\bCKD-MBD\b/gi,'C-K-D bone mineral disorder'],[/\bCKD\b/g,'C-K-D'],
         [/\bAVF\b/g,'A-V-F'],[/\bAVG\b/g,'A-V-G'],[/\bCVC\b/g,'C-V-C'],
         [/\bEPO\b/g,'E-P-O'],[/\bUF\b/g,'U-F'],[/\bQb\b/g,'Q-B'],[/\bQd\b/g,'Q-D'],
+        [/\bURR\b/g,'U-R-R'],[/\bKt\/V\b/g,'K-T over V'],[/\bPTH\b/g,'P-T-H'],
+        [/\bFBC\b/g,'full blood count'],[/U&E/g,'U and E'],[/\bCRP\b/g,'C-R-P'],
+        [/\bHbA1c\b/g,'H-b-A-one-c'],[/\bMCV\b/g,'M-C-V'],[/\bALP\b/g,'A-L-P'],
+        [/\bTSAT\b/g,'T-SAT'],[/\bIDUR\b/g,'I-D-U-R'],[/\bQA\b/g,'Q-A'],[/\bKRU\b/g,'K-R-U'],[/\bUKM\b/g,'U-K-M'],[/\bRDC\b/g,'R-D-C'],[/\bLFT\b/g,'L-F-T'],[/\bPPE\b/g,'P-P-E'],[/\bICE\b/g,'ICE'],[/mL\/min/g,'mils per minute'],
+        [/\bPTS\b/g,'patients'],[/\bbicarb\b/gi,'bicarbonate'],
+        [/mmol\/L/g,'millimoles per litre'],
         [/mL\/min/g,'mils per minute'],[/\be\.g\.\s*/gi,'for example '],[/\bi\.e\.\s*/gi,'that is ']];
       map.forEach(function(m){ s=s.replace(m[0],m[1]); });
       s=s.replace(/[\u2013\u2014]/g,' ').replace(/[\u00b7\u2022]/g,', ').replace(/\//g,' ').replace(/\s+/g,' ').trim();
@@ -1542,6 +1801,12 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
     function fxSim(m){ return function(){ var b=document.querySelector('#simToggle [data-m="'+m+'"]'); if(b) b.click(); }; }
     function fxGfr(v){ return function(){ var r=document.getElementById('gfrRange'); if(r){ r.value=v; r.dispatchEvent(new Event('input',{bubbles:true})); } }; }
     function fxSeg(sel,t){ return function(){ var b=document.querySelector(sel+' [data-t="'+t+'"]'); if(b) b.click(); }; }
+    function fxBlood(t){ return fxSeg('#bloodToggle',t); }
+    function fxQa(t){ return fxSeg('#qaToggle',t); }
+    function fxUrr(pre,post){ return function(){
+      var a=document.getElementById('preUrea'), b=document.getElementById('postUrea');
+      if(a&&b){ a.value=pre; b.value=post; b.dispatchEvent(new Event('input',{bubbles:true})); }
+    }; }
 
     function chapterScript(n){
       var ch=document.getElementById('ch-'+n), B=[];
@@ -1597,6 +1862,46 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
       } else if(n===8){
         detailBlocks(ch.querySelector('.acc')).forEach(function(b){B.push(b)});
         var note=ch.querySelector('.panel-note'); if(note) B.push({el:note,text:txt(note)});
+      } else if(n===9){
+        var cds=ch.querySelectorAll('.card');
+        // what it's for
+        B.push({el:cds[0],text:txt(cds[0].querySelector('h3'))+'. '+txt(cds[0].querySelector('p'))});
+        var n0=cds[0].querySelector('.panel-note'); if(n0) B.push({el:n0,text:txt(n0)});
+        // sampling procedure — drive the toggle as it reads
+        B.push({el:cds[1],text:txt(cds[1].querySelector('h3'))+'. '+txt(cds[1].querySelector('p'))});
+        B.push({el:cds[1],text:'First, the pre-dialysis sample.', fx:fxBlood('pre')});
+        detailBlocks(document.getElementById('preList')).forEach(function(b){B.push(b)});
+        B.push({el:cds[1],text:'Now the post-dialysis sample.', fx:fxBlood('post')});
+        detailBlocks(document.getElementById('postList')).forEach(function(b){B.push(b)});
+        var n1=cds[1].querySelector('.panel-note'); if(n1) B.push({el:n1,text:txt(n1)});
+        // recirculation
+        B.push({el:cds[2],text:txt(cds[2].querySelector('h3'))+'. '+txt(cds[2].querySelector('p'))});
+        detailBlocks(cds[2]).forEach(function(b){B.push(b)});
+        var rn=cds[2].querySelector('.panel-note'); if(rn) B.push({el:rn,text:txt(rn)});
+        // adequacy — show a failing then a passing URR
+        B.push({el:cds[3],text:'The adequacy sum. The pre and post pair answer one question. Did this session clear enough?'});
+        B.push({el:cds[3],text:'At a pre urea of 24 and a post urea of 10, the reduction falls below the usual minimum, which prompts a review.', fx:fxUrr(240,100)});
+        B.push({el:cds[3],text:'Clearing further, to a post urea of 7, brings it comfortably above.', fx:fxUrr(240,70)});
+        detailBlocks(cds[3]).forEach(function(b){B.push(b)});
+        // the two QA sets
+        B.push({el:cds[4],text:txt(cds[4].querySelector('h3'))+'. '+txt(cds[4].querySelector('p'))});
+        B.push({el:cds[4],text:'First, the Q A start set, taken Monday or Tuesday.', fx:fxQa('start')});
+        detailBlocks(document.getElementById('qaStartList')).forEach(function(b){B.push(b)});
+        B.push({el:cds[4],text:'Then the Q A end set, at the next session, Wednesday or Thursday.', fx:fxQa('end')});
+        detailBlocks(document.getElementById('qaEndList')).forEach(function(b){B.push(b)});
+        // extra tiers
+        B.push({el:cds[5],text:txt(cds[5].querySelector('h3'))+'. '+txt(cds[5].querySelector('p'))});
+        detailBlocks(cds[5]).forEach(function(b){B.push(b)});
+        // urine / KRU
+        B.push({el:cds[6],text:txt(cds[6].querySelector('h3'))+'. '+txt(cds[6].querySelector('p'))});
+        detailBlocks(cds[6]).forEach(function(b){B.push(b)});
+        // QA cycle
+        B.push({el:cds[7],text:txt(cds[7].querySelector('h3'))+'. '+txt(cds[7].querySelector('p'))});
+        detailBlocks(cds[7]).forEach(function(b){B.push(b)});
+        // slips + source
+        var slips=[txt(cds[8].querySelector('h3'))];
+        cds[8].querySelectorAll('.panel-note').forEach(function(pn){slips.push(txt(pn))});
+        B.push({el:cds[8],text:slips.join('. ')});
       }
       return B;
     }
@@ -1610,7 +1915,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
     }
     function progress(){
       plFill.style.width=(queue.length?Math.min(100,Math.round((qi/queue.length)*100)):0)+'%';
-      plLabel.textContent=(cur>=1&&cur<=8)?chapters[cur-1].t:'Listening';
+      plLabel.textContent=(cur>=1&&cur<=9)?chapters[cur-1].t:'Listening';
     }
     function setHighlight(el){
       if(lastHi&&lastHi!==el) lastHi.classList.remove('tts-reading');
@@ -1638,7 +1943,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
     function cancelSpeech(){ stopping=true; try{ synth.cancel(); }catch(e){} stopping=false; }
 
     function start(){
-      if(!(cur>=1&&cur<=8)) return;
+      if(!(cur>=1&&cur<=9)) return;
       cancelSpeech(); buildQueue(cur);
       playing=true; paused=false; showPlayer(true); setPlayIcon(true); progress(); speakCurrent(); acquireWake();
       if(lsGet('renal.hint','')!=='1'){ lsSet('renal.hint','1'); showToast('Playing aloud \u2014 the screen will stay awake while it reads. Audio still pauses if you leave the app or lock the screen.',null,null,true); }
@@ -1655,7 +1960,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
 
     function chapterEnd(){
       clearHighlight();
-      if(contPlay&&cur<8){
+      if(contPlay&&cur<9){
         ttsNarratorNav=true; go(cur+1); ttsNarratorNav=false;
         buildQueue(cur); playing=true; paused=false; setPlayIcon(true); progress();
         setTimeout(function(){ if(playing&&!paused) speakCurrent(); },380);
@@ -1667,7 +1972,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
     var PAUSE='<svg viewBox="0 0 24 24"><path d="M7 5h3.2v14H7zM13.8 5H17v14h-3.2z"/></svg>';
     function setPlayIcon(on){ plPlay.innerHTML=on?PAUSE:PLAY; plPlay.setAttribute('aria-label',on?'Pause':'Play'); }
     function showPlayer(on){ player.classList.toggle('show',on); fab.classList.toggle('gone',on); }
-    ttsUpdateFab=function(){ var can=(cur>=1&&cur<=8)&&!playing&&!paused; fab.classList.toggle('gone',!can); if(!playing&&!paused) player.classList.remove('show'); };
+    ttsUpdateFab=function(){ var can=(cur>=1&&cur<=9)&&!playing&&!paused; fab.classList.toggle('gone',!can); if(!playing&&!paused) player.classList.remove('show'); };
 
     function fmtRate(r){ return (Math.round(r*100)/100)+'\u00d7'; }
     function cycleRate(){
