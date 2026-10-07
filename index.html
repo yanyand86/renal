@@ -371,6 +371,243 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
   .flow-blood,.flow-blood-r,.flow-dial{animation:none;stroke-dasharray:0}
   .rotor{animation:none}
 }
+
+/* ================= Vibrant layer: chapter colour, heroes, machine and water ================= */
+:root{--accent:#0B4F6C;--accent-2:#1FB5C9;--accent-soft:rgba(31,181,201,.14);--accent-glow:rgba(31,181,201,.85)}
+.brand{color:var(--accent)}
+.brand .dot{background:var(--accent-2);box-shadow:0 0 0 3px var(--accent-soft)}
+.crumb{color:var(--accent)}
+.nav-btn{color:var(--accent)}
+.dots i.on{background:linear-gradient(90deg,var(--accent),var(--accent-2))}
+.menu-item .n{color:var(--c1,var(--petrol))}
+.menu-item.current{background:var(--accent-soft)}
+.menu-item.current .t{color:var(--accent)}
+.seg button.on{background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#fff;box-shadow:0 6px 14px -8px var(--accent)}
+details.item[open]{border-color:var(--accent-2)}
+details.item[open] .chev{color:var(--accent)}
+details.item[open] .reveal{animation:openIn .32s cubic-bezier(.2,.7,.2,1)}
+@keyframes openIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+.reveal .why{background:var(--accent-soft);color:var(--accent)}
+.info-panel{border-left-color:var(--accent)}
+.info-panel .lbl{color:var(--accent)}
+.hotspot .pin{stroke:var(--accent);transform-box:fill-box;transform-origin:center;animation:pinPulse 2.6s ease-in-out infinite}
+.hotspot .pin-core{fill:var(--accent)}
+.hotspot.on .pin{fill:var(--accent);stroke:var(--accent);animation:none}
+@keyframes pinPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.16)}}
+.fab-listen{background:linear-gradient(135deg,var(--accent),var(--accent-2));box-shadow:0 10px 24px -8px var(--accent),0 2px 6px rgba(16,36,43,.16)}
+.pl-main,.pl-main:hover{background:linear-gradient(135deg,var(--accent),var(--accent-2))}
+.pl-chip{color:var(--accent)}
+.q-btn.primary{background:linear-gradient(135deg,var(--accent),var(--accent-2))}
+.q-miss button{color:var(--accent)}
+.tts-reading{outline-color:var(--accent-2);box-shadow:0 0 0 7px var(--accent-soft)}
+.ch-head .tts-reading{outline-color:rgba(255,255,255,.9);box-shadow:none}
+.card>h3::before{content:"";display:inline-block;width:9px;height:9px;border-radius:3px;margin:0 10px 0 1px;vertical-align:.12em;background:linear-gradient(135deg,var(--accent),var(--accent-2))}
+input[type=range]::-webkit-slider-thumb{border-color:var(--accent)}
+input[type=range]::-moz-range-thumb{border-color:var(--accent)}
+::selection{background:var(--accent-soft)}
+
+/* tags become solid colour chips (deep enough for white text) */
+.tag{color:#fff;box-shadow:0 5px 12px -7px rgba(16,36,43,.55)}
+.t-blood{background:linear-gradient(135deg,#B71C1C,#E53935);color:#fff}
+.t-fluid{background:linear-gradient(135deg,#00695C,#00838F);color:#fff}
+.t-amber{background:linear-gradient(135deg,#9A4500,#C96A00);color:#fff}
+.t-sage{background:linear-gradient(135deg,#1B5E20,#388E3C);color:#fff}
+.t-violet{background:linear-gradient(135deg,#4527A0,#8E24AA);color:#fff}
+.t-blue{background:linear-gradient(135deg,#0D47A1,#1E88E5);color:#fff}
+.t-aqua{background:linear-gradient(135deg,#006064,#0097A7);color:#fff}
+
+/* reading progress under the top bar */
+.readbar{position:absolute;left:0;right:0;bottom:-1px;height:3px;pointer-events:none;overflow:hidden}
+.readbar i{display:block;height:100%;transform-origin:0 50%;transform:scaleX(0);background:linear-gradient(90deg,var(--accent),var(--accent-2))}
+
+/* ---------- chapter hero ---------- */
+.ch-head{position:relative;overflow:hidden;isolation:isolate;border-radius:28px;padding:20px 20px 22px;margin:2px 0 22px;color:#fff;
+  background:radial-gradient(48% 80% at 100% 0%,var(--accent-glow) 0%,transparent 72%),linear-gradient(145deg,var(--accent) 0%,var(--accent) 55%,var(--accent-2) 165%);
+  box-shadow:0 20px 40px -24px var(--accent),0 2px 6px rgba(16,36,43,.06)}
+.ch-head .ch-kicker{font-family:var(--sans);font-size:14px;letter-spacing:0;text-transform:none;color:rgba(255,255,255,.92);align-items:flex-end;gap:12px}
+.ch-head .ch-kicker .line{display:none}
+.ch-no{font-family:var(--serif);font-weight:600;font-size:60px;line-height:.78;letter-spacing:-.04em;color:#fff;font-variation-settings:"opsz" 144}
+.ch-topic{font-weight:600;padding-bottom:3px}
+.ch-head h2{color:#fff;margin-top:16px}
+.ch-head .lede{color:rgba(255,255,255,.93)}
+.ch-head .lede em{color:#fff}
+.ch-head .mnem{color:#FFE7A3}
+.ch-art{float:right;width:96px;height:96px;margin:-4px -6px 6px 10px;shape-outside:circle(50%)}
+.ch-art svg{display:block;width:100%;height:100%;overflow:visible}
+@media(min-width:560px){.ch-art{width:150px;height:150px;margin:-10px -4px 8px 18px}.ch-no{font-size:74px}}
+
+/* hero illustration motion */
+.ha *{transform-box:fill-box;transform-origin:center}
+.ha .spin{animation:spin 8s linear infinite}
+.ha .spin-fast{animation:spin 1.8s linear infinite}
+.ha .bob{animation:bob 3.4s ease-in-out infinite}
+.ha .pulse{animation:hpulse 2.6s ease-in-out infinite}
+.ha .drip{animation:drip 2.4s ease-in infinite}
+.ha .dash{stroke-dasharray:7 9;animation:hdash 1.4s linear infinite}
+.ha .ripple{animation:ripple 2.8s ease-out infinite}
+.ha .sway{animation:sway 4.2s ease-in-out infinite;transform-origin:50% 0%}
+.ha .twinkle{animation:twinkle 2.2s ease-in-out infinite}
+.ha .cross{animation:hcross 3.2s ease-in-out infinite}
+.ha .fill{animation:hfill 3.6s ease-in-out infinite;transform-origin:50% 100%}
+.ha .needle{animation:needle 5s ease-in-out infinite;transform-origin:50% 100%}
+.ha .barp{animation:barp 2.6s ease-in-out infinite;transform-origin:0% 50%}
+.ha .ecg{stroke-dasharray:46 400;animation:ecg 2.4s linear infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+@keyframes hpulse{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
+@keyframes drip{0%{transform:translateY(0);opacity:0}15%{opacity:1}100%{transform:translateY(28px);opacity:0}}
+@keyframes hdash{to{stroke-dashoffset:-32}}
+@keyframes ripple{0%{transform:scale(.45);opacity:.9}100%{transform:scale(1.5);opacity:0}}
+@keyframes sway{0%,100%{transform:rotate(-5deg)}50%{transform:rotate(5deg)}}
+@keyframes twinkle{0%,100%{opacity:.25;transform:scale(.7)}50%{opacity:1;transform:scale(1)}}
+@keyframes hcross{0%{transform:translateX(0);opacity:0}15%,80%{opacity:1}100%{transform:translateX(46px);opacity:0}}
+@keyframes hfill{0%,100%{transform:scaleY(.5)}50%{transform:scaleY(1)}}
+@keyframes needle{0%,100%{transform:rotate(58deg)}55%{transform:rotate(-62deg)}}
+@keyframes barp{0%,100%{transform:scaleX(.5)}50%{transform:scaleX(1)}}
+@keyframes ecg{from{stroke-dashoffset:46}to{stroke-dashoffset:-300}}
+
+/* ---------- home ---------- */
+.hero-panel{position:relative;overflow:hidden;isolation:isolate;border-radius:30px;padding:26px 22px 6px;margin:2px 0 26px;color:#fff;
+  background:radial-gradient(90% 70% at 100% 0%,#36C5E8 0%,transparent 60%),radial-gradient(80% 65% at 0% 100%,#F0603F 0%,transparent 62%),linear-gradient(155deg,#0B4F6C 0%,#0B3D91 100%);
+  box-shadow:0 24px 50px -28px #0B3D91}
+.hero-panel .hero{padding:0}
+.hero-panel .hero h1{color:#fff}
+.hero-panel .hero h1 em{color:#fff}
+.hero-panel .hero p{color:rgba(255,255,255,.9)}
+.hero-panel .hero-art{margin:6px 0 0}
+.hero-panel .hero-art svg{width:min(320px,88%);height:auto;filter:drop-shadow(0 14px 22px rgba(0,0,0,.28))}
+.path-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:0 4px 12px}
+.path-head h2{font-size:23px}
+.path-head span{font-size:13.5px;color:var(--ink-soft)}
+.path-head b{color:var(--ink);font-weight:600}
+.chapter-list{position:relative;gap:12px}
+.chapter-list::before{content:"";position:absolute;left:37px;top:30px;bottom:30px;width:4px;border-radius:4px;background:var(--spine,var(--mist));opacity:.6}
+.ch-card{position:relative;padding:13px 16px 13px 14px;gap:14px}
+.ch-card:hover,.ch-card:focus-visible{border-color:var(--c2)}
+.ch-card:hover .ch-arrow{color:var(--c1)}
+.ch-node{position:relative;width:46px;height:46px;border-radius:15px;flex:none;display:grid;place-items:center;background:linear-gradient(135deg,var(--c1),var(--c2));box-shadow:0 10px 18px -10px var(--c1)}
+.ch-node svg{width:24px;height:24px;fill:none;stroke:#fff;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.ch-node .tick{position:absolute;right:-6px;top:-6px;width:19px;height:19px;border-radius:50%;background:#fff;color:var(--c1);display:none;place-items:center;box-shadow:0 2px 6px rgba(16,36,43,.25)}
+.ch-node .tick svg{width:11px;height:11px;stroke:currentColor;stroke-width:3.2}
+.ch-card.done .ch-node .tick{display:grid}
+.ch-meta h3 .n{font-family:var(--serif);font-style:italic;font-weight:500;color:var(--c1);margin-right:7px}
+
+/* ---------- shared bits for the new chapters ---------- */
+#ch-6 .card>p,#ch-7 .card>p{font-size:14.5px;color:var(--ink-soft);line-height:1.6}
+#ch-6 .card>p+p,#ch-7 .card>p+p{margin-top:9px}
+.fl-13{stroke-dasharray:3 10;animation:dash13 1s linear infinite}
+.fl-13r{stroke-dasharray:3 10;animation:dash13r 1s linear infinite}
+.fl-11{stroke-dasharray:3 8;animation:dash11 .9s linear infinite}
+@keyframes dash13{to{stroke-dashoffset:-13}}
+@keyframes dash13r{to{stroke-dashoffset:13}}
+@keyframes dash11{to{stroke-dashoffset:-11}}
+.flowline{position:relative;display:flex;flex-direction:column;gap:10px;margin:14px 0 4px;padding-left:28px}
+.flowline::before{content:"";position:absolute;left:10px;top:20px;bottom:20px;width:4px;border-radius:4px;background-image:repeating-linear-gradient(180deg,var(--accent-2) 0 7px,transparent 7px 14px);background-size:4px 14px;opacity:.75;animation:flowDown 1.1s linear infinite}
+@keyframes flowDown{to{background-position:0 14px}}
+.flowline>details.item{position:relative;overflow:visible}
+.flowline>details.item::before{content:"";position:absolute;left:-24px;top:22px;width:12px;height:12px;border-radius:50%;background:var(--card);border:3px solid var(--accent);box-sizing:border-box}
+.flowline>details.item[open]::before{background:var(--accent)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.chip{padding:9px 13px;border-radius:999px;background:var(--card-2);border:1.5px solid var(--mist);font-size:13px;font-weight:500;color:var(--ink);transition:background .18s,border-color .18s,color .18s}
+.chip:hover{border-color:var(--accent-2)}
+.chip.on{background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#fff;border-color:transparent;box-shadow:0 6px 14px -8px var(--accent)}
+.chip.wt.off{background:#FDECEC;border-color:#E57373;color:#B71C1C;text-decoration:line-through}
+.chip.reset{background:none;border-style:dashed;color:var(--ink-soft)}
+
+/* ---------- the machine ---------- */
+.mach-wrap{margin:12px -6px 0}
+.mach-wrap svg,.mix-wrap svg{display:block;width:100%;height:auto}
+.m-rotor{transform-box:fill-box;transform-origin:center;animation:spin 1.5s linear infinite}
+.m-plunger{animation:plunge 14s linear infinite}
+@keyframes plunge{from{transform:translateX(0)}to{transform:translateX(-14px)}}
+.m-bar{transform-box:fill-box;transform-origin:0 50%;animation:barp 2.8s ease-in-out infinite}
+.m-led{transform-box:fill-box;transform-origin:center;animation:twinkle 1.8s ease-in-out infinite}
+.m-ecg{stroke-dasharray:40 220;animation:ecg 2.6s linear infinite}
+.mix-wrap{margin:8px -4px 12px}
+.mx-drop{animation:mxdrop 1.2s ease-in infinite}
+.mx-drop-up{animation:mxup 1.2s ease-in infinite}
+@keyframes mxdrop{0%{transform:translateY(0);opacity:0}20%{opacity:1}100%{transform:translateY(18px);opacity:0}}
+@keyframes mxup{0%{transform:translateY(0);opacity:0}20%{opacity:1}100%{transform:translateY(-12px);opacity:0}}
+.mx-check{transform-box:fill-box;transform-origin:center;animation:hpulse 1.6s ease-in-out infinite}
+.mach-panel{margin-top:14px;border-radius:20px;padding:14px 14px 12px;background:linear-gradient(160deg,#0E2A47,#0A1F36);color:#fff;box-shadow:inset 0 0 0 1px rgba(255,255,255,.06),0 14px 30px -18px #0A1F36}
+.mp-head{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.mp-rotor{width:30px;height:30px;flex:none}
+.mp-rotor svg{display:block;width:100%;height:100%}
+.mp-spin{transform-box:fill-box;transform-origin:center;animation:spin 1.2s linear infinite}
+.mach-panel.stopped .mp-spin{animation-play-state:paused}
+.mp-status{flex:1;font-family:var(--mono);font-size:12.5px;font-weight:500;padding:7px 11px;border-radius:10px;background:rgba(105,240,174,.14);color:#8CF5C2}
+.mp-status.alarm{background:rgba(255,90,95,.22);color:#FFC2C3;animation:alarmFlash 1s steps(2,end) infinite}
+.mp-status.bypass{background:rgba(255,193,7,.2);color:#FFE38A}
+@keyframes alarmFlash{50%{background:rgba(255,90,95,.45)}}
+.pg{display:grid;grid-template-columns:62px 1fr 52px;align-items:center;gap:10px;padding:7px 0}
+.g-lbl{font-size:12.5px;color:rgba(255,255,255,.8)}
+.g-track{position:relative;height:10px;border-radius:99px;background:rgba(255,255,255,.1)}
+.g-win{position:absolute;top:0;bottom:0;border-radius:99px;background:rgba(105,240,174,.3)}
+.g-mark{position:absolute;top:50%;width:16px;height:16px;margin:-8px 0 0 -8px;border-radius:50%;background:#fff;box-shadow:0 0 0 4px rgba(255,255,255,.15)}
+.g-val{font-family:var(--mono);font-size:15px;text-align:right;color:#fff}
+.pg.alarm .g-mark{background:#FF5A5F;box-shadow:0 0 0 5px rgba(255,90,95,.3)}
+.pg.alarm .g-val{color:#FF9A9D}
+.pg.alarm .g-win{background:rgba(255,90,95,.28)}
+.mp-lights{display:flex;flex-wrap:wrap;gap:7px;margin-top:10px}
+.lt{font-size:11.5px;font-weight:500;padding:5px 10px;border-radius:99px;border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.62);display:inline-flex;align-items:center;gap:6px}
+.lt::before{content:"";width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.3)}
+.lt.on{color:#fff;border-color:#FF5A5F;background:rgba(255,90,95,.22)}
+.lt.on::before{background:#FF5A5F;box-shadow:0 0 8px #FF5A5F}
+.lt.amber.on{border-color:#FFC107;background:rgba(255,193,7,.18)}
+.lt.amber.on::before{background:#FFC107;box-shadow:0 0 8px #FFC107}
+.mp-units{margin-top:10px;font-size:11.5px;color:rgba(255,255,255,.55);line-height:1.45}
+.alarm-card{margin-top:14px;border-radius:var(--r-sm);padding:15px 17px;background:var(--card);border:1px solid var(--mist);border-left:5px solid #2E7D32}
+.alarm-card.alarm{border-left-color:#D32F2F}
+.alarm-card.bypass{border-left-color:#F9A825}
+.alarm-card.danger{border-left-color:#D32F2F;background:#FFF5F5}
+.ac-title{font-family:var(--serif);font-size:19px;font-weight:600;line-height:1.2}
+.ac-resp{margin-top:6px;font-size:13.5px;font-weight:600;color:var(--accent)}
+.alarm-card.danger .ac-resp{color:#C62828}
+.alarm-card dl{margin-top:4px}
+.alarm-card dt{margin-top:10px;font-size:12px;font-weight:600;color:var(--ink-faint)}
+.alarm-card dd{font-size:14px;color:var(--ink-soft);line-height:1.55}
+
+/* ---------- water ---------- */
+.vol-compare{display:flex;flex-direction:column;gap:12px;margin:12px 0 14px}
+.vc-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px;font-size:13.5px;color:var(--ink-soft)}
+.vc-top b{font-family:var(--mono);font-size:14px;color:var(--ink);font-weight:500;white-space:nowrap}
+.vc-row.big .vc-top b{color:var(--accent);font-size:18px}
+.vc-bar{height:14px;border-radius:99px;background:var(--mist-2);margin-top:6px;overflow:hidden}
+.vc-bar i{display:block;height:100%;width:0;border-radius:99px;background:linear-gradient(90deg,#64B5F6,#1E88E5);transition:width 1.6s cubic-bezier(.2,.8,.2,1)}
+.vc-row.big .vc-bar i{background:linear-gradient(90deg,var(--accent),var(--accent-2));transition-delay:.25s}
+.vol-compare.go .vc-bar i{width:var(--w)}
+.wsim{margin-top:12px}
+.water-out{margin-top:14px;border-radius:var(--r-sm);padding:14px 16px;background:var(--card-2);border:1px solid var(--mist-2);border-left:5px solid #2E7D32}
+.water-out.bad{border-left-color:#D32F2F}
+.water-out.warn{border-left-color:#F9A825}
+.wo-title{font-family:var(--serif);font-size:18px;font-weight:600;line-height:1.25}
+.wo-text{font-size:14px;color:var(--ink-soft);margin-top:5px;line-height:1.55}
+.wo-text+.wo-text{margin-top:8px}
+.wo-pills{display:flex;flex-wrap:wrap;gap:6px;margin-top:11px}
+.wo-pill{font-size:11.5px;font-weight:500;padding:4px 9px;border-radius:99px;background:#E8F5E9;color:#1B5E20;display:inline-flex;gap:6px;align-items:center}
+.wo-pill i{width:8px;height:8px;border-radius:50%;display:inline-block;box-shadow:0 0 0 1px rgba(0,0,0,.15)}
+.wo-pill.thru{background:#FFEBEE;color:#B71C1C}
+.limits{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0}
+.lim{border-radius:14px;padding:12px 13px;background:var(--accent-soft)}
+.lim-k{display:block;font-size:12.5px;font-weight:600;color:var(--ink-soft)}
+.lim-v{display:block;font-family:var(--mono);font-size:15px;font-weight:500;color:var(--accent);margin-top:5px}
+.lim small{display:block;font-size:12px;color:var(--ink-faint);margin-top:3px}
+.confetti{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:90}
+
+@media (prefers-reduced-motion: reduce){
+  .flowline::before{animation:none}
+  .vc-bar i{transition:none}
+}
+
+/* hidden player and toast must clear the bottom nav entirely, and not be tappable while hidden */
+.player{transform:translateY(calc(100% + var(--botbar) + env(safe-area-inset-bottom) + 24px));visibility:hidden;
+  transition:transform .32s cubic-bezier(.2,.8,.2,1),visibility 0s linear .32s}
+.player.show{transform:none;visibility:visible;transition:transform .32s cubic-bezier(.2,.8,.2,1),visibility 0s}
+.toast{transform:translate(-50%,calc(100% + var(--botbar) + env(safe-area-inset-bottom) + 40px));visibility:hidden;
+  transition:transform .4s cubic-bezier(.2,.8,.2,1),visibility 0s linear .4s}
+.toast.show{transform:translate(-50%,0);visibility:visible;transition:transform .4s cubic-bezier(.2,.8,.2,1),visibility 0s}
+
+/* eGFR track: red at the failure end, green at normal */
+#gfrRange{background:linear-gradient(90deg,var(--crimson-soft),var(--amber-soft),var(--sage))}
 </style>
 </head>
 <body>
@@ -381,48 +618,50 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
   <button class="menu-btn" id="menuBtn" aria-label="Open chapters">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
   </button>
+  <div class="readbar" aria-hidden="true"><i id="readFill"></i></div>
 </header>
 
 <main id="main">
 
 <!-- ===== HOME ===== -->
 <section class="chapter active" id="ch-0">
-  <div class="hero">
-    <div class="eyebrow">Kidneys · dialysis · haemodialysis</div>
-    <h1>The kidney,<br>and how we <em>replace</em> it.</h1>
-    <p>A quick, visual walk through the anatomy, the physics of dialysis, and how haemodialysis stands in when kidneys fail — built to help you teach it clearly.</p>
+  <div class="hero-panel">
+    <div class="hero">
+      <h1>The kidney,<br>and how we <em>replace</em> it.</h1>
+      <p>A visual walk from the nephron to the dialysis chair: the anatomy, the physics, the machine, the water behind it, and the checks that keep it all safe.</p>
+    </div>
+    <div class="hero-art">
+      <svg viewBox="0 0 320 200" width="300" aria-hidden="true">
+        <defs>
+          <linearGradient id="kg" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#C64A40"/><stop offset="1" stop-color="#8F2C24"/>
+          </linearGradient>
+          <linearGradient id="kg2" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#D9695F"/><stop offset="1" stop-color="#B23A32"/>
+          </linearGradient>
+        </defs>
+        <!-- two kidneys -->
+        <g transform="translate(96,100)">
+          <path d="M0,-52 C30,-52 42,-30 42,-4 C42,26 26,52 -6,52 C-30,52 -40,34 -40,10 C-40,-6 -34,-14 -34,-28 C-34,-44 -22,-52 0,-52 Z" fill="url(#kg)"/>
+          <path d="M-34,-6 C-18,-6 -14,-2 -2,-2" fill="none" stroke="#F2C879" stroke-width="4" stroke-linecap="round" opacity=".85"/>
+          <circle cx="-30" cy="-2" r="7" fill="#7C1F19" opacity=".55"/>
+        </g>
+        <g transform="translate(224,100) scale(-1,1)">
+          <path d="M0,-52 C30,-52 42,-30 42,-4 C42,26 26,52 -6,52 C-30,52 -40,34 -40,10 C-40,-6 -34,-14 -34,-28 C-34,-44 -22,-52 0,-52 Z" fill="url(#kg2)"/>
+          <path d="M-34,-6 C-18,-6 -14,-2 -2,-2" fill="none" stroke="#F2C879" stroke-width="4" stroke-linecap="round" opacity=".85"/>
+          <circle cx="-30" cy="-2" r="7" fill="#7C1F19" opacity=".55"/>
+        </g>
+        <!-- pulsing filtrate dots -->
+        <g fill="#D8912B">
+          <circle cx="160" cy="70" r="3"><animate attributeName="cy" values="70;150;70" dur="3s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;0" dur="3s" repeatCount="indefinite"/></circle>
+          <circle cx="160" cy="70" r="2.4"><animate attributeName="cy" values="70;150;70" dur="3s" begin="1s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;0" dur="3s" begin="1s" repeatCount="indefinite"/></circle>
+          <circle cx="160" cy="70" r="2.4"><animate attributeName="cy" values="70;150;70" dur="3s" begin="2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;0" dur="3s" begin="2s" repeatCount="indefinite"/></circle>
+        </g>
+      </svg>
+    </div>
   </div>
 
-  <div class="hero-art">
-    <svg viewBox="0 0 320 200" width="300" aria-hidden="true">
-      <defs>
-        <linearGradient id="kg" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stop-color="#C64A40"/><stop offset="1" stop-color="#8F2C24"/>
-        </linearGradient>
-        <linearGradient id="kg2" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stop-color="#D9695F"/><stop offset="1" stop-color="#B23A32"/>
-        </linearGradient>
-      </defs>
-      <!-- two kidneys -->
-      <g transform="translate(96,100)">
-        <path d="M0,-52 C30,-52 42,-30 42,-4 C42,26 26,52 -6,52 C-30,52 -40,34 -40,10 C-40,-6 -34,-14 -34,-28 C-34,-44 -22,-52 0,-52 Z" fill="url(#kg)"/>
-        <path d="M-34,-6 C-18,-6 -14,-2 -2,-2" fill="none" stroke="#F2C879" stroke-width="4" stroke-linecap="round" opacity=".85"/>
-        <circle cx="-30" cy="-2" r="7" fill="#7C1F19" opacity=".55"/>
-      </g>
-      <g transform="translate(224,100) scale(-1,1)">
-        <path d="M0,-52 C30,-52 42,-30 42,-4 C42,26 26,52 -6,52 C-30,52 -40,34 -40,10 C-40,-6 -34,-14 -34,-28 C-34,-44 -22,-52 0,-52 Z" fill="url(#kg2)"/>
-        <path d="M-34,-6 C-18,-6 -14,-2 -2,-2" fill="none" stroke="#F2C879" stroke-width="4" stroke-linecap="round" opacity=".85"/>
-        <circle cx="-30" cy="-2" r="7" fill="#7C1F19" opacity=".55"/>
-      </g>
-      <!-- pulsing filtrate dots -->
-      <g fill="#D8912B">
-        <circle cx="160" cy="70" r="3"><animate attributeName="cy" values="70;150;70" dur="3s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;0" dur="3s" repeatCount="indefinite"/></circle>
-        <circle cx="160" cy="70" r="2.4"><animate attributeName="cy" values="70;150;70" dur="3s" begin="1s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;0" dur="3s" begin="1s" repeatCount="indefinite"/></circle>
-        <circle cx="160" cy="70" r="2.4"><animate attributeName="cy" values="70;150;70" dur="3s" begin="2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;0" dur="3s" begin="2s" repeatCount="indefinite"/></circle>
-      </g>
-    </svg>
-  </div>
-
+  <div class="path-head"><h2>Chapters</h2><span id="pathCount"></span></div>
   <nav class="chapter-list" id="homeList"></nav>
 
   <p class="disclaimer">An educational companion for teaching, not a clinical protocol. Always follow your local ENHT / UKKA guidance, formulary and machine SOPs in practice.</p>
@@ -602,7 +841,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
 <!-- ===== 05 THE CIRCUIT ===== -->
 <section class="chapter" id="ch-5">
   <div class="ch-head">
-    <div class="ch-kicker"><span>05 · The machine</span><span class="line"></span></div>
+    <div class="ch-kicker"><span>05 · The circuit</span><span class="line"></span></div>
     <h2>The haemodialysis circuit</h2>
     <p class="lede">Blood leaves the body, gets cleaned outside it, and returns — the extracorporeal circuit. Tap any part to learn its role, and move the sliders to see the flow change.</p>
   </div>
@@ -687,10 +926,285 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
   <div class="panel-note" style="margin-top:14px"><strong>Typical session:</strong> around 4 hours, 3 times a week. Faster blood flow clears more per minute; the UF goal is the patient's fluid gain since last time. Both are set to the patient, within safe limits.</div>
 </section>
 
-<!-- ===== 06 ACCESS ===== -->
+<!-- ===== 06 THE MACHINE ===== -->
 <section class="chapter" id="ch-6">
   <div class="ch-head">
-    <div class="ch-kicker"><span>06 · Access</span><span class="line"></span></div>
+    <div class="ch-kicker"><span>06 · The machine</span><span class="line"></span></div>
+    <h2>Inside the dialysis machine</h2>
+    <p class="lede">The machine does two jobs at once: it moves blood safely round the circuit, and it makes fresh dialysate to an exact recipe, all session long. Every part is either doing one of those jobs or watching for danger.</p>
+  </div>
+
+  <div class="card">
+    <h3>The parts you can see</h3>
+    <p>The Fresenius 5008 and 6008 look different from each other, but both have every part shown here. Tap a pin to see what it does.</p>
+    <div class="mach-wrap">
+      <svg viewBox="0 0 360 330" id="machSvg" aria-label="A dialysis machine, front view, with tappable parts">
+        <defs>
+          <linearGradient id="mBody" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F6F9FC"/><stop offset="1" stop-color="#D3DFEC"/></linearGradient>
+          <linearGradient id="mScreen" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#143F6B"/><stop offset="1" stop-color="#0B2545"/></linearGradient>
+        </defs>
+        <!-- dialyser on its holder, with dialysate hoses -->
+        <rect x="94" y="164" width="28" height="9" rx="3" fill="#B0BEC5"/>
+        <path d="M94,124 C104,124 108,128 122,128" fill="none" stroke="#F6D79A" stroke-width="7" stroke-linecap="round"/>
+        <path class="fl-13" d="M94,124 C104,124 108,128 122,128" fill="none" stroke="#C67C00" stroke-width="3" stroke-linecap="round"/>
+        <path d="M94,218 C104,218 108,214 122,214" fill="none" stroke="#F6D79A" stroke-width="7" stroke-linecap="round"/>
+        <path class="fl-13r" d="M94,218 C104,218 108,214 122,214" fill="none" stroke="#C67C00" stroke-width="3" stroke-linecap="round"/>
+        <rect x="70" y="106" width="24" height="128" rx="12" fill="#FFF4DE" stroke="#F0B14A" stroke-width="2"/>
+        <path class="fl-11" d="M78,116 V226" stroke="#E53935" stroke-width="2.2" fill="none"/>
+        <path class="fl-11" d="M82,116 V226" stroke="#E53935" stroke-width="2.2" fill="none" style="animation-delay:-.3s"/>
+        <path class="fl-11" d="M86,116 V226" stroke="#E53935" stroke-width="2.2" fill="none" style="animation-delay:-.6s"/>
+        <path class="fl-11" d="M74,226 V116" stroke="#E0A030" stroke-width="1.8" fill="none"/>
+        <path class="fl-11" d="M90,226 V116" stroke="#E0A030" stroke-width="1.8" fill="none" style="animation-delay:-.45s"/>
+        <!-- body -->
+        <rect x="120" y="14" width="150" height="284" rx="18" fill="url(#mBody)" stroke="#B8C7D9" stroke-width="2"/>
+        <!-- screen -->
+        <rect x="133" y="26" width="124" height="74" rx="9" fill="url(#mScreen)"/>
+        <rect x="141" y="34" width="46" height="6" rx="3" fill="#3C8DFF"/>
+        <rect class="m-bar" x="141" y="47" width="88" height="5" rx="2.5" fill="#5FD3F3"/>
+        <rect class="m-bar" x="141" y="57" width="66" height="5" rx="2.5" fill="#9BE564" style="animation-delay:.7s"/>
+        <path class="m-ecg" d="M141,84 H158 L162,74 L168,92 L173,78 L177,84 H249" fill="none" stroke="#FF6B6B" stroke-width="2" stroke-linejoin="round"/>
+        <circle class="m-led" cx="249" cy="37" r="3.2" fill="#69F0AE"/>
+        <!-- blood pump -->
+        <circle cx="162" cy="134" r="22" fill="#fff" stroke="#9FB3C8" stroke-width="3"/>
+        <g transform="translate(162,134)"><g class="m-rotor"><rect x="-15" y="-2.5" width="30" height="5" rx="2.5" fill="#1E88E5"/><circle cx="14" cy="0" r="5" fill="#E53935"/><circle cx="-14" cy="0" r="5" fill="#E53935"/></g><circle r="3.5" fill="#0B3D91"/></g>
+        <!-- anticoagulant syringe pump -->
+        <rect x="200" y="122" width="60" height="20" rx="5" fill="#fff" stroke="#9FB3C8" stroke-width="2"/>
+        <rect x="206" y="127" width="38" height="10" rx="2" fill="#E3F2FD" stroke="#64B5F6" stroke-width="1.2"/>
+        <rect x="207" y="128.5" width="26" height="7" rx="1.5" fill="#BBDEFB"/>
+        <g class="m-plunger"><rect x="244" y="125" width="10" height="14" rx="2" fill="#90A4AE"/></g>
+        <!-- pressure monitors -->
+        <circle cx="214" cy="170" r="8" fill="#fff" stroke="#E53935" stroke-width="3"/>
+        <circle cx="244" cy="170" r="8" fill="#fff" stroke="#3F51B5" stroke-width="3"/>
+        <!-- dialysate module -->
+        <rect x="133" y="196" width="78" height="86" rx="9" fill="#E6EEF7" stroke="#C3D1E0" stroke-width="1.5"/>
+        <path d="M143,212 H201 M143,222 H201 M143,232 H201 M143,242 H201 M143,252 H201 M143,262 H201" stroke="#C3D1E0" stroke-width="2" stroke-linecap="round"/>
+        <!-- venous chamber, air detector, clamp -->
+        <rect x="226" y="192" width="16" height="38" rx="7" fill="#FFEBEE" stroke="#E57373" stroke-width="2"/>
+        <rect x="228.5" y="205" width="11" height="22" rx="5" fill="#EF5350" opacity=".85"/>
+        <rect x="222" y="236" width="24" height="14" rx="3" fill="#455A64"/>
+        <rect x="226" y="254" width="16" height="8" rx="2" fill="#263238"/>
+        <!-- wheels -->
+        <circle cx="142" cy="306" r="9" fill="#78909C"/><circle cx="248" cy="306" r="9" fill="#78909C"/>
+        <!-- concentrates -->
+        <path d="M300,222 C300,204 288,204 270,206" fill="none" stroke="#FB8C00" stroke-width="3"/>
+        <path d="M335,238 C335,198 292,196 270,196" fill="none" stroke="#1E88E5" stroke-width="3"/>
+        <rect x="285" y="228" width="30" height="54" rx="7" fill="#FFF3E0" stroke="#FB8C00" stroke-width="2"/>
+        <rect x="292" y="222" width="16" height="8" rx="2" fill="#FB8C00"/>
+        <text x="300" y="262" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="16" font-weight="700" fill="#E65100">A</text>
+        <rect x="322" y="238" width="26" height="44" rx="9" fill="#E3F2FD" stroke="#1E88E5" stroke-width="2"/>
+        <text x="335" y="266" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="16" font-weight="700" fill="#0D47A1">B</text>
+        <!-- blood lines: tubing, then moving blood -->
+        <g fill="none" stroke="#F8C9C6" stroke-width="7" stroke-linecap="round">
+          <path d="M14,290 C60,290 100,286 110,252 C118,224 120,176 140,142"/>
+          <path d="M162,112 C150,90 98,86 82,104"/>
+          <path d="M82,234 C84,262 150,262 186,236 C206,222 220,190 234,192"/>
+          <path d="M234,262 C230,300 120,314 14,302"/>
+        </g>
+        <path class="flow flow-blood" d="M14,290 C60,290 100,286 110,252 C118,224 120,176 140,142" stroke-width="4"/>
+        <path class="flow flow-blood" d="M162,112 C150,90 98,86 82,104" stroke-width="4"/>
+        <path class="flow flow-blood-r" d="M82,234 C84,262 150,262 186,236 C206,222 220,190 234,192" stroke-width="4"/>
+        <path class="flow flow-blood-r" d="M234,262 C230,300 120,314 14,302" stroke-width="4"/>
+        <text x="14" y="324" font-family="Inter,system-ui,sans-serif" font-size="10" fill="#829699">to and from the patient</text>
+        <!-- pins -->
+        <g class="hotspot" data-k="screen"><circle class="hit" cx="257" cy="26" r="20"/><circle class="pin" cx="257" cy="26" r="10"/><circle class="pin-core" cx="257" cy="26" r="3.2"/></g>
+        <g class="hotspot" data-k="pump"><circle class="hit" cx="186" cy="114" r="20"/><circle class="pin" cx="186" cy="114" r="10"/><circle class="pin-core" cx="186" cy="114" r="3.2"/></g>
+        <g class="hotspot" data-k="heparin"><circle class="hit" cx="240" cy="110" r="18"/><circle class="pin" cx="240" cy="110" r="10"/><circle class="pin-core" cx="240" cy="110" r="3.2"/></g>
+        <g class="hotspot" data-k="pressures"><circle class="hit" cx="229" cy="156" r="18"/><circle class="pin" cx="229" cy="156" r="10"/><circle class="pin-core" cx="229" cy="156" r="3.2"/></g>
+        <g class="hotspot" data-k="dialyser"><circle class="hit" cx="56" cy="170" r="20"/><circle class="pin" cx="56" cy="170" r="10"/><circle class="pin-core" cx="56" cy="170" r="3.2"/></g>
+        <g class="hotspot" data-k="air"><circle class="hit" cx="257" cy="243" r="20"/><circle class="pin" cx="257" cy="243" r="10"/><circle class="pin-core" cx="257" cy="243" r="3.2"/></g>
+        <g class="hotspot" data-k="conc"><circle class="hit" cx="318" cy="210" r="20"/><circle class="pin" cx="318" cy="210" r="10"/><circle class="pin-core" cx="318" cy="210" r="3.2"/></g>
+        <g class="hotspot" data-k="hydraulics"><circle class="hit" cx="172" cy="239" r="22"/><circle class="pin" cx="172" cy="239" r="10"/><circle class="pin-core" cx="172" cy="239" r="3.2"/></g>
+      </svg>
+    </div>
+    <div class="info-panel" id="machInfo">
+      <div class="lbl">The machine</div>
+      <h4>Pick a part</h4>
+      <p>Blood side on the front, dialysate side behind the panels.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>The dialysate side, in order</h3>
+    <p>Behind the panels, treated water becomes dialysate in a fixed sequence. The machine checks it before it reaches the dialyser, and again on the way out.</p>
+    <div class="flowline">
+      <details class="item"><summary><span class="tag t-aqua">1</span><span class="summary-txt">Treated water in<small>From the RO loop</small></span><span class="chev">&rsaquo;</span></summary><div class="reveal"><p>Purified water arrives from the water treatment plant's distribution loop. The next chapter follows its journey from the tap.</p></div></details>
+      <details class="item"><summary><span class="tag t-amber">2</span><span class="summary-txt">Warmed<small>Close to body temperature</small></span><span class="chev">&rsaquo;</span></summary><div class="reveal"><p>A heater brings the water to the prescribed temperature.</p><div class="why"><b>Why it matters:</b> dialysate set slightly below body temperature can help patients prone to low blood pressure, because it makes blood vessels tighten a little.</div></div></details>
+      <details class="item"><summary><span class="tag t-fluid">3</span><span class="summary-txt">De-aired<small>Dissolved gas drawn out</small></span><span class="chev">&rsaquo;</span></summary><div class="reveal"><p>Water holds dissolved air that would otherwise come out as bubbles in the dialyser, blocking fibres and confusing the sensors. The machine draws it out under low pressure first.</p></div></details>
+      <details class="item"><summary><span class="tag t-violet">4</span><span class="summary-txt">Mixed<small>Water, acid and bicarbonate</small></span><span class="chev">&rsaquo;</span></summary><div class="reveal"><p>Pumps proportion the two concentrates into the water in exact ratios, making the prescribed recipe of sodium, potassium, calcium and bicarbonate.</p></div></details>
+      <details class="item"><summary><span class="tag t-sage">5</span><span class="summary-txt">Checked<small>Conductivity and temperature</small></span><span class="chev">&rsaquo;</span></summary><div class="reveal"><p>Sensors confirm the mix conducts electricity exactly as the right recipe should, and that it's at the right temperature.</p><div class="why"><b>If either is out:</b> the machine goes into bypass. The fluid goes to drain and never reaches the dialyser.</div></div></details>
+      <details class="item"><summary><span class="tag t-blue">6</span><span class="summary-txt">Balanced<small>Fresh in equals used out</small></span><span class="chev">&rsaquo;</span></summary><div class="reveal"><p>Balancing chambers make sure exactly as much used fluid leaves the dialyser as fresh fluid enters. A separate ultrafiltration pump then takes off the extra, the patient's UF goal, so fluid removal is precise.</p></div></details>
+      <details class="item"><summary><span class="tag t-aqua">7</span><span class="summary-txt">Filtered<small>Ultrapure before the dialyser</small></span><span class="chev">&rsaquo;</span></summary><div class="reveal"><p>Many machines pass the fresh dialysate through a final ultrafilter (on Fresenius machines, the DIASAFE) to remove remaining bacteria and endotoxin. It's what makes haemodiafiltration (HDF) possible, where fluid goes directly into the blood.</p></div></details>
+      <details class="item"><summary><span class="tag t-amber">8</span><span class="summary-txt">Through the dialyser<small>Against the blood flow</small></span><span class="chev">&rsaquo;</span></summary><div class="reveal"><p>Dialysate flows the opposite way to the blood, around the fibres, collecting waste and excess fluid as it goes.</p></div></details>
+      <details class="item"><summary><span class="tag t-blood">9</span><span class="summary-txt">Blood leak check<small>Looking for red cells</small></span><span class="chev">&rsaquo;</span></summary><div class="reveal"><p>On the way out, an optical sensor watches the used dialysate for red cells, the sign of a torn membrane.</p></div></details>
+      <details class="item"><summary><span class="tag t-fluid">10</span><span class="summary-txt">To drain<small>Used once, then gone</small></span><span class="chev">&rsaquo;</span></summary><div class="reveal"><p>Spent dialysate goes to drain. It's never recirculated.</p></div></details>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Why two concentrates?</h3>
+    <div class="mix-wrap">
+      <svg viewBox="0 0 340 112" aria-label="Treated water, acid and bicarbonate meeting at the mixing point, then checked">
+        <path d="M10,60 H146" stroke="#BDE7F7" stroke-width="12" stroke-linecap="round" fill="none"/>
+        <path class="fl-13" d="M10,60 H146" stroke="#fff" stroke-width="3" fill="none"/>
+        <path d="M184,60 H330" stroke="#FFE3A3" stroke-width="12" stroke-linecap="round" fill="none"/>
+        <path class="fl-13" d="M184,60 H330" stroke="#fff" stroke-width="3" fill="none"/>
+        <rect x="56" y="2" width="32" height="30" rx="7" fill="#FFF3E0" stroke="#FB8C00" stroke-width="2"/>
+        <text x="72" y="23" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="14" font-weight="700" fill="#E65100">A</text>
+        <path d="M72,32 V52" stroke="#FB8C00" stroke-width="3"/>
+        <circle class="mx-drop" cx="72" cy="34" r="3" fill="#FB8C00"/>
+        <circle class="mx-drop" cx="72" cy="34" r="3" fill="#FB8C00" style="animation-delay:.6s"/>
+        <rect x="100" y="80" width="32" height="30" rx="9" fill="#E3F2FD" stroke="#1E88E5" stroke-width="2"/>
+        <text x="116" y="100" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="14" font-weight="700" fill="#0D47A1">B</text>
+        <path d="M116,80 V68" stroke="#1E88E5" stroke-width="3"/>
+        <circle class="mx-drop-up" cx="116" cy="78" r="3" fill="#1E88E5"/>
+        <circle class="mx-drop-up" cx="116" cy="78" r="3" fill="#1E88E5" style="animation-delay:.6s"/>
+        <circle cx="165" cy="60" r="20" fill="#fff" stroke="#3C8DFF" stroke-width="3"/>
+        <g transform="translate(165,60)"><g class="m-rotor"><path d="M-9,0 A9 9 0 0 1 9 0" fill="none" stroke="#FB8C00" stroke-width="3" stroke-linecap="round"/><path d="M9,0 A9 9 0 0 1 -9 0" fill="none" stroke="#1E88E5" stroke-width="3" stroke-linecap="round"/></g></g>
+        <circle class="mx-check" cx="250" cy="60" r="12" fill="#fff" stroke="#2E7D32" stroke-width="3"/>
+        <path d="M244,60 l4,4 l8,-8" fill="none" stroke="#2E7D32" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+        <g font-family="Inter,system-ui,sans-serif" font-size="10.5" fill="#455A61">
+          <text x="12" y="86">treated water</text>
+          <text x="165" y="96" text-anchor="middle">mixed</text>
+          <text x="250" y="90" text-anchor="middle">checked</text>
+          <text x="330" y="86" text-anchor="end">to the dialyser</text>
+        </g>
+      </svg>
+    </div>
+    <p>The acid concentrate carries the sodium, potassium, calcium and magnesium, with a little acid to keep it stable. The bicarbonate is the buffer, usually from a dry cartridge (the bibag on Fresenius machines).</p>
+    <p>Mixed in advance, the calcium and magnesium would react with the bicarbonate and drop out as chalky deposits, blocking the machine and leaving the recipe wrong. So the machine proportions both into the water at the last moment, then checks the result.</p>
+  </div>
+
+  <div class="card">
+    <h3>Pressures and alarms</h3>
+    <p>Pick a situation and watch what the machine sees. The shaded band on each gauge is its alarm window.</p>
+    <div class="mach-panel" id="machPanel">
+      <div class="mp-head">
+        <span class="mp-rotor" aria-hidden="true"><svg viewBox="-14 -14 28 28"><circle r="12" fill="rgba(255,255,255,.08)" stroke="rgba(255,255,255,.3)" stroke-width="1.5"/><g class="mp-spin"><rect x="-9" y="-1.6" width="18" height="3.2" rx="1.6" fill="#5FD3F3"/><circle cx="8" r="3" fill="#FF6B6B"/><circle cx="-8" r="3" fill="#FF6B6B"/></g></svg></span>
+        <span class="mp-status ok" id="mpStatus">Running, no alarms</span>
+      </div>
+      <div class="pg" data-g="ap"><span class="g-lbl">Arterial</span><div class="g-track"><i class="g-win"></i><i class="g-mark"></i></div><span class="g-val">&minus;150</span></div>
+      <div class="pg" data-g="vp"><span class="g-lbl">Venous</span><div class="g-track"><i class="g-win"></i><i class="g-mark"></i></div><span class="g-val">+150</span></div>
+      <div class="pg" data-g="tmp"><span class="g-lbl">TMP</span><div class="g-track"><i class="g-win"></i><i class="g-mark"></i></div><span class="g-val">80</span></div>
+      <div class="mp-lights">
+        <span class="lt" data-l="air">Air detector</span><span class="lt" data-l="clamp">Venous clamp closed</span><span class="lt" data-l="leak">Blood leak</span><span class="lt" data-l="cond">Conductivity</span><span class="lt amber" data-l="bypass">Bypass</span>
+      </div>
+      <p class="mp-units">Pressures in mmHg. Illustrative values: real readings depend on blood flow, needle size, dialyser and machine.</p>
+    </div>
+    <div class="chips" id="alarmChips" role="group" aria-label="Choose a situation">
+      <button class="chip on" data-s="normal">Normal running</button>
+      <button class="chip" data-s="artlow">Arterial needle against the wall</button>
+      <button class="chip" data-s="venhigh">Venous line kinked</button>
+      <button class="chip" data-s="clot">Dialyser clotting</button>
+      <button class="chip" data-s="vnd">Venous needle out</button>
+      <button class="chip" data-s="air">Air in the line</button>
+      <button class="chip" data-s="leak">Blood leak</button>
+      <button class="chip" data-s="cond">Concentrate runs out</button>
+    </div>
+    <div class="alarm-card ok" id="alarmInfo" aria-live="polite"></div>
+  </div>
+
+  <div class="card">
+    <h3>Before and between patients</h3>
+    <div class="acc">
+      <details class="item"><summary><span class="tag t-blue">&#10003;</span><span class="summary-txt">Self-test before every treatment<small>Sensors, alarms and pressure holding</small></span><span class="chev">&rsaquo;</span></summary><div class="reveal"><p>Before each treatment the machine tests itself: its sensors, its alarms and whether the dialysate circuit holds pressure. A machine that fails its test isn't used until it has been checked and fixed.</p></div></details>
+      <details class="item"><summary><span class="tag t-aqua">&#8635;</span><span class="summary-txt">Disinfection<small>Between patients and on a schedule</small></span><span class="chev">&rsaquo;</span></summary><div class="reveal"><p>Between patients the machine runs a disinfection cycle, using heat, chemicals or both, on a schedule set by the manufacturer and the unit, alongside regular descaling. The dialysate side has to be clean before the next patient connects.</p></div></details>
+      <details class="item"><summary><span class="tag t-amber">&#9889;</span><span class="summary-txt">Power cut<small>Battery first, then by hand</small></span><span class="chev">&rsaquo;</span></summary><div class="reveal"><p>Most machines keep the blood pump running on battery for a while. If power can't be restored, the blood pump can be turned by hand to return the patient's blood, which is worth practising before you ever need it.</p></div></details>
+      <details class="item"><summary><span class="tag t-violet">Kt/V</span><span class="summary-txt">Live clearance on the screen<small>A check, not the measure</small></span><span class="chev">&rsaquo;</span></summary><div class="reveal"><p>Many machines, including the Fresenius models, can estimate clearance during the session from changes in dialysate conductivity, known as online clearance monitoring. It's a useful live check, but the QA bloods are what the unit's urea kinetic modelling is based on.</p></div></details>
+    </div>
+  </div>
+
+  <div class="panel-note"><strong>Machines differ.</strong> Alarm limits, responses and screens vary between models and software versions. Follow the prompts on your machine, the manufacturer's instructions and your unit's training.</div>
+</section>
+
+<!-- ===== 07 WATER TREATMENT ===== -->
+<section class="chapter" id="ch-7">
+  <div class="ch-head">
+    <div class="ch-kicker"><span>07 · Water</span><span class="line"></span></div>
+    <h2>Water fit for dialysis</h2>
+    <p class="lede">Dialysate is almost all water, and a patient meets about 120 litres of it every session. Only a thin membrane stands between that water and the blood, so it has to be far purer than anything from a tap.</p>
+  </div>
+
+  <div class="card">
+    <h3>Why it has to be so pure</h3>
+    <div class="vol-compare">
+      <div class="vc-row"><div class="vc-top"><span>Water most people drink in a week</span><b>about 14 L</b></div><div class="vc-bar"><i style="--w:3.9%"></i></div></div>
+      <div class="vc-row big"><div class="vc-top"><span>Dialysate in a week of haemodialysis</span><b>about 360 L</b></div><div class="vc-bar"><i style="--w:100%"></i></div></div>
+    </div>
+    <p>When you drink water, your gut and kidneys stand between it and your blood. On dialysis only the membrane does, and anything small enough slips straight across. At a typical 500 mL/min for four hours, that's about 120 litres a session and 360 a week: more than most people drink in six months.</p>
+  </div>
+
+  <div class="card">
+    <h3>From tap to machine</h3>
+    <p>Each stage removes something the next stage, or the patient, can't cope with. Switch one off and watch what gets through.</p>
+    <div class="sim wsim"><canvas id="waterCanvas" width="700" height="340" aria-label="Animated water treatment: contaminants removed stage by stage"></canvas></div>
+    <div class="legend">
+      <span><i style="background:#C08552"></i>Sediment</span>
+      <span><i style="background:#F4F4F4;box-shadow:0 0 0 1.5px #B0BEC5"></i>Calcium and magnesium</span>
+      <span><i style="background:#9BE564"></i>Chlorine and chloramine</span>
+      <span><i style="background:#64B5F6"></i>Salts and metals</span>
+      <span><i style="background:#E07BF0"></i>Bacteria and endotoxin</span>
+    </div>
+    <div class="chips" id="waterToggles" role="group" aria-label="Switch stages on and off">
+      <button class="chip wt on" data-w="sed" aria-pressed="true">Sediment filter</button>
+      <button class="chip wt on" data-w="soft" aria-pressed="true">Softener</button>
+      <button class="chip wt on" data-w="carbon" aria-pressed="true">Carbon tanks</button>
+      <button class="chip wt on" data-w="ro" aria-pressed="true">Reverse osmosis</button>
+      <button class="chip reset" id="waterReset">Reset system</button>
+    </div>
+    <div class="water-out" id="waterOut" aria-live="polite"></div>
+  </div>
+
+  <div class="card">
+    <h3>Stage by stage</h3>
+    <div class="flowline">
+      <details class="item"><summary><span class="tag t-fluid">1</span><span class="summary-txt">Mains water<small>Safe to drink, not to dialyse</small></span><span class="chev">&rsaquo;</span></summary><div class="reveal"><p>Tap water carries chlorine or chloramine (added to kill germs), calcium and magnesium (hardness), traces of metals such as aluminium and copper, plus nitrates, fluoride, bacteria and endotoxin.</p><div class="why"><b>Fine for the gut and kidneys to handle.</b> Not fine pushed across a membrane straight into the blood.</div></div></details>
+      <details class="item"><summary><span class="tag t-amber">2</span><span class="summary-txt">Sediment filter<small>Particles out first</small></span><span class="chev">&rsaquo;</span></summary><div class="reveal"><p>A multimedia filter traps sand, rust and silt so they don't clog the stages after it. It's backwashed regularly to clear what it has caught.</p></div></details>
+      <details class="item"><summary><span class="tag t-sage">3</span><span class="summary-txt">Water softener<small>Calcium and magnesium swapped for sodium</small></span><span class="chev">&rsaquo;</span></summary><div class="reveal"><p>Resin beads exchange the hardness minerals for sodium. This mainly protects the RO membrane from scaling. The resin is regenerated with salt brine, so the brine tank needs keeping topped up.</p></div></details>
+      <details class="item"><summary><span class="tag t-violet">4</span><span class="summary-txt">Carbon tanks<small>Chlorine and chloramine removed</small></span><span class="chev">&rsaquo;</span></summary><div class="reveal"><p>Activated carbon pulls out chlorine and chloramine, plus organic compounds. Two tanks run in series: the first does the work and the second is the backup. The sample point between them is where the chlorine check is done.</p><div class="why"><b>Why carbon comes before RO:</b> RO can't be relied on to remove chloramine, and chlorine damages the RO membrane itself.</div></div></details>
+      <details class="item"><summary><span class="tag t-blue">5</span><span class="summary-txt">Reverse osmosis<small>The heart of the system</small></span><span class="chev">&rsaquo;</span></summary><div class="reveal"><p>High pressure forces water through a membrane so fine it holds back almost all dissolved salts, metals, bacteria and endotoxin. Two streams leave: purified product water, and a reject stream that carries the concentrated contaminants to drain.</p><div class="why"><b>Watched continuously:</b> product water conductivity. A rise means the membrane is letting more through.</div></div></details>
+      <details class="item"><summary><span class="tag t-aqua">6</span><span class="summary-txt">Distribution loop<small>Always moving, no dead ends</small></span><span class="chev">&rsaquo;</span></summary><div class="reveal"><p>Product water circulates constantly through a ring main to every machine and back. Stagnant water lets bacteria grow biofilm, a slimy layer that sheds endotoxin and is very hard to remove, so the loop has no dead ends and is disinfected on a schedule.</p></div></details>
+      <details class="item"><summary><span class="tag t-fluid">7</span><span class="summary-txt">At the machine<small>One last filter</small></span><span class="chev">&rsaquo;</span></summary><div class="reveal"><p>Many machines add a final ultrafilter on the fresh dialysate, catching remaining bacteria and endotoxin to make it ultrapure.</p></div></details>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>The chlorine check</h3>
+    <div class="acc">
+      <details class="item" open><summary><span class="tag t-sage">&#9719;</span><span class="summary-txt">Every treatment day<small>Total chlorine, between the tanks</small></span><span class="chev">&rsaquo;</span></summary><div class="reveal"><p>Total chlorine, meaning free chlorine plus chloramine, is tested at the start of each treatment day or shift as the unit's water procedure sets out, from the sample point between the two carbon tanks. The result should be under 0.1 mg/L.</p></div></details>
+      <details class="item"><summary><span class="tag t-amber">?</span><span class="summary-txt">Why between the tanks?<small>An early warning</small></span><span class="chev">&rsaquo;</span></summary><div class="reveal"><p>If the first tank is exhausted, the test catches it while the second tank is still protecting patients. Testing only after the last tank would discover the problem with no protection left.</p></div></details>
+      <details class="item"><summary><span class="tag t-blood">!</span><span class="summary-txt">A positive result<small>Escalate straight away</small></span><span class="chev">&rsaquo;</span></summary><div class="reveal"><p>Chlorine after the first tank means the backup is now the only protection. Tell the nurse in charge and the technical team at once, and follow the water procedure exactly: it sets out what to retest and when dialysis can continue.</p></div></details>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Testing and limits</h3>
+    <div class="limits">
+      <div class="lim"><span class="lim-k">Bacteria in dialysis water</span><b class="lim-v">under 100 CFU/mL</b><small>Action at 50</small></div>
+      <div class="lim"><span class="lim-k">Endotoxin in dialysis water</span><b class="lim-v">under 0.25 EU/mL</b><small>Action at 0.125</small></div>
+      <div class="lim"><span class="lim-k">Ultrapure dialysis fluid</span><b class="lim-v">under 0.1 CFU/mL</b><small>and endotoxin under 0.03 EU/mL</small></div>
+      <div class="lim"><span class="lim-k">Total chlorine</span><b class="lim-v">under 0.1 mg/L</b><small>Checked every treatment day</small></div>
+    </div>
+    <p>CFU counts living bacteria. EU measures endotoxin, the fragments bacteria leave behind, which still cause fevers. Both are sampled routinely, commonly monthly, from the loop and the machines, and a full chemical analysis, including aluminium, is done periodically. Action levels sit below the limits so a problem is caught early.</p>
+  </div>
+
+  <div class="card">
+    <h3>Lessons that wrote the rules</h3>
+    <div class="acc">
+      <details class="item"><summary><span class="tag t-blue">Al</span><span class="summary-txt">Aluminium<small>Dialysis dementia</small></span><span class="chev">&rsaquo;</span></summary><div class="reveal"><p>In the 1970s, aluminium in dialysis water caused dialysis encephalopathy, a progressive and often fatal dementia, alongside bone disease and anaemia. Reverse osmosis is the main reason it's now rare.</p></div></details>
+      <details class="item"><summary><span class="tag t-sage">Cl</span><span class="summary-txt">Chloramine<small>Haemolysis</small></span><span class="chev">&rsaquo;</span></summary><div class="reveal"><p>Chloramine crossing into the blood damages red cells until they burst, causing haemolytic anaemia. Outbreaks have followed carbon tanks becoming exhausted, and water suppliers changing their disinfection without the unit knowing.</p></div></details>
+      <details class="item"><summary><span class="tag t-amber">Ca</span><span class="summary-txt">Calcium and magnesium<small>Hard water syndrome</small></span><span class="chev">&rsaquo;</span></summary><div class="reveal"><p>Hardness reaching the dialysate causes nausea, vomiting, headache, a burning feeling in the skin and high blood pressure during treatment, usually when a softener fails or isn't regenerated.</p></div></details>
+      <details class="item"><summary><span class="tag t-violet">&#9679;</span><span class="summary-txt">Bacteria and endotoxin<small>Fevers and rigors</small></span><span class="chev">&rsaquo;</span></summary><div class="reveal"><p>Contamination causes fevers, rigors and low blood pressure during dialysis. Lower-level exposure over years adds to chronic inflammation, which is one reason ultrapure fluid matters.</p></div></details>
+      <details class="item"><summary><span class="tag t-blood">!</span><span class="summary-txt">Algal toxins<small>Brazil, 1996</small></span><span class="chev">&rsaquo;</span></summary><div class="reveal"><p>At a dialysis unit in Caruaru, toxins from algae in an inadequately treated water supply caused acute liver failure, and dozens of patients died. It remains the starkest reminder of why every stage is checked.</p></div></details>
+    </div>
+  </div>
+
+  <div class="panel-note"><strong>Check your unit's water procedure.</strong> The limits here follow ISO 23500 and UK Kidney Association guidance. The renal technical team usually looks after the plant itself, and your unit's procedure sets the testing schedule and who does each check, but everyone on the floor should know what an abnormal result means.</div>
+</section>
+
+<!-- ===== 08 ACCESS ===== -->
+<section class="chapter" id="ch-8">
+  <div class="ch-head">
+    <div class="ch-kicker"><span>08 · Access</span><span class="line"></span></div>
     <h2>Getting to the blood</h2>
     <p class="lede">Haemodialysis needs a reliable, high-flow route into the circulation. There's a clear order of preference — the phrase is <span class="mnem">fistula first</span>.</p>
   </div>
@@ -714,10 +1228,10 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
   </div>
 </section>
 
-<!-- ===== 07 COMPLICATIONS ===== -->
-<section class="chapter" id="ch-7">
+<!-- ===== 09 COMPLICATIONS ===== -->
+<section class="chapter" id="ch-9">
   <div class="ch-head">
-    <div class="ch-kicker"><span>07 · Complications</span><span class="line"></span></div>
+    <div class="ch-kicker"><span>09 · Complications</span><span class="line"></span></div>
     <h2>What can go wrong</h2>
     <p class="lede">Two timescales to know: things that happen <em>during</em> a session, and the longer-term effects of living with kidney failure.</p>
   </div>
@@ -744,10 +1258,10 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
   </div>
 </section>
 
-<!-- ===== 08 MEDICATIONS ===== -->
-<section class="chapter" id="ch-8">
+<!-- ===== 10 MEDICATIONS ===== -->
+<section class="chapter" id="ch-10">
   <div class="ch-head">
-    <div class="ch-kicker"><span>08 · Medicines</span><span class="line"></span></div>
+    <div class="ch-kicker"><span>10 · Medicines</span><span class="line"></span></div>
     <h2>The medicine, by the problem it solves</h2>
     <p class="lede">Almost every renal medicine replaces a job the kidney can no longer do. Read each one as: kidney fails → this problem → this group fixes it.</p>
   </div>
@@ -772,10 +1286,10 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
   <div class="panel-note"><strong>Remember:</strong> this app names <em>groups and reasons</em>, not doses or specific drugs. Always check the individual patient's plan and your local formulary.</div>
 </section>
 
-<!-- ===== 09 MONTHLY BLOODS ===== -->
-<section class="chapter" id="ch-9">
+<!-- ===== 11 QA BLOODS ===== -->
+<section class="chapter" id="ch-11">
   <div class="ch-head">
-    <div class="ch-kicker"><span>09 &middot; Monitoring</span><span class="line"></span></div>
+    <div class="ch-kicker"><span>11 &middot; Monitoring</span><span class="line"></span></div>
     <h2>QA bloods &amp; urine</h2>
     <p class="lede">Quality Assurance is how we prove the dialysis is doing enough, and how each patient's dose gets individualised. The numbers only mean something if the samples were taken exactly right &mdash; so here, technique <em>is</em> the test.</p>
   </div>
@@ -943,8 +1457,8 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
   </div>
 </section>
 
-<!-- ===== 10 QUIZ ===== -->
-<section class="chapter" id="ch-10">
+<!-- ===== 12 QUIZ ===== -->
+<section class="chapter" id="ch-12">
   <div class="ch-head">
     <div class="ch-kicker"><span>Quiz · Test yourself</span><span class="line"></span></div>
     <h2>Check your understanding</h2>
@@ -1015,17 +1529,58 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
   var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   var chapters = [
-    {t:"The kidney", d:"Anatomy & the nephron"},
-    {t:"What it does", d:"The seven jobs · A WET BED"},
-    {t:"When it fails", d:"eGFR, CKD stages & AEIOU"},
-    {t:"Dialysis basics", d:"Diffusion, UF & countercurrent"},
-    {t:"The HD circuit", d:"The machine, part by part"},
-    {t:"Vascular access", d:"Fistula, graft & line"},
-    {t:"Complications", d:"During & long-term"},
-    {t:"Medications", d:"By the problem they solve"},
-    {t:"QA bloods & urine", d:"Sampling, adequacy & KRU"},
-    {t:"Test yourself", d:"Quick quiz for trainees"}
+    {t:"The kidney", d:"Anatomy and the nephron", c:['#8E1C1C','#F0603F']},
+    {t:"What it does", d:"Seven jobs to remember: A WET BED", c:['#9A4500','#F7A325']},
+    {t:"When it fails", d:"eGFR, CKD stages and AEIOU", c:['#6A1B5A','#D2479A']},
+    {t:"Dialysis basics", d:"Diffusion, UF and countercurrent", c:['#005A5E','#17B8A8']},
+    {t:"The HD circuit", d:"Blood out, cleaned and back", c:['#2B2F8F','#E0465A']},
+    {t:"The machine", d:"Its parts, sensors and alarms", c:['#0B3D91','#3C8DFF']},
+    {t:"Water treatment", d:"From the tap to the dialysate", c:['#005C70','#36C5E8']},
+    {t:"Vascular access", d:"Fistula, graft and line", c:['#1E5E2A','#4CB050']},
+    {t:"Complications", d:"During dialysis and long-term", c:['#7A1E48','#FF7A45']},
+    {t:"Medications", d:"By the problem they solve", c:['#3B1C8C','#8C6CF2']},
+    {t:"QA bloods & urine", d:"Sampling, adequacy and KRU", c:['#8B1E3F','#F25C7A']},
+    {t:"Test yourself", d:"Quiz for trainees", c:['#6B4A00','#F2B705']}
   ];
+  var HOME_C=['#0B4F6C','#1FB5C9'];
+  function hexA(h,a){ var n=parseInt(h.slice(1),16); return 'rgba('+(n>>16&255)+','+(n>>8&255)+','+(n&255)+','+a+')'; }
+  function applyTheme(n){
+    var c=n===0?HOME_C:chapters[n-1].c, s=document.documentElement.style;
+    s.setProperty('--accent',c[0]); s.setProperty('--accent-2',c[1]);
+    s.setProperty('--accent-soft',hexA(c[1],.14)); s.setProperty('--accent-glow',hexA(c[1],.85));
+  }
+
+  // small line icons for the chapter path
+  var ICONS={
+    1:'<path d="M14.5 3.5c3.3 0 5.5 2.8 5.5 8s-2.6 9-6 9c-3 0-4-2.2-4-4.1 0-1.3.8-1.9.8-3s-1.8-1.6-1.8-3.6C9 6.3 11.2 3.5 14.5 3.5z"/><path d="M9.6 12.2c-2.4.2-3.9 1.6-4.6 4"/>',
+    2:'<circle cx="12" cy="12" r="3"/><path d="M12 2.8v2.6M12 18.6v2.6M2.8 12h2.6M18.6 12h2.6M5.5 5.5l1.8 1.8M16.7 16.7l1.8 1.8M5.5 18.5l1.8-1.8M16.7 7.3l1.8-1.8"/>',
+    3:'<path d="M3.5 16.5a8.5 8.5 0 0 1 17 0"/><path d="M12 16.5L8.2 11"/><circle cx="12" cy="16.5" r="1.3"/>',
+    4:'<path d="M12 3v18" stroke-dasharray="2.2 2.6"/><circle cx="6.5" cy="8" r="2"/><circle cx="7.5" cy="16" r="2"/><circle cx="17" cy="12" r="1.4"/>',
+    5:'<rect x="3" y="6" width="18" height="12" rx="6"/><circle cx="12" cy="6" r="2.4"/><path d="M9 18h6"/>',
+    6:'<rect x="6.5" y="2.5" width="11" height="19" rx="2.2"/><rect x="8.7" y="4.8" width="6.6" height="4.2" rx="1"/><circle cx="12" cy="14" r="2.6"/>',
+    7:'<path d="M12 3s6.5 6.8 6.5 11.3a6.5 6.5 0 0 1-13 0C5.5 9.8 12 3 12 3z"/><path d="M9.2 14.6a2.8 2.8 0 0 0 2.8 2.8"/>',
+    8:'<path d="M2.5 7.5c5 0 6.5 4.5 9.5 4.5s4.5-4.5 9.5-4.5"/><path d="M2.5 16.5c5 0 6.5-4.5 9.5-4.5s4.5 4.5 9.5 4.5"/>',
+    9:'<path d="M12 3.8l9 15.7H3z"/><path d="M12 10v4.2M12 16.9v.2"/>',
+    10:'<g transform="rotate(-40 12 12)"><rect x="3.5" y="8.5" width="17" height="7" rx="3.5"/><path d="M12 8.5v7"/></g>',
+    11:'<path d="M8.5 3h7M10 3v13.5a2 2 0 0 0 4 0V3"/><path d="M10 11h4"/>',
+    12:'<path d="M9.2 9a2.9 2.9 0 1 1 4.1 2.6c-.8.4-1.3 1-1.3 1.9v.8"/><circle cx="12" cy="17.6" r=".7"/>'
+  };
+
+  // animated illustration of each chapter's subject, for the chapter hero
+  var ART={
+    1:'<svg viewBox="0 0 120 120" class="ha"><circle cx="60" cy="60" r="48" fill="rgba(255,255,255,.12)" class="pulse"/><g class="pulse"><path transform="translate(64,54) scale(.72)" d="M0,-52 C30,-52 42,-30 42,-4 C42,26 26,52 -6,52 C-30,52 -40,34 -40,10 C-40,-6 -34,-14 -34,-28 C-34,-44 -22,-52 0,-52 Z" fill="#fff"/><path d="M40,52 C48,52 52,55 60,55" fill="none" stroke="#FFC4B0" stroke-width="3.5" stroke-linecap="round"/></g><path d="M41,58 C33,70 33,86 37,106" fill="none" stroke="rgba(255,255,255,.75)" stroke-width="4" stroke-linecap="round"/><circle cx="36" cy="70" r="3" fill="#FFE29A" class="drip"/><circle cx="36" cy="70" r="3" fill="#FFE29A" class="drip" style="animation-delay:.8s"/><circle cx="36" cy="70" r="3" fill="#FFE29A" class="drip" style="animation-delay:1.6s"/></svg>',
+    2:'<svg viewBox="0 0 120 120" class="ha"><circle cx="60" cy="60" r="38" fill="none" stroke="rgba(255,255,255,.35)" stroke-width="2" stroke-dasharray="3 6"/><circle cx="60" cy="60" r="17" fill="#fff" class="pulse"/><g class="spin"><circle cx="60" cy="60" r="44" fill="none"/><circle cx="98" cy="60" r="6" fill="#FFE29A"/><circle cx="83.7" cy="89.7" r="6" fill="#fff"/><circle cx="51.5" cy="97" r="6" fill="#FFC4B0"/><circle cx="25.8" cy="76.5" r="6" fill="#fff"/><circle cx="25.8" cy="43.5" r="6" fill="#B9F6CA"/><circle cx="51.5" cy="23" r="6" fill="#fff"/><circle cx="83.7" cy="30.3" r="6" fill="#FFE29A"/></g></svg>',
+    3:'<svg viewBox="0 0 120 120" class="ha"><path d="M18 84 A42 42 0 0 1 102 84" fill="none" stroke="rgba(255,255,255,.22)" stroke-width="11" stroke-linecap="round"/><path d="M18 84 A42 42 0 0 1 39 47.6" fill="none" stroke="#FF8A80" stroke-width="11" stroke-linecap="round"/><path d="M39 47.6 A42 42 0 0 1 81 47.6" fill="none" stroke="#FFE082" stroke-width="11"/><path d="M81 47.6 A42 42 0 0 1 102 84" fill="none" stroke="#B9F6CA" stroke-width="11" stroke-linecap="round"/><g class="needle"><path d="M60 84 L60 48" stroke="#fff" stroke-width="4.5" stroke-linecap="round"/></g><circle cx="60" cy="84" r="7" fill="#fff"/><circle cx="60" cy="84" r="2.6" fill="#6A1B5A"/></svg>',
+    4:'<svg viewBox="0 0 120 120" class="ha"><rect x="12" y="14" width="46" height="92" rx="16" fill="rgba(255,138,128,.3)"/><rect x="62" y="14" width="46" height="92" rx="16" fill="rgba(255,226,154,.26)"/><path d="M60 16 V104" stroke="#fff" stroke-width="3" stroke-dasharray="4 5"/><circle cx="30" cy="40" r="8" fill="#FF8A80" class="bob"/><circle cx="35" cy="80" r="7" fill="#FF8A80" class="bob" style="animation-delay:1.2s"/><circle cx="40" cy="58" r="3.6" fill="#FFE29A" class="cross"/><circle cx="34" cy="94" r="3.6" fill="#FFE29A" class="cross" style="animation-delay:1.1s"/><circle cx="42" cy="26" r="3.6" fill="#fff" class="cross" style="animation-delay:2.1s"/></svg>',
+    5:'<svg viewBox="0 0 120 120" class="ha"><rect x="14" y="26" width="92" height="68" rx="34" fill="none" stroke="rgba(255,255,255,.22)" stroke-width="11"/><path d="M48 26 H72 A34 34 0 0 1 72 94 H48" fill="none" stroke="#FF8A80" stroke-width="5" stroke-linecap="round" class="dash"/><path d="M48 94 A34 34 0 0 1 48 26" fill="none" stroke="#A9B4FF" stroke-width="5" stroke-linecap="round" class="dash"/><rect x="45" y="86" width="30" height="16" rx="8" fill="#FFE29A"/><g transform="translate(60,26)"><circle r="13" fill="#fff"/><g class="spin-fast"><circle cx="6.5" r="3.2" fill="#E53935"/><circle cx="-6.5" r="3.2" fill="#E53935"/></g></g></svg>',
+    6:'<svg viewBox="0 0 120 120" class="ha"><rect x="10" y="40" width="12" height="50" rx="6" fill="#FFE29A"/><path d="M16 46 V84" stroke="#E53935" stroke-width="2.5" class="dash"/><rect x="32" y="8" width="62" height="104" rx="11" fill="#fff"/><rect x="39" y="15" width="48" height="30" rx="6" fill="#0B2545"/><rect x="44" y="21" width="28" height="4" rx="2" fill="#5FD3F3" class="barp"/><rect x="44" y="29" width="36" height="4" rx="2" fill="#9BE564" class="barp" style="animation-delay:.6s"/><rect x="44" y="37" width="20" height="3" rx="1.5" fill="#FF8A80" class="barp" style="animation-delay:1.2s"/><g transform="translate(50,66)"><circle r="11" fill="#E3F2FD" stroke="#90CAF9" stroke-width="2"/><g class="spin-fast"><rect x="-9" y="-1.6" width="18" height="3.2" rx="1.6" fill="#1E88E5"/><circle cx="8" r="2.8" fill="#E53935"/><circle cx="-8" r="2.8" fill="#E53935"/></g></g><rect x="66" y="60" width="22" height="11" rx="2.5" fill="#E3F2FD" stroke="#90CAF9" stroke-width="1.5"/><rect x="40" y="86" width="44" height="18" rx="4" fill="#ECF1F7"/><circle cx="80" cy="96" r="3" fill="#69F0AE" class="twinkle"/></svg>',
+    7:'<svg viewBox="0 0 120 120" class="ha"><ellipse cx="60" cy="102" rx="30" ry="7" fill="none" stroke="rgba(255,255,255,.75)" stroke-width="2" class="ripple"/><ellipse cx="60" cy="102" rx="30" ry="7" fill="none" stroke="rgba(255,255,255,.75)" stroke-width="2" class="ripple" style="animation-delay:1.4s"/><g class="bob"><path d="M60 10 C60 10 88 42 88 64 A28 28 0 0 1 32 64 C32 42 60 10 60 10 Z" fill="#fff"/><path d="M47 66 A13 13 0 0 0 60 79" fill="none" stroke="#7FDBFF" stroke-width="4.5" stroke-linecap="round"/></g><circle cx="22" cy="36" r="3" fill="#B3ECFF" class="twinkle"/><circle cx="100" cy="28" r="2.5" fill="#fff" class="twinkle" style="animation-delay:.9s"/><circle cx="98" cy="70" r="2" fill="#B3ECFF" class="twinkle" style="animation-delay:1.5s"/></svg>',
+    8:'<svg viewBox="0 0 120 120" class="ha"><path d="M6 38 C38 38 46 60 60 60 C74 60 82 38 114 38" fill="none" stroke="#FF8A80" stroke-width="10" stroke-linecap="round"/><path d="M6 82 C38 82 46 60 60 60 C74 60 82 82 114 82" fill="none" stroke="#A9B4FF" stroke-width="10" stroke-linecap="round"/><path d="M6 38 C38 38 46 60 60 60 C74 60 82 82 114 82" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" class="dash"/><circle cx="60" cy="60" r="16" fill="none" stroke="#fff" stroke-width="2.5" class="ripple"/><circle cx="60" cy="60" r="16" fill="none" stroke="#fff" stroke-width="2.5" class="ripple" style="animation-delay:1.4s"/><circle cx="60" cy="60" r="8" fill="#fff"/></svg>',
+    9:'<svg viewBox="0 0 120 120" class="ha"><path d="M6 68 H32 L40 52 L50 88 L61 32 L71 76 L78 68 H114" fill="none" stroke="rgba(255,255,255,.3)" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/><path d="M6 68 H32 L40 52 L50 88 L61 32 L71 76 L78 68 H114" fill="none" stroke="#fff" stroke-width="4.5" stroke-linejoin="round" stroke-linecap="round" class="ecg"/><g class="pulse"><path d="M94 30 C90 22 78 24 78 33 C78 41 94 48 94 48 C94 48 110 41 110 33 C110 24 98 22 94 30 Z" fill="#FF8A80"/></g></svg>',
+    10:'<svg viewBox="0 0 120 120" class="ha"><g class="bob"><g transform="rotate(-35 52 54)"><rect x="22" y="42" width="60" height="24" rx="12" fill="#fff"/><path d="M52 42 H70 A12 12 0 0 1 70 66 H52 Z" fill="#FFE29A"/></g></g><g class="bob" style="animation-delay:1.2s"><circle cx="88" cy="88" r="13" fill="#fff"/><path d="M79 88 H97" stroke="#B39DDB" stroke-width="2.5" stroke-linecap="round"/></g><circle cx="28" cy="96" r="6" fill="#FFE29A" class="twinkle"/><circle cx="100" cy="30" r="3" fill="#fff" class="twinkle" style="animation-delay:.8s"/></svg>',
+    11:'<svg viewBox="0 0 120 120" class="ha"><g class="sway"><path d="M36 12 H58 M41 12 V84 A6 6 0 0 0 53 84 V12" fill="rgba(255,255,255,.18)" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/><rect x="43.5" y="48" width="7" height="40" rx="3.5" fill="#FF8A80" class="fill"/></g><g class="sway" style="animation-delay:1s"><path d="M64 22 H86 M69 22 V88 A6 6 0 0 0 81 88 V22" fill="rgba(255,255,255,.18)" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/><rect x="71.5" y="56" width="7" height="36" rx="3.5" fill="#FFE29A" class="fill" style="animation-delay:.9s"/></g><circle cx="47" cy="102" r="3.2" fill="#FF8A80" class="drip"/></svg>',
+    12:'<svg viewBox="0 0 120 120" class="ha"><g class="bob"><circle cx="60" cy="58" r="34" fill="#fff"/><path d="M49 48 A11 11 0 1 1 64.5 58 C61.5 59.5 60 61.5 60 65 V67" fill="none" stroke="#C99700" stroke-width="7" stroke-linecap="round"/><circle cx="60" cy="79" r="4.4" fill="#C99700"/></g><g transform="translate(20,24)"><path class="twinkle" d="M0 -8 L2 -2 L8 0 L2 2 L0 8 L-2 2 L-8 0 L-2 -2 Z" fill="#FFF3B0"/></g><g transform="translate(102,92)"><path class="twinkle" style="animation-delay:.9s" d="M0 -7 L1.8 -1.8 L7 0 L1.8 1.8 L0 7 L-1.8 1.8 L-7 0 L-1.8 -1.8 Z" fill="#fff"/></g><g transform="translate(100,22)"><path class="twinkle" style="animation-delay:1.5s" d="M0 -5 L1.3 -1.3 L5 0 L1.3 1.3 L0 5 L-1.3 1.3 L-5 0 L-1.3 -1.3 Z" fill="#FFF3B0"/></g></svg>'
+  };
 
   // ---- build home list + menu + dots ----
   var homeList = document.getElementById('homeList');
@@ -1035,18 +1590,55 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
     var n = (i+1<10?'0':'')+(i+1);
     var b = document.createElement('button');
     b.className='ch-card'; b.setAttribute('aria-label',c.t);
-    b.innerHTML='<span class="ch-num">'+n+'</span><span class="ch-meta"><h3>'+c.t+'</h3><p>'+c.d+'</p></span><span class="ch-arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></span>';
+    b.style.setProperty('--c1',c.c[0]); b.style.setProperty('--c2',c.c[1]);
+    b.innerHTML='<span class="ch-node" aria-hidden="true"><svg viewBox="0 0 24 24">'+(ICONS[i+1]||'')+'</svg><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span></span><span class="ch-meta"><h3><span class="n">'+(i+1)+'</span>'+c.t+'</h3><p>'+c.d+'</p></span><span class="ch-arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></span>';
     b.addEventListener('click',function(){go(i+1)});
     homeList.appendChild(b);
 
     var m = document.createElement('button');
     m.className='menu-item'; m.dataset.i=i+1;
+    m.style.setProperty('--c1',c.c[0]);
     m.innerHTML='<span class="n">'+n+'</span><span class="t">'+c.t+'</span>';
     m.addEventListener('click',function(){go(i+1); closeMenu()});
     menuList.appendChild(m);
 
     var dot=document.createElement('i'); dots.appendChild(dot);
   });
+  homeList.style.setProperty('--spine','linear-gradient(180deg,'+chapters.map(function(c){return c.c[1]}).join(',')+')');
+
+  // chapter heroes: big numeral, topic, and an animated illustration of the subject
+  Array.prototype.forEach.call(document.querySelectorAll('section.chapter'),function(sec){
+    var n=+sec.id.replace('ch-',''); if(!n) return;
+    var head=sec.querySelector('.ch-head'); if(!head) return;
+    var k=head.querySelector('.ch-kicker');
+    if(k){
+      var parts=k.textContent.split('\u00b7'), topic=(parts.length>1?parts[1]:parts[0]).trim();
+      k.innerHTML='<span class="ch-no">'+(n<10?'0':'')+n+'</span><span class="ch-topic">'+esc(topic)+'</span>';
+    }
+    if(ART[n]){ var art=document.createElement('div'); art.className='ch-art'; art.setAttribute('aria-hidden','true'); art.innerHTML=ART[n]; head.insertBefore(art,head.firstChild); }
+  });
+
+  // which chapters have been opened
+  function visGet(){ try{ var v=JSON.parse(localStorage.getItem('renal.visited')||'[]'); return Array.isArray(v)?v:[]; }catch(e){ return []; } }
+  function markVisited(){
+    var v=visGet();
+    Array.prototype.forEach.call(homeList.children,function(b,i){ b.classList.toggle('done', v.indexOf(i+1)>=0); });
+    var pc=document.getElementById('pathCount');
+    if(pc) pc.innerHTML='<b>'+v.filter(function(x){return x>=1&&x<=chapters.length}).length+'</b> of '+chapters.length+' opened';
+  }
+  function visAdd(n){ var v=visGet(); if(v.indexOf(n)<0){ v.push(n); try{ localStorage.setItem('renal.visited',JSON.stringify(v)); }catch(e){} } markVisited(); }
+  markVisited();
+
+  // reading progress under the top bar
+  var readFill=document.getElementById('readFill'), readQ=false;
+  function updRead(){
+    readQ=false; if(!readFill) return;
+    var h=document.documentElement.scrollHeight-window.innerHeight;
+    var p=h>0?Math.min(1,Math.max(0,window.scrollY/h)):0;
+    readFill.style.transform='scaleX('+p.toFixed(3)+')';
+  }
+  window.addEventListener('scroll',function(){ if(!readQ){ readQ=true; requestAnimationFrame(updRead); } },{passive:true});
+
   // home menu entry
   var mh=document.createElement('button');
   mh.className='menu-item'; mh.dataset.i=0;
@@ -1066,6 +1658,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
     document.getElementById('ch-'+cur).classList.remove('active');
     stopAnim(cur);
     cur=n;
+    applyTheme(cur);
     var el=document.getElementById('ch-'+cur);
     el.classList.add('active');
     window.scrollTo(0,0);
@@ -1077,7 +1670,9 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
     Array.prototype.forEach.call(dots.children,function(d,i){d.classList.toggle('on',i===cur-1)});
     // menu current
     Array.prototype.forEach.call(menuList.children,function(m){m.classList.toggle('current', +m.dataset.i===cur)});
-    if(cur===10) quizReset();
+    if(cur===12) quizReset();
+    if(cur>=1) visAdd(cur);
+    updRead();
     startAnim(cur);
     if(!ttsNarratorNav && typeof ttsStop==='function') ttsStop();
     if(typeof ttsUpdateFab==='function') ttsUpdateFab();
@@ -1357,6 +1952,285 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
     chronicList.style.display=acute?'none':'flex';
   });
 
+  // ================= THE MACHINE: parts =================
+  var machineData={
+    screen:{l:'Control screen',t:'Where the prescription goes in and everything is shown: treatment time, the fluid to remove (the UF goal), blood and dialysate flow, the dialysate recipe and temperature, plus every pressure and alarm, live.'},
+    pump:{l:'Blood pump',t:'A roller pump squeezes the blood tubing to push blood round the circuit at the set speed. It moves the blood without ever touching it.'},
+    heparin:{l:'Anticoagulant pump',t:'A syringe driver feeds anticoagulant into the circuit at the prescribed rate, so blood doesn\u2019t clot on the tubing and fibres.'},
+    pressures:{l:'Pressure monitors',t:'Sensors on the arterial side, before the pump, and the venous side, after the dialyser, watch the circuit every second. Arterial pressure reads negative because the pump is pulling; venous reads positive because blood is being pushed back. Alarm limits sit just either side of the running value.'},
+    dialyser:{l:'Dialyser',t:'The artificial kidney on its holder. Blood runs down the inside of thousands of hollow fibres while dialysate runs up around them.'},
+    air:{l:'Venous chamber, air detector and clamp',t:'The last safety stop before blood returns. Bubbles rise out in the chamber, an ultrasonic detector below watches for any air, and if it sees some the pump stops and the clamp shuts the line.'},
+    conc:{l:'Concentrates',t:'The machine makes its own dialysate by mixing treated water with an acid concentrate and a bicarbonate concentrate, usually a dry cartridge. Why there are two is explained below.'},
+    hydraulics:{l:'Dialysate module',t:'Behind the panels, the machine warms, de-airs, mixes, checks and balances the dialysate. The dialysate side, in order, is next.'}
+  };
+  var machInfo=document.getElementById('machInfo');
+  document.querySelectorAll('#machSvg .hotspot').forEach(function(h){
+    h.addEventListener('click',function(){
+      document.querySelectorAll('#machSvg .hotspot').forEach(function(o){o.classList.remove('on')});
+      h.classList.add('on');
+      var d=machineData[h.dataset.k];
+      machInfo.innerHTML='<div class="lbl">The machine</div><h4>'+d.l+'</h4><p>'+d.t+'</p>';
+    });
+  });
+
+  // ================= THE MACHINE: alarm simulator =================
+  var GAUGE={ap:{min:-400,max:0,win:[-230,-70]},vp:{min:0,max:400,win:[105,230]},tmp:{min:0,max:400,win:[0,210]}};
+  var SCEN={
+    normal:{ap:-150,vp:150,tmp:80,pump:true,status:'Running, no alarms',st:'ok',kind:'ok',title:'Normal running',
+      resp:'Pressures drift a little through a session. It\u2019s sudden changes that matter.',
+      sees:'Arterial pressure sits around minus 150 and venous around plus 150, each inside its alarm window.'},
+    artlow:{ap:-320,vp:140,tmp:80,pump:false,status:'Alarm: arterial pressure low',st:'alarm',kind:'alarm',title:'Arterial pressure too negative',
+      resp:'Typically the blood pump stops and the machine alarms.',
+      sees:'The pump is pulling harder than the access can supply, so the pressure before the pump has dropped below its limit.',
+      causes:'The arterial needle against the vessel wall, a kinked or clamped arterial line, a narrowed or poorly flowing access, or a blood flow set too high for the access.',
+      checks:'Check the line for kinks and clamps, look at the needle and the patient, and reposition only as your training allows. Repeated alarms suggest the access needs reviewing.'},
+    venhigh:{ap:-150,vp:335,tmp:95,pump:false,status:'Alarm: venous pressure high',st:'alarm',kind:'alarm',title:'Venous pressure too high',
+      resp:'Typically the blood pump stops and the machine alarms.',
+      sees:'Blood is meeting resistance on its way back to the patient.',
+      causes:'A kinked or clamped venous line, clotting in the venous chamber, the venous needle against the wall or out of the vein into the tissue, or narrowing in the vein the access drains into.',
+      checks:'Follow the venous line from the machine to the patient, look at the venous chamber for clots, and check the needle site for swelling or pain.'},
+    clot:{ap:-165,vp:125,tmp:285,pump:true,status:'Alarm: TMP high',st:'alarm',kind:'alarm',title:'TMP climbing: the dialyser is clotting',
+      resp:'Typically the machine alarms so you can act before the circuit blocks.',
+      sees:'The pressure needed to push fluid across the membrane is rising, because fibres are blocking.',
+      causes:'Clotting, usually from too little anticoagulation, a low blood flow, or frequent stops during the session.',
+      checks:'Look at the dialyser and venous chamber for darkening or streaks, check the anticoagulant is running, and follow the unit procedure if clotting is confirmed.'},
+    vnd:{ap:-150,vp:128,tmp:80,pump:true,status:'Running, no alarms',st:'ok',kind:'danger',title:'Venous needle out, and no alarm',cl:'Why it doesn\u2019t alarm',kl:'What protects the patient',
+      resp:'Typically nothing happens. That is the danger.',
+      sees:'Almost nothing. Venous pressure dips only slightly and stays inside its window.',
+      causes:'Most of the venous pressure comes from the needle and tubing themselves, and they are still attached, so losing the patient end barely changes the reading.',
+      checks:'Keep access sites and lines visible, securely taped and checked regularly. The machine cannot be relied on to catch this, and blood loss can be rapid.'},
+    air:{ap:-150,vp:150,tmp:80,pump:false,lights:['air','clamp'],status:'Alarm: air detected',st:'alarm',kind:'alarm',title:'Air detected',
+      resp:'Typically the blood pump stops and the venous clamp closes, so air can\u2019t reach the patient.',
+      sees:'The detector below the venous chamber has sensed air or foam in the blood returning to the patient.',
+      causes:'A loose or open connection, a low level in the venous chamber, air drawn in on the arterial side, or an infusion that has run through.',
+      checks:'Find the air and where it came from before anything is reset. Never override an air alarm.'},
+    leak:{ap:-150,vp:150,tmp:80,pump:false,lights:['leak'],status:'Alarm: blood leak',st:'alarm',kind:'alarm',title:'Blood leak',
+      resp:'Typically the blood pump stops and the machine alarms.',
+      sees:'The optical sensor on the used dialysate line has picked up red cells.',
+      causes:'A tear in the dialyser membrane, letting blood cross into the dialysate.',
+      checks:'Look at the dialysate outflow line for a pink tinge. A confirmed leak means the membrane has failed: follow your unit procedure and escalate.'},
+    cond:{ap:-150,vp:150,tmp:80,pump:true,lights:['cond','bypass'],status:'Bypass: conductivity out of range',st:'bypass',kind:'bypass',title:'Conductivity out of range',
+      resp:'Typically bypass: the dialysate goes straight to drain, so the wrong fluid never reaches the dialyser. Blood keeps circulating, but no dialysis is happening.',
+      sees:'The fresh dialysate doesn\u2019t conduct electricity the way the right recipe should, so its salt content is wrong.',
+      causes:'A concentrate container empty or disconnected, the wrong concentrate, a bicarbonate cartridge running out, or a mixing fault.',
+      checks:'Check the concentrates and their connections. Treatment carries on once the mix is right again.'}
+  };
+  function scenSay(s){
+    var d=SCEN[s], t=d.title+'. '+d.sees;
+    if(d.causes) t+=' '+(d.cl||'Usual causes')+': '+d.causes;
+    if(d.checks) t+=' '+(d.kl||'First checks')+': '+d.checks;
+    if(d.resp) t+=' '+d.resp;
+    return t;
+  }
+  var machPanel=document.getElementById('machPanel'), mpStatus=document.getElementById('mpStatus'),
+      alarmInfo=document.getElementById('alarmInfo'), alarmChips=document.getElementById('alarmChips');
+  var gNow={ap:-150,vp:150,tmp:80}, gRaf=0;
+  function gPct(k,v){ var g=GAUGE[k]; return Math.max(0,Math.min(100,(v-g.min)/(g.max-g.min)*100)); }
+  function gFmt(k,v){ v=Math.round(v); return v<0?'\u2212'+Math.abs(v):(k==='vp'&&v>0?'+'+v:String(v)); }
+  Object.keys(GAUGE).forEach(function(k){
+    var row=machPanel.querySelector('[data-g="'+k+'"]'), win=row.querySelector('.g-win'), g=GAUGE[k];
+    var a=gPct(k,g.win[0]), b=gPct(k,g.win[1]);
+    win.style.left=a+'%'; win.style.width=(b-a)+'%';
+  });
+  function setGauge(k,v){
+    var row=machPanel.querySelector('[data-g="'+k+'"]'), g=GAUGE[k];
+    row.querySelector('.g-mark').style.left=gPct(k,v)+'%';
+    row.querySelector('.g-val').textContent=gFmt(k,v);
+    row.classList.toggle('alarm', v<g.win[0]||v>g.win[1]);
+  }
+  function runScenario(s){
+    var d=SCEN[s]; if(!d) return;
+    alarmChips.querySelectorAll('.chip').forEach(function(c){ c.classList.toggle('on', c.dataset.s===s); });
+    machPanel.querySelectorAll('.lt').forEach(function(l){ l.classList.toggle('on', (d.lights||[]).indexOf(l.dataset.l)>=0); });
+    mpStatus.textContent=d.status; mpStatus.className='mp-status '+d.st;
+    machPanel.classList.toggle('stopped', !d.pump);
+    alarmInfo.className='alarm-card '+d.kind;
+    alarmInfo.innerHTML='<div class="ac-title">'+d.title+'</div>'+(d.resp?'<div class="ac-resp">'+d.resp+'</div>':'')+
+      '<dl><dt>What the machine sees</dt><dd>'+d.sees+'</dd>'+
+      (d.causes?'<dt>'+(d.cl||'Usual causes')+'</dt><dd>'+d.causes+'</dd>':'')+
+      (d.checks?'<dt>'+(d.kl||'First checks')+'</dt><dd>'+d.checks+'</dd>':'')+'</dl>';
+    var from={ap:gNow.ap,vp:gNow.vp,tmp:gNow.tmp}, t0=performance.now(), dur=reduce?0:950;
+    cancelAnimationFrame(gRaf);
+    function tick(now){
+      var p=dur?Math.min(1,Math.max(0,(now-t0)/dur)):1, e=1-Math.pow(1-p,3);
+      ['ap','vp','tmp'].forEach(function(k){ gNow[k]=from[k]+(d[k]-from[k])*e; setGauge(k,gNow[k]); });
+      if(p<1) gRaf=requestAnimationFrame(tick);
+    }
+    tick(t0);
+  }
+  alarmChips.addEventListener('click',function(e){ var b=e.target.closest('.chip'); if(b) runScenario(b.dataset.s); });
+  runScenario('normal');
+
+  // ================= WATER TREATMENT: purification sim =================
+  var WT={sed:{c:'#C08552',r:3.6,n:'Sediment'},hard:{c:'#F4F4F4',r:3,n:'Calcium and magnesium'},chl:{c:'#9BE564',r:3.2,n:'Chlorine'},
+          salt:{c:'#64B5F6',r:3,n:'Salts and metals'},bact:{c:'#E07BF0',r:3.4,n:'Bacteria and endotoxin'}};
+  var WORDER=['sed','hard','chl','salt','bact'], WWEIGHT=[.17,.2,.21,.27,.15];
+  var WST=[{k:'sed',l:'Sediment',col:'#8D6E63'},{k:'soft',l:'Softener',col:'#607D8B'},{k:'carbon',l:'Carbon',col:'#37474F'},{k:'ro',l:'RO',col:'#0277BD'}];
+  var WOUT={
+    ok:{t:'Safe for dialysis',d:'Everything harmful is removed before the water reaches the machine. Each stage protects the next: the sediment filter and softener protect the RO membrane, and the carbon removes what RO can\u2019t.'},
+    carbon:{t:'Chlorine and chloramine are getting through',d:'RO can\u2019t reliably remove chloramine, and chlorine damages the RO membrane itself. In the blood, chloramine bursts red cells (haemolysis), causing anaemia.'},
+    ro:{t:'Salts, metals and bacteria are getting through',d:'Dissolved salts, metals such as aluminium, bacteria and endotoxin all reach the machine. Its final filter catches some bacteria, but not dissolved metals. Aluminium once caused dialysis dementia and bone disease, and bacteria and endotoxin cause fevers, rigors and low blood pressure.'},
+    soft:{t:'The RO membrane is scaling',d:'Calcium and magnesium are reaching the RO and coating its membrane, so it removes less and less. It still protects the patient for now. Hard water reaching a patient causes hard water syndrome: nausea, vomiting, headache and high blood pressure during dialysis.'},
+    sed:{t:'The stages downstream are clogging',d:'Sand, rust and silt are reaching the softener, carbon and RO. Nothing harmful is reaching the patient yet, but every stage after the filter is being damaged.'},
+    damaged:{t:'The RO membrane is damaged',d:'It\u2019s now letting salts and bacteria through. Fixing the stage upstream doesn\u2019t undo the damage: the membrane needs cleaning or replacing. Reset the system to start again.'}
+  };
+  var wc=document.getElementById('waterCanvas'), wx=wc.getContext('2d'),
+      wOut=document.getElementById('waterOut'), wTog=document.getElementById('waterToggles');
+  var wOn={sed:true,soft:true,carbon:true,ro:true}, roHealth=1, wParts=[], wPops=[], wRun=false, wLast=0,
+      wSpawnAcc=0, wHit=0, wFlow=0, wKey='', wRepT=0;
+  var W={w:340,h:170,src:0,mach:0,xs:[],py:0,bw:48,bh:56,fs:10};
+  function wResize(){
+    var dpr=Math.min(window.devicePixelRatio||1,2), w=wc.clientWidth||340, h=Math.round(Math.max(160,Math.min(205,w*0.46)));
+    wc.width=Math.round(w*dpr); wc.height=Math.round(h*dpr); wx.setTransform(dpr,0,0,dpr,0,0);
+    var oldW=W.w, oldPy=W.py;
+    W.w=w; W.h=h; W.src=w*0.075; W.mach=w*0.915; W.fs=w<420?9.5:11;
+    W.xs=[.26,.43,.6,.77].map(function(f){return w*f});
+    W.bw=Math.max(38,Math.min(64,w*0.115)); W.bh=Math.min(58,Math.max(44,h*0.32)); W.py=Math.round(h/2-10);
+    // keep particles already in the pipe inside it when the layout changes (rotation, resize)
+    if(wParts.length && oldW){ var sx=w/oldW, dy=W.py-oldPy; wParts.forEach(function(q){ q.x*=sx; q.y0+=dy; }); wPops=[]; }
+  }
+  function wPick(){ var r=Math.random(),a=0; for(var i=0;i<WORDER.length;i++){ a+=WWEIGHT[i]; if(r<a) return WORDER[i]; } return 'salt'; }
+  function wSpawn(){ wParts.push({t:wPick(),x:W.src+10,y0:W.py+(Math.random()*2-1)*8,ph:Math.random()*6.28,v:.6+Math.random()*.4,ni:0}); }
+  function wRemoveP(k,t){
+    if(!wOn[k]) return 0;
+    if(k==='sed') return t==='sed'?.96:0;
+    if(k==='soft') return t==='hard'?.95:0;
+    if(k==='carbon') return t==='chl'?.97:0;
+    if(t==='chl') return .1;
+    if(t==='salt'||t==='bact') return Math.max(0,Math.min(.985,roHealth*1.1-.12));
+    return .97;
+  }
+  function wStep(dt){
+    var sc=W.w/360;
+    wSpawnAcc+=dt*0.3;
+    while(wSpawnAcc>=1){ wSpawn(); wSpawnAcc-=1; }
+    wFlow=(wFlow+dt*0.8)%14;
+    wHit*=Math.pow(.95,dt);
+    for(var i=wParts.length-1;i>=0;i--){
+      var p=wParts[i]; p.x+=1.25*p.v*sc*dt; p.ph+=.06*dt;
+      var y=p.y0+Math.sin(p.ph)*5;
+      if(p.ni<WST.length && p.x>=W.xs[p.ni]){
+        var st=WST[p.ni];
+        if(st.k==='ro' && wOn.ro){
+          if(p.t==='hard') roHealth-=.01; else if(p.t==='sed') roHealth-=.008; else if(p.t==='chl') roHealth-=.012;
+          if(roHealth<.3) roHealth=.3;
+        }
+        if(Math.random()<wRemoveP(st.k,p.t)){ wPops.push({x:W.xs[p.ni],y:y,c:WT[p.t].c,a:1}); wParts.splice(i,1); continue; }
+        p.ni++;
+      }
+      if(p.x>=W.mach-W.bw*0.35){
+        if(p.t==='bact' && Math.random()<.6){ wPops.push({x:W.mach-W.bw*0.35,y:y,c:WT[p.t].c,a:1}); }
+        else { wHit=Math.min(1,wHit+.22); }
+        wParts.splice(i,1);
+      }
+    }
+    for(var j=wPops.length-1;j>=0;j--){ wPops[j].a-=.05*dt; if(wPops[j].a<=0) wPops.splice(j,1); }
+  }
+  function wRR(x,y,w,h,r){ wx.beginPath(); wx.moveTo(x+r,y); wx.arcTo(x+w,y,x+w,y+h,r); wx.arcTo(x+w,y+h,x,y+h,r); wx.arcTo(x,y+h,x,y,r); wx.arcTo(x,y,x+w,y,r); wx.closePath(); }
+  function wDraw(){
+    var w=W.w,h=W.h,py=W.py,bw=W.bw,bh=W.bh;
+    var g=wx.createLinearGradient(0,0,0,h); g.addColorStop(0,'#08334D'); g.addColorStop(1,'#061F33');
+    wx.fillStyle=g; wx.fillRect(0,0,w,h);
+    // pipe and flow shimmer
+    wRR(W.src-6,py-15,W.mach-W.src+12,30,15); wx.fillStyle='rgba(110,200,255,.14)'; wx.fill();
+    wx.strokeStyle='rgba(150,215,255,.3)'; wx.lineWidth=1.5; wx.stroke();
+    wx.save(); wx.setLineDash([3,11]); wx.lineDashOffset=-wFlow; wx.strokeStyle='rgba(190,235,255,.3)'; wx.lineWidth=2;
+    wx.beginPath(); wx.moveTo(W.src,py); wx.lineTo(W.mach,py); wx.stroke(); wx.restore();
+    wx.textAlign='center'; wx.textBaseline='alphabetic'; wx.font='600 '+W.fs+'px Inter, system-ui, sans-serif';
+    // mains tap
+    wx.fillStyle='rgba(255,255,255,.85)';
+    wRR(W.src-9,py-34,8,20,2); wx.fill(); wRR(W.src-9,py-34,22,7,3); wx.fill();
+    wx.fillStyle='rgba(255,255,255,.72)'; wx.fillText('Mains',W.src,py+bh/2+16);
+    // stages
+    WST.forEach(function(s,i){
+      var x=W.xs[i], on=wOn[s.k];
+      wRR(x-bw/2,py-bh/2,bw,bh,11); wx.fillStyle=on?s.col:'#22272E'; wx.fill();
+      wx.lineWidth=2; wx.strokeStyle=on?'rgba(255,255,255,.4)':'#FF6B6B'; wx.stroke();
+      if(on){
+        wx.fillStyle='rgba(255,255,255,.2)';
+        for(var k=0;k<6;k++){ wx.beginPath(); wx.arc(x-bw/2+9+((k*13)%(bw-16)), py-bh/2+10+((k*17)%(bh-18)), 2.2,0,6.283); wx.fill(); }
+        if(s.k==='ro'){ wx.strokeStyle='rgba(255,255,255,.6)'; wx.lineWidth=2; wx.setLineDash([2,3]); wx.beginPath(); wx.moveTo(x,py-bh/2+6); wx.lineTo(x,py+bh/2-6); wx.stroke(); wx.setLineDash([]); }
+      } else {
+        wx.strokeStyle='#FF6B6B'; wx.lineWidth=2.5; wx.beginPath(); wx.moveTo(x-9,py-9); wx.lineTo(x+9,py+9); wx.moveTo(x+9,py-9); wx.lineTo(x-9,py+9); wx.stroke();
+      }
+      wx.fillStyle=on?'rgba(255,255,255,.92)':'#FF8A80'; wx.fillText(on?s.l:s.l+' off',x,py+bh/2+16);
+      if(s.k==='ro'){
+        var hy=py+bh/2+23; wx.fillStyle='rgba(255,255,255,.14)'; wRR(x-bw/2,hy,bw,4,2); wx.fill();
+        var hv=wOn.ro?roHealth:0; wx.fillStyle=hv>.8?'#69F0AE':hv>.55?'#FFD54F':'#FF6B6B';
+        if(hv>0){ wRR(x-bw/2,hy,Math.max(4,bw*hv),4,2); wx.fill(); }
+      }
+    });
+    // machine
+    var mx=W.mach, mw=bw*0.9, mh=bh*1.25;
+    wRR(mx-mw/2,py-mh/2,mw,mh,9); wx.fillStyle='#ECF1F7'; wx.fill();
+    wx.lineWidth=2.5; wx.strokeStyle='rgba('+Math.round(105+150*wHit)+','+Math.round(240-150*wHit)+','+Math.round(174-80*wHit)+','+(0.55+0.45*wHit)+')'; wx.stroke();
+    wRR(mx-mw/2+5,py-mh/2+5,mw-10,mh*0.32,4); wx.fillStyle='#0B2545'; wx.fill();
+    wx.fillStyle='rgba(255,255,255,.72)'; wx.fillText('Machine',mx,py+mh/2+14);
+    // particles, then removal rings
+    wParts.forEach(function(p){ var t=WT[p.t]; wx.beginPath(); wx.arc(p.x,p.y0+Math.sin(p.ph)*5,t.r,0,6.283); wx.fillStyle=t.c; wx.fill(); });
+    wPops.forEach(function(q){ wx.globalAlpha=Math.max(0,q.a); wx.strokeStyle=q.c; wx.lineWidth=1.5; wx.beginPath(); wx.arc(q.x,q.y,4+(1-q.a)*9,0,6.283); wx.stroke(); });
+    wx.globalAlpha=1;
+  }
+  function wReport(){
+    var roEff=wOn.ro?roHealth:0;
+    var thru={sed:!wOn.ro&&!wOn.sed, hard:!wOn.ro&&!wOn.soft, chl:!wOn.carbon, salt:roEff<.8, bact:roEff<.8};
+    var issues=[];
+    if(!wOn.carbon) issues.push('carbon');
+    if(!wOn.ro) issues.push('ro'); else if(roHealth<.8) issues.push('damaged');
+    if(wOn.ro&&!wOn.soft) issues.push('soft');
+    if(wOn.ro&&!wOn.sed) issues.push('sed');
+    var bad=WORDER.some(function(t){return thru[t]});
+    var cls=bad?'bad':(issues.length?'warn':'');
+    var pct=Math.round(roEff*20)*5;
+    var key=issues.join(',')+'|'+cls+'|'+pct+'|'+WORDER.map(function(t){return thru[t]?1:0}).join('');
+    if(key===wKey) return; wKey=key;
+    var main=issues.length?WOUT[issues[0]]:WOUT.ok;
+    var html='<div class="wo-title">'+main.t+'</div><p class="wo-text">'+main.d+'</p>';
+    issues.slice(1).forEach(function(k){ html+='<p class="wo-text"><b>'+WOUT[k].t+'.</b> '+WOUT[k].d+'</p>'; });
+    html+='<div class="wo-pills">'+WORDER.map(function(t){
+      return '<span class="wo-pill'+(thru[t]?' thru':'')+'"><i style="background:'+WT[t].c+'"></i>'+WT[t].n+(thru[t]?': getting through':': removed')+'</span>';
+    }).join('')+'<span class="wo-pill'+(pct<80?' thru':'')+'">RO membrane: '+(wOn.ro?pct+'%':'off')+'</span></div>';
+    wOut.className='water-out'+(cls?' '+cls:''); wOut.innerHTML=html;
+  }
+  function wLoop(now){
+    if(!wRun) return;
+    var dt=wLast?Math.min(3,(now-wLast)/16.67):1; wLast=now;
+    wStep(dt); wDraw();
+    if(now-wRepT>450){ wRepT=now; wReport(); }
+    requestAnimationFrame(wLoop);
+  }
+  function wStatic(){ wParts=[]; for(var i=0;i<420;i++) wStep(1); wPops=[]; wDraw(); wReport(); }
+  function wStart(){ wResize(); if(reduce){ wStatic(); return; } wReport(); if(wRun) return; wRun=true; wLast=0; requestAnimationFrame(wLoop); }
+  function wStop(){ wRun=false; }
+  wTog.addEventListener('click',function(e){
+    var b=e.target.closest('button'); if(!b) return;
+    if(b.id==='waterReset'){ wOn={sed:true,soft:true,carbon:true,ro:true}; roHealth=1; }
+    else { var k=b.dataset.w; wOn[k]=!wOn[k]; if(k==='ro'&&wOn.ro) roHealth=1; }
+    wTog.querySelectorAll('[data-w]').forEach(function(x){ var on=wOn[x.dataset.w]; x.classList.toggle('on',on); x.classList.toggle('off',!on); x.setAttribute('aria-pressed',on?'true':'false'); });
+    wKey='';
+    if(!wRun){ wStatic(); } else { wReport(); }
+  });
+  window.addEventListener('resize',function(){ if(cur===7){ wResize(); if(!wRun) wStatic(); } });
+  wReport();
+
+  // ================= a small celebration for a strong quiz score =================
+  function confetti(){
+    if(reduce) return;
+    var cv=document.createElement('canvas'); cv.className='confetti'; document.body.appendChild(cv);
+    var dpr=Math.min(window.devicePixelRatio||1,2), W2=window.innerWidth, H2=window.innerHeight;
+    cv.width=W2*dpr; cv.height=H2*dpr; var c=cv.getContext('2d'); c.setTransform(dpr,0,0,dpr,0,0);
+    var cols=chapters.map(function(x){return x.c[1]}), P=[];
+    for(var i=0;i<140;i++) P.push({x:W2/2+(Math.random()-.5)*W2*.3, y:H2*.35, vx:(Math.random()-.5)*12, vy:-Math.random()*13-4,
+      r:Math.random()*6.28, vr:(Math.random()-.5)*.3, s:5+Math.random()*6, c:cols[i%cols.length]});
+    var t0=performance.now();
+    (function f(now){
+      var t=now-t0; c.clearRect(0,0,W2,H2);
+      P.forEach(function(p){ p.vy+=.35; p.vx*=.99; p.x+=p.vx; p.y+=p.vy; p.r+=p.vr;
+        c.save(); c.translate(p.x,p.y); c.rotate(p.r); c.globalAlpha=Math.max(0,1-t/2600); c.fillStyle=p.c; c.fillRect(-p.s/2,-p.s/4,p.s,p.s/2); c.restore(); });
+      if(t<2600) requestAnimationFrame(f); else cv.remove();
+    })(t0);
+  }
+
   // ================= animation lifecycle =================
   function startAnim(n){
     if(n===4){ // membrane sim
@@ -1364,16 +2238,23 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
       if(reduce){ simRunning=false; step(); } // one static frame
       else { simRunning=true; requestAnimationFrame(step); }
     }
+    if(n===6){ runScenario('normal'); }
+    if(n===7){
+      var vc=document.querySelector('#ch-7 .vol-compare');
+      if(vc){ vc.classList.remove('go'); void vc.offsetWidth; requestAnimationFrame(function(){ vc.classList.add('go'); }); }
+      wStart();
+    }
   }
   function stopAnim(n){
     if(n===4){ simRunning=false; }
+    if(n===7){ wStop(); }
   }
   window.addEventListener('resize',function(){
     if(cur===4){ var run=simRunning; simRunning=false; resizeCanvas(); seed(); if(run&&!reduce){simRunning=true;requestAnimationFrame(step);} else {step();} }
   });
 
   // ================= QUIZ =================
-  // ch = chapter number (1-8) · c = index of the correct answer in a[]
+  // ch = chapter number (1-11) · c = index of the correct answer in a[]
   var QBANK=[
     // --- 1 Anatomy ---
     {ch:1,q:"Where does filtration actually happen?",a:["In the renal pelvis","In the glomerulus, in the cortex","In the ureter","In the medullary pyramids"],c:1,
@@ -1429,77 +2310,121 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
     {ch:5,q:"Functionally, what is a dialyser made of?",a:["A single wide tube","Thousands of hollow fibres, blood inside and dialysate outside","A charcoal filter","A centrifuge"],c:1,
      e:"The fibres pack a huge surface area into a small cartridge — that's what makes the exchange fast enough to work."},
 
-    // --- 6 Access ---
-    {ch:6,q:"Which access is preferred, and why?",a:["A line, because it works immediately","A graft, because it's synthetic","A fistula, because it lasts longest with the lowest infection risk","Whichever is quickest to place"],c:2,
+    // --- 8 Access ---
+    {ch:8,q:"Which access is preferred, and why?",a:["A line, because it works immediately","A graft, because it's synthetic","A fistula, because it lasts longest with the lowest infection risk","Whichever is quickest to place"],c:2,
      e:"Fistula first. The trade-off is that it must be planned ahead and needs weeks to mature before it can be used."},
-    {ch:6,q:"Why does a fistula need to mature before use?",a:["To let the skin heal","The vein must toughen and enlarge under arterial flow","To let the anticoagulant clear","To confirm there's no infection"],c:1,
+    {ch:8,q:"Why does a fistula need to mature before use?",a:["To let the skin heal","The vein must toughen and enlarge under arterial flow","To let the anticoagulant clear","To confirm there's no infection"],c:1,
      e:"Arterial pressure remodels the vein over weeks into a vessel strong enough to cannulate again and again."},
-    {ch:6,q:"A patient's fistula has a weak thrill and flows have been poor. What does this suggest?",a:["Infection","Steal syndrome","Stenosis or thrombosis","Normal maturation"],c:2,
+    {ch:8,q:"A patient's fistula has a weak thrill and flows have been poor. What does this suggest?",a:["Infection","Steal syndrome","Stenosis or thrombosis","Normal maturation"],c:2,
      e:"A narrowing or a clot. Look, listen, feel every session — a weak or absent thrill is one of the earliest warnings you get."},
-    {ch:6,q:"Which access carries the highest bloodstream infection risk?",a:["Fistula","Graft","Central venous catheter","They're all equal"],c:2,
+    {ch:8,q:"Which access carries the highest bloodstream infection risk?",a:["Fistula","Graft","Central venous catheter","They're all equal"],c:2,
      e:"A line sits in a large central vein with a direct route in from outside. It's exactly why lines are kept temporary wherever possible."},
-    {ch:6,q:"Why rotate cannulation sites along a fistula?",a:["To reduce pain","Repeated needling in one spot causes aneurysm","To speed up maturation","To reduce the anticoagulant needed"],c:1,
+    {ch:8,q:"Why rotate cannulation sites along a fistula?",a:["To reduce pain","Repeated needling in one spot causes aneurysm","To speed up maturation","To reduce the anticoagulant needed"],c:1,
      e:"Ballooning from repeated puncture in one place weakens the vessel wall over time."},
-    {ch:6,q:"A patient's hand is cold and painful below their new fistula. What should you think of?",a:["Steal syndrome","Disequilibrium","Aneurysm","Normal maturation"],c:0,
+    {ch:8,q:"A patient's hand is cold and painful below their new fistula. What should you think of?",a:["Steal syndrome","Disequilibrium","Aneurysm","Normal maturation"],c:0,
      e:"The access is diverting too much blood away from the hand — 'stealing' it. It needs review, not reassurance."},
 
-    // --- 7 Complications ---
-    {ch:7,q:"What's the most common complication during a dialysis session?",a:["Cramps","Hypotension","Disequilibrium","Circuit clotting"],c:1,
+    // --- 9 Complications ---
+    {ch:9,q:"What's the most common complication during a dialysis session?",a:["Cramps","Hypotension","Disequilibrium","Circuit clotting"],c:1,
      e:"Removing fluid faster than the tissues can refill the circulation drops the blood pressure — often with dizziness, nausea or cramps alongside."},
-    {ch:7,q:"A new patient develops headache and confusion during an early session. What should you think of?",a:["Disequilibrium syndrome","Steal syndrome","Air embolism","Anaemia"],c:0,
+    {ch:9,q:"A new patient develops headache and confusion during an early session. What should you think of?",a:["Disequilibrium syndrome","Steal syndrome","Air embolism","Anaemia"],c:0,
      e:"Urea cleared too quickly causes fluid to shift into the brain. It's precisely why the first few sessions are deliberately gentle."},
-    {ch:7,q:"What's the leading cause of death in people on long-term dialysis?",a:["Infection","Cardiovascular disease","Bone disease","Anaemia"],c:1,
+    {ch:9,q:"What's the leading cause of death in people on long-term dialysis?",a:["Infection","Cardiovascular disease","Bone disease","Anaemia"],c:1,
      e:"Fluid load, hypertension and mineral disturbance strain the heart and vessels over years."},
-    {ch:7,q:"Why do dialysis patients often limit potassium and phosphate in their diet?",a:["To lose weight","The kidneys can no longer clear them between sessions","To reduce the anticoagulant needed","To help the fistula mature"],c:1,
+    {ch:9,q:"Why do dialysis patients often limit potassium and phosphate in their diet?",a:["To lose weight","The kidneys can no longer clear them between sessions","To reduce the anticoagulant needed","To help the fistula mature"],c:1,
      e:"Dialysis is intermittent, but eating isn't. Between sessions there's nothing clearing the load, so intake has to be managed."},
 
-    // --- 8 Medications ---
-    {ch:8,q:"When should phosphate binders be taken?",a:["On an empty stomach","With meals","At bedtime","Only on dialysis days"],c:1,
+    // --- 10 Medications ---
+    {ch:10,q:"When should phosphate binders be taken?",a:["On an empty stomach","With meals","At bedtime","Only on dialysis days"],c:1,
      e:"They bind phosphate in food, so they only work if the food is actually there. One of the most common practical teaching points."},
-    {ch:8,q:"Why is the active form of vitamin D given rather than an ordinary supplement?",a:["It's cheaper","The kidney can no longer perform the activation step","It tastes better","Plain vitamin D is removed by dialysis"],c:1,
+    {ch:10,q:"Why is the active form of vitamin D given rather than an ordinary supplement?",a:["It's cheaper","The kidney can no longer perform the activation step","It tastes better","Plain vitamin D is removed by dialysis"],c:1,
      e:"Without the kidney's final conversion, ordinary vitamin D can't do its job of helping the gut absorb calcium."},
-    {ch:8,q:"Why is iron given alongside EPO-type medicines?",a:["To prevent clotting","The marrow needs iron as raw material to respond","To bind phosphate","To lower potassium"],c:1,
+    {ch:10,q:"Why is iron given alongside EPO-type medicines?",a:["To prevent clotting","The marrow needs iron as raw material to respond","To bind phosphate","To lower potassium"],c:1,
      e:"Give the signal without the materials and the marrow still can't build red cells. The two go together."},
-    {ch:8,q:"Why are water-soluble vitamins replaced in dialysis patients?",a:["They aren't absorbed from food","They're small enough to diffuse into the dialysate and be lost","They're bound by phosphate binders","The kidney normally makes them"],c:1,
+    {ch:10,q:"Why are water-soluble vitamins replaced in dialysis patients?",a:["They aren't absorbed from food","They're small enough to diffuse into the dialysate and be lost","They're bound by phosphate binders","The kidney normally makes them"],c:1,
      e:"The B and C groups cross the membrane along with the waste, so they're topped up."},
-    {ch:8,q:"How is acidosis corrected in a haemodialysis patient?",a:["An oral tablet only","Bicarbonate buffer in the dialysate","By raising the blood pump speed","By the anticoagulant"],c:1,
+    {ch:10,q:"How is acidosis corrected in a haemodialysis patient?",a:["An oral tablet only","Bicarbonate buffer in the dialysate","By raising the blood pump speed","By the anticoagulant"],c:1,
      e:"The treatment itself takes over the kidney's acid-clearing job — the dialysate is buffered to correct blood pH."},
 
-    // --- 9 QA bloods & urine ---
-    {ch:9,q:"For the post-dialysis sample, what exactly do you do first?",a:["Stop the blood pump completely","Reduce blood flow to 100 mL/min for 30 seconds","Reduce blood flow to 50 mL/min for 2 minutes","Clamp the venous line"],c:1,
+    // --- 11 QA bloods & urine ---
+    {ch:11,q:"For the post-dialysis sample, what exactly do you do first?",a:["Stop the blood pump completely","Reduce blood flow to 100 mL/min for 30 seconds","Reduce blood flow to 50 mL/min for 2 minutes","Clamp the venous line"],c:1,
      e:"100 mL/min for 30 seconds fills the arterial line with non-recirculated blood, with the pump still running. Then draw from the arterial sampling port."},
-    {ch:9,q:"A post-dialysis urea taken at full pump speed will make the URR look:",a:["Falsely low","Falsely high","Unchanged","Impossible to calculate"],c:1,
+    {ch:11,q:"A post-dialysis urea taken at full pump speed will make the URR look:",a:["Falsely low","Falsely high","Unchanged","Impossible to calculate"],c:1,
      e:"Recirculated blood has already been cleaned, so the post urea reads low, the apparent fall is bigger, and an under-dialysed patient looks adequate."},
-    {ch:9,q:"Before a pre-dialysis sample from a fistula, what must you do?",a:["Flush with 10 mL saline","Withdraw and discard 10 mL of blood","Run the pump for 30 seconds","Nothing extra"],c:1,
+    {ch:11,q:"Before a pre-dialysis sample from a fistula, what must you do?",a:["Flush with 10 mL saline","Withdraw and discard 10 mL of blood","Run the pump for 30 seconds","Nothing extra"],c:1,
      e:"Fistulas and grafts only: discard 10 mL first, so you sample circulating blood rather than diluted blood sitting in the needle."},
-    {ch:9,q:"Dialysis was interrupted for five minutes during the session. What does that mean for the QA samples?",a:["Nothing, carry on","They can't be used for urea kinetic modelling","Only the pre sample is affected","Repeat the post sample in an hour"],c:1,
+    {ch:11,q:"Dialysis was interrupted for five minutes during the session. What does that mean for the QA samples?",a:["Nothing, carry on","They can't be used for urea kinetic modelling","Only the pre sample is affected","Repeat the post sample in an hour"],c:1,
      e:"An interruption of more than three minutes makes the samples inaccurate for modelling."},
-    {ch:9,q:"Which pre-dialysis samples need centrifuging?",a:["All of them","None of them","Potassium and U&E","Only the FBC"],c:2,
+    {ch:11,q:"Which pre-dialysis samples need centrifuging?",a:["All of them","None of them","Potassium and U&E","Only the FBC"],c:2,
      e:"A serum potassium or U&E must be centrifuged for an accurate serum result. Other pre-dialysis bloods don't need it."},
-    {ch:9,q:"A pre-dialysis sample is accidentally taken after dialysis has started. What should you do?",a:["Send it and note the timing","Discard it","Send it but cancel the urea","Centrifuge it twice"],c:1,
+    {ch:11,q:"A pre-dialysis sample is accidentally taken after dialysis has started. What should you do?",a:["Send it and note the timing","Discard it","Send it but cancel the urea","Centrifuge it twice"],c:1,
      e:"Dilution makes it inaccurate. The procedure says discard — not send with a caveat."},
-    {ch:9,q:"For a three-times-weekly patient, when does the KRU urine collection run?",a:["First to second dialysis of the week","Across the long weekend break","Any 24-hour period","Second dialysis to the following week"],c:0,
+    {ch:11,q:"For a three-times-weekly patient, when does the KRU urine collection run?",a:["First to second dialysis of the week","Across the long weekend break","Any 24-hour period","Second dialysis to the following week"],c:0,
      e:"Three-times-weekly: starts on the first dialysis of the week, finishes on the second."},
-    {ch:9,q:"For a twice-weekly patient, when does the collection run?",a:["First to second dialysis of the week","Second dialysis of the week to the first dialysis of the following week","Any 48 hours","It isn't collected"],c:1,
+    {ch:11,q:"For a twice-weekly patient, when does the collection run?",a:["First to second dialysis of the week","Second dialysis of the week to the first dialysis of the following week","Any 48 hours","It isn't collected"],c:1,
      e:"Twice-weekly patients start on their second dialysis of the week and finish on the first dialysis of the following week."},
-    {ch:9,q:"The urine collection comes back at 120 mL and the patient says it was complete. What happens?",a:["Send it with a note","Send the blood only","Don't send either — cancel and reschedule","Double the volume"],c:2,
+    {ch:11,q:"The urine collection comes back at 120 mL and the patient says it was complete. What happens?",a:["Send it with a note","Send the blood only","Don't send either — cancel and reschedule","Double the volume"],c:2,
      e:"Under 150 mL, or incomplete, means neither the urine nor the blood goes to the lab. Discard, cancel, and tell the dialysis nurse to rebook."},
-    {ch:9,q:"On the start day of a urine collection, what must the patient do before dialysis?",a:["Drink 500 mL of water","Completely empty their bladder, and that urine is not collected","Pass urine into the container","Avoid passing urine at all"],c:1,
+    {ch:11,q:"On the start day of a urine collection, what must the patient do before dialysis?",a:["Drink 500 mL of water","Completely empty their bladder, and that urine is not collected","Pass urine into the container","Avoid passing urine at all"],c:1,
      e:"Emptying first means the window starts from empty. That void is discarded, not collected."},
-    {ch:9,q:"What does KRU actually measure?",a:["The dialyser's clearance","Residual renal urea clearance — what the patient's own kidneys still clear","Total body water","The urea reduction ratio"],c:1,
+    {ch:11,q:"What does KRU actually measure?",a:["The dialyser's clearance","Residual renal urea clearance — what the patient's own kidneys still clear","Total body water","The urea reduction ratio"],c:1,
      e:"It's the patient's own remaining kidney clearance, which feeds the kinetically modelled prescription."},
-    {ch:9,q:"Why does an incomplete urine collection matter so much to the patient?",a:["It wastes a bottle","It understates residual function and can wrongly lengthen their dialysis time","It affects their potassium","It delays their transport"],c:1,
+    {ch:11,q:"Why does an incomplete urine collection matter so much to the patient?",a:["It wastes a bottle","It understates residual function and can wrongly lengthen their dialysis time","It affects their potassium","It delays their transport"],c:1,
      e:"KRU feeds the prescription. Understate it and the modelling calls for more dialysis than the patient actually needs."},
-    {ch:9,q:"Which set contains the post-dialysis urea and creatinine?",a:["QA START, Mon–Tues","QA END, Weds–Thurs","Both sets","The 3-monthly extras"],c:0,
+    {ch:11,q:"Which set contains the post-dialysis urea and creatinine?",a:["QA START, Mon–Tues","QA END, Weds–Thurs","Both sets","The 3-monthly extras"],c:0,
      e:"QA START holds the pre U&E, the post urea and creatinine, and the IDUR containers — so adequacy comes from that one session."},
-    {ch:9,q:"Where does parathyroid hormone sit in the testing schedule?",a:["Monthly with QA END","3-monthly extras","6-monthly extras","Annual extras"],c:1,
+    {ch:11,q:"Where does parathyroid hormone sit in the testing schedule?",a:["Monthly with QA END","3-monthly extras","6-monthly extras","Annual extras"],c:1,
      e:"PTH is in the 3-monthly set, alongside LFTs, glucose, HbA1c and the infection screens."},
-    {ch:9,q:"Which test is done annually?",a:["Beta-2 microglobulin","Hepatitis B immunity post-vaccination","Parathyroid hormone","Transferrin saturation"],c:1,
+    {ch:11,q:"Which test is done annually?",a:["Beta-2 microglobulin","Hepatitis B immunity post-vaccination","Parathyroid hormone","Transferrin saturation"],c:1,
      e:"Hepatitis B immunity is the annual check — protection wanes and is often weaker in kidney failure."},
-    {ch:9,q:"Why does Kt/V give a fairer comparison between patients than URR?",a:["It uses a different bottle","It accounts for fluid removed and body water","It's measured weekly","It doesn't need a post sample"],c:1,
+    {ch:11,q:"Why does Kt/V give a fairer comparison between patients than URR?",a:["It uses a different bottle","It accounts for fluid removed and body water","It's measured weekly","It doesn't need a post sample"],c:1,
      e:"Factoring in ultrafiltration and total body water compares a large and a small patient fairly. It's the figure used for kinetic modelling."},
-    {ch:9,q:"A patient's Kt/V comes back well above target with no change to their prescription. What should happen?",a:["Nothing — high is good","Refer to the senior nurse or doctor","Reduce their session time immediately","Repeat next month"],c:1,
-     e:"Both under-achieving and over-achieving Kt/V get referred, since either may mean the prescription or the sampling needs review."}
+    {ch:11,q:"A patient's Kt/V comes back well above target with no change to their prescription. What should happen?",a:["Nothing — high is good","Refer to the senior nurse or doctor","Reduce their session time immediately","Repeat next month"],c:1,
+     e:"Both under-achieving and over-achieving Kt/V get referred, since either may mean the prescription or the sampling needs review."},
+
+    // --- 6 The machine ---
+    {ch:6,q:"Arterial pressure, measured before the blood pump, normally reads:",a:["Negative, because the pump is pulling blood from the access","Positive, because blood is being pushed back","Zero","It isn't measured"],c:0,
+     e:"The pump draws blood towards itself, so the pressure before it is negative. It becomes more negative when the access can't supply the flow."},
+    {ch:6,q:"An arterial pressure alarm (too negative) is most often caused by:",a:["A kinked venous line","The arterial needle against the vessel wall, or a poorly flowing access","Too much anticoagulant","A blood leak"],c:1,
+     e:"The pump is pulling harder than the access can supply. Check the line, the needle and the patient; repeated alarms suggest the access needs review."},
+    {ch:6,q:"A high venous pressure alarm suggests:",a:["Resistance to blood returning, such as a kink, a clot in the venous chamber or a needle problem","The patient is dehydrated","The dialysate is too warm","The concentrate has run out"],c:0,
+     e:"Follow the venous line from machine to patient, check the venous chamber for clots and the needle site for swelling."},
+    {ch:6,q:"Why can't you rely on the venous pressure alarm to catch a dislodged venous needle?",a:["The alarm is switched off during dialysis","The needle and tubing still create most of the resistance, so the pressure barely changes","Venous pressure isn't measured","It always alarms straight away"],c:1,
+     e:"The reading can stay inside its alarm window. Access sites and lines must stay visible, secured and checked regularly."},
+    {ch:6,q:"When the air detector senses air, the machine typically:",a:["Slows the pump to half speed","Stops the blood pump and clamps the venous line","Sends the dialysate to drain","Shows a message only"],c:1,
+     e:"Stopping the pump and closing the clamp keeps air from reaching the patient. Find the source before anything is reset; never override an air alarm."},
+    {ch:6,q:"What does the conductivity monitor check?",a:["The blood flow rate","That the dialysate mix has the right amount of dissolved salts","The patient's temperature","For air in the line"],c:1,
+     e:"How well the fluid conducts electricity tracks its salt content. If it's out of range, the machine goes into bypass."},
+    {ch:6,q:"What happens in bypass?",a:["The dialysate goes straight to drain instead of through the dialyser","Blood skips the dialyser","The blood pump stops","The anticoagulant pauses"],c:0,
+     e:"The wrong fluid never reaches the dialyser. Blood keeps circulating, but no dialysis happens until the mix is right."},
+    {ch:6,q:"Why are the acid and bicarbonate concentrates kept apart until the machine mixes them?",a:["Bicarbonate is only for some patients","Calcium and magnesium would react with the bicarbonate and form chalky deposits","It's cheaper to store them apart","The acid would evaporate"],c:1,
+     e:"Mixed in advance, they precipitate and block the machine, so the machine proportions them into the water at the last moment."},
+    {ch:6,q:"Where is the blood leak detector, and what does it look for?",a:["On the arterial line, looking for air","On the used dialysate line, looking for red cells","Inside the blood pump, looking for clots","On the water inlet, looking for chlorine"],c:1,
+     e:"Red cells in the used dialysate mean the membrane has torn."},
+    {ch:6,q:"How does the machine remove exactly the UF goal?",a:["Balancing chambers match fluid in and out, and a separate UF pump removes the extra","By running the blood pump faster","By making the dialysate saltier","It estimates it from the patient's weight"],c:0,
+     e:"Because fresh in equals used out, the only fluid that leaves the patient is what the UF pump deliberately takes."},
+
+    // --- 7 Water treatment ---
+    {ch:7,q:"Roughly how much dialysate does one typical four-hour session use?",a:["About 12 litres","About 50 litres","About 120 litres","About 500 litres"],c:2,
+     e:"At around 500 mL a minute for four hours, about 120 litres, and around 360 litres across a week."},
+    {ch:7,q:"Which stage removes chlorine and chloramine?",a:["The water softener","Activated carbon","The sediment filter","The distribution loop"],c:1,
+     e:"Carbon has to do it: RO can't be relied on for chloramine, and chlorine damages the RO membrane."},
+    {ch:7,q:"Why is chlorine tested between the two carbon tanks?",a:["It's the easiest sample point to reach","It shows the first tank failing while the second is still protecting patients","The second tank adds chlorine","It isn't; it's tested at the machine"],c:1,
+     e:"Testing between them is an early warning. Testing after the last tank would find the problem with no protection left."},
+    {ch:7,q:"Chloramine reaching a patient's blood causes:",a:["Haemolysis, so red cells burst and anaemia follows","A high potassium only","Fistula clotting","A low urea"],c:0,
+     e:"Chloramine damages red cells. Outbreaks have followed exhausted carbon or a change to the water supply's disinfection."},
+    {ch:7,q:"What does the water softener do?",a:["Removes bacteria","Swaps calcium and magnesium for sodium, protecting the RO membrane","Removes chlorine","Warms the water"],c:1,
+     e:"Hardness would scale the RO membrane. The resin is regenerated with salt brine."},
+    {ch:7,q:"What does reverse osmosis remove?",a:["Only sediment","Most dissolved salts, metals, bacteria and endotoxin","Only chlorine","Nothing; it adds minerals"],c:1,
+     e:"It's the heart of the system. Product water conductivity shows how well the membrane is working."},
+    {ch:7,q:"Why does the distribution loop circulate constantly, with no dead ends?",a:["To keep the water warm","Stagnant water lets bacteria grow biofilm","To save water","To mix in the concentrate"],c:1,
+     e:"Biofilm sheds endotoxin and is very hard to remove, so water keeps moving and the loop is disinfected on a schedule."},
+    {ch:7,q:"Aluminium in dialysis water historically caused:",a:["Dialysis dementia and bone disease","Hard water syndrome","Haemolysis only","Air embolism"],c:0,
+     e:"Dialysis encephalopathy in the 1970s. Reverse osmosis is the main reason it's now rare."},
+    {ch:7,q:"Under ISO 23500, the bacterial limit for dialysis water is:",a:["Under 100 CFU/mL","Under 1,000 CFU/mL","Under 10,000 CFU/mL","There is no limit"],c:0,
+     e:"Under 100 CFU/mL, with action usually taken at 50 so a problem is caught before it reaches the limit."},
+    {ch:7,q:"Hard water reaching a patient during dialysis causes:",a:["Nausea, vomiting, headache and high blood pressure","A low potassium","A blood leak alarm","Nothing noticeable"],c:0,
+     e:"Known as hard water syndrome, usually from a failed or unregenerated softener."}
   ];;
 
   var MIXED_N=10;
@@ -1519,7 +2444,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
   function quizReset(){ renderStart() }
 
   function renderStart(){
-    var rows=chapters.slice(0,9).map(function(c,i){
+    var rows=chapters.slice(0,11).map(function(c,i){
       return '<button class="q-btn ghost" data-ch="'+(i+1)+'">'+esc(c.t)+'</button>';
     }).join('');
     host.innerHTML=
@@ -1648,6 +2573,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
     requestAnimationFrame(function(){
       requestAnimationFrame(function(){ arc.style.strokeDashoffset=(C*(1-pct)).toFixed(1) });
     });
+    if(pct>=.8) setTimeout(confetti,380);
 
     host.querySelectorAll('[data-go]').forEach(function(b){
       b.addEventListener('click',function(){ go(+b.dataset.go) });
@@ -1759,7 +2685,9 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
     function clean(s){
       s=String(s).replace(/<[^>]+>/g,' ');
       s=s.replace(/[\u2019]/g,"'").replace(/[\u2018]/g,"'");
-      var map=[[/\beGFR\b/g,'e-G-F-R'],[/\bAEIOU\b/g,'A E I O U'],[/\bAKI\b/g,'A-K-I'],
+      var map=[[/CFU\/mL/g,'colony-forming units per mil'],[/EU\/mL/g,'endotoxin units per mil'],[/mg\/L/g,'milligrams per litre'],
+        [/\bmmHg\b/g,'millimetres of mercury'],[/\bTMP\b/g,'T-M-P'],[/\bHDF\b/g,'H-D-F'],[/\bISO\b/g,'I-S-O'],[/\bRO\b/g,'R-O'],
+        [/\u2212/g,'minus '],[/\beGFR\b/g,'e-G-F-R'],[/\bAEIOU\b/g,'A E I O U'],[/\bAKI\b/g,'A-K-I'],
         [/\bCKD-MBD\b/gi,'C-K-D bone mineral disorder'],[/\bCKD\b/g,'C-K-D'],
         [/\bAVF\b/g,'A-V-F'],[/\bAVG\b/g,'A-V-G'],[/\bCVC\b/g,'C-V-C'],
         [/\bEPO\b/g,'E-P-O'],[/\bUF\b/g,'U-F'],[/\bQb\b/g,'Q-B'],[/\bQd\b/g,'Q-D'],
@@ -1775,8 +2703,11 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
       return s;
     }
     function splitSentences(s){
+      // protect decimal points (1.4, 0.25) so a number is never split across two utterances
+      s=s.replace(/(\d)\.(\d)/g,'$1\u2024$2');
       var m=s.match(/[^.!?]+[.!?]+|\S[^.!?]*$/g);
-      return m ? m.map(function(x){return x.trim()}).filter(Boolean) : (s?[s]:[]);
+      var out=m ? m.map(function(x){return x.trim()}).filter(Boolean) : (s?[s]:[]);
+      return out.map(function(x){ return x.replace(/\u2024/g,'.'); });
     }
     function txt(el){ return el?el.textContent:''; }
 
@@ -1803,6 +2734,11 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
     function fxSeg(sel,t){ return function(){ var b=document.querySelector(sel+' [data-t="'+t+'"]'); if(b) b.click(); }; }
     function fxBlood(t){ return fxSeg('#bloodToggle',t); }
     function fxQa(t){ return fxSeg('#qaToggle',t); }
+    function fxMach(k){ return function(){ var el=document.querySelector('#machSvg .hotspot[data-k="'+k+'"]'); if(el) el.dispatchEvent(new MouseEvent('click',{bubbles:true})); }; }
+    function fxScenario(s){ return function(){ var b=document.querySelector('#alarmChips [data-s="'+s+'"]'); if(b) b.click(); }; }
+    function fxWaterSet(o){ return function(){ Object.keys(o).forEach(function(k){ var b=document.querySelector('#waterToggles [data-w="'+k+'"]'); if(b && b.classList.contains('on')!==o[k]) b.click(); }); }; }
+    function fxWaterReset(){ return function(){ var b=document.getElementById('waterReset'); if(b) b.click(); }; }
+    function directChild(el,cls){ for(var i=0;i<el.children.length;i++){ if(el.children[i].classList.contains(cls)) return el.children[i]; } return null; }
     function fxUrr(pre,post){ return function(){
       var a=document.getElementById('preUrea'), b=document.getElementById('postUrea');
       if(a&&b){ a.value=pre; b.value=post; b.dispatchEvent(new Event('input',{bubbles:true})); }
@@ -1849,20 +2785,61 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
         });
         var note=ch.querySelector('.panel-note'); if(note) B.push({el:note,text:txt(note)});
       } else if(n===6){
+        var mc=ch.querySelectorAll('.card');
+        B.push({el:mc[0],text:txt(mc[0].querySelector('h3'))+'. '+txt(mc[0].querySelector('p'))});
+        var mw=mc[0].querySelector('.mach-wrap');
+        ['screen','pump','heparin','pressures','dialyser','air','conc','hydraulics'].forEach(function(k){
+          B.push({el:mw,text:machineData[k].l+'. '+machineData[k].t, fx:fxMach(k)});
+        });
+        B.push({el:mc[1],text:txt(mc[1].querySelector('h3'))+'. '+txt(mc[1].querySelector('p'))});
+        detailBlocks(mc[1]).forEach(function(b){B.push(b)});
+        var mxp=mc[2].querySelectorAll(':scope > p');
+        B.push({el:mc[2],text:txt(mc[2].querySelector('h3'))+'. '+txt(mxp[0])});
+        if(mxp[1]) B.push({el:mc[2],text:txt(mxp[1])});
+        B.push({el:mc[3],text:txt(mc[3].querySelector('h3'))+'. '+txt(mc[3].querySelector(':scope > p'))});
+        var mpan=document.getElementById('machPanel');
+        ['normal','artlow','venhigh','clot','vnd','air','leak','cond'].forEach(function(s){
+          B.push({el:mpan,text:scenSay(s), fx:fxScenario(s)});
+        });
+        B.push({el:mpan,text:'And back to normal running.', fx:fxScenario('normal')});
+        B.push({el:mc[4],text:txt(mc[4].querySelector('h3'))+'.'});
+        detailBlocks(mc[4]).forEach(function(b){B.push(b)});
+        var mn=directChild(ch,'panel-note'); if(mn) B.push({el:mn,text:txt(mn)});
+      } else if(n===7){
+        var wcd=ch.querySelectorAll('.card');
+        B.push({el:wcd[0],text:txt(wcd[0].querySelector('h3'))+'. Most people drink about 14 litres of water a week. A week of haemodialysis uses about 360 litres of dialysate. '+txt(wcd[0].querySelector(':scope > p'))});
+        B.push({el:wcd[1],text:txt(wcd[1].querySelector('h3'))+'. '+txt(wcd[1].querySelector(':scope > p')), fx:fxWaterReset()});
+        B.push({el:wcd[1],text:'With every stage working. '+WOUT.ok.d});
+        B.push({el:wcd[1],text:'Now switch off the carbon tanks. '+WOUT.carbon.d, fx:fxWaterSet({carbon:false})});
+        B.push({el:wcd[1],text:'Carbon back on, and the reverse osmosis off instead. '+WOUT.ro.d, fx:fxWaterSet({carbon:true,ro:false})});
+        B.push({el:wcd[1],text:'Reverse osmosis back on, and this time the softener fails. '+WOUT.soft.d, fx:fxWaterSet({ro:true,soft:false})});
+        B.push({el:wcd[1],text:'Everything back to normal.', fx:fxWaterReset()});
+        B.push({el:wcd[2],text:txt(wcd[2].querySelector('h3'))+'.'});
+        detailBlocks(wcd[2]).forEach(function(b){B.push(b)});
+        B.push({el:wcd[3],text:txt(wcd[3].querySelector('h3'))+'.'});
+        detailBlocks(wcd[3]).forEach(function(b){B.push(b)});
+        var lim=[txt(wcd[4].querySelector('h3'))];
+        wcd[4].querySelectorAll('.lim').forEach(function(l){ lim.push(txt(l.querySelector('.lim-k'))+': '+txt(l.querySelector('.lim-v'))+', '+txt(l.querySelector('small'))); });
+        B.push({el:wcd[4],text:lim.join('. ')+'.'});
+        wcd[4].querySelectorAll(':scope > p').forEach(function(p){ B.push({el:wcd[4],text:txt(p)}); });
+        B.push({el:wcd[5],text:txt(wcd[5].querySelector('h3'))+'.'});
+        detailBlocks(wcd[5]).forEach(function(b){B.push(b)});
+        var wn=directChild(ch,'panel-note'); if(wn) B.push({el:wn,text:txt(wn)});
+      } else if(n===8){
         detailBlocks(ch.querySelector('.acc')).forEach(function(b){B.push(b)});
         var card=ch.querySelector('.card'), parts=[txt(card.querySelector('h3'))];
         card.querySelectorAll('.panel-note').forEach(function(pn){parts.push(txt(pn))});
         var it=card.querySelector('p[style]'); if(it) parts.push(txt(it));
         B.push({el:card,text:parts.join('. ')});
-      } else if(n===7){
+      } else if(n===9){
         B.push({el:ch.querySelector('#acuteList'),text:'First, what can happen during a session.', fx:fxSeg('#compToggle','acute')});
         detailBlocks(ch.querySelector('#acuteList')).forEach(function(b){B.push(b)});
         B.push({el:ch.querySelector('#chronicList'),text:'Now the longer term picture, living with kidney failure.', fx:fxSeg('#compToggle','chronic')});
         detailBlocks(ch.querySelector('#chronicList')).forEach(function(b){B.push(b)});
-      } else if(n===8){
+      } else if(n===10){
         detailBlocks(ch.querySelector('.acc')).forEach(function(b){B.push(b)});
         var note=ch.querySelector('.panel-note'); if(note) B.push({el:note,text:txt(note)});
-      } else if(n===9){
+      } else if(n===11){
         var cds=ch.querySelectorAll('.card');
         // what it's for
         B.push({el:cds[0],text:txt(cds[0].querySelector('h3'))+'. '+txt(cds[0].querySelector('p'))});
@@ -1915,7 +2892,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
     }
     function progress(){
       plFill.style.width=(queue.length?Math.min(100,Math.round((qi/queue.length)*100)):0)+'%';
-      plLabel.textContent=(cur>=1&&cur<=9)?chapters[cur-1].t:'Listening';
+      plLabel.textContent=(cur>=1&&cur<=11)?chapters[cur-1].t:'Listening';
     }
     function setHighlight(el){
       if(lastHi&&lastHi!==el) lastHi.classList.remove('tts-reading');
@@ -1943,7 +2920,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
     function cancelSpeech(){ stopping=true; try{ synth.cancel(); }catch(e){} stopping=false; }
 
     function start(){
-      if(!(cur>=1&&cur<=9)) return;
+      if(!(cur>=1&&cur<=11)) return;
       cancelSpeech(); buildQueue(cur);
       playing=true; paused=false; showPlayer(true); setPlayIcon(true); progress(); speakCurrent(); acquireWake();
       if(lsGet('renal.hint','')!=='1'){ lsSet('renal.hint','1'); showToast('Playing aloud \u2014 the screen will stay awake while it reads. Audio still pauses if you leave the app or lock the screen.',null,null,true); }
@@ -1960,7 +2937,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
 
     function chapterEnd(){
       clearHighlight();
-      if(contPlay&&cur<9){
+      if(contPlay&&cur<11){
         ttsNarratorNav=true; go(cur+1); ttsNarratorNav=false;
         buildQueue(cur); playing=true; paused=false; setPlayIcon(true); progress();
         setTimeout(function(){ if(playing&&!paused) speakCurrent(); },380);
@@ -1972,7 +2949,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
     var PAUSE='<svg viewBox="0 0 24 24"><path d="M7 5h3.2v14H7zM13.8 5H17v14h-3.2z"/></svg>';
     function setPlayIcon(on){ plPlay.innerHTML=on?PAUSE:PLAY; plPlay.setAttribute('aria-label',on?'Pause':'Play'); }
     function showPlayer(on){ player.classList.toggle('show',on); fab.classList.toggle('gone',on); }
-    ttsUpdateFab=function(){ var can=(cur>=1&&cur<=9)&&!playing&&!paused; fab.classList.toggle('gone',!can); if(!playing&&!paused) player.classList.remove('show'); };
+    ttsUpdateFab=function(){ var can=(cur>=1&&cur<=11)&&!playing&&!paused; fab.classList.toggle('gone',!can); if(!playing&&!paused) player.classList.remove('show'); };
 
     function fmtRate(r){ return (Math.round(r*100)/100)+'\u00d7'; }
     function cycleRate(){

@@ -1,6 +1,6 @@
 /* Renal — a visual companion :: service worker
    Bump VERSION whenever you redeploy. The app will then offer "Update available". */
-const VERSION = 'v4';
+const VERSION = 'v5';
 
 const SHELL = 'renal-shell-' + VERSION;
 const FONTS = 'renal-fonts-v1';           // fonts rarely change; kept across versions
