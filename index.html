@@ -492,8 +492,8 @@ input[type=range]::-moz-range-thumb{border-color:var(--accent)}
 .ch-meta h3 .n{font-family:var(--serif);font-style:italic;font-weight:500;color:var(--c1);margin-right:7px}
 
 /* ---------- shared bits for the new chapters ---------- */
-#ch-6 .card>p,#ch-7 .card>p{font-size:14.5px;color:var(--ink-soft);line-height:1.6}
-#ch-6 .card>p+p,#ch-7 .card>p+p{margin-top:9px}
+#ch-6 .card>p,#ch-7 .card>p,#ch-8 .card>p{font-size:14.5px;color:var(--ink-soft);line-height:1.6}
+#ch-6 .card>p+p,#ch-7 .card>p+p,#ch-8 .card>p+p{margin-top:9px}
 .fl-13{stroke-dasharray:3 10;animation:dash13 1s linear infinite}
 .fl-13r{stroke-dasharray:3 10;animation:dash13r 1s linear infinite}
 .fl-11{stroke-dasharray:3 8;animation:dash11 .9s linear infinite}
@@ -608,6 +608,95 @@ input[type=range]::-moz-range-thumb{border-color:var(--accent)}
 
 /* eGFR track: red at the failure end, green at normal */
 #gfrRange{background:linear-gradient(90deg,var(--crimson-soft),var(--amber-soft),var(--sage))}
+
+/* ================= 08 · HD and HDF ================= */
+.film{margin-top:12px;border-radius:22px;overflow:hidden;background:#140C2A;box-shadow:0 18px 36px -20px #140C2A,inset 0 0 0 1px rgba(255,255,255,.06)}
+.film-stage{position:relative}
+.film-stage canvas{display:block;width:100%;cursor:pointer}
+.film-big{position:absolute;left:50%;top:50%;width:64px;height:64px;margin:-32px 0 0 -32px;border-radius:50%;display:grid;place-items:center;color:#fff;background:linear-gradient(135deg,var(--accent),var(--accent-2));box-shadow:0 10px 26px -6px rgba(0,0,0,.6),0 0 0 7px rgba(255,255,255,.13);transition:opacity .2s ease,transform .2s ease}
+.film-big svg{width:26px;height:26px;fill:currentColor;margin-left:3px}
+.film-big.replay svg{margin-left:0}
+.film-big.gone{opacity:0;transform:scale(.85);pointer-events:none}
+.film-cap{min-height:92px;padding:14px 16px 4px;color:#fff;font-size:14.5px;line-height:1.55}
+@media(min-width:560px){.film-cap{min-height:68px}}
+.film-ctl{display:flex;align-items:center;gap:10px;padding:6px 12px 12px}
+.film-btn{flex:none;width:38px;height:38px;border-radius:12px;display:grid;place-items:center;color:#fff;background:rgba(255,255,255,.1);transition:background .15s}
+.film-btn:hover{background:rgba(255,255,255,.2)}
+.film-btn svg{width:18px;height:18px;fill:currentColor}
+.film-btn.voice svg{fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round}
+.film-time{flex:none;min-width:78px;font-family:var(--mono);font-size:12px;color:rgba(255,255,255,.78)}
+.film-track{position:relative;flex:1;min-width:0;height:30px;display:flex;align-items:center}
+.film-track input[type=range]{width:100%;height:6px;margin:0;border-radius:99px;background:rgba(255,255,255,.22)}
+.film-track input[type=range]::-webkit-slider-thumb{width:18px;height:18px;border:0;background:#fff;box-shadow:0 0 0 4px rgba(255,255,255,.22)}
+.film-track input[type=range]::-moz-range-thumb{width:16px;height:16px;border:0;background:#fff}
+.film-ticks{position:absolute;left:0;right:0;top:50%;height:0;pointer-events:none}
+.film-ticks i{position:absolute;top:-7px;width:2px;height:14px;margin-left:-1px;border-radius:1px;background:rgba(255,255,255,.5)}
+.film-chips .chip{font-size:12.5px;padding:8px 12px}
+.film-chips .chip .n{font-family:var(--serif);font-style:italic;font-weight:600;margin-right:6px;color:var(--accent)}
+.film-chips .chip.on .n{color:#fff}
+
+.vs{margin-top:12px;border:1px solid var(--mist);border-radius:16px;overflow:hidden}
+.vs-row{display:grid;grid-template-columns:1.05fr 1fr 1fr;border-top:1px solid var(--mist-2)}
+.vs-row:first-child{border-top:0}
+.vs-row>span{padding:10px 11px;font-size:13.5px;line-height:1.4;color:var(--ink-soft)}
+.vs-row>span:first-child{background:var(--card-2);color:var(--ink);font-weight:600;font-size:13px}
+.vs-row>span:nth-child(3){background:var(--accent-soft);color:var(--ink)}
+.vs-head>span{font-size:14px;font-weight:700}
+.vs-head .vs-hd{color:#0D47A1}
+.vs-head .vs-hdf{color:var(--accent)}
+
+.ladder{margin-top:14px;display:flex;flex-direction:column;gap:12px}
+.lad-key{display:flex;flex-wrap:wrap;gap:8px 16px;font-size:12.5px;color:var(--ink-soft)}
+.lad-key span{display:inline-flex;align-items:center;gap:7px}
+.lad-key span::before{content:"";width:16px;height:8px;border-radius:4px;background:#64B5F6}
+.lad-key .k-hdf::before{background:linear-gradient(90deg,var(--accent),var(--accent-2))}
+.lad-row{display:grid;grid-template-columns:30px 128px 1fr;gap:10px;align-items:center}
+.lad-mol{justify-self:center;width:var(--s);height:var(--s);border-radius:50%;box-shadow:0 0 0 1.5px rgba(16,36,43,.15)}
+.lad-name b{display:block;font-size:13.5px;line-height:1.25}
+.lad-name small{display:block;font-size:12px;color:var(--ink-faint)}
+.lad-bars{display:flex;flex-direction:column;gap:5px}
+.lad-bars i{display:block;height:9px;width:0;border-radius:99px;background:#64B5F6;transition:width 1.3s cubic-bezier(.2,.8,.2,1)}
+.lad-bars i.hdf{background:linear-gradient(90deg,var(--accent),var(--accent-2));transition-delay:.15s}
+.ladder.go .lad-bars i{width:var(--w)}
+
+.hdf-diagram{margin:14px -4px 2px}
+.hdf-diagram svg{display:block;width:100%;height:auto}
+.hs-blood{fill:none;stroke-width:9;stroke-linecap:round;transition:stroke .35s}
+.hs-bflow{fill:none;stroke:rgba(255,255,255,.8);stroke-width:2;stroke-linecap:round}
+.hs-case{fill:#FBF4FF;stroke:var(--accent-2);stroke-width:2}
+.hs-mem{fill:none;stroke:var(--accent);stroke-width:1.5;stroke-dasharray:2 3}
+.hs-sub{fill:none;stroke:#B2EBF2;stroke-width:7;stroke-linecap:round;transition:opacity .3s}
+.hs-subflow{fill:none;stroke:#0097A7;stroke-width:2.4;stroke-linecap:round;transition:opacity .3s}
+.hs-src{fill:#E0F7FA;stroke:#00ACC1;stroke-width:1.5;transition:opacity .3s}
+.hs-src.hs-dim{opacity:.45}
+.hs-srct{font:600 11px Inter,system-ui,sans-serif;fill:#006064}
+.hs-j{fill:#fff;stroke:#00ACC1;stroke-width:2.5;transition:opacity .3s}
+.hs-off{opacity:.1}
+.hs-drop{fill:#4FC3F7}
+.hs-up{animation:hsUp 1.2s ease-out infinite}
+.hs-down{animation:hsDown 1.2s ease-out infinite}
+@keyframes hsUp{from{transform:translateY(0);opacity:1}to{transform:translateY(-13px);opacity:0}}
+@keyframes hsDown{from{transform:translateY(0);opacity:1}to{transform:translateY(13px);opacity:0}}
+#hdfDrops{transition:opacity .3s}
+.hs-hct{font:600 10.5px "IBM Plex Mono",monospace;fill:var(--ink)}
+.hs-lbl{font:500 10.5px Inter,system-ui,sans-serif;fill:var(--ink-soft)}
+.slider-row.off{opacity:.45}
+.hdf-stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.hstat{border-radius:14px;padding:11px 12px;background:var(--card-2);border:1px solid var(--mist-2);transition:border-color .25s,background .25s}
+.hs-k{display:block;font-size:12px;font-weight:600;color:var(--ink-soft);line-height:1.3}
+.hstat b{display:block;margin-top:4px;font-family:var(--mono);font-size:20px;font-weight:500;color:var(--ink)}
+.hstat small{display:block;font-size:11.5px;color:var(--ink-faint);line-height:1.35}
+.hstat.ok{border-color:#A5D6A7}
+.hstat.warn{border-color:#FFD54F;background:#FFFBEA}
+.hstat.warn b{color:#9A6400}
+.hstat.bad{border-color:#EF9A9A;background:#FFF5F5}
+.hstat.bad b{color:#C62828}
+.hs-bar{position:relative;height:6px;margin-top:8px;border-radius:99px;background:var(--mist)}
+.hs-bar i{position:absolute;left:0;top:0;bottom:0;width:0;border-radius:99px;transition:width .35s ease,background .35s}
+.hs-bar em{position:absolute;top:-3px;width:2px;height:12px;margin-left:-1px;border-radius:1px;background:var(--ink-soft)}
+.hs-msg{margin-top:5px;font-size:14px;color:var(--ink-soft);line-height:1.55}
+.hs-note{margin-top:12px;font-size:12px;color:var(--ink-faint);line-height:1.5}
+.xlink{display:inline-block;margin-top:8px;font-size:13px;font-weight:600;color:var(--accent);text-decoration:underline;text-underline-offset:3px}
 </style>
 </head>
 <body>
@@ -1201,10 +1290,160 @@ input[type=range]::-moz-range-thumb{border-color:var(--accent)}
   <div class="panel-note"><strong>Check your unit's water procedure.</strong> The limits here follow ISO 23500 and UK Kidney Association guidance. The renal technical team usually looks after the plant itself, and your unit's procedure sets the testing schedule and who does each check, but everyone on the floor should know what an abnormal result means.</div>
 </section>
 
-<!-- ===== 08 ACCESS ===== -->
+<!-- ===== 08 HD AND HDF ===== -->
 <section class="chapter" id="ch-8">
   <div class="ch-head">
-    <div class="ch-kicker"><span>08 · Access</span><span class="line"></span></div>
+    <div class="ch-kicker"><span>08 · HDF</span><span class="line"></span></div>
+    <h2>HD and haemodiafiltration</h2>
+    <p class="lede">Haemodialysis cleans the blood mostly by diffusion. Haemodiafiltration, or HDF, adds convection: it pushes litres of plasma water through the membrane so that larger molecules are dragged out with it, then replaces that water with sterile fluid the machine makes as it goes.</p>
+  </div>
+
+  <div class="card">
+    <h3>Watch how it works</h3>
+    <p>Six short scenes, about two minutes in all. Play, pause, drag to any point or tap a scene. The headphones button plays it with the narrator.</p>
+    <div class="film" id="filmFrame">
+      <div class="film-stage">
+        <canvas id="hdfFilm" role="img" aria-label="Animated film of diffusion and convection, then substitution fluid added after the dialyser in post-dilution and before it in pre-dilution"></canvas>
+        <button class="film-big" id="filmBig" aria-label="Play the film"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button>
+      </div>
+      <p class="film-cap" id="filmCap" aria-live="polite"></p>
+      <div class="film-ctl">
+        <button class="film-btn" id="filmPlay" aria-label="Play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button>
+        <span class="film-time" id="filmTime">0:00 / 2:06</span>
+        <div class="film-track"><div class="film-ticks" id="filmTicks"></div><input type="range" id="filmScrub" min="0" max="1000" step="1" value="0" aria-label="Position in the film"></div>
+        <button class="film-btn voice" id="filmVoice" aria-label="Play with the narrator"><svg viewBox="0 0 24 24"><path d="M4 13v-1a8 8 0 0116 0v1"/><rect x="3" y="13" width="4" height="7" rx="1.6"/><rect x="17" y="13" width="4" height="7" rx="1.6"/></svg></button>
+      </div>
+    </div>
+    <div class="legend">
+      <span><i style="background:#E53935"></i>Red cells</span>
+      <span><i style="background:#A5D6A7"></i>Albumin</span>
+      <span><i style="background:#FFD54F"></i>Urea and small waste</span>
+      <span><i style="background:#E58BFF"></i>&beta;2-microglobulin</span>
+      <span><i style="background:#80DEEA"></i>Water and substitution fluid</span>
+    </div>
+    <div class="chips film-chips" id="filmChips" role="group" aria-label="Jump to a scene"></div>
+  </div>
+
+  <div class="card">
+    <h3>HD and HDF side by side</h3>
+    <div class="vs" role="table" aria-label="Haemodialysis compared with haemodiafiltration">
+      <div class="vs-row vs-head" role="row"><span role="columnheader"></span><span role="columnheader" class="vs-hd">HD</span><span role="columnheader" class="vs-hdf">HDF</span></div>
+      <div class="vs-row" role="row"><span role="rowheader">How it cleans</span><span role="cell">Diffusion</span><span role="cell">Diffusion and convection</span></div>
+      <div class="vs-row" role="row"><span role="rowheader">Small waste: urea, potassium</span><span role="cell">Cleared well</span><span role="cell">Cleared well</span></div>
+      <div class="vs-row" role="row"><span role="rowheader">Middle molecules: &beta;2-microglobulin</span><span role="cell">Cleared poorly</span><span role="cell">Cleared much better</span></div>
+      <div class="vs-row" role="row"><span role="rowheader">Dialyser</span><span role="cell">Low- or high-flux</span><span role="cell">High-flux only</span></div>
+      <div class="vs-row" role="row"><span role="rowheader">Convection per session</span><span role="cell">Just the UF goal, around 2&nbsp;L</span><span role="cell">Around 23&nbsp;L or more</span></div>
+      <div class="vs-row" role="row"><span role="rowheader">Fluid given into the blood</span><span role="cell">None</span><span role="cell">Sterile substitution fluid, made online</span></div>
+      <div class="vs-row" role="row"><span role="rowheader">Water quality</span><span role="cell">Ultrapure recommended</span><span role="cell">Ultrapure essential</span></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>What each one clears</h3>
+    <p>From the smallest molecules to the largest. Diffusion fades quickly as molecules get bigger; convection keeps working until a molecule is too large for the pores.</p>
+    <div class="ladder" id="hdfLadder">
+      <div class="lad-key"><span class="k-hd">HD, high-flux</span><span class="k-hdf">HDF, post-dilution</span></div>
+      <div class="lad-row" data-say="Urea, 60 daltons. It is small enough to diffuse fast, so both clear it well."><span class="lad-mol" style="--s:6px;background:#FFD54F"></span><div class="lad-name"><b>Urea</b><small>60 Da, small</small></div><div class="lad-bars"><i class="hd" style="--w:72%"></i><i class="hdf" style="--w:80%"></i></div></div>
+      <div class="lad-row" data-say="Creatinine, 113 daltons. Also small, and also cleared well by both."><span class="lad-mol" style="--s:7px;background:#FFE082"></span><div class="lad-name"><b>Creatinine</b><small>113 Da, small</small></div><div class="lad-bars"><i class="hd" style="--w:64%"></i><i class="hdf" style="--w:72%"></i></div></div>
+      <div class="lad-row" data-say="Beta 2 microglobulin, about 11,800 daltons. It diffuses slowly, so H-D removes far less of it than H-D-F."><span class="lad-mol" style="--s:15px;background:#E58BFF"></span><div class="lad-name"><b>&beta;2-microglobulin</b><small>11,800 Da, middle</small></div><div class="lad-bars"><i class="hd" style="--w:50%"></i><i class="hdf" style="--w:78%"></i></div></div>
+      <div class="lad-row" data-say="Myoglobin, about 17,000 daltons. H-D removes little; convection removes much more."><span class="lad-mol" style="--s:18px;background:#CE93D8"></span><div class="lad-name"><b>Myoglobin</b><small>17,000 Da, middle</small></div><div class="lad-bars"><i class="hd" style="--w:22%"></i><i class="hdf" style="--w:55%"></i></div></div>
+      <div class="lad-row" data-say="Albumin, about 66,000 daltons. Too big for the pores, so both keep it in the blood, though high-volume H-D-F can lose a little more."><span class="lad-mol" style="--s:26px;background:#A5D6A7"></span><div class="lad-name"><b>Albumin</b><small>66,000 Da, kept</small></div><div class="lad-bars"><i class="hd" style="--w:1.5%"></i><i class="hdf" style="--w:3%"></i></div></div>
+    </div>
+    <p class="hs-note">Illustrative bars showing the typical fall in blood level over one session. Real figures depend on the dialyser, blood flow and time. Low-flux dialysers remove almost no &beta;2-microglobulin.</p>
+  </div>
+
+  <div class="card">
+    <h3>Try it: HD, post or pre</h3>
+    <p>Choose a mode, then set the blood flow and the substitution rate. The colour of the blood shows how much it thickens, and the tiles show what a four-hour session would reach.</p>
+    <div class="seg" id="hdfMode" role="group" aria-label="Treatment mode">
+      <button data-t="hd">HD</button><button class="on" data-t="post">Post-dilution</button><button data-t="pre">Pre-dilution</button>
+    </div>
+    <div class="hdf-diagram">
+      <svg viewBox="0 0 360 158" id="hdfSvg" role="img" aria-label="A blood line through a dialyser, with substitution fluid joining before or after it">
+        <defs><linearGradient id="hdfLumen" x1="0" x2="1" y1="0" y2="0"><stop id="hdfG0" offset="0" stop-color="#E53935"/><stop id="hdfG1" offset="1" stop-color="#C62828"/></linearGradient></defs>
+        <path id="hdfPreP" class="hs-sub" d="M150,32 C150,66 60,60 60,97"/>
+        <path id="hdfPostP" class="hs-sub" d="M210,32 C210,66 300,60 300,97"/>
+        <path id="hdfPreF" class="hs-subflow fl-13" d="M150,32 C150,66 60,60 60,97"/>
+        <path id="hdfPostF" class="hs-subflow fl-13" d="M210,32 C210,66 300,60 300,97"/>
+        <rect id="hdfSrc" class="hs-src" x="118" y="6" width="124" height="26" rx="13"/>
+        <text id="hdfSrcT" class="hs-srct" x="180" y="23" text-anchor="middle">Substitution fluid</text>
+        <path id="hsA" class="hs-blood" d="M8,104 H60"/>
+        <path id="hsB" class="hs-blood" d="M60,104 H106"/>
+        <path id="hsC" class="hs-blood" d="M254,104 H300"/>
+        <path id="hsD" class="hs-blood" d="M300,104 H352"/>
+        <path id="hdfBF" class="hs-bflow fl-13" d="M8,104 H352"/>
+        <rect class="hs-case" x="104" y="72" width="152" height="64" rx="32"/>
+        <rect x="112" y="94" width="136" height="20" rx="10" fill="url(#hdfLumen)"/>
+        <path id="hdfLF" class="hs-bflow fl-13" d="M118,104 H242"/>
+        <path class="hs-mem" d="M120,94 H240 M120,114 H240"/>
+        <g id="hdfDrops"><circle class="hs-drop hs-up" cx="146" cy="90" r="2.4" style="animation-delay:0s"/><circle class="hs-drop hs-down" cx="146" cy="118" r="2.4" style="animation-delay:0.55s"/><circle class="hs-drop hs-up" cx="180" cy="90" r="2.4" style="animation-delay:0.35s"/><circle class="hs-drop hs-down" cx="180" cy="118" r="2.4" style="animation-delay:0.90s"/><circle class="hs-drop hs-up" cx="214" cy="90" r="2.4" style="animation-delay:0.7s"/><circle class="hs-drop hs-down" cx="214" cy="118" r="2.4" style="animation-delay:1.25s"/></g>
+        <circle id="hdfJpre" class="hs-j" cx="60" cy="104" r="5"/>
+        <circle id="hdfJpost" class="hs-j" cx="300" cy="104" r="5"/>
+        <text class="hs-hct" id="hdfHin" x="78" y="126" text-anchor="middle">Hct 33%</text>
+        <text class="hs-hct" id="hdfHout" x="282" y="126" text-anchor="middle">Hct 44%</text>
+        <text class="hs-lbl" x="8" y="146">Blood in</text>
+        <text class="hs-lbl" x="352" y="146" text-anchor="end">To patient</text>
+        <text class="hs-lbl" x="180" y="152" text-anchor="middle">Dialyser</text>
+      </svg>
+    </div>
+    <div class="slider-row"><label for="hqb">Blood flow <b id="hqbL">400 mL/min</b></label><input type="range" id="hqb" min="200" max="450" step="10" value="400"></div>
+    <div class="slider-row" id="hqsRow"><label for="hqs">Substitution fluid <b id="hqsL">90 mL/min</b></label><input type="range" id="hqs" min="0" max="300" step="5" value="90"></div>
+    <div class="hdf-stats">
+      <div class="hstat" id="hsFF"><span class="hs-k">Filtration</span><b>25%</b><small>of the blood flow</small><div class="hs-bar"><i></i><em style="left:50%"></em><em style="left:60%"></em></div></div>
+      <div class="hstat" id="hsHct"><span class="hs-k">Blood leaving the dialyser</span><b>Hct 44%</b><small>it starts at 33%</small></div>
+      <div class="hstat" id="hsVol"><span class="hs-k">Convection volume</span><b>23.6 L</b><small>per 4-hour session</small><div class="hs-bar"><i></i><em style="left:57.5%"></em></div></div>
+      <div class="hstat" id="hsEff"><span class="hs-k">Middle-molecule clearing</span><b>23.6 L</b><small>the full value of every litre</small></div>
+    </div>
+    <div class="alarm-card ok" id="hdfMsg" aria-live="polite"></div>
+    <p class="hs-note">A simplified teaching model: haematocrit 33%, 2 litres of fluid removed over a 4-hour session, and pre-dilution litres discounted by how much they dilute the plasma. Real results depend on the dialyser, the patient&rsquo;s blood and the machine.</p>
+  </div>
+
+  <div class="card">
+    <h3>Post or pre: which and when</h3>
+    <div class="acc">
+      <details class="item"><summary><span class="tag t-violet">Post</span><span class="summary-txt">Post-dilution<small>The usual first choice</small></span><span class="chev">&rsaquo;</span></summary><div class="reveal"><p>The most efficient mode per litre, because blood reaches the membrane undiluted. Reaching high volumes needs a good blood flow, usually around 350 to 400 mL/min or more over a four-hour session.</p><div class="why"><b>The limit:</b> filtration of about 25 to 30% of the blood flow. A high haematocrit or high protein levels lower it further, because the blood is already thick.</div></div></details>
+      <details class="item"><summary><span class="tag t-aqua">Pre</span><span class="summary-txt">Pre-dilution<small>When the circuit needs help</small></span><span class="chev">&rsaquo;</span></summary><div class="reveal"><p>Useful when blood flow is limited, for example with a line or a struggling access, when the haematocrit is high, or when the circuit keeps clotting in post-dilution. The blood arrives thinner, so it filters easily and the circuit stays clear.</p><div class="why"><b>The cost:</b> roughly 1.5 to 2 times the volume for the same clearance, and more at low blood flows.</div></div></details>
+      <details class="item"><summary><span class="tag t-blue">Mix</span><span class="summary-txt">Mixed dilution<small>Both at once</small></span><span class="chev">&rsaquo;</span></summary><div class="reveal"><p>Some machines can split the substitution fluid between the two points, before and after the dialyser, to keep much of the efficiency of post-dilution with less strain on the circuit.</p></div></details>
+      <details class="item"><summary><span class="tag t-fluid">HF</span><span class="summary-txt">Haemofiltration<small>Convection only</small></span><span class="chev">&rsaquo;</span></summary><div class="reveal"><p>No dialysate flows past the membrane, so all the clearance comes from convection. It is rarely used for regular outpatient treatment; continuous haemofiltration, CVVH, is used in intensive care.</p></div></details>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>What HDF needs</h3>
+    <div class="two">
+      <div class="panel-note"><strong>A high-flux dialyser.</strong> Its pores are large enough to let middle molecules through, while albumin is held back.</div>
+      <div class="panel-note"><strong>Ultrapure fluid.</strong> Substitution fluid goes straight into the blood, so the water and dialysate must be ultrapure and the machine&rsquo;s filters changed on schedule. <button class="xlink" data-go="7">Go to water treatment</button></div>
+      <div class="panel-note"><strong>A good access and blood flow.</strong> High volumes in post-dilution need a blood flow of roughly 350 to 400 mL/min or more, and the full session time.</div>
+      <div class="panel-note"><strong>A machine set up for online HDF.</strong> The Fresenius 5008 and 6008 both make substitution fluid online, and their AutoSub plus feature adjusts the post-dilution substitution rate automatically to stop the blood thickening too much.</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>On the floor</h3>
+    <div class="acc">
+      <details class="item"><summary><span class="tag t-blue">&check;</span><span class="summary-txt">Check the mode and the line<small>Before you start</small></span><span class="chev">&rsaquo;</span></summary><div class="reveal"><p>Confirm the prescription: HD or HDF, pre- or post-dilution, and the target volume. Then check the substitution line joins the blood line at the right point for that mode, before or after the dialyser. On the wrong side, the patient gets a different treatment from the one prescribed.</p></div></details>
+      <details class="item"><summary><span class="tag t-violet">TMP</span><span class="summary-txt">Watch TMP in post-dilution<small>The early warning</small></span><span class="chev">&rsaquo;</span></summary><div class="reveal"><p>A steady rise means the membrane is clogging, or filtration is too high for the patient&rsquo;s blood. Check the circuit for clotting and the anticoagulation, and follow the machine&rsquo;s prompts. On Fresenius machines, AutoSub plus may lower the substitution rate itself.</p></div></details>
+      <details class="item"><summary><span class="tag t-sage">L</span><span class="summary-txt">Record the volume reached<small>At the end of every session</small></span><span class="chev">&rsaquo;</span></summary><div class="reveal"><p>The machine shows the convection or substitution volume achieved. If it keeps falling short of the target, look at blood flow, needle size and access flow, time lost to alarms, clotting and haematocrit, and raise it for review at the QA meeting.</p></div></details>
+      <details class="item"><summary><span class="tag t-amber">?</span><span class="summary-txt">The fluid balance question<small>&ldquo;Am I being given 25 litres?&rdquo;</small></span><span class="chev">&rsaquo;</span></summary><div class="reveal"><p>Patients sometimes worry about the volumes. The machine only replaces what it filters beyond the UF goal, so the net fluid removed is exactly the same as on HD. Weigh the patient and set the UF goal as normal.</p></div></details>
+      <details class="item"><summary><span class="tag t-blood">!</span><span class="summary-txt">Anticoagulation and albumin<small>Small things that matter more</small></span><span class="chev">&rsaquo;</span></summary><div class="reveal"><p>Post-dilution concentrates the blood inside the dialyser, so good anticoagulation matters even more. High volumes, especially with a high TMP, can also lose a little more albumin, so it is worth keeping an eye on.</p></div></details>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>The evidence</h3>
+    <p>In the CONVINCE trial, published in 2023, 1,360 adults in Europe had either high-dose HDF, aiming for at least 23 litres of convection per session, or high-flux HD. Over a median of 30 months, 17.3% of the HDF group died against 21.9% of the HD group: a 23% lower risk of death from any cause.</p>
+    <p>An earlier Spanish trial, ESHOL in 2013, also found lower mortality with high-volume post-dilution online HDF. In both, the benefit was tied to reaching high volumes, which depends on good blood flow, a working access and the full session time.</p>
+    <p>Middle molecules such as &beta;2-microglobulin build up over years on HD and can deposit in joints and tissues, causing dialysis-related amyloidosis. HDF lowers their levels.</p>
+    <p class="hs-note">Blankestijn and colleagues, New England Journal of Medicine, 2023. Maduell and colleagues, Journal of the American Society of Nephrology, 2013.</p>
+  </div>
+
+  <div class="panel-note"><strong>Units and machines differ.</strong> The mode, volume and settings come from the prescription and your unit&rsquo;s HDF procedure. The film and the simulator are simplified to show the principles, not exact values.</div>
+</section>
+
+<!-- ===== 09 ACCESS ===== -->
+<section class="chapter" id="ch-9">
+  <div class="ch-head">
+    <div class="ch-kicker"><span>09 · Access</span><span class="line"></span></div>
     <h2>Getting to the blood</h2>
     <p class="lede">Haemodialysis needs a reliable, high-flow route into the circulation. There's a clear order of preference — the phrase is <span class="mnem">fistula first</span>.</p>
   </div>
@@ -1228,10 +1467,10 @@ input[type=range]::-moz-range-thumb{border-color:var(--accent)}
   </div>
 </section>
 
-<!-- ===== 09 COMPLICATIONS ===== -->
-<section class="chapter" id="ch-9">
+<!-- ===== 10 COMPLICATIONS ===== -->
+<section class="chapter" id="ch-10">
   <div class="ch-head">
-    <div class="ch-kicker"><span>09 · Complications</span><span class="line"></span></div>
+    <div class="ch-kicker"><span>10 · Complications</span><span class="line"></span></div>
     <h2>What can go wrong</h2>
     <p class="lede">Two timescales to know: things that happen <em>during</em> a session, and the longer-term effects of living with kidney failure.</p>
   </div>
@@ -1258,10 +1497,10 @@ input[type=range]::-moz-range-thumb{border-color:var(--accent)}
   </div>
 </section>
 
-<!-- ===== 10 MEDICATIONS ===== -->
-<section class="chapter" id="ch-10">
+<!-- ===== 11 MEDICATIONS ===== -->
+<section class="chapter" id="ch-11">
   <div class="ch-head">
-    <div class="ch-kicker"><span>10 · Medicines</span><span class="line"></span></div>
+    <div class="ch-kicker"><span>11 · Medicines</span><span class="line"></span></div>
     <h2>The medicine, by the problem it solves</h2>
     <p class="lede">Almost every renal medicine replaces a job the kidney can no longer do. Read each one as: kidney fails → this problem → this group fixes it.</p>
   </div>
@@ -1286,10 +1525,10 @@ input[type=range]::-moz-range-thumb{border-color:var(--accent)}
   <div class="panel-note"><strong>Remember:</strong> this app names <em>groups and reasons</em>, not doses or specific drugs. Always check the individual patient's plan and your local formulary.</div>
 </section>
 
-<!-- ===== 11 QA BLOODS ===== -->
-<section class="chapter" id="ch-11">
+<!-- ===== 12 QA BLOODS ===== -->
+<section class="chapter" id="ch-12">
   <div class="ch-head">
-    <div class="ch-kicker"><span>11 &middot; Monitoring</span><span class="line"></span></div>
+    <div class="ch-kicker"><span>12 &middot; Monitoring</span><span class="line"></span></div>
     <h2>QA bloods &amp; urine</h2>
     <p class="lede">Quality Assurance is how we prove the dialysis is doing enough, and how each patient's dose gets individualised. The numbers only mean something if the samples were taken exactly right &mdash; so here, technique <em>is</em> the test.</p>
   </div>
@@ -1457,8 +1696,8 @@ input[type=range]::-moz-range-thumb{border-color:var(--accent)}
   </div>
 </section>
 
-<!-- ===== 12 QUIZ ===== -->
-<section class="chapter" id="ch-12">
+<!-- ===== 13 QUIZ ===== -->
+<section class="chapter" id="ch-13">
   <div class="ch-head">
     <div class="ch-kicker"><span>Quiz · Test yourself</span><span class="line"></span></div>
     <h2>Check your understanding</h2>
@@ -1536,6 +1775,7 @@ input[type=range]::-moz-range-thumb{border-color:var(--accent)}
     {t:"The HD circuit", d:"Blood out, cleaned and back", c:['#2B2F8F','#E0465A']},
     {t:"The machine", d:"Its parts, sensors and alarms", c:['#0B3D91','#3C8DFF']},
     {t:"Water treatment", d:"From the tap to the dialysate", c:['#005C70','#36C5E8']},
+    {t:"HD and HDF", d:"Convection, pre- and post-dilution", c:['#5B1A8E','#C850F0']},
     {t:"Vascular access", d:"Fistula, graft and line", c:['#1E5E2A','#4CB050']},
     {t:"Complications", d:"During dialysis and long-term", c:['#7A1E48','#FF7A45']},
     {t:"Medications", d:"By the problem they solve", c:['#3B1C8C','#8C6CF2']},
@@ -1559,11 +1799,12 @@ input[type=range]::-moz-range-thumb{border-color:var(--accent)}
     5:'<rect x="3" y="6" width="18" height="12" rx="6"/><circle cx="12" cy="6" r="2.4"/><path d="M9 18h6"/>',
     6:'<rect x="6.5" y="2.5" width="11" height="19" rx="2.2"/><rect x="8.7" y="4.8" width="6.6" height="4.2" rx="1"/><circle cx="12" cy="14" r="2.6"/>',
     7:'<path d="M12 3s6.5 6.8 6.5 11.3a6.5 6.5 0 0 1-13 0C5.5 9.8 12 3 12 3z"/><path d="M9.2 14.6a2.8 2.8 0 0 0 2.8 2.8"/>',
-    8:'<path d="M2.5 7.5c5 0 6.5 4.5 9.5 4.5s4.5-4.5 9.5-4.5"/><path d="M2.5 16.5c5 0 6.5-4.5 9.5-4.5s4.5 4.5 9.5 4.5"/>',
-    9:'<path d="M12 3.8l9 15.7H3z"/><path d="M12 10v4.2M12 16.9v.2"/>',
-    10:'<g transform="rotate(-40 12 12)"><rect x="3.5" y="8.5" width="17" height="7" rx="3.5"/><path d="M12 8.5v7"/></g>',
-    11:'<path d="M8.5 3h7M10 3v13.5a2 2 0 0 0 4 0V3"/><path d="M10 11h4"/>',
-    12:'<path d="M9.2 9a2.9 2.9 0 1 1 4.1 2.6c-.8.4-1.3 1-1.3 1.9v.8"/><circle cx="12" cy="17.6" r=".7"/>'
+    8:'<rect x="2.5" y="10.5" width="19" height="8" rx="4"/><path d="M12 2.5v5"/><path d="M9.7 5.3L12 7.6l2.3-2.3"/><path d="M6.5 14.5h11" stroke-dasharray="1.5 2.4"/>',
+    9:'<path d="M2.5 7.5c5 0 6.5 4.5 9.5 4.5s4.5-4.5 9.5-4.5"/><path d="M2.5 16.5c5 0 6.5-4.5 9.5-4.5s4.5 4.5 9.5 4.5"/>',
+    10:'<path d="M12 3.8l9 15.7H3z"/><path d="M12 10v4.2M12 16.9v.2"/>',
+    11:'<g transform="rotate(-40 12 12)"><rect x="3.5" y="8.5" width="17" height="7" rx="3.5"/><path d="M12 8.5v7"/></g>',
+    12:'<path d="M8.5 3h7M10 3v13.5a2 2 0 0 0 4 0V3"/><path d="M10 11h4"/>',
+    13:'<path d="M9.2 9a2.9 2.9 0 1 1 4.1 2.6c-.8.4-1.3 1-1.3 1.9v.8"/><circle cx="12" cy="17.6" r=".7"/>'
   };
 
   // animated illustration of each chapter's subject, for the chapter hero
@@ -1575,11 +1816,12 @@ input[type=range]::-moz-range-thumb{border-color:var(--accent)}
     5:'<svg viewBox="0 0 120 120" class="ha"><rect x="14" y="26" width="92" height="68" rx="34" fill="none" stroke="rgba(255,255,255,.22)" stroke-width="11"/><path d="M48 26 H72 A34 34 0 0 1 72 94 H48" fill="none" stroke="#FF8A80" stroke-width="5" stroke-linecap="round" class="dash"/><path d="M48 94 A34 34 0 0 1 48 26" fill="none" stroke="#A9B4FF" stroke-width="5" stroke-linecap="round" class="dash"/><rect x="45" y="86" width="30" height="16" rx="8" fill="#FFE29A"/><g transform="translate(60,26)"><circle r="13" fill="#fff"/><g class="spin-fast"><circle cx="6.5" r="3.2" fill="#E53935"/><circle cx="-6.5" r="3.2" fill="#E53935"/></g></g></svg>',
     6:'<svg viewBox="0 0 120 120" class="ha"><rect x="10" y="40" width="12" height="50" rx="6" fill="#FFE29A"/><path d="M16 46 V84" stroke="#E53935" stroke-width="2.5" class="dash"/><rect x="32" y="8" width="62" height="104" rx="11" fill="#fff"/><rect x="39" y="15" width="48" height="30" rx="6" fill="#0B2545"/><rect x="44" y="21" width="28" height="4" rx="2" fill="#5FD3F3" class="barp"/><rect x="44" y="29" width="36" height="4" rx="2" fill="#9BE564" class="barp" style="animation-delay:.6s"/><rect x="44" y="37" width="20" height="3" rx="1.5" fill="#FF8A80" class="barp" style="animation-delay:1.2s"/><g transform="translate(50,66)"><circle r="11" fill="#E3F2FD" stroke="#90CAF9" stroke-width="2"/><g class="spin-fast"><rect x="-9" y="-1.6" width="18" height="3.2" rx="1.6" fill="#1E88E5"/><circle cx="8" r="2.8" fill="#E53935"/><circle cx="-8" r="2.8" fill="#E53935"/></g></g><rect x="66" y="60" width="22" height="11" rx="2.5" fill="#E3F2FD" stroke="#90CAF9" stroke-width="1.5"/><rect x="40" y="86" width="44" height="18" rx="4" fill="#ECF1F7"/><circle cx="80" cy="96" r="3" fill="#69F0AE" class="twinkle"/></svg>',
     7:'<svg viewBox="0 0 120 120" class="ha"><ellipse cx="60" cy="102" rx="30" ry="7" fill="none" stroke="rgba(255,255,255,.75)" stroke-width="2" class="ripple"/><ellipse cx="60" cy="102" rx="30" ry="7" fill="none" stroke="rgba(255,255,255,.75)" stroke-width="2" class="ripple" style="animation-delay:1.4s"/><g class="bob"><path d="M60 10 C60 10 88 42 88 64 A28 28 0 0 1 32 64 C32 42 60 10 60 10 Z" fill="#fff"/><path d="M47 66 A13 13 0 0 0 60 79" fill="none" stroke="#7FDBFF" stroke-width="4.5" stroke-linecap="round"/></g><circle cx="22" cy="36" r="3" fill="#B3ECFF" class="twinkle"/><circle cx="100" cy="28" r="2.5" fill="#fff" class="twinkle" style="animation-delay:.9s"/><circle cx="98" cy="70" r="2" fill="#B3ECFF" class="twinkle" style="animation-delay:1.5s"/></svg>',
-    8:'<svg viewBox="0 0 120 120" class="ha"><path d="M6 38 C38 38 46 60 60 60 C74 60 82 38 114 38" fill="none" stroke="#FF8A80" stroke-width="10" stroke-linecap="round"/><path d="M6 82 C38 82 46 60 60 60 C74 60 82 82 114 82" fill="none" stroke="#A9B4FF" stroke-width="10" stroke-linecap="round"/><path d="M6 38 C38 38 46 60 60 60 C74 60 82 82 114 82" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" class="dash"/><circle cx="60" cy="60" r="16" fill="none" stroke="#fff" stroke-width="2.5" class="ripple"/><circle cx="60" cy="60" r="16" fill="none" stroke="#fff" stroke-width="2.5" class="ripple" style="animation-delay:1.4s"/><circle cx="60" cy="60" r="8" fill="#fff"/></svg>',
-    9:'<svg viewBox="0 0 120 120" class="ha"><path d="M6 68 H32 L40 52 L50 88 L61 32 L71 76 L78 68 H114" fill="none" stroke="rgba(255,255,255,.3)" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/><path d="M6 68 H32 L40 52 L50 88 L61 32 L71 76 L78 68 H114" fill="none" stroke="#fff" stroke-width="4.5" stroke-linejoin="round" stroke-linecap="round" class="ecg"/><g class="pulse"><path d="M94 30 C90 22 78 24 78 33 C78 41 94 48 94 48 C94 48 110 41 110 33 C110 24 98 22 94 30 Z" fill="#FF8A80"/></g></svg>',
-    10:'<svg viewBox="0 0 120 120" class="ha"><g class="bob"><g transform="rotate(-35 52 54)"><rect x="22" y="42" width="60" height="24" rx="12" fill="#fff"/><path d="M52 42 H70 A12 12 0 0 1 70 66 H52 Z" fill="#FFE29A"/></g></g><g class="bob" style="animation-delay:1.2s"><circle cx="88" cy="88" r="13" fill="#fff"/><path d="M79 88 H97" stroke="#B39DDB" stroke-width="2.5" stroke-linecap="round"/></g><circle cx="28" cy="96" r="6" fill="#FFE29A" class="twinkle"/><circle cx="100" cy="30" r="3" fill="#fff" class="twinkle" style="animation-delay:.8s"/></svg>',
-    11:'<svg viewBox="0 0 120 120" class="ha"><g class="sway"><path d="M36 12 H58 M41 12 V84 A6 6 0 0 0 53 84 V12" fill="rgba(255,255,255,.18)" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/><rect x="43.5" y="48" width="7" height="40" rx="3.5" fill="#FF8A80" class="fill"/></g><g class="sway" style="animation-delay:1s"><path d="M64 22 H86 M69 22 V88 A6 6 0 0 0 81 88 V22" fill="rgba(255,255,255,.18)" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/><rect x="71.5" y="56" width="7" height="36" rx="3.5" fill="#FFE29A" class="fill" style="animation-delay:.9s"/></g><circle cx="47" cy="102" r="3.2" fill="#FF8A80" class="drip"/></svg>',
-    12:'<svg viewBox="0 0 120 120" class="ha"><g class="bob"><circle cx="60" cy="58" r="34" fill="#fff"/><path d="M49 48 A11 11 0 1 1 64.5 58 C61.5 59.5 60 61.5 60 65 V67" fill="none" stroke="#C99700" stroke-width="7" stroke-linecap="round"/><circle cx="60" cy="79" r="4.4" fill="#C99700"/></g><g transform="translate(20,24)"><path class="twinkle" d="M0 -8 L2 -2 L8 0 L2 2 L0 8 L-2 2 L-8 0 L-2 -2 Z" fill="#FFF3B0"/></g><g transform="translate(102,92)"><path class="twinkle" style="animation-delay:.9s" d="M0 -7 L1.8 -1.8 L7 0 L1.8 1.8 L0 7 L-1.8 1.8 L-7 0 L-1.8 -1.8 Z" fill="#fff"/></g><g transform="translate(100,22)"><path class="twinkle" style="animation-delay:1.5s" d="M0 -5 L1.3 -1.3 L5 0 L1.3 1.3 L0 5 L-1.3 1.3 L-5 0 L-1.3 -1.3 Z" fill="#FFF3B0"/></g></svg>'
+    8:'<svg viewBox="0 0 120 120" class="ha"><path d="M2 72 H118" stroke="rgba(255,255,255,.28)" stroke-width="12" stroke-linecap="round" fill="none"/><path d="M2 72 H118" stroke="#FF8A80" stroke-width="3" stroke-linecap="round" fill="none" class="dash"/><rect x="30" y="54" width="60" height="36" rx="18" fill="#fff"/><path d="M40 64 H80 M40 72 H80 M40 80 H80" stroke="#E7B6FF" stroke-width="2" stroke-linecap="round"/><path d="M104 12 V62" stroke="#B3ECFF" stroke-width="4" stroke-linecap="round"/><path d="M16 12 V62" stroke="#B3ECFF" stroke-width="4" stroke-linecap="round" opacity=".45"/><circle cx="104" cy="18" r="3.4" fill="#E0F7FA" class="drip"/><circle cx="104" cy="18" r="3.4" fill="#E0F7FA" class="drip" style="animation-delay:.8s"/><circle cx="104" cy="18" r="3.4" fill="#E0F7FA" class="drip" style="animation-delay:1.6s"/><circle cx="16" cy="18" r="3" fill="#E0F7FA" class="drip" style="animation-delay:1.2s"/><circle cx="48" cy="92" r="2.6" fill="#FFE29A" class="drip"/><circle cx="62" cy="92" r="3.2" fill="#F3C1FF" class="drip" style="animation-delay:.7s"/><circle cx="76" cy="92" r="2.6" fill="#FFE29A" class="drip" style="animation-delay:1.4s"/><circle cx="100" cy="102" r="2.4" fill="#fff" class="twinkle"/></svg>',
+    9:'<svg viewBox="0 0 120 120" class="ha"><path d="M6 38 C38 38 46 60 60 60 C74 60 82 38 114 38" fill="none" stroke="#FF8A80" stroke-width="10" stroke-linecap="round"/><path d="M6 82 C38 82 46 60 60 60 C74 60 82 82 114 82" fill="none" stroke="#A9B4FF" stroke-width="10" stroke-linecap="round"/><path d="M6 38 C38 38 46 60 60 60 C74 60 82 82 114 82" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" class="dash"/><circle cx="60" cy="60" r="16" fill="none" stroke="#fff" stroke-width="2.5" class="ripple"/><circle cx="60" cy="60" r="16" fill="none" stroke="#fff" stroke-width="2.5" class="ripple" style="animation-delay:1.4s"/><circle cx="60" cy="60" r="8" fill="#fff"/></svg>',
+    10:'<svg viewBox="0 0 120 120" class="ha"><path d="M6 68 H32 L40 52 L50 88 L61 32 L71 76 L78 68 H114" fill="none" stroke="rgba(255,255,255,.3)" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/><path d="M6 68 H32 L40 52 L50 88 L61 32 L71 76 L78 68 H114" fill="none" stroke="#fff" stroke-width="4.5" stroke-linejoin="round" stroke-linecap="round" class="ecg"/><g class="pulse"><path d="M94 30 C90 22 78 24 78 33 C78 41 94 48 94 48 C94 48 110 41 110 33 C110 24 98 22 94 30 Z" fill="#FF8A80"/></g></svg>',
+    11:'<svg viewBox="0 0 120 120" class="ha"><g class="bob"><g transform="rotate(-35 52 54)"><rect x="22" y="42" width="60" height="24" rx="12" fill="#fff"/><path d="M52 42 H70 A12 12 0 0 1 70 66 H52 Z" fill="#FFE29A"/></g></g><g class="bob" style="animation-delay:1.2s"><circle cx="88" cy="88" r="13" fill="#fff"/><path d="M79 88 H97" stroke="#B39DDB" stroke-width="2.5" stroke-linecap="round"/></g><circle cx="28" cy="96" r="6" fill="#FFE29A" class="twinkle"/><circle cx="100" cy="30" r="3" fill="#fff" class="twinkle" style="animation-delay:.8s"/></svg>',
+    12:'<svg viewBox="0 0 120 120" class="ha"><g class="sway"><path d="M36 12 H58 M41 12 V84 A6 6 0 0 0 53 84 V12" fill="rgba(255,255,255,.18)" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/><rect x="43.5" y="48" width="7" height="40" rx="3.5" fill="#FF8A80" class="fill"/></g><g class="sway" style="animation-delay:1s"><path d="M64 22 H86 M69 22 V88 A6 6 0 0 0 81 88 V22" fill="rgba(255,255,255,.18)" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/><rect x="71.5" y="56" width="7" height="36" rx="3.5" fill="#FFE29A" class="fill" style="animation-delay:.9s"/></g><circle cx="47" cy="102" r="3.2" fill="#FF8A80" class="drip"/></svg>',
+    13:'<svg viewBox="0 0 120 120" class="ha"><g class="bob"><circle cx="60" cy="58" r="34" fill="#fff"/><path d="M49 48 A11 11 0 1 1 64.5 58 C61.5 59.5 60 61.5 60 65 V67" fill="none" stroke="#C99700" stroke-width="7" stroke-linecap="round"/><circle cx="60" cy="79" r="4.4" fill="#C99700"/></g><g transform="translate(20,24)"><path class="twinkle" d="M0 -8 L2 -2 L8 0 L2 2 L0 8 L-2 2 L-8 0 L-2 -2 Z" fill="#FFF3B0"/></g><g transform="translate(102,92)"><path class="twinkle" style="animation-delay:.9s" d="M0 -7 L1.8 -1.8 L7 0 L1.8 1.8 L0 7 L-1.8 1.8 L-7 0 L-1.8 -1.8 Z" fill="#fff"/></g><g transform="translate(100,22)"><path class="twinkle" style="animation-delay:1.5s" d="M0 -5 L1.3 -1.3 L5 0 L1.3 1.3 L0 5 L-1.3 1.3 L-5 0 L-1.3 -1.3 Z" fill="#FFF3B0"/></g></svg>'
   };
 
   // ---- build home list + menu + dots ----
@@ -1627,6 +1869,8 @@ input[type=range]::-moz-range-thumb{border-color:var(--accent)}
     if(pc) pc.innerHTML='<b>'+v.filter(function(x){return x>=1&&x<=chapters.length}).length+'</b> of '+chapters.length+' opened';
   }
   function visAdd(n){ var v=visGet(); if(v.indexOf(n)<0){ v.push(n); try{ localStorage.setItem('renal.visited',JSON.stringify(v)); }catch(e){} } markVisited(); }
+  // v6 added a chapter at 8, so move ticks saved under the old numbering up by one
+  (function(){ try{ if(localStorage.getItem('renal.visitedV')!=='6'){ var v=visGet().map(function(n){ return n>=8?n+1:n; }); localStorage.setItem('renal.visited',JSON.stringify(v)); localStorage.setItem('renal.visitedV','6'); } }catch(e){} })();
   markVisited();
 
   // reading progress under the top bar
@@ -1670,7 +1914,7 @@ input[type=range]::-moz-range-thumb{border-color:var(--accent)}
     Array.prototype.forEach.call(dots.children,function(d,i){d.classList.toggle('on',i===cur-1)});
     // menu current
     Array.prototype.forEach.call(menuList.children,function(m){m.classList.toggle('current', +m.dataset.i===cur)});
-    if(cur===12) quizReset();
+    if(cur===13) quizReset();
     if(cur>=1) visAdd(cur);
     updRead();
     startAnim(cur);
@@ -2231,6 +2475,460 @@ input[type=range]::-moz-range-thumb{border-color:var(--accent)}
     })(t0);
   }
 
+  // ================= HD AND HDF: THE FILM =================
+  var FW=360, FH=224;
+  var FS=[
+    {k:'diff',chip:'Diffusion',title:'Haemodialysis: diffusion',dur:15,beats:[
+      {t:0,x:'Haemodialysis cleans mainly by diffusion: small waste such as urea and potassium drifts across the membrane into the clean dialysate.'},
+      {t:8.5,x:'Bigger molecules such as β2-microglobulin diffuse far more slowly, so HD clears them poorly.'}]},
+    {k:'conv',chip:'Convection',title:'HDF: adding convection',dur:21.5,beats:[
+      {t:0,x:'HDF adds convection: pressure pushes a large volume of plasma water out through the membrane.'},
+      {t:6.5,x:'The water drags dissolved molecules with it, large or small, as long as they fit the pores, so middle molecules clear far better.'},
+      {t:15.5,x:'Red cells and albumin are too big to pass, so they stay in the blood.'}]},
+    {k:'sub',chip:'Replacing the fluid',title:'Replacing the fluid',dur:24.5,beats:[
+      {t:0,x:'A session filters 20 to 30 litres of plasma water, far more than the patient needs to lose, so most must be put back.'},
+      {t:9.5,x:'The machine makes substitution fluid from its own dialysate, filters it again until sterile, and infuses it into the blood line.'},
+      {t:18,x:'It all stays balanced: the patient only loses their UF goal, exactly as on HD.'}]},
+    {k:'post',chip:'Post-dilution',title:'Post-dilution',dur:24,beats:[
+      {t:0,x:'In post-dilution, the substitution fluid goes back in after the dialyser.'},
+      {t:5,x:'Blood reaches the membrane at full strength, so every litre filtered carries as much waste as it can: the most efficient mode.'},
+      {t:14,x:'But blood thickens as water leaves it. Filter too much and TMP climbs and fibres clot, so filtration stays around 25 to 30% of blood flow.'}]},
+    {k:'pre',chip:'Pre-dilution',title:'Pre-dilution',dur:21.5,beats:[
+      {t:0,x:'In pre-dilution, the substitution fluid goes in before the dialyser.'},
+      {t:5,x:'The blood arrives thinner, so it filters easily and clots less, and much larger volumes are possible.'},
+      {t:12,x:'But the waste is diluted too, so each litre carries less. Pre-dilution needs roughly 1.5 to 2 times the volume for the same clearance.'}]},
+    {k:'choose',chip:'Choosing',title:'Choosing a mode',dur:19.5,beats:[
+      {t:0,x:'Post-dilution is the usual first choice when blood flow allows.'},
+      {t:5,x:'Pre-dilution helps when blood flow is limited, the haematocrit is high or the circuit keeps clotting.'},
+      {t:12,x:'Some machines can do both at once, called mixed dilution. The prescription sets the mode and the volume.'}]}
+  ];
+  var FSTART=[], FTOTAL=0;
+  FS.forEach(function(s){ FSTART.push(FTOTAL); FTOTAL+=s.dur; });
+  function sceneAt(t){ for(var i=FS.length-1;i>0;i--){ if(t>=FSTART[i]) return i; } return 0; }
+  function beatAt(s,lt){ var b=0; FS[s].beats.forEach(function(x,i){ if(lt>=x.t-1e-6) b=i; }); return b; }
+
+  var filmCv=document.getElementById('hdfFilm'), fc=filmCv.getContext('2d');
+  var filmFrame=document.getElementById('filmFrame'), filmCapEl=document.getElementById('filmCap'), filmBig=document.getElementById('filmBig'),
+      filmPlayBtn=document.getElementById('filmPlay'), filmTimeEl=document.getElementById('filmTime'), filmScrub=document.getElementById('filmScrub'),
+      filmTicks=document.getElementById('filmTicks'), filmChipsEl=document.getElementById('filmChips'), filmVoiceBtn=document.getElementById('filmVoice');
+  var film={t:0,playing:false,raf:0,last:0,scene:-1,hold:null,ps:null,cap:'',chip:-1,ended:false,narrPaused:false,dragging:false,icon:'',sized:false};
+  var F_PLAY='<svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>';
+  var F_PAUSE='<svg viewBox="0 0 24 24"><path d="M7 5h3.2v14H7zM13.8 5H17v14h-3.2z"/></svg>';
+  var F_REPLAY='<svg viewBox="0 0 24 24"><path d="M12 5a7 7 0 1 1-6.6 4.7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><path d="M4.4 4.6v5h5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+
+  // ---- the fibre: a tube that widens into the dialyser, with flow that slows as water is filtered ----
+  var PIPE={x0:92,x1:268,jPre:60,jPost:298,cy:124};
+  function halfH(x,pipe){
+    if(!pipe) return 34;
+    var a=PIPE.x0, b=PIPE.x1, f;
+    if(x>=a&&x<=b) return 34;
+    f = x<a ? (x-(a-12))/12 : ((b+12)-x)/12;
+    return 14+20*Math.max(0,Math.min(1,f));
+  }
+  // flow relative to the inlet: post loses water inside the dialyser, pre gains it before
+  function qrel(x,kind){
+    var a=PIPE.x0, b=PIPE.x1, hc=kind==='pre'?.65:.42, p=Math.max(0,Math.min(1,(x-a)/(b-a)));
+    if(kind==='conv') return 1-.22*Math.max(0,Math.min(1,x/FW));
+    if(kind==='post') return x<a?1:(x<=b?1-hc*p:(x<PIPE.jPost?1-hc:1));
+    if(kind==='pre') return x<PIPE.jPre?1:(x<a?1+hc:(x<=b?1+hc-hc*p:1));
+    return 1;
+  }
+  var PT={rbc:{r:2.6,D:.1,f:13},alb:{r:3.3,D:.2,f:4},urea:{r:2.1,D:.55,f:9},b2m:{r:3.1,D:.3,f:4.5},sw:{r:2.2,D:.5,f:0}};
+  var KP={
+    diff:{pipe:false,conv:0,water:0,pU:.35,pB:.04},
+    conv:{pipe:false,conv:.32,water:30,pU:.45,pB:.4,uSlow:.4},
+    post:{pipe:true,conv:.25,water:20,pU:.45,pB:.38,sub:'post'},
+    pre:{pipe:true,conv:.32,water:30,pU:.45,pB:.38,sub:'pre'}
+  };
+  function psNew(kind){ return {kind:kind,parts:[],outs:[],wat:[],subs:[],acc:{rbc:0,alb:0,urea:0,b2m:0,sub:0,wat:0}}; }
+  function psStep(ps,dt){
+    var kp=KP[ps.kind]; if(!kp||!(dt>0)) return;
+    var pipe=kp.pipe, cy=PIPE.cy, x0=pipe?PIPE.x0:-20, x1=pipe?PIPE.x1:FW+20, sq=Math.sqrt(dt);
+    ['rbc','alb','urea','b2m'].forEach(function(k){
+      ps.acc[k]+=PT[k].f*dt;
+      while(ps.acc[k]>=1){ ps.acc[k]-=1; ps.parts.push({t:k,x:-10+Math.random()*4,u:(Math.random()*2-1)*.85,rot:Math.random()*3.1416,a:1}); }
+    });
+    for(var i=ps.parts.length-1;i>=0;i--){
+      var p=ps.parts[i], P=PT[p.t], hh=halfH(p.x,pipe);
+      p.x+=24*qrel(p.x,ps.kind)*(34/hh)*dt;
+      p.u+=(Math.random()*2-1)*P.D*((kp.uSlow&&p.t==='urea')?kp.uSlow:1)*sq*1.7;
+      var inD=p.x>x0+4&&p.x<x1-4;
+      if(inD&&kp.conv&&(p.t==='urea'||p.t==='b2m'||p.t==='alb')) p.u+=(p.u>=0?1:-1)*kp.conv*dt;
+      if(p.t==='sw'){ p.a-=.7*dt; if(p.a<=0){ ps.parts.splice(i,1); continue; } }
+      var lim=1-(P.r+1)/hh;
+      if(p.u>lim||p.u<-lim){
+        var side=p.u>0?1:-1, pc=p.t==='urea'?kp.pU:(p.t==='b2m'?kp.pB:0);
+        if(inD&&pc>0&&Math.random()<pc){ ps.outs.push({t:p.t,x:p.x,y:cy+side*(hh+3),side:side,a:1}); ps.parts.splice(i,1); continue; }
+        p.u=side*(lim-.03);
+      }
+      if(p.x>FW+12) ps.parts.splice(i,1);
+    }
+    for(var j=ps.outs.length-1;j>=0;j--){
+      var o=ps.outs[j], band=cy+o.side*54;
+      o.y+=(band-o.y)*Math.min(1,dt*2.2); o.x-=20*dt; o.a-=.32*dt;
+      if(o.a<=0||o.x<(pipe?x0+4:-12)) ps.outs.splice(j,1);
+    }
+    if(kp.water){
+      ps.acc.wat+=kp.water*dt;
+      while(ps.acc.wat>=1){ ps.acc.wat-=1; ps.wat.push({x:(pipe?x0+8:0)+Math.random()*(pipe?x1-x0-16:FW),side:Math.random()<.5?-1:1,d:0}); }
+      for(var w=ps.wat.length-1;w>=0;w--){ ps.wat[w].d+=26*dt; if(ps.wat[w].d>18) ps.wat.splice(w,1); }
+    }
+    if(kp.sub){
+      var jx=kp.sub==='post'?PIPE.jPost:PIPE.jPre, bot=cy-14;
+      ps.acc.sub+=7*dt;
+      while(ps.acc.sub>=1){ ps.acc.sub-=1; ps.subs.push({y:38}); }
+      for(var s2=ps.subs.length-1;s2>=0;s2--){
+        var d=ps.subs[s2]; d.y+=70*dt;
+        if(d.y>=bot){ ps.subs.splice(s2,1); ps.parts.push({t:'sw',x:jx+(Math.random()*6-3),u:(Math.random()*2-1)*.6,rot:0,a:1}); }
+      }
+    }
+  }
+  function psWarm(ps,secs){ for(var i=0,n=Math.round(secs*20);i<n;i++) psStep(ps,.05); }
+
+  // ---- drawing helpers (all in a 360 x 224 design space) ----
+  function fRR(x,y,w,h,r){ fc.beginPath(); fc.moveTo(x+r,y); fc.arcTo(x+w,y,x+w,y+h,r); fc.arcTo(x+w,y+h,x,y+h,r); fc.arcTo(x,y+h,x,y,r); fc.arcTo(x,y,x+w,y,r); fc.closePath(); }
+  function fFont(sz,wt){ fc.font=(wt||'500')+' '+sz+'px Inter, system-ui, sans-serif'; }
+  function fText(s,x,y,sz,wt,col,al,a){ if(a===0) return; fFont(sz,wt); fc.textAlign=al||'left'; fc.textBaseline='alphabetic'; fc.globalAlpha=(a==null?1:a); fc.fillStyle=col; fc.fillText(s,x,y); fc.globalAlpha=1; }
+  var PILL={yellow:['rgba(255,213,79,.2)','#FFE082'],purple:['rgba(229,139,255,.22)','#F3C1FF'],green:['rgba(105,240,174,.2)','#B9F6CA'],red:['rgba(255,107,107,.22)','#FFB3B3'],amber:['rgba(255,183,77,.22)','#FFCC80'],cyan:['rgba(128,222,234,.2)','#B2EBF2']};
+  function fPill(s,cx,cy,c,a){
+    if(!(a>0)) return;
+    fFont(11,'600'); var w=fc.measureText(s).width+20;
+    fc.globalAlpha=a; fRR(cx-w/2,cy-10,w,20,10); fc.fillStyle=PILL[c][0]; fc.fill();
+    fc.fillStyle=PILL[c][1]; fc.textAlign='center'; fc.textBaseline='middle'; fc.fillText(s,cx,cy+.5); fc.textBaseline='alphabetic'; fc.globalAlpha=1;
+  }
+  function fade(lt,t0,d){ return Math.max(0,Math.min(1,(lt-t0)/(d||.4))); }
+  // how visible beat i's extras are: fully, when the narrator is holding on that beat or a later one
+  function bf(s,lt,i){
+    if(film.hold&&film.hold.s===s) return i<=film.hold.b?1:0;
+    return beatAt(s,lt)>=i?fade(lt,FS[s].beats[i].t):0;
+  }
+  function curBeat(s,lt){ return (film.hold&&film.hold.s===s)?film.hold.b:beatAt(s,lt); }
+  function fBg(){
+    var g=fc.createLinearGradient(0,0,0,FH); g.addColorStop(0,'#1B1036'); g.addColorStop(1,'#0B1628');
+    fc.fillStyle=g; fc.fillRect(0,0,FW,FH);
+    var r=fc.createRadialGradient(FW,0,10,FW,0,230); r.addColorStop(0,'rgba(200,80,240,.26)'); r.addColorStop(1,'rgba(200,80,240,0)');
+    fc.fillStyle=r; fc.fillRect(0,0,FW,FH);
+  }
+  function fTitle(s,lt){
+    var a=(film.playing&&!film.hold)?Math.min(1,lt/.35):1;
+    fFont(13,'600'); var tw=fc.measureText(FS[s].title).width;
+    fc.globalAlpha=a; fRR(10,9,tw+42,24,12); fc.fillStyle='rgba(255,255,255,.1)'; fc.fill();
+    fc.beginPath(); fc.arc(22,21,8,0,6.283); fc.fillStyle='#C850F0'; fc.fill();
+    fFont(10,'700'); fc.fillStyle='#fff'; fc.textAlign='center'; fc.textBaseline='middle'; fc.fillText(String(s+1),22,21.5);
+    fFont(13,'600'); fc.textAlign='left'; fc.fillText(FS[s].title,36,21.5); fc.textBaseline='alphabetic'; fc.globalAlpha=1;
+  }
+
+  function drawFibre(s,lt){
+    var sc=FS[s], kind=sc.k, kp=KP[kind], ps=film.ps, pipe=kp.pipe, cy=PIPE.cy, x0=pipe?PIPE.x0:-4, x1=pipe?PIPE.x1:FW+4;
+    var ph=reduce?.6:film.t, b=curBeat(s,lt);
+    // dialysate compartment, flowing right to left
+    fc.fillStyle='rgba(255,202,40,.07)';
+    if(pipe){ fRR(x0-8,46,x1-x0+16,148,26); fc.fill(); fc.strokeStyle='rgba(255,255,255,.22)'; fc.lineWidth=1.5; fc.stroke(); }
+    else { fc.fillRect(0,52,FW,34); fc.fillRect(0,162,FW,34); }
+    fc.save(); fc.setLineDash([4,12]); fc.lineDashOffset=ph*22; fc.strokeStyle='rgba(255,213,79,.24)'; fc.lineWidth=1.5;
+    fc.beginPath(); fc.moveTo(x0+6,70); fc.lineTo(x1-6,70); fc.moveTo(x0+6,178); fc.lineTo(x1-6,178); fc.stroke(); fc.restore();
+    // blood: the tint deepens where it is concentrated, and pales where it is diluted
+    for(var x=-10;x<FW+10;x+=6){
+      var hh=halfH(x+3,pipe), q=qrel(x+3,kind);
+      fc.fillStyle='rgba(170,28,50,'+Math.min(.62,.27/q).toFixed(3)+')'; fc.fillRect(x,cy-hh,6.5,hh*2);
+      if(q>1.01){ fc.fillStyle='rgba(128,222,234,'+Math.min(.26,(q-1)*.45).toFixed(3)+')'; fc.fillRect(x,cy-hh,6.5,hh*2); }
+    }
+    // walls: solid tubing outside the dialyser, a porous membrane inside it
+    fc.lineWidth=2; fc.lineCap='round';
+    function wall(from,to,sd){ fc.beginPath(); for(var xx=from;xx<=to;xx+=3){ var yy=cy+sd*halfH(xx,pipe); if(xx===from) fc.moveTo(xx,yy); else fc.lineTo(xx,yy); } fc.stroke(); }
+    if(pipe){ fc.strokeStyle='rgba(255,255,255,.42)'; [-1,1].forEach(function(sd){ wall(-10,x0+2,sd); wall(x1-2,FW+10,sd); }); }
+    fc.save(); fc.setLineDash([3,3]); fc.strokeStyle='rgba(255,255,255,.62)'; [-1,1].forEach(function(sd){ if(pipe) wall(x0,x1,sd); else wall(-10,FW+10,sd); }); fc.restore();
+    // waste that has crossed, carried away in the dialysate
+    ps.outs.forEach(function(o){ fc.globalAlpha=Math.max(0,o.a)*.9; fc.fillStyle=o.t==='urea'?'#FFD54F':'#E58BFF'; fc.beginPath(); fc.arc(o.x,o.y,PT[o.t].r,0,6.283); fc.fill(); });
+    fc.globalAlpha=1;
+    // plasma water pushed out through the membrane
+    if(ps.wat.length){
+      fc.strokeStyle='rgba(179,229,252,.85)'; fc.lineWidth=1.6;
+      ps.wat.forEach(function(w){ fc.globalAlpha=Math.max(0,1-w.d/18); fc.beginPath(); fc.moveTo(w.x,cy+w.side*(30+w.d)); fc.lineTo(w.x,cy+w.side*(36+w.d)); fc.stroke(); });
+      fc.globalAlpha=1;
+    }
+    // red cells, then the smaller things on top
+    fc.beginPath(); ps.parts.forEach(function(p){ if(p.t!=='rbc') return; var y=cy+p.u*halfH(p.x,pipe); fc.moveTo(p.x+4*Math.cos(p.rot),y+4*Math.sin(p.rot)); fc.ellipse(p.x,y,4,2.6,p.rot,0,6.283); });
+    fc.fillStyle='#E53935'; fc.fill();
+    fc.beginPath(); ps.parts.forEach(function(p){ if(p.t!=='rbc') return; var y=cy+p.u*halfH(p.x,pipe); fc.moveTo(p.x+1.8*Math.cos(p.rot),y+1.8*Math.sin(p.rot)); fc.ellipse(p.x,y,1.8,1,p.rot,0,6.283); });
+    fc.fillStyle='rgba(255,160,150,.6)'; fc.fill();
+    function dots(type,col){ var r=PT[type].r, any=false; fc.beginPath(); ps.parts.forEach(function(p){ if(p.t!==type) return; var y=cy+p.u*halfH(p.x,pipe); fc.moveTo(p.x+r,y); fc.arc(p.x,y,r,0,6.283); any=true; }); if(any){ fc.fillStyle=col; fc.fill(); } }
+    dots('alb','#A5D6A7'); dots('b2m','#E58BFF'); dots('urea','#FFD54F');
+    ps.parts.forEach(function(p){ if(p.t!=='sw') return; fc.globalAlpha=Math.max(0,p.a); fc.fillStyle='#80DEEA'; fc.beginPath(); fc.arc(p.x,cy+p.u*halfH(p.x,pipe),2.2,0,6.283); fc.fill(); });
+    fc.globalAlpha=1;
+    // the substitution line
+    if(kp.sub){
+      var jx=kp.sub==='post'?PIPE.jPost:PIPE.jPre, bot=cy-14;
+      fc.strokeStyle='rgba(128,222,234,.3)'; fc.lineWidth=9; fc.lineCap='round'; fc.beginPath(); fc.moveTo(jx,38); fc.lineTo(jx,bot); fc.stroke();
+      fc.fillStyle='#80DEEA'; fc.beginPath(); ps.subs.forEach(function(d){ fc.moveTo(jx+2.6,d.y); fc.arc(jx,d.y,2.6,0,6.283); }); fc.fill();
+      fText('substitution fluid',kp.sub==='post'?jx-10:jx+10,44,11,'600','#B2EBF2',kp.sub==='post'?'right':'left');
+      fc.strokeStyle='rgba(128,222,234,.85)'; fc.lineWidth=1.5; fc.beginPath(); fc.arc(jx,cy,16+Math.sin(ph*4)*1.5,0,6.283); fc.stroke();
+    }
+    // labels
+    if(pipe){
+      fText('blood in',6,102,11,'500','rgba(255,255,255,.72)');
+      fText('to patient',FW-6,102,11,'500','rgba(255,255,255,.72)','right');
+      fText('dialyser',x0+6,62,11,'500','rgba(255,255,255,.55)');
+      if(kind==='post'){ fText('full strength',8,153,11,'600','#FFCDD2','left',bf(s,lt,1)); fText('thicker',x1+12,153,11,'600','#FF8A80','left',bf(s,lt,2)); }
+      if(kind==='pre') fText('diluted',x0-10,153,11,'600','#B2EBF2','right',bf(s,lt,1));
+    } else {
+      fRR(10,97,58,16,8); fc.fillStyle='rgba(0,0,0,.3)'; fc.fill();
+      fText('blood →',16,109,11,'600','rgba(255,255,255,.92)');
+      fText('← dialysate',FW-12,66,11,'600','rgba(255,224,130,.9)','right');
+      fText('membrane',14,84,11,'500','rgba(255,255,255,.62)');
+    }
+    if(kind==='diff'){ fPill('small waste: crosses fast',92,211,'yellow',bf(s,lt,1)); fPill('middle molecules: barely',270,211,'purple',bf(s,lt,1)); }
+    if(kind==='conv'){ if(b===1) fPill('middle molecules dragged across too',180,211,'purple',bf(s,lt,1)); if(b===2) fPill('red cells and albumin stay',180,211,'red',bf(s,lt,2)); }
+    if(kind==='post'){ if(b===1) fPill('full strength: the most waste per litre',180,211,'green',bf(s,lt,1)); if(b===2) fPill('blood thickens: watch TMP',180,211,'red',bf(s,lt,2)); }
+    if(kind==='pre'){ if(b===1) fPill('thinner blood: filters easily, clots less',180,211,'green',bf(s,lt,1)); if(b===2) fPill('diluted waste: needs 1.5 to 2 times the volume',180,211,'amber',bf(s,lt,2)); }
+  }
+
+  function pathAt(pts,L,s){ for(var i=0;i<L.length;i++){ if(s<=L[i]){ var a=pts[i], c=pts[i+1], f=s/L[i]; return [a[0]+(c[0]-a[0])*f,a[1]+(c[1]-a[1])*f]; } s-=L[i]; } return pts[pts.length-1]; }
+  function drawSubScene(s,lt){
+    var ph=reduce?3.3:film.t, by=162, on=bf(s,lt,1)>0;
+    // blood line through the dialyser
+    fc.fillStyle='rgba(170,28,50,.34)'; fc.fillRect(-2,by-9,FW+4,18);
+    fc.strokeStyle='rgba(255,255,255,.32)'; fc.lineWidth=1.5; fc.beginPath(); fc.moveTo(0,by-9); fc.lineTo(FW,by-9); fc.moveTo(0,by+9); fc.lineTo(FW,by+9); fc.stroke();
+    fRR(130,140,100,44,22); fc.fillStyle='rgba(255,202,40,.14)'; fc.fill(); fc.strokeStyle='rgba(255,255,255,.45)'; fc.stroke();
+    fc.beginPath(); for(var i=0;i<30;i++){ var x=((ph*40+i*12.7)%384)-12, y=by+Math.sin(i*7.13)*5; fc.moveTo(x+3.6,y); fc.ellipse(x,y,3.6,2.3,0,0,6.283); }
+    fc.fillStyle='#E53935'; fc.fill();
+    // filtrate leaves to drain
+    fc.strokeStyle='rgba(255,213,79,.35)'; fc.lineWidth=5; fc.lineCap='round'; fc.beginPath(); fc.moveTo(180,186); fc.lineTo(180,206); fc.stroke();
+    fc.fillStyle='#FFD54F'; fc.beginPath(); for(var k=0;k<3;k++){ var yy=188+((ph*26+k*7)%18); fc.moveTo(182,yy); fc.arc(180,yy,2,0,6.283); } fc.fill();
+    fText('to drain',172,206,11,'500','rgba(255,255,255,.65)','right');
+    // fresh dialysate, through the ultrafilter, into the blood line after the dialyser
+    var path=[[110,64],[150,64],[222,64],[298,64],[298,152]], L=[40,72,76,88];
+    fc.lineWidth=6; fc.strokeStyle='rgba(255,213,79,.32)'; fc.beginPath(); fc.moveTo(110,64); fc.lineTo(150,64); fc.stroke();
+    fc.strokeStyle='rgba(128,222,234,'+(on?.45:.25)+')'; fc.beginPath(); fc.moveTo(222,64); fc.lineTo(298,64); fc.lineTo(298,152); fc.stroke();
+    for(var dd=0;dd<12;dd++){
+      var sd=(ph*44+dd*23)%276; if(sd>40&&sd<112) continue;
+      var pt=pathAt(path,L,sd); fc.fillStyle=sd<=40?'#FFD180':'#80DEEA'; fc.beginPath(); fc.arc(pt[0],pt[1],2.6,0,6.283); fc.fill();
+    }
+    fRR(14,50,96,28,10); fc.fillStyle='rgba(255,202,40,.18)'; fc.fill(); fc.strokeStyle='rgba(255,213,79,.6)'; fc.lineWidth=1.5; fc.stroke();
+    fText('fresh dialysate',62,68,11,'600','#FFE082','center');
+    fRR(150,50,72,28,10); fc.fillStyle='rgba(128,222,234,.16)'; fc.fill(); fc.strokeStyle=on?'#80DEEA':'rgba(128,222,234,.55)'; fc.lineWidth=on?2.2:1.5; fc.stroke();
+    fText('ultrafilter',186,68,11,'600','#B2EBF2','center');
+    fText('sterile',260,56,11,'600','#B2EBF2','center',bf(s,lt,1));
+    fc.strokeStyle='rgba(128,222,234,.85)'; fc.lineWidth=1.5; fc.beginPath(); fc.arc(298,by,13+Math.sin(ph*4)*1.4,0,6.283); fc.stroke();
+    fText('blood in',6,146,11,'500','rgba(255,255,255,.72)'); fText('to patient',FW-6,146,11,'500','rgba(255,255,255,.72)','right'); fText('dialyser',180,134,11,'500','rgba(255,255,255,.72)','center');
+    // running total of plasma water filtered
+    var v=Math.min(25,Math.max(0,lt/4)*25);
+    fText(Math.round(v)+' L',62,114,22,'700','#fff','center'); fText('filtered in one session',62,130,11,'500','rgba(255,255,255,.72)','center');
+    fPill('net loss = the UF goal',270,214,'green',bf(s,lt,2));
+  }
+
+  function chooseCard(x,head,col,mode,a,lines,ph){
+    if(!(a>0)) return;
+    var y=44+(1-a)*8, w=164, h=136, my=y+56, jx=mode==='post'?x+w-30:x+30;
+    fc.globalAlpha=a;
+    fRR(x,y,w,h,14); fc.fillStyle='rgba(255,255,255,.07)'; fc.fill(); fc.strokeStyle='rgba(255,255,255,.2)'; fc.lineWidth=1.2; fc.stroke();
+    fFont(13,'700'); fc.fillStyle=col; fc.textAlign='left'; fc.fillText(head,x+12,y+22);
+    fc.strokeStyle='rgba(229,57,53,.6)'; fc.lineWidth=6; fc.lineCap='round'; fc.beginPath(); fc.moveTo(x+10,my); fc.lineTo(x+w-10,my); fc.stroke();
+    fc.save(); fc.setLineDash([2,7]); fc.lineDashOffset=-ph*28; fc.strokeStyle='rgba(255,255,255,.75)'; fc.lineWidth=2; fc.beginPath(); fc.moveTo(x+10,my); fc.lineTo(x+w-10,my); fc.stroke(); fc.restore();
+    fRR(x+w/2-30,my-11,60,22,11); fc.fillStyle='rgba(255,202,40,.2)'; fc.fill(); fc.strokeStyle='rgba(255,255,255,.5)'; fc.lineWidth=1.2; fc.stroke();
+    fc.strokeStyle='rgba(128,222,234,.55)'; fc.lineWidth=4; fc.beginPath(); fc.moveTo(jx,y+32); fc.lineTo(jx,my-4); fc.stroke();
+    var span=(my-4)-(y+32); fc.fillStyle='#80DEEA'; fc.beginPath(); fc.arc(jx,y+32+((ph*22)%span),2.6,0,6.283); fc.fill();
+    lines.forEach(function(l,i){
+      var yy=y+90+i*17;
+      fFont(12,'700'); fc.fillStyle=l[1]===1?'#69F0AE':'#FFD54F'; fc.textAlign='center'; fc.fillText(l[1]===1?'✓':'!',x+18,yy);
+      fFont(11,'500'); fc.fillStyle='rgba(255,255,255,.92)'; fc.textAlign='left'; fc.fillText(l[0],x+30,yy);
+    });
+    fc.globalAlpha=1;
+  }
+  function drawChoose(s,lt){
+    var ph=reduce?1.2:film.t;
+    chooseCard(12,'Post-dilution','#F0B8FF','post',(film.hold?1:fade(lt,0,.5)),[['Most waste per litre',1],['Needs good blood flow',2],['Watch TMP',2]],ph);
+    chooseCard(184,'Pre-dilution','#9BEAF5','pre',bf(s,lt,1),[['Gentle on the circuit',1],['Needs more fluid',2],['Helps if flow is low',1]],ph);
+    fText('Mixed dilution does both, on some machines',180,208,11,'500','rgba(255,255,255,.85)','center',bf(s,lt,2));
+  }
+
+  function filmDraw(){
+    if(film.scene<0||!film.sized) return;
+    var s=film.scene, lt=Math.max(0,Math.min(FS[s].dur,film.t-FSTART[s])), k=FS[s].k;
+    fBg();
+    if(KP[k]) drawFibre(s,lt); else if(k==='sub') drawSubScene(s,lt); else drawChoose(s,lt);
+    fTitle(s,lt);
+  }
+  function ensureScene(){
+    var s=sceneAt(Math.min(film.t,FTOTAL-.001));
+    if(s!==film.scene){ film.scene=s; film.ps=psNew(FS[s].k); if(KP[FS[s].k]) psWarm(film.ps,17); }
+    return s;
+  }
+  function fmtT(sec){ sec=Math.max(0,Math.floor(sec+.0001)); return Math.floor(sec/60)+':'+((sec%60)<10?'0':'')+(sec%60); }
+  function filmUI(){
+    var t=Math.min(film.t,FTOTAL), s=sceneAt(Math.min(t,FTOTAL-.001)), lt=t-FSTART[s];
+    var cap=FS[s].beats[(film.hold&&film.hold.s===s)?film.hold.b:beatAt(s,lt)].x;
+    if(cap!==film.cap){ film.cap=cap; filmCapEl.textContent=cap; }
+    if(s!==film.chip){ film.chip=s; Array.prototype.forEach.call(filmChipsEl.children,function(c,i){ c.classList.toggle('on',i===s); }); }
+    var p=(t/FTOTAL*100).toFixed(2);
+    if(!film.dragging) filmScrub.value=Math.round(t/FTOTAL*1000);
+    filmScrub.style.background='linear-gradient(90deg,#C850F0 '+p+'%,rgba(255,255,255,.22) '+p+'%)';
+    filmScrub.setAttribute('aria-valuetext',fmtT(t)+' of '+fmtT(FTOTAL)+', scene '+(s+1)+', '+FS[s].chip);
+    filmTimeEl.textContent=fmtT(t)+' / '+fmtT(FTOTAL);
+    var running=film.playing&&!film.narrPaused, ic=running?'pause':(film.ended?'replay':'play');
+    if(ic!==film.icon){
+      film.icon=ic;
+      filmPlayBtn.innerHTML=ic==='pause'?F_PAUSE:(ic==='replay'?F_REPLAY:F_PLAY);
+      filmPlayBtn.setAttribute('aria-label',ic==='pause'?'Pause':(ic==='replay'?'Play again':'Play'));
+      filmBig.innerHTML=ic==='replay'?F_REPLAY:F_PLAY; filmBig.classList.toggle('replay',ic==='replay');
+      filmBig.setAttribute('aria-label',ic==='replay'?'Play the film again':'Play the film');
+    }
+    filmBig.classList.toggle('gone',running||(film.t>.05&&!film.ended));
+  }
+  function filmFrameFn(now){
+    film.raf=0;
+    var dt=film.last?Math.min(.05,(now-film.last)/1000):0; film.last=now;
+    var running=film.playing&&!film.narrPaused;
+    if(running){
+      if(film.hold){
+        var hs=film.hold.s, bts=FS[hs].beats, end=(film.hold.b<bts.length-1)?bts[film.hold.b+1].t:FS[hs].dur;
+        var lt=film.t-FSTART[hs]+dt; if(lt>=end-.02) lt=bts[film.hold.b].t; film.t=FSTART[hs]+lt;
+      } else {
+        film.t+=dt; if(film.t>=FTOTAL){ film.t=FTOTAL; film.playing=false; film.ended=true; running=false; }
+      }
+    }
+    ensureScene();
+    if(running&&!reduce) psStep(film.ps,dt);
+    filmDraw(); filmUI();
+    if(running) film.raf=requestAnimationFrame(filmFrameFn); else film.last=0;
+  }
+  function filmKick(){ if(!film.raf){ film.last=0; film.raf=requestAnimationFrame(filmFrameFn); } }
+  function filmResize(){
+    var w=filmCv.clientWidth; if(!(w>10)) return;
+    var dpr=Math.min(window.devicePixelRatio||1,2), h=w*FH/FW;
+    filmCv.style.height=h+'px'; filmCv.width=Math.round(w*dpr); filmCv.height=Math.round(h*dpr);
+    fc.setTransform(dpr*w/FW,0,0,dpr*w/FW,0,0); film.sized=true;
+  }
+  function filmPlay(){ if(film.ended||film.t>=FTOTAL-.01){ film.t=0; film.ended=false; } film.playing=true; filmKick(); }
+  function filmPause(){ film.playing=false; filmKick(); }
+  function filmToggle(){
+    if(film.hold){ if(typeof ttsStop==='function') ttsStop(); else filmRelease(); return; }
+    if(film.playing) filmPause(); else filmPlay();
+  }
+  function filmSeek(t){ film.t=Math.max(0,Math.min(FTOTAL,t)); film.ended=film.t>=FTOTAL; filmKick(); }
+  function filmHold(s,b){ film.hold={s:s,b:b}; film.ended=false; film.narrPaused=false; film.t=FSTART[s]+FS[s].beats[b].t+.01; film.playing=true; filmKick(); }
+  function filmRelease(toEnd){ if(!film.hold) return; film.hold=null; film.playing=false; film.narrPaused=false; if(toEnd){ film.t=FTOTAL; film.ended=true; } filmKick(); }
+  function filmNarrPause(on){ if(film.hold){ film.narrPaused=!!on; filmKick(); } }
+  function filmEnter(){ filmResize(); film.last=0; filmKick(); }
+  function filmStop(){ film.hold=null; film.playing=false; film.narrPaused=false; if(film.raf){ cancelAnimationFrame(film.raf); film.raf=0; } }
+  // narration blocks for the film: one per caption, each holding the film on that moment
+  function filmBlocks(){
+    var out=[];
+    FS.forEach(function(sc,s){ sc.beats.forEach(function(bt,b){
+      out.push({el:filmFrame,text:(b===0?'Scene '+(s+1)+'. '+sc.title+'. ':'')+bt.x,fx:(function(s,b){ return function(){ filmHold(s,b); }; })(s,b)});
+    }); });
+    return out;
+  }
+  FS.forEach(function(sc,i){
+    var b=document.createElement('button'); b.className='chip'; b.dataset.s=i; b.innerHTML='<span class="n">'+(i+1)+'</span>'+sc.chip;
+    b.addEventListener('click',function(){ if(film.hold&&typeof ttsStop==='function') ttsStop(); filmSeek(FSTART[i]+.6); });
+    filmChipsEl.appendChild(b);
+    if(i>0){ var tk=document.createElement('i'); tk.style.left='calc(9px + (100% - 18px) * '+(FSTART[i]/FTOTAL).toFixed(4)+')'; filmTicks.appendChild(tk); }
+  });
+  filmBig.addEventListener('click',filmToggle);
+  filmPlayBtn.addEventListener('click',filmToggle);
+  filmCv.addEventListener('click',filmToggle);
+  filmScrub.addEventListener('pointerdown',function(){ film.dragging=true; });
+  window.addEventListener('pointerup',function(){ film.dragging=false; });
+  filmScrub.addEventListener('input',function(){ if(film.hold&&typeof ttsStop==='function') ttsStop(); filmSeek(+filmScrub.value/1000*FTOTAL); });
+  if(!('speechSynthesis' in window)) filmVoiceBtn.style.display='none';
+  filmVoiceBtn.addEventListener('click',function(){ if(window.renalListen&&window.renalListen._film) window.renalListen._film(); });
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(function(es){ es.forEach(function(e){ if(!e.isIntersecting&&film.playing&&!film.hold) filmPause(); }); },{threshold:.2}).observe(filmCv);
+  }
+  document.addEventListener('visibilitychange',function(){ if(document.hidden&&film.playing&&!film.hold) filmPause(); });
+  window.addEventListener('resize',function(){ if(cur===8){ filmResize(); filmKick(); } });
+  filmUI();
+  // tiny read-only hook for testing
+  window.renalFilm={state:function(){ return {t:film.t,total:FTOTAL,playing:film.playing,ended:film.ended,scene:film.scene,hold:film.hold?{s:film.hold.s,b:film.hold.b}:null,parts:film.ps?film.ps.parts.length:0}; }, seek:filmSeek, starts:FSTART.slice()};
+
+  // ================= HD AND HDF: POST OR PRE SIMULATOR =================
+  var HDF_T=240, HDF_QUF=2000/240, HDF_HCT=.33;
+  function hdfModel(mode,qb,qs){
+    if(mode==='hd') qs=0;
+    var qf=qs+HDF_QUF, vol=qf*HDF_T/1000, qp=qb*(1-HDF_HCT), r={mode:mode,qb:qb,qs:qs,qf:qf,vol:vol};
+    if(mode==='pre'){ r.df=qp/(qp+qs); r.hctIn=HDF_HCT*qb/(qb+qs); r.hctOut=HDF_HCT*qb/(qb-HDF_QUF); r.ff=qf/(qb+qs); }
+    else { r.df=1; r.hctIn=HDF_HCT; r.hctOut=HDF_HCT*qb/Math.max(1,qb-qf); r.ff=qf/qb; }
+    r.eff=vol*r.df;
+    return r;
+  }
+  function fmtL(v){ return (Math.round(v*10)/10).toFixed(1); }
+  function pctR(v){ return Math.round(v*100); }
+  function hctTxt(h){ return h>.6?'over 60%':pctR(h)+'%'; }
+  function hdfNeed(mode,qb){ var need=23000/HDF_T, qp=qb*(1-HDF_HCT); if(mode==='post') return need-HDF_QUF; if(qp<=need) return Infinity; return qp*(need-HDF_QUF)/(qp-need); }
+  function hdfVerdict(r){
+    if(r.mode==='hd') return {k:'ok',t:'Standard haemodialysis',x:'No substitution fluid, so the only convection is the fluid removed for the UF goal: about '+fmtL(r.vol)+' litres over four hours. Small waste clears well by diffusion; middle molecules much less so.'};
+    if(r.qs<5) return {k:'warn',t:'No substitution fluid set',x:'With the substitution rate at zero this is effectively HD. Raise it to add convection.'};
+    var ff=pctR(r.ff);
+    if(r.mode==='post'){
+      if(r.ff>.30) return {k:'bad',t:'Too much for post-dilution',x:'Filtration is '+ff+'% of the blood flow, so the blood leaving the dialyser has thickened to a haematocrit of '+hctTxt(r.hctOut)+'. TMP will climb and the fibres are likely to clot. Lower the substitution rate, raise the blood flow if the access allows, or consider pre-dilution.'};
+      if(r.ff>.25) return {k:'warn',t:'Close to the limit',x:'Filtration is '+ff+'% of the blood flow and the blood leaves at a haematocrit of '+hctTxt(r.hctOut)+'. It can work, but watch TMP and the circuit closely. '+(r.vol>=23?'It reaches '+fmtL(r.vol)+' litres per session.':'It still only reaches '+fmtL(r.vol)+' litres.')};
+      if(r.vol>=23) return {k:'ok',t:'High-volume HDF',x:'About '+fmtL(r.vol)+' litres of convection per session, with filtration at '+ff+'% of the blood flow: efficient and inside the limit.'};
+      var need=hdfNeed('post',r.qb), nff=(need+HDF_QUF)/r.qb, nq=Math.ceil(need/5)*5;
+      return {k:'warn',t:'Safe, but below 23 litres',x:'About '+fmtL(r.vol)+' litres per session. '+(nff<=.30?'At this blood flow, about '+nq+' mL/min of substitution fluid would reach 23 litres, with filtration at '+pctR(nff)+'% of the blood flow.':'At this blood flow, 23 litres would need filtration above 30% of the blood flow, so a higher blood flow or a longer session is needed.')};
+    }
+    var needP=hdfNeed('pre',r.qb), nqp=Math.ceil(needP/5)*5;
+    var base='The blood arrives diluted to a haematocrit of '+hctTxt(r.hctIn)+', so the circuit is under little strain. But the waste is diluted too: '+fmtL(r.vol)+' litres of pre-dilution is worth about '+fmtL(r.eff)+' litres of post-dilution.';
+    if(r.eff>=23) return {k:'ok',t:'Pre-dilution: high volume',x:base+' That reaches the high-volume range.'};
+    return {k:'warn',t:'Pre-dilution: needs more fluid',x:base+(nqp<=300?' To match 23 litres of post-dilution at this blood flow, it would need about '+nqp+' mL/min, or '+fmtL((nqp+HDF_QUF)*HDF_T/1000)+' litres per session.':' At this blood flow, matching 23 litres of post-dilution would need more substitution fluid than this simulator allows.')};
+  }
+  var HCOL=[[.15,[247,178,174]],[.25,[239,111,106]],[.33,[229,57,53]],[.42,[198,40,40]],[.5,[154,27,27]],[.6,[107,15,18]]];
+  function hctCol(h){
+    if(h<=HCOL[0][0]) return 'rgb('+HCOL[0][1].join(',')+')';
+    for(var i=1;i<HCOL.length;i++){ if(h<=HCOL[i][0]){ var a=HCOL[i-1], c=HCOL[i], f=(h-a[0])/(c[0]-a[0]); return 'rgb('+[0,1,2].map(function(k){ return Math.round(a[1][k]+(c[1][k]-a[1][k])*f); }).join(',')+')'; } }
+    return 'rgb('+HCOL[HCOL.length-1][1].join(',')+')';
+  }
+  var hdf={mode:'post',qb:400,qs:90,saved:90};
+  var hdfModeEl=document.getElementById('hdfMode'), hqb=document.getElementById('hqb'), hqs=document.getElementById('hqs'),
+      hqbL=document.getElementById('hqbL'), hqsL=document.getElementById('hqsL'), hqsRow=document.getElementById('hqsRow'), hdfMsg=document.getElementById('hdfMsg');
+  function $h(id){ return document.getElementById(id); }
+  function setStat(id,val,sub,band,w,col){
+    var el=$h(id); el.className='hstat'+(band?' '+band:'');
+    el.querySelector('b').textContent=val; el.querySelector('small').textContent=sub;
+    var bar=el.querySelector('.hs-bar i'); if(bar&&w!=null){ bar.style.width=w.toFixed(1)+'%'; bar.style.background=col; }
+  }
+  function hdfRender(){
+    var m=hdf.mode, r=hdfModel(m,hdf.qb,hdf.qs), v=hdfVerdict(r);
+    hdfModeEl.querySelectorAll('button').forEach(function(b){ var on=b.dataset.t===m; b.classList.toggle('on',on); b.setAttribute('aria-pressed',on?'true':'false'); });
+    hqb.value=hdf.qb; hqbL.textContent=hdf.qb+' mL/min';
+    hqs.value=m==='hd'?0:hdf.qs; hqs.disabled=m==='hd'; hqsRow.classList.toggle('off',m==='hd'); hqsL.textContent=m==='hd'?'off in HD':hdf.qs+' mL/min';
+    var hB=m==='pre'?r.hctIn:HDF_HCT, hC=m==='pre'?HDF_HCT*r.qb/(r.qb-HDF_QUF):r.hctOut;
+    $h('hsA').style.stroke=hctCol(HDF_HCT); $h('hsB').style.stroke=hctCol(hB); $h('hsC').style.stroke=hctCol(hC); $h('hsD').style.stroke=hctCol(HDF_HCT);
+    $h('hdfG0').setAttribute('stop-color',hctCol(hB)); $h('hdfG1').setAttribute('stop-color',hctCol(hC));
+    $h('hdfHin').textContent='Hct '+hctTxt(hB); $h('hdfHout').textContent='Hct '+hctTxt(hC);
+    [['pre','Pre'],['post','Post']].forEach(function(k){ var on=m===k[0]; ['hdf'+k[1]+'P','hdf'+k[1]+'F','hdfJ'+k[0]].forEach(function(id){ $h(id).classList.toggle('hs-off',!on); }); });
+    $h('hdfSrc').classList.toggle('hs-dim',m==='hd'); $h('hdfSrcT').textContent=m==='hd'?'Substitution off':'Substitution fluid';
+    $h('hdfDrops').style.opacity=Math.max(.15,Math.min(1,r.qf/110)).toFixed(2);
+    var spd=(1.1*350/hdf.qb).toFixed(2)+'s'; $h('hdfBF').style.animationDuration=spd; $h('hdfLF').style.animationDuration=spd;
+    var bFF=m==='post'?(r.ff>.30?'bad':(r.ff>.25?'warn':'ok')):'';
+    setStat('hsFF',pctR(r.ff)+'%',m==='pre'?'of the diluted flow':'of the blood flow',bFF,Math.min(100,r.ff/.5*100),bFF==='bad'?'#D32F2F':(bFF==='warn'?'#F9A825':'#2E7D32'));
+    var bH=m==='post'?(r.hctOut>.5?'bad':(r.hctOut>.45?'warn':'ok')):'';
+    setStat('hsHct','Hct '+hctTxt(hC),m==='pre'?'it enters diluted, at '+hctTxt(r.hctIn):'it starts at 33%',bH);
+    setStat('hsVol',fmtL(r.vol)+' L','per 4-hour session',(m==='post'&&r.vol>=23)?'ok':'',Math.min(100,r.vol/40*100),'linear-gradient(90deg,var(--accent),var(--accent-2))');
+    setStat('hsEff',fmtL(r.eff)+' L',m==='hd'?'just the UF goal':(m==='pre'?'what it is worth in post-dilution':'the full value of every litre'),m==='hd'?'':(r.eff>=23?'ok':'warn'));
+    hdfMsg.className='alarm-card '+({ok:'ok',warn:'bypass',bad:'danger'})[v.k];
+    hdfMsg.innerHTML='<div class="ac-title">'+v.t+'</div><p class="hs-msg">'+v.x+'</p>';
+  }
+  hdfModeEl.addEventListener('click',function(e){
+    var b=e.target.closest('button'); if(!b) return; var m=b.dataset.t;
+    if(m==='hd'&&hdf.mode!=='hd') hdf.saved=hdf.qs; else if(m!=='hd'&&hdf.mode==='hd') hdf.qs=hdf.saved||90;
+    hdf.mode=m; hdfRender();
+  });
+  hqb.addEventListener('input',function(){ hdf.qb=+hqb.value; hdfRender(); });
+  hqs.addEventListener('input',function(){ hdf.qs=+hqs.value; hdfRender(); });
+  function fxHdf(m,qb,qs){ return function(){ hdf.mode=m; hdf.qb=qb; if(m!=='hd') hdf.qs=qs; hdfRender(); }; }
+  function hdfSay(m,qb,qs){
+    var v=hdfVerdict(hdfModel(m,qb,qs));
+    var head=m==='hd'?'Standard H-D, at a blood flow of '+qb+' millilitres a minute.':(m==='post'?'Post-dilution':'Pre-dilution')+', at a blood flow of '+qb+' millilitres a minute, with '+qs+' of substitution fluid.';
+    return head+' '+v.t+'. '+v.x;
+  }
+  function hdfEnter(){
+    var ld=$h('hdfLadder'); if(ld){ ld.classList.remove('go'); void ld.offsetWidth; requestAnimationFrame(function(){ ld.classList.add('go'); }); }
+    hdfRender(); filmEnter();
+  }
+  document.querySelectorAll('.xlink[data-go]').forEach(function(b){ b.addEventListener('click',function(){ go(+b.dataset.go); }); });
+  hdfRender();
+
   // ================= animation lifecycle =================
   function startAnim(n){
     if(n===4){ // membrane sim
@@ -2244,17 +2942,19 @@ input[type=range]::-moz-range-thumb{border-color:var(--accent)}
       if(vc){ vc.classList.remove('go'); void vc.offsetWidth; requestAnimationFrame(function(){ vc.classList.add('go'); }); }
       wStart();
     }
+    if(n===8){ hdfEnter(); }
   }
   function stopAnim(n){
     if(n===4){ simRunning=false; }
     if(n===7){ wStop(); }
+    if(n===8){ filmStop(); }
   }
   window.addEventListener('resize',function(){
     if(cur===4){ var run=simRunning; simRunning=false; resizeCanvas(); seed(); if(run&&!reduce){simRunning=true;requestAnimationFrame(step);} else {step();} }
   });
 
   // ================= QUIZ =================
-  // ch = chapter number (1-11) · c = index of the correct answer in a[]
+  // ch = chapter number (1-12) · c = index of the correct answer in a[]
   var QBANK=[
     // --- 1 Anatomy ---
     {ch:1,q:"Where does filtration actually happen?",a:["In the renal pelvis","In the glomerulus, in the cortex","In the ureter","In the medullary pyramids"],c:1,
@@ -2311,75 +3011,75 @@ input[type=range]::-moz-range-thumb{border-color:var(--accent)}
      e:"The fibres pack a huge surface area into a small cartridge — that's what makes the exchange fast enough to work."},
 
     // --- 8 Access ---
-    {ch:8,q:"Which access is preferred, and why?",a:["A line, because it works immediately","A graft, because it's synthetic","A fistula, because it lasts longest with the lowest infection risk","Whichever is quickest to place"],c:2,
+    {ch:9,q:"Which access is preferred, and why?",a:["A line, because it works immediately","A graft, because it's synthetic","A fistula, because it lasts longest with the lowest infection risk","Whichever is quickest to place"],c:2,
      e:"Fistula first. The trade-off is that it must be planned ahead and needs weeks to mature before it can be used."},
-    {ch:8,q:"Why does a fistula need to mature before use?",a:["To let the skin heal","The vein must toughen and enlarge under arterial flow","To let the anticoagulant clear","To confirm there's no infection"],c:1,
+    {ch:9,q:"Why does a fistula need to mature before use?",a:["To let the skin heal","The vein must toughen and enlarge under arterial flow","To let the anticoagulant clear","To confirm there's no infection"],c:1,
      e:"Arterial pressure remodels the vein over weeks into a vessel strong enough to cannulate again and again."},
-    {ch:8,q:"A patient's fistula has a weak thrill and flows have been poor. What does this suggest?",a:["Infection","Steal syndrome","Stenosis or thrombosis","Normal maturation"],c:2,
+    {ch:9,q:"A patient's fistula has a weak thrill and flows have been poor. What does this suggest?",a:["Infection","Steal syndrome","Stenosis or thrombosis","Normal maturation"],c:2,
      e:"A narrowing or a clot. Look, listen, feel every session — a weak or absent thrill is one of the earliest warnings you get."},
-    {ch:8,q:"Which access carries the highest bloodstream infection risk?",a:["Fistula","Graft","Central venous catheter","They're all equal"],c:2,
+    {ch:9,q:"Which access carries the highest bloodstream infection risk?",a:["Fistula","Graft","Central venous catheter","They're all equal"],c:2,
      e:"A line sits in a large central vein with a direct route in from outside. It's exactly why lines are kept temporary wherever possible."},
-    {ch:8,q:"Why rotate cannulation sites along a fistula?",a:["To reduce pain","Repeated needling in one spot causes aneurysm","To speed up maturation","To reduce the anticoagulant needed"],c:1,
+    {ch:9,q:"Why rotate cannulation sites along a fistula?",a:["To reduce pain","Repeated needling in one spot causes aneurysm","To speed up maturation","To reduce the anticoagulant needed"],c:1,
      e:"Ballooning from repeated puncture in one place weakens the vessel wall over time."},
-    {ch:8,q:"A patient's hand is cold and painful below their new fistula. What should you think of?",a:["Steal syndrome","Disequilibrium","Aneurysm","Normal maturation"],c:0,
+    {ch:9,q:"A patient's hand is cold and painful below their new fistula. What should you think of?",a:["Steal syndrome","Disequilibrium","Aneurysm","Normal maturation"],c:0,
      e:"The access is diverting too much blood away from the hand — 'stealing' it. It needs review, not reassurance."},
 
     // --- 9 Complications ---
-    {ch:9,q:"What's the most common complication during a dialysis session?",a:["Cramps","Hypotension","Disequilibrium","Circuit clotting"],c:1,
+    {ch:10,q:"What's the most common complication during a dialysis session?",a:["Cramps","Hypotension","Disequilibrium","Circuit clotting"],c:1,
      e:"Removing fluid faster than the tissues can refill the circulation drops the blood pressure — often with dizziness, nausea or cramps alongside."},
-    {ch:9,q:"A new patient develops headache and confusion during an early session. What should you think of?",a:["Disequilibrium syndrome","Steal syndrome","Air embolism","Anaemia"],c:0,
+    {ch:10,q:"A new patient develops headache and confusion during an early session. What should you think of?",a:["Disequilibrium syndrome","Steal syndrome","Air embolism","Anaemia"],c:0,
      e:"Urea cleared too quickly causes fluid to shift into the brain. It's precisely why the first few sessions are deliberately gentle."},
-    {ch:9,q:"What's the leading cause of death in people on long-term dialysis?",a:["Infection","Cardiovascular disease","Bone disease","Anaemia"],c:1,
+    {ch:10,q:"What's the leading cause of death in people on long-term dialysis?",a:["Infection","Cardiovascular disease","Bone disease","Anaemia"],c:1,
      e:"Fluid load, hypertension and mineral disturbance strain the heart and vessels over years."},
-    {ch:9,q:"Why do dialysis patients often limit potassium and phosphate in their diet?",a:["To lose weight","The kidneys can no longer clear them between sessions","To reduce the anticoagulant needed","To help the fistula mature"],c:1,
+    {ch:10,q:"Why do dialysis patients often limit potassium and phosphate in their diet?",a:["To lose weight","The kidneys can no longer clear them between sessions","To reduce the anticoagulant needed","To help the fistula mature"],c:1,
      e:"Dialysis is intermittent, but eating isn't. Between sessions there's nothing clearing the load, so intake has to be managed."},
 
     // --- 10 Medications ---
-    {ch:10,q:"When should phosphate binders be taken?",a:["On an empty stomach","With meals","At bedtime","Only on dialysis days"],c:1,
+    {ch:11,q:"When should phosphate binders be taken?",a:["On an empty stomach","With meals","At bedtime","Only on dialysis days"],c:1,
      e:"They bind phosphate in food, so they only work if the food is actually there. One of the most common practical teaching points."},
-    {ch:10,q:"Why is the active form of vitamin D given rather than an ordinary supplement?",a:["It's cheaper","The kidney can no longer perform the activation step","It tastes better","Plain vitamin D is removed by dialysis"],c:1,
+    {ch:11,q:"Why is the active form of vitamin D given rather than an ordinary supplement?",a:["It's cheaper","The kidney can no longer perform the activation step","It tastes better","Plain vitamin D is removed by dialysis"],c:1,
      e:"Without the kidney's final conversion, ordinary vitamin D can't do its job of helping the gut absorb calcium."},
-    {ch:10,q:"Why is iron given alongside EPO-type medicines?",a:["To prevent clotting","The marrow needs iron as raw material to respond","To bind phosphate","To lower potassium"],c:1,
+    {ch:11,q:"Why is iron given alongside EPO-type medicines?",a:["To prevent clotting","The marrow needs iron as raw material to respond","To bind phosphate","To lower potassium"],c:1,
      e:"Give the signal without the materials and the marrow still can't build red cells. The two go together."},
-    {ch:10,q:"Why are water-soluble vitamins replaced in dialysis patients?",a:["They aren't absorbed from food","They're small enough to diffuse into the dialysate and be lost","They're bound by phosphate binders","The kidney normally makes them"],c:1,
+    {ch:11,q:"Why are water-soluble vitamins replaced in dialysis patients?",a:["They aren't absorbed from food","They're small enough to diffuse into the dialysate and be lost","They're bound by phosphate binders","The kidney normally makes them"],c:1,
      e:"The B and C groups cross the membrane along with the waste, so they're topped up."},
-    {ch:10,q:"How is acidosis corrected in a haemodialysis patient?",a:["An oral tablet only","Bicarbonate buffer in the dialysate","By raising the blood pump speed","By the anticoagulant"],c:1,
+    {ch:11,q:"How is acidosis corrected in a haemodialysis patient?",a:["An oral tablet only","Bicarbonate buffer in the dialysate","By raising the blood pump speed","By the anticoagulant"],c:1,
      e:"The treatment itself takes over the kidney's acid-clearing job — the dialysate is buffered to correct blood pH."},
 
     // --- 11 QA bloods & urine ---
-    {ch:11,q:"For the post-dialysis sample, what exactly do you do first?",a:["Stop the blood pump completely","Reduce blood flow to 100 mL/min for 30 seconds","Reduce blood flow to 50 mL/min for 2 minutes","Clamp the venous line"],c:1,
+    {ch:12,q:"For the post-dialysis sample, what exactly do you do first?",a:["Stop the blood pump completely","Reduce blood flow to 100 mL/min for 30 seconds","Reduce blood flow to 50 mL/min for 2 minutes","Clamp the venous line"],c:1,
      e:"100 mL/min for 30 seconds fills the arterial line with non-recirculated blood, with the pump still running. Then draw from the arterial sampling port."},
-    {ch:11,q:"A post-dialysis urea taken at full pump speed will make the URR look:",a:["Falsely low","Falsely high","Unchanged","Impossible to calculate"],c:1,
+    {ch:12,q:"A post-dialysis urea taken at full pump speed will make the URR look:",a:["Falsely low","Falsely high","Unchanged","Impossible to calculate"],c:1,
      e:"Recirculated blood has already been cleaned, so the post urea reads low, the apparent fall is bigger, and an under-dialysed patient looks adequate."},
-    {ch:11,q:"Before a pre-dialysis sample from a fistula, what must you do?",a:["Flush with 10 mL saline","Withdraw and discard 10 mL of blood","Run the pump for 30 seconds","Nothing extra"],c:1,
+    {ch:12,q:"Before a pre-dialysis sample from a fistula, what must you do?",a:["Flush with 10 mL saline","Withdraw and discard 10 mL of blood","Run the pump for 30 seconds","Nothing extra"],c:1,
      e:"Fistulas and grafts only: discard 10 mL first, so you sample circulating blood rather than diluted blood sitting in the needle."},
-    {ch:11,q:"Dialysis was interrupted for five minutes during the session. What does that mean for the QA samples?",a:["Nothing, carry on","They can't be used for urea kinetic modelling","Only the pre sample is affected","Repeat the post sample in an hour"],c:1,
+    {ch:12,q:"Dialysis was interrupted for five minutes during the session. What does that mean for the QA samples?",a:["Nothing, carry on","They can't be used for urea kinetic modelling","Only the pre sample is affected","Repeat the post sample in an hour"],c:1,
      e:"An interruption of more than three minutes makes the samples inaccurate for modelling."},
-    {ch:11,q:"Which pre-dialysis samples need centrifuging?",a:["All of them","None of them","Potassium and U&E","Only the FBC"],c:2,
+    {ch:12,q:"Which pre-dialysis samples need centrifuging?",a:["All of them","None of them","Potassium and U&E","Only the FBC"],c:2,
      e:"A serum potassium or U&E must be centrifuged for an accurate serum result. Other pre-dialysis bloods don't need it."},
-    {ch:11,q:"A pre-dialysis sample is accidentally taken after dialysis has started. What should you do?",a:["Send it and note the timing","Discard it","Send it but cancel the urea","Centrifuge it twice"],c:1,
+    {ch:12,q:"A pre-dialysis sample is accidentally taken after dialysis has started. What should you do?",a:["Send it and note the timing","Discard it","Send it but cancel the urea","Centrifuge it twice"],c:1,
      e:"Dilution makes it inaccurate. The procedure says discard — not send with a caveat."},
-    {ch:11,q:"For a three-times-weekly patient, when does the KRU urine collection run?",a:["First to second dialysis of the week","Across the long weekend break","Any 24-hour period","Second dialysis to the following week"],c:0,
+    {ch:12,q:"For a three-times-weekly patient, when does the KRU urine collection run?",a:["First to second dialysis of the week","Across the long weekend break","Any 24-hour period","Second dialysis to the following week"],c:0,
      e:"Three-times-weekly: starts on the first dialysis of the week, finishes on the second."},
-    {ch:11,q:"For a twice-weekly patient, when does the collection run?",a:["First to second dialysis of the week","Second dialysis of the week to the first dialysis of the following week","Any 48 hours","It isn't collected"],c:1,
+    {ch:12,q:"For a twice-weekly patient, when does the collection run?",a:["First to second dialysis of the week","Second dialysis of the week to the first dialysis of the following week","Any 48 hours","It isn't collected"],c:1,
      e:"Twice-weekly patients start on their second dialysis of the week and finish on the first dialysis of the following week."},
-    {ch:11,q:"The urine collection comes back at 120 mL and the patient says it was complete. What happens?",a:["Send it with a note","Send the blood only","Don't send either — cancel and reschedule","Double the volume"],c:2,
+    {ch:12,q:"The urine collection comes back at 120 mL and the patient says it was complete. What happens?",a:["Send it with a note","Send the blood only","Don't send either — cancel and reschedule","Double the volume"],c:2,
      e:"Under 150 mL, or incomplete, means neither the urine nor the blood goes to the lab. Discard, cancel, and tell the dialysis nurse to rebook."},
-    {ch:11,q:"On the start day of a urine collection, what must the patient do before dialysis?",a:["Drink 500 mL of water","Completely empty their bladder, and that urine is not collected","Pass urine into the container","Avoid passing urine at all"],c:1,
+    {ch:12,q:"On the start day of a urine collection, what must the patient do before dialysis?",a:["Drink 500 mL of water","Completely empty their bladder, and that urine is not collected","Pass urine into the container","Avoid passing urine at all"],c:1,
      e:"Emptying first means the window starts from empty. That void is discarded, not collected."},
-    {ch:11,q:"What does KRU actually measure?",a:["The dialyser's clearance","Residual renal urea clearance — what the patient's own kidneys still clear","Total body water","The urea reduction ratio"],c:1,
+    {ch:12,q:"What does KRU actually measure?",a:["The dialyser's clearance","Residual renal urea clearance — what the patient's own kidneys still clear","Total body water","The urea reduction ratio"],c:1,
      e:"It's the patient's own remaining kidney clearance, which feeds the kinetically modelled prescription."},
-    {ch:11,q:"Why does an incomplete urine collection matter so much to the patient?",a:["It wastes a bottle","It understates residual function and can wrongly lengthen their dialysis time","It affects their potassium","It delays their transport"],c:1,
+    {ch:12,q:"Why does an incomplete urine collection matter so much to the patient?",a:["It wastes a bottle","It understates residual function and can wrongly lengthen their dialysis time","It affects their potassium","It delays their transport"],c:1,
      e:"KRU feeds the prescription. Understate it and the modelling calls for more dialysis than the patient actually needs."},
-    {ch:11,q:"Which set contains the post-dialysis urea and creatinine?",a:["QA START, Mon–Tues","QA END, Weds–Thurs","Both sets","The 3-monthly extras"],c:0,
+    {ch:12,q:"Which set contains the post-dialysis urea and creatinine?",a:["QA START, Mon–Tues","QA END, Weds–Thurs","Both sets","The 3-monthly extras"],c:0,
      e:"QA START holds the pre U&E, the post urea and creatinine, and the IDUR containers — so adequacy comes from that one session."},
-    {ch:11,q:"Where does parathyroid hormone sit in the testing schedule?",a:["Monthly with QA END","3-monthly extras","6-monthly extras","Annual extras"],c:1,
+    {ch:12,q:"Where does parathyroid hormone sit in the testing schedule?",a:["Monthly with QA END","3-monthly extras","6-monthly extras","Annual extras"],c:1,
      e:"PTH is in the 3-monthly set, alongside LFTs, glucose, HbA1c and the infection screens."},
-    {ch:11,q:"Which test is done annually?",a:["Beta-2 microglobulin","Hepatitis B immunity post-vaccination","Parathyroid hormone","Transferrin saturation"],c:1,
+    {ch:12,q:"Which test is done annually?",a:["Beta-2 microglobulin","Hepatitis B immunity post-vaccination","Parathyroid hormone","Transferrin saturation"],c:1,
      e:"Hepatitis B immunity is the annual check — protection wanes and is often weaker in kidney failure."},
-    {ch:11,q:"Why does Kt/V give a fairer comparison between patients than URR?",a:["It uses a different bottle","It accounts for fluid removed and body water","It's measured weekly","It doesn't need a post sample"],c:1,
+    {ch:12,q:"Why does Kt/V give a fairer comparison between patients than URR?",a:["It uses a different bottle","It accounts for fluid removed and body water","It's measured weekly","It doesn't need a post sample"],c:1,
      e:"Factoring in ultrafiltration and total body water compares a large and a small patient fairly. It's the figure used for kinetic modelling."},
-    {ch:11,q:"A patient's Kt/V comes back well above target with no change to their prescription. What should happen?",a:["Nothing — high is good","Refer to the senior nurse or doctor","Reduce their session time immediately","Repeat next month"],c:1,
+    {ch:12,q:"A patient's Kt/V comes back well above target with no change to their prescription. What should happen?",a:["Nothing — high is good","Refer to the senior nurse or doctor","Reduce their session time immediately","Repeat next month"],c:1,
      e:"Both under-achieving and over-achieving Kt/V get referred, since either may mean the prescription or the sampling needs review."},
 
     // --- 6 The machine ---
@@ -2424,7 +3124,31 @@ input[type=range]::-moz-range-thumb{border-color:var(--accent)}
     {ch:7,q:"Under ISO 23500, the bacterial limit for dialysis water is:",a:["Under 100 CFU/mL","Under 1,000 CFU/mL","Under 10,000 CFU/mL","There is no limit"],c:0,
      e:"Under 100 CFU/mL, with action usually taken at 50 so a problem is caught before it reaches the limit."},
     {ch:7,q:"Hard water reaching a patient during dialysis causes:",a:["Nausea, vomiting, headache and high blood pressure","A low potassium","A blood leak alarm","Nothing noticeable"],c:0,
-     e:"Known as hard water syndrome, usually from a failed or unregenerated softener."}
+     e:"Known as hard water syndrome, usually from a failed or unregenerated softener."},
+
+    // --- 8 HD and HDF ---
+    {ch:8,q:"What does haemodiafiltration add to standard haemodialysis?",a:["A second dialyser in series","Convection: large volumes of plasma water pushed through the membrane, dragging molecules with it","Cooler dialysate","A longer session"],c:1,
+     e:"Diffusion still does most of the work for small waste. Convection is added on top, and it's what clears middle molecules so much better."},
+    {ch:8,q:"Which molecules gain most from HDF compared with HD?",a:["Urea","Potassium","Middle molecules, such as β2-microglobulin","Albumin"],c:2,
+     e:"Small waste diffuses well either way. Middle molecules diffuse slowly but are dragged across by convection. Albumin is too big and should stay in the blood."},
+    {ch:8,q:"In post-dilution HDF, where does the substitution fluid go in?",a:["After the dialyser","Before the dialyser","Into the dialysate","Into the fistula needle"],c:0,
+     e:"It joins the blood line after the dialyser, so the blood reaches the membrane undiluted."},
+    {ch:8,q:"Why is post-dilution the most efficient mode per litre?",a:["It uses more dialysate","Blood reaches the membrane undiluted, so each litre filtered carries the most waste","It needs no anticoagulation","It runs at a lower blood flow"],c:1,
+     e:"Full-strength blood means every litre of filtrate is as concentrated as it can be."},
+    {ch:8,q:"What limits how much can be filtered in post-dilution?",a:["The size of the drain","The patient's weight","The blood thickens in the dialyser, so filtration is kept to about 25 to 30% of the blood flow","The water plant's output"],c:2,
+     e:"Removing too much water concentrates the cells and proteins: TMP climbs and the fibres can clot. A high haematocrit lowers the limit further."},
+    {ch:8,q:"A patient's blood flow is limited and their circuit keeps clotting on post-dilution. Which change might help?",a:["Switching to pre-dilution","Raising the substitution rate","Stopping the anticoagulant","Raising the UF goal"],c:0,
+     e:"Diluting the blood before the dialyser makes it filter easily and clot less. The prescriber decides, but it's a common reason for pre-dilution."},
+    {ch:8,q:"Why does pre-dilution need more substitution fluid for the same clearance?",a:["Some of it leaks","The dialyser is smaller","The waste is diluted before it reaches the membrane, so each litre filtered carries less","It doesn't; the volumes are the same"],c:2,
+     e:"Roughly 1.5 to 2 times the volume is needed, and more at lower blood flows."},
+    {ch:8,q:"A patient asks whether they're 'being given 25 litres of fluid'. What's the answer?",a:["Yes, and it's removed at the next session","No: the machine only replaces what it filters, so the net fluid removed is just the UF goal","Yes, which is why they feel thirsty","Only in pre-dilution"],c:1,
+     e:"The machine balances everything. The patient loses the same UF goal as they would on HD."},
+    {ch:8,q:"Why is ultrapure water essential for online HDF?",a:["The substitution fluid is made from dialysate and goes straight into the blood","It makes the machine quieter","It lowers potassium","It's only needed for HD"],c:0,
+     e:"Substitution fluid enters the bloodstream directly, so bacteria and endotoxin must be removed completely. It's filtered again before infusion."},
+    {ch:8,q:"In post-dilution HDF, a steadily rising TMP most likely means…",a:["The patient's blood pressure is falling","The membrane is clogging, or filtration is too high for the blood","The water plant has failed","The venous needle is out"],c:1,
+     e:"Check the circuit and the anticoagulation. On Fresenius 5008 and 6008 machines, AutoSub plus adjusts the substitution rate automatically."},
+    {ch:8,q:"What convection volume did the CONVINCE trial use for high-dose HDF?",a:["About 2 litres per session","About 5 litres per session","At least 23 litres per session","About 100 litres per session"],c:2,
+     e:"In 2023 it found fewer deaths with high-dose HDF than with high-flux HD: 17.3% against 21.9% over a median of 30 months."}
   ];;
 
   var MIXED_N=10;
@@ -2444,7 +3168,7 @@ input[type=range]::-moz-range-thumb{border-color:var(--accent)}
   function quizReset(){ renderStart() }
 
   function renderStart(){
-    var rows=chapters.slice(0,11).map(function(c,i){
+    var rows=chapters.slice(0,12).map(function(c,i){
       return '<button class="q-btn ghost" data-ch="'+(i+1)+'">'+esc(c.t)+'</button>';
     }).join('');
     host.innerHTML=
@@ -2666,7 +3390,7 @@ input[type=range]::-moz-range-thumb{border-color:var(--accent)}
     var rate=+lsGet('renal.rate','1')||1.0;
     var voiceName=lsGet('renal.voice','');
     var contPlay=lsGet('renal.cont','1')!=='0';
-    var queue=[], qi=0, playing=false, paused=false, stopping=false;
+    var queue=[], qi=0, playing=false, paused=false, stopping=false, filmOnly=false;
     var voices=[], voice=null, lastHi=null, lastOpen=null;
 
     // ---- voices ----
@@ -2697,7 +3421,7 @@ input[type=range]::-moz-range-thumb{border-color:var(--accent)}
         [/\bTSAT\b/g,'T-SAT'],[/\bIDUR\b/g,'I-D-U-R'],[/\bQA\b/g,'Q-A'],[/\bKRU\b/g,'K-R-U'],[/\bUKM\b/g,'U-K-M'],[/\bRDC\b/g,'R-D-C'],[/\bLFT\b/g,'L-F-T'],[/\bPPE\b/g,'P-P-E'],[/\bICE\b/g,'ICE'],[/mL\/min/g,'mils per minute'],
         [/\bPTS\b/g,'patients'],[/\bbicarb\b/gi,'bicarbonate'],
         [/mmol\/L/g,'millimoles per litre'],
-        [/mL\/min/g,'mils per minute'],[/\be\.g\.\s*/gi,'for example '],[/\bi\.e\.\s*/gi,'that is ']];
+        [/mL\/min/g,'mils per minute'],[/\be\.g\.\s*/gi,'for example '],[/\bi\.e\.\s*/gi,'that is '],[/\bHct\b/g,'haematocrit'],[/β2-?/g,'beta 2 '],[/(\d) Da\b/g,'$1 daltons'],[/\bHD\b/g,'H-D'],[/\bCONVINCE\b/g,'Convince'],[/\bESHOL\b/g,'Eshol'],[/\bCVVH\b/g,'C-V-V-H'],[/(\d)\s*mL\b/g,'$1 millilitres'],[/(\d)\s*L\b/g,'$1 litres']];
       map.forEach(function(m){ s=s.replace(m[0],m[1]); });
       s=s.replace(/[\u2013\u2014]/g,' ').replace(/[\u00b7\u2022]/g,', ').replace(/\//g,' ').replace(/\s+/g,' ').trim();
       return s;
@@ -2826,20 +3550,43 @@ input[type=range]::-moz-range-thumb{border-color:var(--accent)}
         detailBlocks(wcd[5]).forEach(function(b){B.push(b)});
         var wn=directChild(ch,'panel-note'); if(wn) B.push({el:wn,text:txt(wn)});
       } else if(n===8){
+        var c8=ch.querySelectorAll('.card');
+        B.push({el:c8[0],text:txt(c8[0].querySelector('h3'))+'. A short film in six scenes.'});
+        filmBlocks().forEach(function(b){B.push(b)});
+        var vs=[txt(c8[1].querySelector('h3'))];
+        c8[1].querySelectorAll('.vs-row:not(.vs-head)').forEach(function(r){ var k=r.children; vs.push(txt(k[0])+': H-D, '+txt(k[1])+'; H-D-F, '+txt(k[2])); });
+        B.push({el:c8[1],text:vs.join('. ')+'.',fx:function(){ filmRelease(); }});
+        B.push({el:c8[2],text:txt(c8[2].querySelector('h3'))+'. '+txt(c8[2].querySelector(':scope > p'))});
+        c8[2].querySelectorAll('.lad-row').forEach(function(r){ B.push({el:r,text:r.getAttribute('data-say')}); });
+        var ln=c8[2].querySelector('.hs-note'); if(ln) B.push({el:ln,text:txt(ln)});
+        B.push({el:c8[3],text:txt(c8[3].querySelector('h3'))+'. '+txt(c8[3].querySelector(':scope > p'))});
+        [['post',400,90],['post',400,160],['post',300,60],['pre',300,160],['hd',400,0]].forEach(function(x){ B.push({el:c8[3],text:hdfSay(x[0],x[1],x[2]),fx:fxHdf(x[0],x[1],x[2])}); });
+        B.push({el:c8[3],text:'Back to post-dilution, at 400 and 90.',fx:fxHdf('post',400,90)});
+        B.push({el:c8[4],text:txt(c8[4].querySelector('h3'))+'.'});
+        detailBlocks(c8[4]).forEach(function(b){B.push(b)});
+        var nd=[txt(c8[5].querySelector('h3'))];
+        c8[5].querySelectorAll('.panel-note').forEach(function(pn){ var cl=pn.cloneNode(true); cl.querySelectorAll('button').forEach(function(x){ x.remove(); }); nd.push(cl.textContent); });
+        B.push({el:c8[5],text:nd.join('. ')});
+        B.push({el:c8[6],text:txt(c8[6].querySelector('h3'))+'.'});
+        detailBlocks(c8[6]).forEach(function(b){B.push(b)});
+        B.push({el:c8[7],text:txt(c8[7].querySelector('h3'))+'.'});
+        c8[7].querySelectorAll(':scope > p').forEach(function(p){ B.push({el:c8[7],text:txt(p)}); });
+        var n8=directChild(ch,'panel-note'); if(n8) B.push({el:n8,text:txt(n8)});
+      } else if(n===9){
         detailBlocks(ch.querySelector('.acc')).forEach(function(b){B.push(b)});
         var card=ch.querySelector('.card'), parts=[txt(card.querySelector('h3'))];
         card.querySelectorAll('.panel-note').forEach(function(pn){parts.push(txt(pn))});
         var it=card.querySelector('p[style]'); if(it) parts.push(txt(it));
         B.push({el:card,text:parts.join('. ')});
-      } else if(n===9){
+      } else if(n===10){
         B.push({el:ch.querySelector('#acuteList'),text:'First, what can happen during a session.', fx:fxSeg('#compToggle','acute')});
         detailBlocks(ch.querySelector('#acuteList')).forEach(function(b){B.push(b)});
         B.push({el:ch.querySelector('#chronicList'),text:'Now the longer term picture, living with kidney failure.', fx:fxSeg('#compToggle','chronic')});
         detailBlocks(ch.querySelector('#chronicList')).forEach(function(b){B.push(b)});
-      } else if(n===10){
+      } else if(n===11){
         detailBlocks(ch.querySelector('.acc')).forEach(function(b){B.push(b)});
         var note=ch.querySelector('.panel-note'); if(note) B.push({el:note,text:txt(note)});
-      } else if(n===11){
+      } else if(n===12){
         var cds=ch.querySelectorAll('.card');
         // what it's for
         B.push({el:cds[0],text:txt(cds[0].querySelector('h3'))+'. '+txt(cds[0].querySelector('p'))});
@@ -2892,7 +3639,7 @@ input[type=range]::-moz-range-thumb{border-color:var(--accent)}
     }
     function progress(){
       plFill.style.width=(queue.length?Math.min(100,Math.round((qi/queue.length)*100)):0)+'%';
-      plLabel.textContent=(cur>=1&&cur<=11)?chapters[cur-1].t:'Listening';
+      plLabel.textContent=filmOnly?'HDF film':((cur>=1&&cur<=12)?chapters[cur-1].t:'Listening');
     }
     function setHighlight(el){
       if(lastHi&&lastHi!==el) lastHi.classList.remove('tts-reading');
@@ -2920,15 +3667,22 @@ input[type=range]::-moz-range-thumb{border-color:var(--accent)}
     function cancelSpeech(){ stopping=true; try{ synth.cancel(); }catch(e){} stopping=false; }
 
     function start(){
-      if(!(cur>=1&&cur<=11)) return;
-      cancelSpeech(); buildQueue(cur);
+      if(!(cur>=1&&cur<=12)) return;
+      cancelSpeech(); filmOnly=false; buildQueue(cur);
       playing=true; paused=false; showPlayer(true); setPlayIcon(true); progress(); speakCurrent(); acquireWake();
       if(lsGet('renal.hint','')!=='1'){ lsSet('renal.hint','1'); showToast('Playing aloud \u2014 the screen will stay awake while it reads. Audio still pauses if you leave the app or lock the screen.',null,null,true); }
     }
-    function pause(){ if(!playing||paused) return; paused=true; cancelSpeech(); setPlayIcon(false); releaseWake(); }
-    function resume(){ if(!playing||!paused) return; paused=false; setPlayIcon(true); speakCurrent(); acquireWake(); }
+    function pause(){ if(!playing||paused) return; paused=true; cancelSpeech(); setPlayIcon(false); releaseWake(); filmNarrPause(true); }
+    function resume(){ if(!playing||!paused) return; paused=false; setPlayIcon(true); filmNarrPause(false); speakCurrent(); acquireWake(); }
     function toggle(){ if(!playing) start(); else if(paused) resume(); else pause(); }
-    ttsStop=function(){ playing=false; paused=false; cancelSpeech(); clearHighlight(); showPlayer(false); releaseWake(); ttsUpdateFab(); };
+    // the HDF film on its own, narrated, without the rest of the chapter
+    function startFilmVoice(){
+      if(cur!==8) return;
+      cancelSpeech(); filmOnly=true; queue=[]; qi=0;
+      filmBlocks().forEach(function(b){ splitSentences(clean(b.text)).forEach(function(sent,idx){ queue.push({text:sent, block:b, first:idx===0}); }); });
+      playing=true; paused=false; showPlayer(true); setPlayIcon(true); progress(); speakCurrent(); acquireWake();
+    }
+    ttsStop=function(){ playing=false; paused=false; filmOnly=false; cancelSpeech(); clearHighlight(); showPlayer(false); releaseWake(); filmRelease(); ttsUpdateFab(); };
 
     function blockStart(i){ for(var k=Math.min(i,queue.length-1);k>=0;k--){ if(queue[k]&&queue[k].first) return k; } return 0; }
     function nextBlock(i){ for(var k=i+1;k<queue.length;k++){ if(queue[k].first) return k; } return queue.length; }
@@ -2937,7 +3691,8 @@ input[type=range]::-moz-range-thumb{border-color:var(--accent)}
 
     function chapterEnd(){
       clearHighlight();
-      if(contPlay&&cur<11){
+      if(filmOnly){ filmOnly=false; filmRelease(true); ttsStop(); showToast('Film finished.',null,null,true); return; }
+      if(contPlay&&cur<12){
         ttsNarratorNav=true; go(cur+1); ttsNarratorNav=false;
         buildQueue(cur); playing=true; paused=false; setPlayIcon(true); progress();
         setTimeout(function(){ if(playing&&!paused) speakCurrent(); },380);
@@ -2949,7 +3704,7 @@ input[type=range]::-moz-range-thumb{border-color:var(--accent)}
     var PAUSE='<svg viewBox="0 0 24 24"><path d="M7 5h3.2v14H7zM13.8 5H17v14h-3.2z"/></svg>';
     function setPlayIcon(on){ plPlay.innerHTML=on?PAUSE:PLAY; plPlay.setAttribute('aria-label',on?'Pause':'Play'); }
     function showPlayer(on){ player.classList.toggle('show',on); fab.classList.toggle('gone',on); }
-    ttsUpdateFab=function(){ var can=(cur>=1&&cur<=11)&&!playing&&!paused; fab.classList.toggle('gone',!can); if(!playing&&!paused) player.classList.remove('show'); };
+    ttsUpdateFab=function(){ var can=(cur>=1&&cur<=12)&&!playing&&!paused; fab.classList.toggle('gone',!can); if(!playing&&!paused) player.classList.remove('show'); };
 
     function fmtRate(r){ return (Math.round(r*100)/100)+'\u00d7'; }
     function cycleRate(){
@@ -2998,7 +3753,7 @@ input[type=range]::-moz-range-thumb{border-color:var(--accent)}
     // expose a tiny read-only hook for testing / debugging
     window.renalListen={ buildQueue:function(n){ buildQueue(n); return queue.map(function(q){return q.text;}); },
       state:function(){ return {playing:playing,paused:paused,qi:qi,len:queue.length,voice:voice&&voice.name,rate:rate,cont:contPlay}; },
-      _start:start, _advance:function(){ if(playing&&!paused){ qi++; speakCurrent(); } }, _stop:function(){ ttsStop(); } };
+      _start:start, _film:startFilmVoice, _advance:function(){ if(playing&&!paused){ qi++; speakCurrent(); } }, _stop:function(){ ttsStop(); } };
   })();
 
   // init
