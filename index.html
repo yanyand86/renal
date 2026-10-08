@@ -697,6 +697,108 @@ input[type=range]::-moz-range-thumb{border-color:var(--accent)}
 .hs-msg{margin-top:5px;font-size:14px;color:var(--ink-soft);line-height:1.55}
 .hs-note{margin-top:12px;font-size:12px;color:var(--ink-faint);line-height:1.5}
 .xlink{display:inline-block;margin-top:8px;font-size:13px;font-weight:600;color:var(--accent);text-decoration:underline;text-underline-offset:3px}
+
+/* ================= v7 · Trust policy (REN 050) ================= */
+.card.tp-card{position:relative;margin-top:24px;border-color:#A8C7EA;box-shadow:0 0 0 3px rgba(0,94,184,.07),var(--shadow)}
+.tp-flag{position:absolute;top:-12px;right:14px;display:inline-flex;align-items:center;gap:6px;padding:4px 11px 4px 9px;border-radius:99px;background:#005EB8;color:#fff;font-size:11.5px;font-weight:500;line-height:1.3;box-shadow:0 5px 12px -5px rgba(0,61,120,.6)}
+.tp-flag svg{width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linejoin:round}
+.tp-flag b{font-weight:700}
+.tp-mini{display:inline-block;margin-left:6px;padding:1px 7px;border-radius:6px;background:rgba(0,94,184,.1);color:#005EB8;font-size:10.5px;font-weight:700;line-height:1.6;vertical-align:1px;white-space:nowrap}
+.disclaimer .tp-mini{margin:0 2px}
+#ch-8 .card>p.hs-note,#ch-9 .card>p.hs-note{font-size:12px;color:var(--ink-faint);line-height:1.5;margin-top:12px}
+#ch-9 .card.tp-card>p{font-size:14.5px;color:var(--ink-soft);line-height:1.6;margin-bottom:10px}
+
+.tp-tiles{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+@media(min-width:560px){.tp-tiles{grid-template-columns:repeat(3,1fr)}}
+.tpt{position:relative;overflow:hidden;border-radius:14px;padding:14px 12px 12px;background:var(--card-2);border:1px solid var(--mist-2)}
+.tpt::before{content:"";position:absolute;left:0;right:0;top:0;height:4px;background:var(--tc)}
+.tpt b{display:block;font-family:var(--serif);font-size:25px;font-weight:600;line-height:1.05;color:var(--tc);letter-spacing:-.01em}
+.tpt b small{font-family:var(--sans);font-size:12px;font-weight:600;margin-left:4px;letter-spacing:0}
+.tpt span{display:block;margin-top:6px;font-size:12.5px;line-height:1.4;color:var(--ink-soft)}
+.t-go{--tc:#2E7D32}.t-stop{--tc:#C62828}.t-up{--tc:#00838F}.t-vol{--tc:#7B1FA2}.t-mode{--tc:#005EB8}.t-no{--tc:#B26A00}
+
+.qb-band{position:relative;height:6px;margin:4px 12px 24px;border-radius:99px}
+.qb-band i{position:absolute;top:0;bottom:0}
+.qb-band .z1{left:0;width:40%;background:#EF9A9A;border-radius:99px 0 0 99px}
+.qb-band .z2{left:40%;width:20%;background:#FFD54F}
+.qb-band .z3{left:60%;width:40%;background:#81C784;border-radius:0 99px 99px 0}
+.qb-band span{position:absolute;top:11px;left:calc(var(--f)*100%);transform:translateX(-50%);font:600 10.5px "IBM Plex Mono",monospace;color:var(--ink-soft)}
+.qb-band span::before{content:"";position:absolute;left:50%;top:-14px;width:2px;height:12px;margin-left:-1px;border-radius:1px;background:var(--ink-soft)}
+.qb-foot{display:flex;align-items:flex-start;gap:10px;margin-bottom:4px}
+.qb-say{flex:1;position:relative;padding-left:16px;font-size:13px;line-height:1.45;color:var(--ink-soft)}
+.qb-say::before{content:"";position:absolute;left:0;top:5px;width:9px;height:9px;border-radius:50%;background:#81C784}
+.qb-say.sus::before{background:#E53935}.qb-say.ok::before{background:#F9A825}.qb-say.opt::before{background:#2E7D32}
+.step50{flex:none;padding:7px 13px;border-radius:99px;border:1.5px solid var(--accent-2);background:var(--card);color:var(--accent);font-weight:700;font-size:12.5px}
+.step50:disabled{opacity:.35;cursor:default}
+
+.walk{position:relative;display:flex;flex-direction:column;gap:12px;margin-top:14px}
+.wstep{position:relative;display:grid;grid-template-columns:30px 1fr;gap:12px;align-items:start;animation:openIn .3s ease both}
+.wstep:not(:last-child)::after{content:"";position:absolute;left:14px;top:34px;bottom:-10px;width:2px;background:var(--mist)}
+.wdot{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#fff;font-weight:700;font-size:13px}
+.wstep.done .wdot{background:var(--mist);color:var(--ink-soft)}
+.wq{font-weight:600;font-size:14.5px;line-height:1.4;color:var(--ink)}
+.wstep.done .wq{color:var(--ink-soft);font-weight:500}
+.wnote{display:block;margin-top:3px;font-size:12.5px;color:var(--ink-faint)}
+.wbtns{display:flex;gap:8px;margin-top:9px}
+.wb{min-width:64px;padding:8px 18px;border-radius:99px;border:1.5px solid var(--mist);background:var(--card-2);font-weight:600;font-size:13.5px}
+.wb:hover:not(:disabled){border-color:var(--accent-2)}
+.wb.on{background:var(--accent);border-color:transparent;color:#fff}
+.wb:disabled{cursor:default}
+.wb:disabled:not(.on){opacity:.35}
+.wres{border-radius:var(--r-sm);padding:13px 15px;border-left:5px solid;animation:openIn .3s ease both}
+.wres.ok{background:#EEF7EE;border-color:#2E7D32}.wres.warn{background:#FFF8E1;border-color:#F9A825}.wres.bad{background:#FFF5F5;border-color:#D32F2F}
+.wres b{display:block;font-family:var(--serif);font-size:17px;line-height:1.25}
+.wres p{margin-top:5px;font-size:14px;line-height:1.55;color:var(--ink-soft)}
+.walk .chip.reset{align-self:flex-start}
+
+.duties{list-style:none;margin-top:12px;display:flex;flex-direction:column;gap:8px}
+.duty{display:grid;grid-template-columns:34px 1fr;gap:11px;align-items:start;padding:10px 12px;border-radius:12px;background:var(--card-2);border:1px solid var(--mist-2);font-size:14px;line-height:1.45;color:var(--ink);animation:openIn .3s ease both}
+.duty .di{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;color:#fff;background:var(--dc)}
+.duty .di svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.duty small{display:block;margin-bottom:2px;font-size:11.5px;font-weight:700;color:var(--dc)}
+.d-qa{--dc:#455A64}.d-find{--dc:#6A1B9A}.d-set{--dc:#2E7D32}.d-pause{--dc:#C62828}.d-check{--dc:#005EB8}.d-up{--dc:#00838F}.d-tell{--dc:#E65100}
+
+.rx{margin-top:12px;border-radius:12px;overflow:hidden;border:1px solid #B8C4D6;background:#F4F6FA;font-family:Tahoma,Verdana,Inter,sans-serif}
+.rx-top{display:flex;justify-content:space-between;align-items:center;padding:8px 12px;background:linear-gradient(#E9EEF6,#D9E1EE);border-bottom:1px solid #B8C4D6;font-weight:700;font-size:13px;color:#1A2B4A}
+.rx-top em{font-style:normal;font-weight:500;font-size:11px;color:#5A6B86}
+.rx-brief{margin:10px 12px 0;padding:8px 10px;border-radius:8px;background:#FFF8E1;border:1px solid #FFE082;font-size:12.5px;line-height:1.45;color:#5D4300}
+.rx-brief[hidden],.rx-score[hidden]{display:none}
+.rx-body{display:grid;grid-template-columns:1fr;gap:10px;padding:12px}
+@media(min-width:520px){.rx-body{grid-template-columns:1fr 1fr}}
+.rx-col{display:flex;flex-direction:column;gap:7px}
+.rx-g{margin-top:4px;font-size:11px;font-weight:700;color:#5A6B86}
+.rx-f{position:relative;display:flex;align-items:center;justify-content:space-between;gap:10px;width:100%;padding:8px 36px 8px 10px;border-radius:7px;border:1px solid #C9D3E2;background:#fff;text-align:left;font-size:12.5px;color:#1A2B4A;transition:box-shadow .15s,border-color .15s}
+button.rx-f:hover{border-color:#005EB8}
+.rx-static{opacity:.65}
+.rx-l{font-weight:600}
+.rx-v{font-family:"IBM Plex Mono",monospace;font-size:12px;padding:2px 7px;border:1px solid #9FB0C8;border-radius:3px;background:#FBFCFE;white-space:nowrap}
+.rx-dd::after{content:"\25BE";margin-left:6px;color:#5A6B86}
+.rx-box{flex:none;width:18px;height:18px;border:1.5px solid #6F7F99;border-radius:3px;background:#fff;display:grid;place-items:center;font-size:13px;font-weight:700;line-height:1;color:#1B5E20}
+.rx-box.on::after{content:"\2713"}
+.rx-n{position:absolute;right:8px;top:50%;width:20px;height:20px;margin-top:-10px;border-radius:4px;display:grid;place-items:center;background:#fff;border:1.5px solid #1A2B4A;font-style:normal;font-size:11px;font-weight:700;color:#1A2B4A}
+.rx-f.sel{border-color:#005EB8;box-shadow:0 0 0 3px rgba(0,94,184,.22)}
+.rx-f.sel .rx-n{background:#005EB8;border-color:#005EB8;color:#fff}
+.rx.spot .rx-n{display:none}
+.rx-f.good{border-color:#2E7D32;box-shadow:0 0 0 3px rgba(46,125,50,.25)}
+.rx-f.bad{border-color:#D32F2F;box-shadow:0 0 0 3px rgba(211,47,47,.22);animation:rxShake .3s}
+@keyframes rxShake{25%{transform:translateX(-3px)}75%{transform:translateX(3px)}}
+.info-panel.rx-ok{border-left-color:#2E7D32}
+.info-panel.rx-no{border-left-color:#D32F2F}
+.rx-score{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:10px;font-size:13.5px;color:var(--ink-soft)}
+
+.opt-grid{display:grid;grid-template-columns:1fr;gap:10px;margin-top:12px}
+@media(min-width:560px){.opt-grid{grid-template-columns:1fr 1fr}}
+.opt{border-radius:14px;padding:12px 14px;background:var(--card-2);border:1px solid var(--mist-2);border-top:4px solid var(--oc)}
+.opt-h{display:flex;align-items:center;gap:10px}
+.opt-i{flex:none;width:32px;height:32px;border-radius:10px;display:grid;place-items:center;background:var(--oc);color:#fff}
+.opt-i svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.opt-h b{font-size:15px}
+.opt ul{margin-top:9px;padding-left:18px;font-size:13.5px;line-height:1.5;color:var(--ink-soft)}
+.opt li+li{margin-top:5px}
+.o-flow{--oc:#C62828}.o-clot{--oc:#6A1B9A}.o-rx{--oc:#005EB8}.o-rec{--oc:#2E7D32}
+.toast{border-radius:18px;line-height:1.45;width:max-content;max-width:min(460px,calc(100vw - 32px))}
+.rx-f.good,.rx-f.good:hover{border-color:#2E7D32}
+.rx-f.bad,.rx-f.bad:hover{border-color:#D32F2F}
 </style>
 </head>
 <body>
@@ -753,7 +855,7 @@ input[type=range]::-moz-range-thumb{border-color:var(--accent)}
   <div class="path-head"><h2>Chapters</h2><span id="pathCount"></span></div>
   <nav class="chapter-list" id="homeList"></nav>
 
-  <p class="disclaimer">An educational companion for teaching, not a clinical protocol. Always follow your local ENHT / UKKA guidance, formulary and machine SOPs in practice.</p>
+  <p class="disclaimer">An educational companion for teaching, not a clinical protocol. Content marked <span class="tp-mini">Trust</span> comes from ENHT documents, named by their document number: check the intranet for the current version. Always follow local guidance, the formulary and machine SOPs in practice.</p>
 </section>
 
 <!-- ===== 01 ANATOMY ===== -->
@@ -1295,7 +1397,7 @@ input[type=range]::-moz-range-thumb{border-color:var(--accent)}
   <div class="ch-head">
     <div class="ch-kicker"><span>08 · HDF</span><span class="line"></span></div>
     <h2>HD and haemodiafiltration</h2>
-    <p class="lede">Haemodialysis cleans the blood mostly by diffusion. Haemodiafiltration, or HDF, adds convection: it pushes litres of plasma water through the membrane so that larger molecules are dragged out with it, then replaces that water with sterile fluid the machine makes as it goes.</p>
+    <p class="lede">Haemodialysis cleans the blood mostly by diffusion. Haemodiafiltration, or HDF, adds convection: it pushes litres of plasma water through the membrane so that larger molecules are dragged out with it, then replaces that water with sterile fluid the machine makes as it goes. At ENHT it is the standard treatment for anyone whose blood flow is good enough.</p>
   </div>
 
   <div class="card">
@@ -1309,7 +1411,7 @@ input[type=range]::-moz-range-thumb{border-color:var(--accent)}
       <p class="film-cap" id="filmCap" aria-live="polite"></p>
       <div class="film-ctl">
         <button class="film-btn" id="filmPlay" aria-label="Play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button>
-        <span class="film-time" id="filmTime">0:00 / 2:06</span>
+        <span class="film-time" id="filmTime">0:00 / 2:18</span>
         <div class="film-track"><div class="film-ticks" id="filmTicks"></div><input type="range" id="filmScrub" min="0" max="1000" step="1" value="0" aria-label="Position in the film"></div>
         <button class="film-btn voice" id="filmVoice" aria-label="Play with the narrator"><svg viewBox="0 0 24 24"><path d="M4 13v-1a8 8 0 0116 0v1"/><rect x="3" y="13" width="4" height="7" rx="1.6"/><rect x="17" y="13" width="4" height="7" rx="1.6"/></svg></button>
       </div>
@@ -1324,6 +1426,20 @@ input[type=range]::-moz-range-thumb{border-color:var(--accent)}
     <div class="chips film-chips" id="filmChips" role="group" aria-label="Jump to a scene"></div>
   </div>
 
+  <div class="card tp-card">
+    <span class="tp-flag" role="note" aria-label="From the Trust document REN 050"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 3h8l4 4v14h-12z"/><path d="M14.5 3v4h4"/><path d="M9.5 12h6M9.5 16h4"/></svg>Trust <b>REN 050</b></span>
+    <h3>The Trust guideline in brief</h3>
+    <p>REN 050 makes HDF the standard treatment for anyone whose blood flow is good enough. These are the rules to teach.</p>
+    <div class="tp-tiles">
+      <div class="tpt t-go" data-say="300 millilitres a minute: the minimum blood flow for H-D-F, consistently and without frequent alarms, on any access."><b>300<small>mL/min</small></b><span>Minimum blood flow for HDF, consistently and without frequent alarms, on any access</span></div>
+      <div class="tpt t-stop" data-say="Below 300: H-D-F is suspended in the dialysis orders until the access problem is resolved."><b>Below 300</b><span>Suspend HDF in the dialysis orders until the access problem is resolved</span></div>
+      <div class="tpt t-up" data-say="350 or more: the aim when optimising, raising the blood flow in steps of 50."><b>350+<small>mL/min</small></b><span>The aim when optimising: raise blood flow in 50 mL/min steps</span></div>
+      <div class="tpt t-vol" data-say="Over 20 litres: the substitution volume per treatment for high-volume H-D-F. Record and review it."><b>Over 20<small>L</small></b><span>Substitution volume per treatment for high-volume HDF: record and review it</span></div>
+      <div class="tpt t-mode" data-say="Post-dilution: the standard mode. Pre-dilution is considered if the circuit clots, or adequate anticoagulation is not possible."><b>Post</b><span>The standard mode. Pre-dilution if the circuit clots or anticoagulation isn&rsquo;t possible</span></div>
+      <div class="tpt t-no" data-say="Not medium cut-off: dialysers such as Theranova are not suitable for H-D-F."><b>Not MCO</b><span>Medium cut-off dialysers, such as Theranova, are not suitable for HDF</span></div>
+    </div>
+  </div>
+
   <div class="card">
     <h3>HD and HDF side by side</h3>
     <div class="vs" role="table" aria-label="Haemodialysis compared with haemodiafiltration">
@@ -1331,11 +1447,13 @@ input[type=range]::-moz-range-thumb{border-color:var(--accent)}
       <div class="vs-row" role="row"><span role="rowheader">How it cleans</span><span role="cell">Diffusion</span><span role="cell">Diffusion and convection</span></div>
       <div class="vs-row" role="row"><span role="rowheader">Small waste: urea, potassium</span><span role="cell">Cleared well</span><span role="cell">Cleared well</span></div>
       <div class="vs-row" role="row"><span role="rowheader">Middle molecules: &beta;2-microglobulin</span><span role="cell">Cleared poorly</span><span role="cell">Cleared much better</span></div>
-      <div class="vs-row" role="row"><span role="rowheader">Dialyser</span><span role="cell">Low- or high-flux</span><span role="cell">High-flux only</span></div>
-      <div class="vs-row" role="row"><span role="rowheader">Convection per session</span><span role="cell">Just the UF goal, around 2&nbsp;L</span><span role="cell">Around 23&nbsp;L or more</span></div>
+      <div class="vs-row" role="row"><span role="rowheader">Dialyser</span><span role="cell">Low- or high-flux</span><span role="cell">High-flux. Not medium cut-off, such as Theranova<span class="tp-mini">REN 050</span></span></div>
+      <div class="vs-row" role="row"><span role="rowheader">Blood flow</span><span role="cell">As prescribed</span><span role="cell">300 mL/min or more, without frequent alarms<span class="tp-mini">REN 050</span></span></div>
+      <div class="vs-row" role="row"><span role="rowheader">Volume per session</span><span role="cell">No substitution: convection is just the UF goal, around 2&nbsp;L</span><span role="cell">Over 20&nbsp;L of substitution fluid<span class="tp-mini">REN 050</span></span></div>
       <div class="vs-row" role="row"><span role="rowheader">Fluid given into the blood</span><span role="cell">None</span><span role="cell">Sterile substitution fluid, made online</span></div>
       <div class="vs-row" role="row"><span role="rowheader">Water quality</span><span role="cell">Ultrapure recommended</span><span role="cell">Ultrapure essential</span></div>
     </div>
+    <p class="hs-note">Substitution fluid goes straight into the blood, which is why the water has to be ultrapure. <button class="xlink" data-go="7">Go to water treatment</button></p>
   </div>
 
   <div class="card">
@@ -1354,7 +1472,7 @@ input[type=range]::-moz-range-thumb{border-color:var(--accent)}
 
   <div class="card">
     <h3>Try it: HD, post or pre</h3>
-    <p>Choose a mode, then set the blood flow and the substitution rate. The colour of the blood shows how much it thickens, and the tiles show what a four-hour session would reach.</p>
+    <p>Choose a mode, then set the blood flow and the substitution rate. On the unit you won&rsquo;t set the rate by hand: with HDF Auto Sub ticked, the 5008 and 6008 adjust it several times a minute. The slider shows what they&rsquo;re balancing.</p>
     <div class="seg" id="hdfMode" role="group" aria-label="Treatment mode">
       <button data-t="hd">HD</button><button class="on" data-t="post">Post-dilution</button><button data-t="pre">Pre-dilution</button>
     </div>
@@ -1386,58 +1504,111 @@ input[type=range]::-moz-range-thumb{border-color:var(--accent)}
         <text class="hs-lbl" x="180" y="152" text-anchor="middle">Dialyser</text>
       </svg>
     </div>
-    <div class="slider-row"><label for="hqb">Blood flow <b id="hqbL">400 mL/min</b></label><input type="range" id="hqb" min="200" max="450" step="10" value="400"></div>
-    <div class="slider-row" id="hqsRow"><label for="hqs">Substitution fluid <b id="hqsL">90 mL/min</b></label><input type="range" id="hqs" min="0" max="300" step="5" value="90"></div>
+    <div class="slider-row"><label for="hqb">Blood flow <b id="hqbL">350 mL/min</b></label><input type="range" id="hqb" min="200" max="450" step="10" value="350">
+      <div class="qb-band" aria-hidden="true"><i class="z1"></i><i class="z2"></i><i class="z3"></i><span style="--f:.4">300</span><span style="--f:.6">350</span></div>
+      <div class="qb-foot"><p class="qb-say" id="qbSay"></p><button class="step50" id="hqbUp" aria-label="Raise the blood flow by 50 mL/min">+50</button></div>
+    </div>
+    <div class="slider-row" id="hqsRow"><label for="hqs">Substitution rate <b id="hqsL">90 mL/min</b></label><input type="range" id="hqs" min="0" max="300" step="5" value="90"></div>
     <div class="hdf-stats">
-      <div class="hstat" id="hsFF"><span class="hs-k">Filtration</span><b>25%</b><small>of the blood flow</small><div class="hs-bar"><i></i><em style="left:50%"></em><em style="left:60%"></em></div></div>
-      <div class="hstat" id="hsHct"><span class="hs-k">Blood leaving the dialyser</span><b>Hct 44%</b><small>it starts at 33%</small></div>
-      <div class="hstat" id="hsVol"><span class="hs-k">Convection volume</span><b>23.6 L</b><small>per 4-hour session</small><div class="hs-bar"><i></i><em style="left:57.5%"></em></div></div>
-      <div class="hstat" id="hsEff"><span class="hs-k">Middle-molecule clearing</span><b>23.6 L</b><small>the full value of every litre</small></div>
+      <div class="hstat" id="hsFF"><span class="hs-k">Filtration</span><b>28%</b><small>of the blood flow</small><div class="hs-bar"><i></i><em style="left:60%"></em><em style="left:70%"></em></div></div>
+      <div class="hstat" id="hsHct"><span class="hs-k">Blood leaving the dialyser</span><b>Hct 46%</b><small>it starts at 33%</small></div>
+      <div class="hstat" id="hsSub"><span class="hs-k">Substitution volume</span><b>21.6 L</b><small>Trust target: over 20 L</small><div class="hs-bar"><i></i><em style="left:50%"></em></div></div>
+      <div class="hstat" id="hsVol"><span class="hs-k">Convection volume</span><b>23.6 L</b><small>substitution plus the 2 L removed</small></div>
     </div>
     <div class="alarm-card ok" id="hdfMsg" aria-live="polite"></div>
-    <p class="hs-note">A simplified teaching model: haematocrit 33%, 2 litres of fluid removed over a 4-hour session, and pre-dilution litres discounted by how much they dilute the plasma. Real results depend on the dialyser, the patient&rsquo;s blood and the machine.</p>
+    <p class="hs-note">A simplified teaching model: haematocrit 33%, 2 litres of fluid removed over a 4-hour session, and pre-dilution litres discounted by how much they dilute the plasma. The 300, 350 and 20-litre marks come from REN 050. Real results depend on the dialyser, the patient&rsquo;s blood and the machine.</p>
   </div>
 
-  <div class="card">
+  <div class="card tp-card">
+    <span class="tp-flag" role="note" aria-label="From the Trust document REN 050"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 3h8l4 4v14h-12z"/><path d="M14.5 3v4h4"/><path d="M9.5 12h6M9.5 16h4"/></svg>Trust <b>REN 050</b></span>
+    <h3>Is HDF right for this patient?</h3>
+    <p>Walk through the guideline&rsquo;s criteria. Answer each question to see what happens next.</p>
+    <div class="walk" id="hdfWalk" aria-live="polite"></div>
+  </div>
+
+  <div class="card tp-card">
+    <span class="tp-flag" role="note" aria-label="From the Trust document REN 050"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 3h8l4 4v14h-12z"/><path d="M14.5 3v4h4"/><path d="M9.5 12h6M9.5 16h4"/></svg>Trust <b>REN 050</b></span>
     <h3>Post or pre: which and when</h3>
     <div class="acc">
-      <details class="item"><summary><span class="tag t-violet">Post</span><span class="summary-txt">Post-dilution<small>The usual first choice</small></span><span class="chev">&rsaquo;</span></summary><div class="reveal"><p>The most efficient mode per litre, because blood reaches the membrane undiluted. Reaching high volumes needs a good blood flow, usually around 350 to 400 mL/min or more over a four-hour session.</p><div class="why"><b>The limit:</b> filtration of about 25 to 30% of the blood flow. A high haematocrit or high protein levels lower it further, because the blood is already thick.</div></div></details>
-      <details class="item"><summary><span class="tag t-aqua">Pre</span><span class="summary-txt">Pre-dilution<small>When the circuit needs help</small></span><span class="chev">&rsaquo;</span></summary><div class="reveal"><p>Useful when blood flow is limited, for example with a line or a struggling access, when the haematocrit is high, or when the circuit keeps clotting in post-dilution. The blood arrives thinner, so it filters easily and the circuit stays clear.</p><div class="why"><b>The cost:</b> roughly 1.5 to 2 times the volume for the same clearance, and more at low blood flows.</div></div></details>
-      <details class="item"><summary><span class="tag t-blue">Mix</span><span class="summary-txt">Mixed dilution<small>Both at once</small></span><span class="chev">&rsaquo;</span></summary><div class="reveal"><p>Some machines can split the substitution fluid between the two points, before and after the dialyser, to keep much of the efficiency of post-dilution with less strain on the circuit.</p></div></details>
+      <details class="item"><summary><span class="tag t-violet">Post</span><span class="summary-txt">Post-dilution<small>The Trust standard</small></span><span class="chev">&rsaquo;</span></summary><div class="reveal"><p>The most efficient mode for clearing middle molecules, because blood reaches the membrane undiluted. The guideline recommends post-dilution generally. In the record it is HDF_Post.</p><div class="why"><b>The limit:</b> filtration of about 25 to 30% of the blood flow. With HDF Auto Sub ticked, the 5008 and 6008 manage this themselves.</div></div></details>
+      <details class="item"><summary><span class="tag t-aqua">Pre</span><span class="summary-txt">Pre-dilution<small>If the circuit clots, or anticoagulation isn&rsquo;t possible</small></span><span class="chev">&rsaquo;</span></summary><div class="reveal"><p>The blood arrives thinner, so it filters easily and clots less. The guideline considers it when the circuit is clotting, or the patient can&rsquo;t have adequate anticoagulation because of an allergy or bleeding risk. In the record it is HDF_Pre.</p><div class="why"><b>Not for low blood flow:</b> below 300 mL/min, HDF is suspended instead. And pre-dilution needs roughly 1.5 to 2 times the volume for the same clearance.</div></div></details>
+      <details class="item"><summary><span class="tag t-blue">Mid</span><span class="summary-txt">Mid-dilution<small>Named in the guideline</small></span><span class="chev">&rsaquo;</span></summary><div class="reveal"><p>The fluid joins partway along a specially designed dialyser. Like pre-dilution, it is less efficient than post-dilution, which is why the guideline recommends post-dilution generally.</p></div></details>
       <details class="item"><summary><span class="tag t-fluid">HF</span><span class="summary-txt">Haemofiltration<small>Convection only</small></span><span class="chev">&rsaquo;</span></summary><div class="reveal"><p>No dialysate flows past the membrane, so all the clearance comes from convection. It is rarely used for regular outpatient treatment; continuous haemofiltration, CVVH, is used in intensive care.</p></div></details>
     </div>
   </div>
 
-  <div class="card">
-    <h3>What HDF needs</h3>
-    <div class="two">
-      <div class="panel-note"><strong>A high-flux dialyser.</strong> Its pores are large enough to let middle molecules through, while albumin is held back.</div>
-      <div class="panel-note"><strong>Ultrapure fluid.</strong> Substitution fluid goes straight into the blood, so the water and dialysate must be ultrapure and the machine&rsquo;s filters changed on schedule. <button class="xlink" data-go="7">Go to water treatment</button></div>
-      <div class="panel-note"><strong>A good access and blood flow.</strong> High volumes in post-dilution need a blood flow of roughly 350 to 400 mL/min or more, and the full session time.</div>
-      <div class="panel-note"><strong>A machine set up for online HDF.</strong> The Fresenius 5008 and 6008 both make substitution fluid online, and their AutoSub plus feature adjusts the post-dilution substitution rate automatically to stop the blood thickening too much.</div>
+  <div class="card tp-card">
+    <span class="tp-flag" role="note" aria-label="From the Trust document REN 050"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 3h8l4 4v14h-12z"/><path d="M14.5 3v4h4"/><path d="M9.5 12h6M9.5 16h4"/></svg>Trust <b>REN 050</b></span>
+    <h3>Who does what</h3>
+    <p>The guideline sets out duties by role. Pick one to see them.</p>
+    <div class="chips" id="roleChips" role="group" aria-label="Choose a role">
+      <button class="chip" data-r="con">Consultant</button><button class="chip on" data-r="pn">Primary nurse</button><button class="chip" data-r="hd">HD nurse or nursing assistant</button><button class="chip" data-r="csw">Clinical support worker</button>
+    </div>
+    <ul class="duties" id="roleDuties" aria-live="polite"></ul>
+    <p class="hs-note">Everyone seeks advice from the senior haemodialysis nurses or medical staff when unsure, and the senior renal team supports compliance with the guideline.</p>
+  </div>
+
+  <div class="card tp-card">
+    <span class="tp-flag" role="note" aria-label="From the Trust document REN 050"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 3h8l4 4v14h-12z"/><path d="M14.5 3v4h4"/><path d="M9.5 12h6M9.5 16h4"/></svg>Trust <b>REN 050</b></span>
+    <h3>Prescribing HDF in the record</h3>
+    <p>In the patient&rsquo;s computerised dialysis record, four settings make it HDF. Tap a numbered setting to see what it does, or practise spotting a mistake.</p>
+    <div class="seg" id="rxMode" role="group" aria-label="Choose how to use the record"><button class="on" data-t="learn">Learn the four</button><button data-t="spot">Spot the mistake</button></div>
+    <div class="rx" id="rxScreen">
+      <div class="rx-top"><span>Haemodialysis Rx</span><em>simplified</em></div>
+      <p class="rx-brief" id="rxBrief" hidden>Prescribed: post-dilution HDF at a blood flow of 350 mL/min. One setting doesn&rsquo;t match the guideline or the prescription. Tap it.</p>
+      <div class="rx-body">
+        <div class="rx-col">
+          <div class="rx-f rx-static"><span class="rx-l">Frequency</span><span class="rx-v">3x week</span></div>
+          <button class="rx-f" data-f="method" aria-label="Treatment method"><span class="rx-l">Treatment method</span><span class="rx-v rx-dd" id="rxMethod">HDF_POST</span><i class="rx-n">1</i></button>
+          <button class="rx-f" data-f="bfr" aria-label="Blood flow rate"><span class="rx-l">BFR</span><span class="rx-v" id="rxBfr">350 ml/min</span></button>
+        </div>
+        <div class="rx-col">
+          <span class="rx-g">HDF/HF</span>
+          <button class="rx-f" data-f="autosub" aria-label="HDF Auto Sub"><span class="rx-l">HDF Auto Sub</span><span class="rx-box on" id="rxSub"></span><i class="rx-n">2</i></button>
+          <span class="rx-g">Fresenius settings</span>
+          <button class="rx-f" data-f="autoflow" aria-label="Auto Dialysate Flow"><span class="rx-l">Auto Dialysate Flow</span><span class="rx-box on" id="rxFlow"></span><i class="rx-n">3</i></button>
+          <button class="rx-f" data-f="ratio" aria-label="Auto Flow Ratio"><span class="rx-l">Auto Flow Ratio</span><span class="rx-v rx-dd" id="rxRatio">1.5</span><i class="rx-n">4</i></button>
+        </div>
+      </div>
+    </div>
+    <div class="info-panel" id="rxInfo" aria-live="polite"></div>
+    <div class="rx-score" id="rxScore" hidden><span id="rxScoreT">Mistakes found: 0</span><button class="chip" id="rxNext">Next record</button></div>
+  </div>
+
+  <div class="card tp-card">
+    <span class="tp-flag" role="note" aria-label="From the Trust document REN 050"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 3h8l4 4v14h-12z"/><path d="M14.5 3v4h4"/><path d="M9.5 12h6M9.5 16h4"/></svg>Trust <b>REN 050</b></span>
+    <h3>Getting the most from HDF</h3>
+    <p>The guideline&rsquo;s four ways to optimise high-flow HDF.</p>
+    <div class="opt-grid">
+      <div class="opt o-flow"><div class="opt-h"><span class="opt-i"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h4l2.5-6 5 12 2.5-6h4"/></svg></span><b>Maximise blood flow</b></div><ul><li>Larger AVF needles, where appropriate.</li><li>Raise the blood flow in 50 mL/min steps to reach 350 or more.</li><li>Regular access surveillance, looking for an AVF flow above 600 mL/min, with poor flows or recirculation escalated.</li></ul></div>
+      <div class="opt o-clot"><div class="opt-h"><span class="opt-i"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/><path d="M9 14h6"/></svg></span><b>Minimise clotting</b></div><ul><li>Adequate anticoagulation, following REN 016.</li><li>Escalate to the senior nurse if the dialyser is dark or there&rsquo;s clot in the bubble trap after taking the patient off.</li><li>Escalate if the blood is more viscous: a high Hb or a history of hypercoagulopathy.</li><li>Consider pre-dilution if the circuit clots or anticoagulation isn&rsquo;t possible.</li></ul></div>
+      <div class="opt o-rx"><div class="opt-h"><span class="opt-i"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="3.5" width="14" height="17" rx="2"/><path d="M8.5 8h7M8.5 12h7M8.5 16h4"/></svg></span><b>Follow the prescription</b></div><ul><li>Blood flow.</li><li>Treatment time.</li><li>Dialyser type and size.</li></ul></div>
+      <div class="opt o-rec"><div class="opt-h"><span class="opt-i"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19V10M11 19V5M17 19v-6M3 19h18"/></svg></span><b>Record and review</b></div><ul><li>The substitution volume at every treatment, checking it reaches high-volume HDF: over 20 litres.</li></ul></div>
     </div>
   </div>
 
   <div class="card">
     <h3>On the floor</h3>
     <div class="acc">
-      <details class="item"><summary><span class="tag t-blue">&check;</span><span class="summary-txt">Check the mode and the line<small>Before you start</small></span><span class="chev">&rsaquo;</span></summary><div class="reveal"><p>Confirm the prescription: HD or HDF, pre- or post-dilution, and the target volume. Then check the substitution line joins the blood line at the right point for that mode, before or after the dialyser. On the wrong side, the patient gets a different treatment from the one prescribed.</p></div></details>
-      <details class="item"><summary><span class="tag t-violet">TMP</span><span class="summary-txt">Watch TMP in post-dilution<small>The early warning</small></span><span class="chev">&rsaquo;</span></summary><div class="reveal"><p>A steady rise means the membrane is clogging, or filtration is too high for the patient&rsquo;s blood. Check the circuit for clotting and the anticoagulation, and follow the machine&rsquo;s prompts. On Fresenius machines, AutoSub plus may lower the substitution rate itself.</p></div></details>
-      <details class="item"><summary><span class="tag t-sage">L</span><span class="summary-txt">Record the volume reached<small>At the end of every session</small></span><span class="chev">&rsaquo;</span></summary><div class="reveal"><p>The machine shows the convection or substitution volume achieved. If it keeps falling short of the target, look at blood flow, needle size and access flow, time lost to alarms, clotting and haematocrit, and raise it for review at the QA meeting.</p></div></details>
+      <details class="item"><summary><span class="tag t-blue">&check;</span><span class="summary-txt">Check the machine matches the prescription<small>Before you start</small></span><span class="chev">&rsaquo;</span></summary><div class="reveal"><p>Check the treatment mode on the machine screen matches the prescription and the dialysis orders: HDF_Post or HDF_Pre, the blood flow and the dialyser. Then check the substitution line joins the blood line at the right point for that mode.</p><div class="why"><b>If anything differs:</b> nurses change the dialysis orders to match the prescription; clinical support workers tell the nurse in charge.<span class="tp-mini">REN 050</span></div></div></details>
+      <details class="item"><summary><span class="tag t-blood">300</span><span class="summary-txt">If the blood flow drops below 300<small>An access problem</small></span><span class="chev">&rsaquo;</span></summary><div class="reveal"><p>HDF needs 300 mL/min or more, without frequent alarms. Nurses suspend HDF in the dialysis orders screen until the problem is resolved, and clinical support workers tell the nurse in charge. Poor flows and recirculation are escalated so the access can be checked.<span class="tp-mini">REN 050</span></p></div></details>
+      <details class="item"><summary><span class="tag t-violet">TMP</span><span class="summary-txt">Watch TMP in post-dilution<small>The early warning</small></span><span class="chev">&rsaquo;</span></summary><div class="reveal"><p>A steady rise means the membrane is clogging, or filtration is too high for the patient&rsquo;s blood. Check the circuit and the anticoagulation, and follow the machine&rsquo;s prompts: with HDF Auto Sub ticked, it may lower the substitution rate itself.</p><div class="why"><b>Escalate to the senior nurse</b> if the dialyser is dark or there&rsquo;s clot in the bubble trap after taking the patient off.<span class="tp-mini">REN 050</span></div></div></details>
+      <details class="item"><summary><span class="tag t-sage">L</span><span class="summary-txt">Record the substitution volume<small>At the end of every treatment</small></span><span class="chev">&rsaquo;</span></summary><div class="reveal"><p>The machine shows the substitution volume reached. Record it: the Trust looks for over 20 litres per treatment as high-volume HDF. If it keeps falling short, look at blood flow, needles and access flow, time lost to alarms, clotting and Hb.</p><div class="why"><b>Reviewed at the QA meeting,</b> where the consultant checks each patient&rsquo;s blood flow and treatment mode against the HDF criteria.<span class="tp-mini">REN 050</span></div></div></details>
       <details class="item"><summary><span class="tag t-amber">?</span><span class="summary-txt">The fluid balance question<small>&ldquo;Am I being given 25 litres?&rdquo;</small></span><span class="chev">&rsaquo;</span></summary><div class="reveal"><p>Patients sometimes worry about the volumes. The machine only replaces what it filters beyond the UF goal, so the net fluid removed is exactly the same as on HD. Weigh the patient and set the UF goal as normal.</p></div></details>
-      <details class="item"><summary><span class="tag t-blood">!</span><span class="summary-txt">Anticoagulation and albumin<small>Small things that matter more</small></span><span class="chev">&rsaquo;</span></summary><div class="reveal"><p>Post-dilution concentrates the blood inside the dialyser, so good anticoagulation matters even more. High volumes, especially with a high TMP, can also lose a little more albumin, so it is worth keeping an eye on.</p></div></details>
+      <details class="item"><summary><span class="tag t-blood">!</span><span class="summary-txt">Anticoagulation and albumin<small>Small things that matter more</small></span><span class="chev">&rsaquo;</span></summary><div class="reveal"><p>Post-dilution concentrates the blood inside the dialyser, so good anticoagulation matters even more: follow the Trust&rsquo;s dalteparin guideline, REN 016. Escalate a high Hb or a history of hypercoagulopathy to the senior nurse. High volumes, especially with a high TMP, can also lose a little more albumin, so it is worth keeping an eye on.<span class="tp-mini">REN 050</span></p></div></details>
     </div>
   </div>
 
   <div class="card">
     <h3>The evidence</h3>
-    <p>In the CONVINCE trial, published in 2023, 1,360 adults in Europe had either high-dose HDF, aiming for at least 23 litres of convection per session, or high-flux HD. Over a median of 30 months, 17.3% of the HDF group died against 21.9% of the HD group: a 23% lower risk of death from any cause.</p>
-    <p>An earlier Spanish trial, ESHOL in 2013, also found lower mortality with high-volume post-dilution online HDF. In both, the benefit was tied to reaching high volumes, which depends on good blood flow, a working access and the full session time.</p>
-    <p>Middle molecules such as &beta;2-microglobulin build up over years on HD and can deposit in joints and tissues, causing dialysis-related amyloidosis. HDF lowers their levels.</p>
-    <p class="hs-note">Blankestijn and colleagues, New England Journal of Medicine, 2023. Maduell and colleagues, Journal of the American Society of Nephrology, 2013.</p>
+    <p>The Trust guideline gives three reasons for HDF. It removes &beta;2-microglobulin more efficiently than HD, which can delay the disabling joint disease it causes, dialysis amyloidosis. It lowers advanced glycation end-products, which can cause cardiovascular disease, more than high-flux HD. And it may improve survival.<span class="tp-mini">REN 050</span></p>
+    <p>Patients with very little residual kidney function are likely to benefit most, because working kidneys also clear &beta;2-microglobulin. Other benefits, such as better phosphate control or less itching, have been reported but also disputed, and HDF isn&rsquo;t a treatment for low blood pressure during dialysis.<span class="tp-mini">REN 050</span></p>
+    <p>The guideline cites ESHOL, a Spanish trial from 2013 that found lower mortality with high-efficiency post-dilution online HDF, and a long-term analysis by Vilar and colleagues in 2009: across 858 patients over 18 years, those on HDF alone had about a third lower risk of death than those on high-flux HD.</p>
+    <p>Since then, the CONVINCE trial in 2023 randomised 1,360 adults to high-dose HDF, aiming for at least 23 litres of convection per session, or to high-flux HD. Over a median of 30 months, 17.3% of the HDF group died against 21.9% of the HD group. Its 23 litres counts the fluid removed as well as the substitution fluid, so it sits close to the Trust&rsquo;s over 20 litres of substitution.</p>
+    <p class="hs-note">Maduell and colleagues, Journal of the American Society of Nephrology, 2013. Vilar and colleagues, Clinical Journal of the American Society of Nephrology, 2009. Blankestijn and colleagues, New England Journal of Medicine, 2023.</p>
   </div>
 
-  <div class="panel-note"><strong>Units and machines differ.</strong> The mode, volume and settings come from the prescription and your unit&rsquo;s HDF procedure. The film and the simulator are simplified to show the principles, not exact values.</div>
+  <div class="panel-note"><strong>This chapter follows REN 050,</strong> Use of Haemodiafiltration (HDF) as a Treatment Mode, version 006, due for full review before 1 April 2027. The related Trust guidelines are REN 016, on dalteparin to prevent clotting in the circuit, and REN 057, on measuring access flow and recirculation with Transonic and BTM. Check the intranet for the current versions. The film and the simulator are simplified to show the principles, not exact values.</div>
 </section>
 
 <!-- ===== 09 ACCESS ===== -->
@@ -1464,6 +1635,17 @@ input[type=range]::-moz-range-thumb{border-color:var(--accent)}
       <div class="panel-note"><strong>Steal syndrome</strong> — the access diverts too much blood, leaving the hand cold or painful.</div>
     </div>
     <p style="font-size:13.5px;color:var(--ink-faint);margin-top:12px;font-style:italic">A quick "look, listen, feel" each session — inspect the site, listen for a bruit, feel for a thrill — catches most problems early.</p>
+  </div>
+  <div class="card tp-card">
+    <span class="tp-flag" role="note" aria-label="From the Trust document REN 050"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 3h8l4 4v14h-12z"/><path d="M14.5 3v4h4"/><path d="M9.5 12h6M9.5 16h4"/></svg>Trust <b>REN 050</b></span>
+    <h3>Access and HDF</h3>
+    <p>HDF depends on the access: the Trust looks for a blood flow of 300 mL/min or more, consistently and without frequent alarms, on any access type.</p>
+    <div class="two">
+      <div class="panel-note"><strong>Surveillance.</strong> Access flow is checked regularly, looking for an AVF flow above 600 mL/min, and poor flows or recirculation are escalated. Measuring with Transonic or BTM follows REN 057.</div>
+      <div class="panel-note"><strong>Needles.</strong> Larger AVF needles, where appropriate, help reach the blood flow HDF needs.</div>
+      <div class="panel-note"><strong>Below 300 mL/min.</strong> Nurses suspend HDF in the dialysis orders until the access problem is resolved. Clinical support workers tell the nurse in charge.</div>
+    </div>
+    <button class="xlink" data-go="8">Go to HD and HDF</button>
   </div>
 </section>
 
@@ -1533,13 +1715,15 @@ input[type=range]::-moz-range-thumb{border-color:var(--accent)}
     <p class="lede">Quality Assurance is how we prove the dialysis is doing enough, and how each patient's dose gets individualised. The numbers only mean something if the samples were taken exactly right &mdash; so here, technique <em>is</em> the test.</p>
   </div>
 
-  <div class="card">
+  <div class="card tp-card">
+    <span class="tp-flag" role="note" aria-label="From the Trust document REN 034"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 3h8l4 4v14h-12z"/><path d="M14.5 3v4h4"/><path d="M9.5 12h6M9.5 16h4"/></svg>Trust <b>REN 034</b></span>
     <h3>What it's all for</h3>
-    <p style="font-size:14.5px;color:var(--ink-soft);line-height:1.6">The delivered dose of dialysis is directly linked to how patients do, so the department uses <strong>urea kinetic modelling</strong> to check what each patient is actually receiving and to set an individualised prescription. Two measurements feed it: how much the dialyser cleared (the QA pre/post pair) and how much the patient's own kidneys still clear (KRU, from the urine collection). Results are reviewed at the weekly QA meetings, and a Kt/V that is under- or over-achieving gets referred to the senior nurse or doctor.</p>
+    <p style="font-size:14.5px;color:var(--ink-soft);line-height:1.6">The delivered dose of dialysis is directly linked to how patients do, so the department uses <strong>urea kinetic modelling</strong> to check what each patient is actually receiving and to set an individualised prescription. Two measurements feed it: how much the dialyser cleared (the QA pre/post pair) and how much the patient's own kidneys still clear (KRU, from the urine collection). Results are reviewed at the weekly QA meetings, and a Kt/V that is under- or over-achieving gets referred to the senior nurse or doctor. The QA meeting is also where the consultant checks each patient&rsquo;s blood flow and treatment mode against the HDF criteria.<span class="tp-mini">REN 050</span></p>
     <div class="panel-note" style="margin-top:12px"><strong>Teaching line:</strong> we aren't collecting numbers for a file. A wrong sample can change how long someone sits in that chair every week.</div>
   </div>
 
-  <div class="card">
+  <div class="card tp-card">
+    <span class="tp-flag" role="note" aria-label="From the Trust document Doc 2077"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 3h8l4 4v14h-12z"/><path d="M14.5 3v4h4"/><path d="M9.5 12h6M9.5 16h4"/></svg>Trust <b>Doc 2077</b></span>
     <h3>Taking the samples</h3>
     <p style="font-size:14.5px;color:var(--ink-soft);margin-bottom:12px">Two samples around one session, each with its own procedure. Tap between them.</p>
     <div class="seg" id="bloodToggle" style="margin-bottom:12px">
@@ -1597,7 +1781,8 @@ input[type=range]::-moz-range-thumb{border-color:var(--accent)}
     </div>
   </div>
 
-  <div class="card">
+  <div class="card tp-card">
+    <span class="tp-flag" role="note" aria-label="From the Trust ICE request sets"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 3h8l4 4v14h-12z"/><path d="M14.5 3v4h4"/><path d="M9.5 12h6M9.5 16h4"/></svg>Trust <b>ICE sets</b></span>
     <h3>The two QA sets</h3>
     <p style="font-size:14.5px;color:var(--ink-soft);margin-bottom:12px">The round is ordered as two request sets across two sessions &mdash; the names below match the screen you'll order from.</p>
     <div class="seg" id="qaToggle" style="margin-bottom:12px">
@@ -1620,17 +1805,19 @@ input[type=range]::-moz-range-thumb{border-color:var(--accent)}
     </div>
   </div>
 
-  <div class="card">
+  <div class="card tp-card">
+    <span class="tp-flag" role="note" aria-label="From the Trust ICE request sets"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 3h8l4 4v14h-12z"/><path d="M14.5 3v4h4"/><path d="M9.5 12h6M9.5 16h4"/></svg>Trust <b>ICE sets</b></span>
     <h3>The extra tiers</h3>
     <p style="font-size:14.5px;color:var(--ink-soft);margin-bottom:6px">Alongside the monthly QA sets, three further sets run on longer cycles.</p>
     <div class="acc">
       <details class="item"><summary><span class="tag t-amber">3m</span><span class="summary-txt">3 monthly extra HD tests<small>Seven items</small></span><span class="chev">&rsaquo;</span></summary><div class="reveal"><p>Liver function test, glucose, HbA1c monitoring, parathyroid hormone, the RDU 3-monthly dialysis screen, a Staph aureus screen, and a haemodialysis catheter exit site culture.</p><div class="why"><b>Note the pattern:</b> PTH sits here rather than monthly because it's read as a slower trend alongside the bone profile. The screens and exit-site culture are infection surveillance &mdash; they protect the whole unit, not just that patient.</div></div></details>
-      <details class="item"><summary><span class="tag t-sage">6m</span><span class="summary-txt">6 monthly extra HD tests<small>Two items</small></span><span class="chev">&rsaquo;</span></summary><div class="reveal"><p>Glucose, and beta-2 microglobulin.</p><div class="why"><b>Why beta-2:</b> it's a middle molecule that healthy kidneys clear but dialysis removes far less efficiently. Over years it can accumulate and deposit in joints, so it's tracked over the long term.</div></div></details>
+      <details class="item"><summary><span class="tag t-sage">6m</span><span class="summary-txt">6 monthly extra HD tests<small>Two items</small></span><span class="chev">&rsaquo;</span></summary><div class="reveal"><p>Glucose, and beta-2 microglobulin.</p><div class="why"><b>Why beta-2:</b> it's a middle molecule that healthy kidneys clear but dialysis removes far less efficiently. Over years it can accumulate and deposit in joints, so it's tracked over the long term. It&rsquo;s the main middle molecule HDF is used to clear: see chapter 8.</div></div></details>
       <details class="item"><summary><span class="tag t-blood">1y</span><span class="summary-txt">Annual extra HD tests<small>One item</small></span><span class="chev">&rsaquo;</span></summary><div class="reveal"><p>Hepatitis B immunity, post-vaccination.</p><div class="why"><b>Why annually:</b> vaccine protection wanes, and immunity is often weaker in kidney failure. Checking the antibody level shows whether a patient is still protected or needs a booster &mdash; important where patients share a unit.</div></div></details>
     </div>
   </div>
 
-  <div class="card">
+  <div class="card tp-card">
+    <span class="tp-flag" role="note" aria-label="From the Trust document REN 029"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 3h8l4 4v14h-12z"/><path d="M14.5 3v4h4"/><path d="M9.5 12h6M9.5 16h4"/></svg>Trust <b>REN 029</b></span>
     <h3>The urine collection (KRU)</h3>
     <p style="font-size:14.5px;color:var(--ink-soft);line-height:1.6;margin-bottom:4px">KRU is residual renal urea clearance &mdash; how much the patient's own kidneys still clear. It contributes to their total clearance, so it directly shapes the prescription. It declines rapidly once dialysis starts, which is why every patient who passes urine has it measured.</p>
     <div class="acc">
@@ -1642,7 +1829,8 @@ input[type=range]::-moz-range-thumb{border-color:var(--accent)}
     </div>
   </div>
 
-  <div class="card">
+  <div class="card tp-card">
+    <span class="tp-flag" role="note" aria-label="From the Trust document REN 029"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 3h8l4 4v14h-12z"/><path d="M14.5 3v4h4"/><path d="M9.5 12h6M9.5 16h4"/></svg>Trust <b>REN 029</b></span>
     <h3>The QA cycle</h3>
     <p style="font-size:14.5px;color:var(--ink-soft)">Two sessions, two request sets, and the urine collected across the gap between them &mdash; but the gap differs by dialysis pattern:</p>
     <svg viewBox="0 0 360 200" style="width:100%;height:auto;margin-top:12px" aria-label="KRU collection windows for three times weekly and twice weekly patients">
@@ -1775,7 +1963,7 @@ input[type=range]::-moz-range-thumb{border-color:var(--accent)}
     {t:"The HD circuit", d:"Blood out, cleaned and back", c:['#2B2F8F','#E0465A']},
     {t:"The machine", d:"Its parts, sensors and alarms", c:['#0B3D91','#3C8DFF']},
     {t:"Water treatment", d:"From the tap to the dialysate", c:['#005C70','#36C5E8']},
-    {t:"HD and HDF", d:"Convection, pre- and post-dilution", c:['#5B1A8E','#C850F0']},
+    {t:"HD and HDF", d:"Convection, dilution and the Trust guideline", c:['#5B1A8E','#C850F0']},
     {t:"Vascular access", d:"Fistula, graft and line", c:['#1E5E2A','#4CB050']},
     {t:"Complications", d:"During dialysis and long-term", c:['#7A1E48','#FF7A45']},
     {t:"Medications", d:"By the problem they solve", c:['#3B1C8C','#8C6CF2']},
@@ -2485,22 +2673,22 @@ input[type=range]::-moz-range-thumb{border-color:var(--accent)}
       {t:0,x:'HDF adds convection: pressure pushes a large volume of plasma water out through the membrane.'},
       {t:6.5,x:'The water drags dissolved molecules with it, large or small, as long as they fit the pores, so middle molecules clear far better.'},
       {t:15.5,x:'Red cells and albumin are too big to pass, so they stay in the blood.'}]},
-    {k:'sub',chip:'Replacing the fluid',title:'Replacing the fluid',dur:24.5,beats:[
-      {t:0,x:'A session filters 20 to 30 litres of plasma water, far more than the patient needs to lose, so most must be put back.'},
-      {t:9.5,x:'The machine makes substitution fluid from its own dialysate, filters it again until sterile, and infuses it into the blood line.'},
-      {t:18,x:'It all stays balanced: the patient only loses their UF goal, exactly as on HD.'}]},
-    {k:'post',chip:'Post-dilution',title:'Post-dilution',dur:24,beats:[
-      {t:0,x:'In post-dilution, the substitution fluid goes back in after the dialyser.'},
-      {t:5,x:'Blood reaches the membrane at full strength, so every litre filtered carries as much waste as it can: the most efficient mode.'},
-      {t:14,x:'But blood thickens as water leaves it. Filter too much and TMP climbs and fibres clot, so filtration stays around 25 to 30% of blood flow.'}]},
+    {k:'sub',chip:'Replacing the fluid',title:'Replacing the fluid',dur:28.5,beats:[
+      {t:0,x:'HDF filters far more plasma water than the patient needs to lose: more than 20 litres a session. Most of it has to be put back.'},
+      {t:10,x:'The machine makes substitution fluid from its own dialysate, filters it again until sterile, and infuses it into the blood line. The Trust looks for more than 20 litres of it per treatment.'},
+      {t:22,x:'It all stays balanced: the patient only loses their UF goal, exactly as on HD.'}]},
+    {k:'post',chip:'Post-dilution',title:'Post-dilution',dur:27,beats:[
+      {t:0,x:'In post-dilution, the substitution fluid goes back in after the dialyser. It is the Trust\u2019s standard mode.'},
+      {t:6,x:'Blood reaches the membrane at full strength, so every litre filtered carries as much waste as it can: the most efficient mode.'},
+      {t:14,x:'But blood thickens as water leaves it: too much, and TMP climbs and fibres clot. With HDF Auto Sub ticked, the 5008 and 6008 adjust the rate several times a minute to prevent this.'}]},
     {k:'pre',chip:'Pre-dilution',title:'Pre-dilution',dur:21.5,beats:[
       {t:0,x:'In pre-dilution, the substitution fluid goes in before the dialyser.'},
       {t:5,x:'The blood arrives thinner, so it filters easily and clots less, and much larger volumes are possible.'},
       {t:12,x:'But the waste is diluted too, so each litre carries less. Pre-dilution needs roughly 1.5 to 2 times the volume for the same clearance.'}]},
-    {k:'choose',chip:'Choosing',title:'Choosing a mode',dur:19.5,beats:[
-      {t:0,x:'Post-dilution is the usual first choice when blood flow allows.'},
-      {t:5,x:'Pre-dilution helps when blood flow is limited, the haematocrit is high or the circuit keeps clotting.'},
-      {t:12,x:'Some machines can do both at once, called mixed dilution. The prescription sets the mode and the volume.'}]}
+    {k:'choose',chip:'Choosing',title:'The Trust\u2019s approach',dur:25,beats:[
+      {t:0,x:'Post-dilution is the Trust\u2019s standard, for patients with a blood flow of 300 mL/min or more, without frequent alarms.'},
+      {t:8,x:'Pre-dilution is considered when the circuit keeps clotting, or the patient can\u2019t have adequate anticoagulation because of an allergy or bleeding risk.'},
+      {t:17,x:'If the blood flow falls below 300, HDF is suspended in the dialysis orders until the access problem is resolved.'}]}
   ];
   var FSTART=[], FTOTAL=0;
   FS.forEach(function(s){ FSTART.push(FTOTAL); FTOTAL+=s.dur; });
@@ -2679,7 +2867,7 @@ input[type=range]::-moz-range-thumb{border-color:var(--accent)}
     }
     if(kind==='diff'){ fPill('small waste: crosses fast',92,211,'yellow',bf(s,lt,1)); fPill('middle molecules: barely',270,211,'purple',bf(s,lt,1)); }
     if(kind==='conv'){ if(b===1) fPill('middle molecules dragged across too',180,211,'purple',bf(s,lt,1)); if(b===2) fPill('red cells and albumin stay',180,211,'red',bf(s,lt,2)); }
-    if(kind==='post'){ if(b===1) fPill('full strength: the most waste per litre',180,211,'green',bf(s,lt,1)); if(b===2) fPill('blood thickens: watch TMP',180,211,'red',bf(s,lt,2)); }
+    if(kind==='post'){ if(b===1) fPill('full strength: the most waste per litre',180,211,'green',bf(s,lt,1)); if(b===2) fPill('blood thickens: Auto Sub adjusts the rate',180,211,'red',bf(s,lt,2)); }
     if(kind==='pre'){ if(b===1) fPill('thinner blood: filters easily, clots less',180,211,'green',bf(s,lt,1)); if(b===2) fPill('diluted waste: needs 1.5 to 2 times the volume',180,211,'amber',bf(s,lt,2)); }
   }
 
@@ -2712,9 +2900,11 @@ input[type=range]::-moz-range-thumb{border-color:var(--accent)}
     fc.strokeStyle='rgba(128,222,234,.85)'; fc.lineWidth=1.5; fc.beginPath(); fc.arc(298,by,13+Math.sin(ph*4)*1.4,0,6.283); fc.stroke();
     fText('blood in',6,146,11,'500','rgba(255,255,255,.72)'); fText('to patient',FW-6,146,11,'500','rgba(255,255,255,.72)','right'); fText('dialyser',180,134,11,'500','rgba(255,255,255,.72)','center');
     // running total of plasma water filtered
-    var v=Math.min(25,Math.max(0,lt/4)*25);
-    fText(Math.round(v)+' L',62,114,22,'700','#fff','center'); fText('filtered in one session',62,130,11,'500','rgba(255,255,255,.72)','center');
-    fPill('net loss = the UF goal',270,214,'green',bf(s,lt,2));
+    var v=Math.min(22,Math.max(0,lt/4)*22);
+    fText(Math.round(v)+' L',62,106,22,'700','#fff','center'); fText('substitution fluid',62,122,11,'500','rgba(255,255,255,.72)','center');
+    var b3=curBeat(s,lt);
+    if(b3===1) fPill('Trust target: over 20 L',270,214,'green',bf(s,lt,1));
+    if(b3===2) fPill('net loss = the UF goal',270,214,'green',bf(s,lt,2));
   }
 
   function chooseCard(x,head,col,mode,a,lines,ph){
@@ -2730,16 +2920,16 @@ input[type=range]::-moz-range-thumb{border-color:var(--accent)}
     var span=(my-4)-(y+32); fc.fillStyle='#80DEEA'; fc.beginPath(); fc.arc(jx,y+32+((ph*22)%span),2.6,0,6.283); fc.fill();
     lines.forEach(function(l,i){
       var yy=y+90+i*17;
-      fFont(12,'700'); fc.fillStyle=l[1]===1?'#69F0AE':'#FFD54F'; fc.textAlign='center'; fc.fillText(l[1]===1?'✓':'!',x+18,yy);
+      fFont(12,'700'); fc.fillStyle=l[1]===1?'#69F0AE':(l[1]===3?'#80DEEA':'#FFD54F'); fc.textAlign='center'; fc.fillText(l[1]===1?'✓':(l[1]===3?'→':'!'),x+18,yy);
       fFont(11,'500'); fc.fillStyle='rgba(255,255,255,.92)'; fc.textAlign='left'; fc.fillText(l[0],x+30,yy);
     });
     fc.globalAlpha=1;
   }
   function drawChoose(s,lt){
     var ph=reduce?1.2:film.t;
-    chooseCard(12,'Post-dilution','#F0B8FF','post',(film.hold?1:fade(lt,0,.5)),[['Most waste per litre',1],['Needs good blood flow',2],['Watch TMP',2]],ph);
-    chooseCard(184,'Pre-dilution','#9BEAF5','pre',bf(s,lt,1),[['Gentle on the circuit',1],['Needs more fluid',2],['Helps if flow is low',1]],ph);
-    fText('Mixed dilution does both, on some machines',180,208,11,'500','rgba(255,255,255,.85)','center',bf(s,lt,2));
+    chooseCard(12,'Post-dilution','#F0B8FF','post',(film.hold?1:fade(lt,0,.5)),[['The Trust standard',1],['Most waste per litre',1],['Needs 300 mL/min+',2]],ph);
+    chooseCard(184,'Pre-dilution','#9BEAF5','pre',bf(s,lt,1),[['Circuit clotting',3],['Can’t anticoagulate',3],['Needs more fluid',2]],ph);
+    fText('Under 300 mL/min: suspend HDF in the orders',180,208,11,'500','rgba(255,255,255,.85)','center',bf(s,lt,2));
   }
 
   function filmDraw(){
@@ -2846,7 +3036,7 @@ input[type=range]::-moz-range-thumb{border-color:var(--accent)}
   var HDF_T=240, HDF_QUF=2000/240, HDF_HCT=.33;
   function hdfModel(mode,qb,qs){
     if(mode==='hd') qs=0;
-    var qf=qs+HDF_QUF, vol=qf*HDF_T/1000, qp=qb*(1-HDF_HCT), r={mode:mode,qb:qb,qs:qs,qf:qf,vol:vol};
+    var qf=qs+HDF_QUF, vol=qf*HDF_T/1000, qp=qb*(1-HDF_HCT), r={mode:mode,qb:qb,qs:qs,qf:qf,vol:vol,sub:qs*HDF_T/1000};
     if(mode==='pre'){ r.df=qp/(qp+qs); r.hctIn=HDF_HCT*qb/(qb+qs); r.hctOut=HDF_HCT*qb/(qb-HDF_QUF); r.ff=qf/(qb+qs); }
     else { r.df=1; r.hctIn=HDF_HCT; r.hctOut=HDF_HCT*qb/Math.max(1,qb-qf); r.ff=qf/qb; }
     r.eff=vol*r.df;
@@ -2855,30 +3045,34 @@ input[type=range]::-moz-range-thumb{border-color:var(--accent)}
   function fmtL(v){ return (Math.round(v*10)/10).toFixed(1); }
   function pctR(v){ return Math.round(v*100); }
   function hctTxt(h){ return h>.6?'over 60%':pctR(h)+'%'; }
-  function hdfNeed(mode,qb){ var need=23000/HDF_T, qp=qb*(1-HDF_HCT); if(mode==='post') return need-HDF_QUF; if(qp<=need) return Infinity; return qp*(need-HDF_QUF)/(qp-need); }
   function hdfVerdict(r){
-    if(r.mode==='hd') return {k:'ok',t:'Standard haemodialysis',x:'No substitution fluid, so the only convection is the fluid removed for the UF goal: about '+fmtL(r.vol)+' litres over four hours. Small waste clears well by diffusion; middle molecules much less so.'};
-    if(r.qs<5) return {k:'warn',t:'No substitution fluid set',x:'With the substitution rate at zero this is effectively HD. Raise it to add convection.'};
-    var ff=pctR(r.ff);
-    if(r.mode==='post'){
-      if(r.ff>.30) return {k:'bad',t:'Too much for post-dilution',x:'Filtration is '+ff+'% of the blood flow, so the blood leaving the dialyser has thickened to a haematocrit of '+hctTxt(r.hctOut)+'. TMP will climb and the fibres are likely to clot. Lower the substitution rate, raise the blood flow if the access allows, or consider pre-dilution.'};
-      if(r.ff>.25) return {k:'warn',t:'Close to the limit',x:'Filtration is '+ff+'% of the blood flow and the blood leaves at a haematocrit of '+hctTxt(r.hctOut)+'. It can work, but watch TMP and the circuit closely. '+(r.vol>=23?'It reaches '+fmtL(r.vol)+' litres per session.':'It still only reaches '+fmtL(r.vol)+' litres.')};
-      if(r.vol>=23) return {k:'ok',t:'High-volume HDF',x:'About '+fmtL(r.vol)+' litres of convection per session, with filtration at '+ff+'% of the blood flow: efficient and inside the limit.'};
-      var need=hdfNeed('post',r.qb), nff=(need+HDF_QUF)/r.qb, nq=Math.ceil(need/5)*5;
-      return {k:'warn',t:'Safe, but below 23 litres',x:'About '+fmtL(r.vol)+' litres per session. '+(nff<=.30?'At this blood flow, about '+nq+' mL/min of substitution fluid would reach 23 litres, with filtration at '+pctR(nff)+'% of the blood flow.':'At this blood flow, 23 litres would need filtration above 30% of the blood flow, so a higher blood flow or a longer session is needed.')};
+    var low=r.qb<300, ff=pctR(r.ff);
+    if(r.mode==='hd'){
+      if(low) return {k:'warn',t:'HD: blood flow below 300',x:'At '+r.qb+' mL/min this patient doesn’t meet the Trust’s criterion for HDF, so HD is right until the access problem is resolved. Poor flows are escalated so the access can be checked.'};
+      return {k:'ok',t:'Standard haemodialysis',x:'No substitution fluid, so the only convection is the 2 litres removed for the UF goal. Small waste clears well; middle molecules much less so. At '+r.qb+' mL/min this patient meets the Trust’s criterion, so HDF would normally be prescribed.'};
     }
-    var needP=hdfNeed('pre',r.qb), nqp=Math.ceil(needP/5)*5;
-    var base='The blood arrives diluted to a haematocrit of '+hctTxt(r.hctIn)+', so the circuit is under little strain. But the waste is diluted too: '+fmtL(r.vol)+' litres of pre-dilution is worth about '+fmtL(r.eff)+' litres of post-dilution.';
-    if(r.eff>=23) return {k:'ok',t:'Pre-dilution: high volume',x:base+' That reaches the high-volume range.'};
-    return {k:'warn',t:'Pre-dilution: needs more fluid',x:base+(nqp<=300?' To match 23 litres of post-dilution at this blood flow, it would need about '+nqp+' mL/min, or '+fmtL((nqp+HDF_QUF)*HDF_T/1000)+' litres per session.':' At this blood flow, matching 23 litres of post-dilution would need more substitution fluid than this simulator allows.')};
+    if(low) return {k:'bad',t:'Below the Trust criterion',x:'HDF needs a blood flow of 300 mL/min or more, consistently and without frequent alarms. Nurses suspend HDF in the dialysis orders screen until the access problem is resolved; clinical support workers tell the nurse in charge.'};
+    if(r.qs<5) return {k:'warn',t:'No substitution fluid',x:'With the substitution rate at zero this is effectively HD. On the unit, HDF Auto Sub sets the rate.'};
+    if(r.mode==='post'){
+      if(r.ff>.35) return {k:'bad',t:'Too much for post-dilution',x:'Filtration is '+ff+'% of the blood flow, so the blood leaves the dialyser at a haematocrit of '+hctTxt(r.hctOut)+'. TMP would climb and the fibres would clot. This is what HDF Auto Sub prevents: it keeps adjusting the rate so the blood doesn’t over-thicken.'};
+      if(r.ff>.30) return {k:'warn',t:'Close to the limit',x:'Filtration is '+ff+'% of the blood flow and the blood leaves at a haematocrit of '+hctTxt(r.hctOut)+'. Auto Sub would ease the rate back. '+(r.qb<350?'A higher blood flow, raised in 50 mL/min steps towards 350, gives more room. ':'')+'Watch TMP, and escalate a dark dialyser or clot in the bubble trap to the senior nurse.'};
+      if(r.sub>20) return {k:'ok',t:'High-volume HDF',x:fmtL(r.sub)+' litres of substitution fluid, above the Trust’s 20 litres, with filtration at '+ff+'% of the blood flow.'+(r.qb<350?' The blood flow meets the criterion; raise it in 50 mL/min steps towards 350 if the access allows.':'')};
+      var nq=Math.floor(20000/HDF_T/5)*5+5, nff=(nq+HDF_QUF)/r.qb;
+      return {k:'warn',t:'Below 20 litres',x:'Only '+fmtL(r.sub)+' litres of substitution fluid, short of the Trust’s 20 litres. '+(nff<=.30?'At this blood flow, about '+nq+' mL/min would pass 20 litres, with filtration at '+pctR(nff)+'%.':'At this blood flow, passing 20 litres would push filtration above 30%, so the blood flow needs raising, in 50 mL/min steps towards 350.')};
+    }
+    var worth=' Each pre-dilution litre is worth less, because the waste is diluted first: the convection here is worth about '+fmtL(r.eff)+' litres in post-dilution.';
+    var when=' The Trust considers pre-dilution when the circuit keeps clotting, or adequate anticoagulation isn’t possible.';
+    if(r.sub>20) return {k:'ok',t:'Pre-dilution: over 20 litres',x:fmtL(r.sub)+' litres of substitution fluid, and the blood enters diluted to a haematocrit of '+hctTxt(r.hctIn)+', so the circuit is under little strain.'+worth+when};
+    return {k:'warn',t:'Pre-dilution: below 20 litres',x:'Only '+fmtL(r.sub)+' litres of substitution fluid.'+worth+when};
   }
+  function qbState(qb){ return qb<300?{c:'sus',x:'Below 300 mL/min: HDF is suspended in the dialysis orders until the access problem is resolved.'}:(qb<350?{c:'ok',x:'Meets the Trust criterion. Aim for 350 or more, raising it in 50 mL/min steps if the access allows.'}:{c:'opt',x:'At or above the 350 mL/min the Trust aims for when optimising.'}); }
   var HCOL=[[.15,[247,178,174]],[.25,[239,111,106]],[.33,[229,57,53]],[.42,[198,40,40]],[.5,[154,27,27]],[.6,[107,15,18]]];
   function hctCol(h){
     if(h<=HCOL[0][0]) return 'rgb('+HCOL[0][1].join(',')+')';
     for(var i=1;i<HCOL.length;i++){ if(h<=HCOL[i][0]){ var a=HCOL[i-1], c=HCOL[i], f=(h-a[0])/(c[0]-a[0]); return 'rgb('+[0,1,2].map(function(k){ return Math.round(a[1][k]+(c[1][k]-a[1][k])*f); }).join(',')+')'; } }
     return 'rgb('+HCOL[HCOL.length-1][1].join(',')+')';
   }
-  var hdf={mode:'post',qb:400,qs:90,saved:90};
+  var hdf={mode:'post',qb:350,qs:90,saved:90};
   var hdfModeEl=document.getElementById('hdfMode'), hqb=document.getElementById('hqb'), hqs=document.getElementById('hqs'),
       hqbL=document.getElementById('hqbL'), hqsL=document.getElementById('hqsL'), hqsRow=document.getElementById('hqsRow'), hdfMsg=document.getElementById('hdfMsg');
   function $h(id){ return document.getElementById(id); }
@@ -2891,6 +3085,7 @@ input[type=range]::-moz-range-thumb{border-color:var(--accent)}
     var m=hdf.mode, r=hdfModel(m,hdf.qb,hdf.qs), v=hdfVerdict(r);
     hdfModeEl.querySelectorAll('button').forEach(function(b){ var on=b.dataset.t===m; b.classList.toggle('on',on); b.setAttribute('aria-pressed',on?'true':'false'); });
     hqb.value=hdf.qb; hqbL.textContent=hdf.qb+' mL/min';
+    var qst=qbState(hdf.qb), qsay=$h('qbSay'); qsay.className='qb-say '+qst.c; qsay.textContent=qst.x; $h('hqbUp').disabled=hdf.qb>=450;
     hqs.value=m==='hd'?0:hdf.qs; hqs.disabled=m==='hd'; hqsRow.classList.toggle('off',m==='hd'); hqsL.textContent=m==='hd'?'off in HD':hdf.qs+' mL/min';
     var hB=m==='pre'?r.hctIn:HDF_HCT, hC=m==='pre'?HDF_HCT*r.qb/(r.qb-HDF_QUF):r.hctOut;
     $h('hsA').style.stroke=hctCol(HDF_HCT); $h('hsB').style.stroke=hctCol(hB); $h('hsC').style.stroke=hctCol(hC); $h('hsD').style.stroke=hctCol(HDF_HCT);
@@ -2900,12 +3095,12 @@ input[type=range]::-moz-range-thumb{border-color:var(--accent)}
     $h('hdfSrc').classList.toggle('hs-dim',m==='hd'); $h('hdfSrcT').textContent=m==='hd'?'Substitution off':'Substitution fluid';
     $h('hdfDrops').style.opacity=Math.max(.15,Math.min(1,r.qf/110)).toFixed(2);
     var spd=(1.1*350/hdf.qb).toFixed(2)+'s'; $h('hdfBF').style.animationDuration=spd; $h('hdfLF').style.animationDuration=spd;
-    var bFF=m==='post'?(r.ff>.30?'bad':(r.ff>.25?'warn':'ok')):'';
+    var bFF=m==='post'?(r.ff>.35?'bad':(r.ff>.30?'warn':'ok')):'';
     setStat('hsFF',pctR(r.ff)+'%',m==='pre'?'of the diluted flow':'of the blood flow',bFF,Math.min(100,r.ff/.5*100),bFF==='bad'?'#D32F2F':(bFF==='warn'?'#F9A825':'#2E7D32'));
-    var bH=m==='post'?(r.hctOut>.5?'bad':(r.hctOut>.45?'warn':'ok')):'';
+    var bH=bFF;
     setStat('hsHct','Hct '+hctTxt(hC),m==='pre'?'it enters diluted, at '+hctTxt(r.hctIn):'it starts at 33%',bH);
-    setStat('hsVol',fmtL(r.vol)+' L','per 4-hour session',(m==='post'&&r.vol>=23)?'ok':'',Math.min(100,r.vol/40*100),'linear-gradient(90deg,var(--accent),var(--accent-2))');
-    setStat('hsEff',fmtL(r.eff)+' L',m==='hd'?'just the UF goal':(m==='pre'?'what it is worth in post-dilution':'the full value of every litre'),m==='hd'?'':(r.eff>=23?'ok':'warn'));
+    setStat('hsSub',m==='hd'?'0 L':fmtL(r.sub)+' L',m==='hd'?'none in HD':'Trust target: over 20 L',m==='hd'?'':(r.sub>20?'ok':'warn'),Math.min(100,(m==='hd'?0:r.sub)/40*100),'linear-gradient(90deg,var(--accent),var(--accent-2))');
+    setStat('hsVol',fmtL(r.vol)+' L',m==='hd'?'just the UF goal':(m==='pre'?'worth about '+fmtL(r.eff)+' L in post-dilution':'substitution plus the 2 L removed'),'');
     hdfMsg.className='alarm-card '+({ok:'ok',warn:'bypass',bad:'danger'})[v.k];
     hdfMsg.innerHTML='<div class="ac-title">'+v.t+'</div><p class="hs-msg">'+v.x+'</p>';
   }
@@ -2916,6 +3111,7 @@ input[type=range]::-moz-range-thumb{border-color:var(--accent)}
   });
   hqb.addEventListener('input',function(){ hdf.qb=+hqb.value; hdfRender(); });
   hqs.addEventListener('input',function(){ hdf.qs=+hqs.value; hdfRender(); });
+  $h('hqbUp').addEventListener('click',function(){ hdf.qb=Math.min(450,hdf.qb+50); hdfRender(); });
   function fxHdf(m,qb,qs){ return function(){ hdf.mode=m; hdf.qb=qb; if(m!=='hd') hdf.qs=qs; hdfRender(); }; }
   function hdfSay(m,qb,qs){
     var v=hdfVerdict(hdfModel(m,qb,qs));
@@ -2928,6 +3124,143 @@ input[type=range]::-moz-range-thumb{border-color:var(--accent)}
   }
   document.querySelectorAll('.xlink[data-go]').forEach(function(b){ b.addEventListener('click',function(){ go(+b.dataset.go); }); });
   hdfRender();
+
+  // ================= HD AND HDF: TRUST POLICY (REN 050) =================
+  var WALK={
+    q1:{n:1,q:'Is the blood flow 300 mL/min or more, consistently, without frequent arterial, venous or air alarms?',note:'On any access: fistula, graft or line.',yes:'q2',no:'r1'},
+    q2:{n:2,q:'Is the circuit clotting, or can’t the patient have adequate anticoagulation because of an allergy or bleeding risk?',yes:'r2',no:'q3'},
+    q3:{n:3,q:'Is the patient prescribed a medium cut-off dialyser, such as Theranova?',yes:'r3',no:'r4'},
+    r1:{k:'bad',t:'Not HDF for now',x:'Nurses suspend HDF in the dialysis orders screen until the access problem is resolved, and poor flows are escalated. Clinical support workers tell the nurse in charge.'},
+    r2:{k:'warn',t:'Escalate: pre-dilution may be considered',x:'Tell the senior nurse and check the anticoagulation against REN 016. If the circuit still clots, or anticoagulation isn’t possible, pre-dilution HDF can be considered.'},
+    r3:{k:'warn',t:'Not suitable for HDF',x:'Medium cut-off membranes such as Theranova aren’t used for HDF. Check the prescription with the nurse in charge.'},
+    r4:{k:'ok',t:'Post-dilution HDF',x:'The Trust standard. Set HDF_Post in the record, then optimise: raise the blood flow in 50 mL/min steps towards 350 or more, and record the substitution volume, aiming for over 20 litres.'}
+  };
+  var walkEl=document.getElementById('hdfWalk'), walkAns=[];
+  function walkRender(){
+    var html='', node='q1', i=0;
+    while(node&&WALK[node]&&WALK[node].q){
+      var st=WALK[node], ans=walkAns[i];
+      html+='<div class="wstep'+(ans?' done':'')+'"><span class="wdot">'+st.n+'</span><div class="wbody"><p class="wq">'+st.q+'</p>'+(st.note?'<small class="wnote">'+st.note+'</small>':'')+
+        '<div class="wbtns"><button class="wb'+(ans==='yes'?' on':'')+'" data-a="yes"'+(ans?' disabled':'')+'>Yes</button><button class="wb'+(ans==='no'?' on':'')+'" data-a="no"'+(ans?' disabled':'')+'>No</button></div></div></div>';
+      if(!ans) break;
+      node=st[ans]; i++;
+    }
+    if(node&&WALK[node]&&!WALK[node].q){
+      var res=WALK[node];
+      html+='<div class="wres '+res.k+'"><b>'+res.t+'</b><p>'+res.x+'</p></div><button class="chip reset" data-a="reset">Start again</button>';
+    }
+    walkEl.innerHTML=html;
+  }
+  function walkSet(arr){ walkAns=arr.slice(); walkRender(); }
+  walkEl.addEventListener('click',function(e){
+    var b=e.target.closest('button'); if(!b||b.disabled) return;
+    if(b.dataset.a==='reset') walkAns=[]; else walkAns.push(b.dataset.a);
+    walkRender();
+  });
+  walkRender();
+
+  var DUTY={
+    qa:{c:'d-qa',l:'Review',i:'<rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4h6v3H9z"/><path d="M8.5 13.5l2.3 2.3 4.7-4.8"/>'},
+    find:{c:'d-find',l:'Identify',i:'<circle cx="11" cy="11" r="6"/><path d="M20 20l-4.6-4.6"/>'},
+    set:{c:'d-set',l:'Act',i:'<path d="M4 20h4L19 9l-4-4L4 16z"/><path d="M13.5 6.5l4 4"/>'},
+    pause:{c:'d-pause',l:'Act',i:'<circle cx="12" cy="12" r="8.5"/><path d="M10 9v6M14 9v6"/>'},
+    check:{c:'d-check',l:'Check',i:'<path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="2.8"/>'},
+    up:{c:'d-up',l:'Optimise',i:'<path d="M12 19V5"/><path d="M6 11l6-6 6 6"/>'},
+    tell:{c:'d-tell',l:'Escalate',i:'<path d="M4 5h16v11H9l-5 4z"/><path d="M8 9.5h8M8 12.5h5"/>'}
+  };
+  var ROLES={
+    con:{n:'Consultant nephrologists',d:[['qa','Check at the QA meeting that each patient’s blood flow and treatment mode match the criteria for HDF.']]},
+    pn:{n:'Primary nurses',d:[
+      ['find','Use the criteria to identify which of your patients should have HDF.'],
+      ['set','Make sure the dialysis orders screen in the computerised record is set for HDF.'],
+      ['pause','If an access problem drops the blood flow below 300 mL/min, suspend HDF in the dialysis orders screen until it is resolved.'],
+      ['set','Change the dialysis orders if the blood flow or HDF settings differ from the prescription.'],
+      ['check','Check the treatment mode on the machine screen matches the prescription.'],
+      ['up','Optimise high-flow HDF wherever possible.']]},
+    csw:{n:'Clinical support workers',d:[
+      ['tell','If an access problem drops the blood flow below 300 mL/min, tell the nurse in charge.'],
+      ['tell','If the blood flow or HDF settings differ from the prescription, ask a nurse to change the dialysis orders.'],
+      ['check','Check the treatment mode on the machine screen matches the prescription. If it doesn’t, tell the nurse in charge.']]}
+  };
+  ROLES.hd={n:'Haemodialysis nurses and nursing assistants',d:ROLES.pn.d.slice(1)};
+  var roleChips=document.getElementById('roleChips'), roleDuties=document.getElementById('roleDuties'), roleCur='pn';
+  function roleSet(r){
+    roleCur=r;
+    roleChips.querySelectorAll('.chip').forEach(function(c){ var on=c.dataset.r===r; c.classList.toggle('on',on); c.setAttribute('aria-pressed',on?'true':'false'); });
+    roleDuties.innerHTML=ROLES[r].d.map(function(d,i){ var k=DUTY[d[0]]; return '<li class="duty '+k.c+'" style="animation-delay:'+(i*0.05).toFixed(2)+'s"><span class="di"><svg viewBox="0 0 24 24" aria-hidden="true">'+k.i+'</svg></span><span><small>'+k.l+'</small>'+d[1]+'</span></li>'; }).join('');
+  }
+  roleChips.addEventListener('click',function(e){ var b=e.target.closest('.chip'); if(b) roleSet(b.dataset.r); });
+  roleSet('pn');
+
+  var RX_INFO={
+    method:{l:'1. Treatment method',x:'HDF_POST for post-dilution, the Trust standard, or HDF_PRE when pre-dilution has been prescribed. The machine screen must show the same mode.'},
+    autosub:{l:'2. HDF Auto Sub',x:'Ticked, so the 5008 and 6008 set the substitution rate themselves, adjusting it several times a minute.'},
+    autoflow:{l:'3. Auto Dialysate Flow',x:'Ticked, so the machine sets the dialysate flow from the blood flow, rather than at a fixed rate.'},
+    ratio:{l:'4. Auto Flow Ratio',x:'1.5: the dialysate flow runs at 1.5 times the blood flow. At a blood flow of 350 mL/min, that is about 525 mL/min.'},
+    bfr:{l:'Blood flow rate',x:'As prescribed: 300 mL/min or more for HDF, aiming for 350 or more.'}
+  };
+  var RX_ERR={
+    method:{set:function(){ $h('rxMethod').textContent='HDF_PRE'; },x:'The prescription is post-dilution, so the treatment method should be HDF_POST. HDF_PRE is only for a pre-dilution prescription.'},
+    autosub:{set:function(){ $h('rxSub').classList.remove('on'); },x:'HDF Auto Sub should be ticked, so the machine sets the substitution rate itself.'},
+    autoflow:{set:function(){ $h('rxFlow').classList.remove('on'); },x:'Auto Dialysate Flow should be ticked, so the dialysate flow follows the blood flow.'},
+    ratio:{set:function(){ $h('rxRatio').textContent='1.2'; },x:'The Auto Flow Ratio should be 1.5, so the dialysate flow runs at 1.5 times the blood flow.'},
+    bfr:{set:function(){ $h('rxBfr').textContent='250 ml/min'; },x:'The prescription says 350 mL/min, and below 300 HDF shouldn’t be running at all. Nurses change the orders to match; if the access can’t give 300, HDF is suspended.'}
+  };
+  var rxScreen=document.getElementById('rxScreen'), rxInfo=document.getElementById('rxInfo'), rxModeEl=document.getElementById('rxMode'),
+      rxBrief=document.getElementById('rxBrief'), rxScore=document.getElementById('rxScore'), rxScoreT=document.getElementById('rxScoreT');
+  var rx={mode:'learn',err:null,found:0,solved:false,last:null,deck:null};
+  function rxName(k){ return RX_INFO[k].l.replace(/^\d\.\s*/,''); }
+  function rxReset(){
+    $h('rxMethod').textContent='HDF_POST'; $h('rxSub').classList.add('on'); $h('rxFlow').classList.add('on'); $h('rxRatio').textContent='1.5'; $h('rxBfr').textContent='350 ml/min';
+    rxScreen.querySelectorAll('.rx-f').forEach(function(f){ f.classList.remove('sel','good','bad'); });
+  }
+  function rxShowInfo(k){
+    rxScreen.querySelectorAll('.rx-f').forEach(function(f){ f.classList.toggle('sel',f.dataset.f===k); });
+    rxInfo.className='info-panel'; rxInfo.innerHTML='<div class="lbl">The record</div><h4>'+RX_INFO[k].l+'</h4><p>'+RX_INFO[k].x+'</p>';
+  }
+  function rxNew(){
+    rxReset();
+    // deal from a shuffled deck, so every mistake comes up once in each run of five
+    if(!rx.deck||!rx.deck.length){
+      var keys=Object.keys(RX_ERR);
+      for(var i=keys.length-1;i>0;i--){ var j=Math.floor(Math.random()*(i+1)), t=keys[i]; keys[i]=keys[j]; keys[j]=t; }
+      if(keys[0]===rx.last) keys.push(keys.shift());
+      rx.deck=keys;
+    }
+    var k=rx.deck.shift();
+    rx.err=k; rx.last=k; rx.solved=false; RX_ERR[k].set();
+    rxInfo.className='info-panel'; rxInfo.innerHTML='<div class="lbl">Spot the mistake</div><h4>One setting is wrong</h4><p>Compare each setting with the prescription and the guideline, then tap the one that doesn’t match.</p>';
+    rxScoreT.textContent='Mistakes found: '+rx.found;
+  }
+  function rxSetMode(m){
+    rx.mode=m;
+    rxModeEl.querySelectorAll('button').forEach(function(b){ var on=b.dataset.t===m; b.classList.toggle('on',on); b.setAttribute('aria-pressed',on?'true':'false'); });
+    rxScreen.classList.toggle('spot',m==='spot'); rxBrief.hidden=m!=='spot'; rxScore.hidden=m!=='spot';
+    if(m==='spot'){ rx.found=0; rx.deck=null; rxNew(); }
+    else { rxReset(); rx.err=null; rxInfo.className='info-panel'; rxInfo.innerHTML='<div class="lbl">The record</div><h4>Four settings make it HDF</h4><p>Tap a numbered setting to see what it does.</p>'; }
+  }
+  rxScreen.addEventListener('click',function(e){
+    var f=e.target.closest('.rx-f[data-f]'); if(!f) return; var k=f.dataset.f;
+    if(rx.mode==='learn'){ rxShowInfo(k); return; }
+    if(rx.solved) return;
+    if(k===rx.err){
+      rx.solved=true; rx.found++; f.classList.add('good'); rxScoreT.textContent='Mistakes found: '+rx.found;
+      rxInfo.className='info-panel rx-ok'; rxInfo.innerHTML='<div class="lbl">Found it</div><h4>'+rxName(k)+'</h4><p>'+RX_ERR[k].x+'</p>';
+    } else {
+      f.classList.remove('bad'); void f.offsetWidth; f.classList.add('bad');
+      rxInfo.className='info-panel rx-no'; rxInfo.innerHTML='<div class="lbl">Not that one</div><h4>'+rxName(k)+' is right</h4><p>Look again: compare each setting with the prescription and the guideline.</p>';
+    }
+  });
+  rxModeEl.addEventListener('click',function(e){ var b=e.target.closest('button'); if(b) rxSetMode(b.dataset.t); });
+  $h('rxNext').addEventListener('click',rxNew);
+  rxSetMode('learn');
+
+  function fxWalk(arr){ return function(){ walkSet(arr); }; }
+  function fxRole(r){ return function(){ roleSet(r); }; }
+  function fxRx(k){ return function(){ if(rx.mode!=='learn') rxSetMode('learn'); rxShowInfo(k); }; }
+  // tiny hook for testing
+  window.renalHdf={walk:function(arr){ if(arr) walkSet(arr); return walkAns.slice(); }, role:function(r){ if(r) roleSet(r); return roleCur; },
+    rx:function(){ return {mode:rx.mode,err:rx.err,found:rx.found,solved:rx.solved}; }, rxMode:function(m){ rxSetMode(m); }, rxNew:function(){ rxNew(); }};
 
   // ================= animation lifecycle =================
   function startAnim(n){
@@ -3023,6 +3356,8 @@ input[type=range]::-moz-range-thumb{border-color:var(--accent)}
      e:"Ballooning from repeated puncture in one place weakens the vessel wall over time."},
     {ch:9,q:"A patient's hand is cold and painful below their new fistula. What should you think of?",a:["Steal syndrome","Disequilibrium","Aneurysm","Normal maturation"],c:0,
      e:"The access is diverting too much blood away from the hand — 'stealing' it. It needs review, not reassurance."},
+    {ch:9,q:"On access surveillance for HDF, what AVF flow does the Trust guideline look for?",a:["Above 200 mL/min","Above 600 mL/min","Above 2,000 mL/min","It isn't measured"],c:1,
+     e:"Poor flows and recirculation are escalated. Measuring with Transonic or BTM follows REN 057."},
 
     // --- 9 Complications ---
     {ch:10,q:"What's the most common complication during a dialysis session?",a:["Cramps","Hypotension","Disequilibrium","Circuit clotting"],c:1,
@@ -3137,8 +3472,8 @@ input[type=range]::-moz-range-thumb{border-color:var(--accent)}
      e:"Full-strength blood means every litre of filtrate is as concentrated as it can be."},
     {ch:8,q:"What limits how much can be filtered in post-dilution?",a:["The size of the drain","The patient's weight","The blood thickens in the dialyser, so filtration is kept to about 25 to 30% of the blood flow","The water plant's output"],c:2,
      e:"Removing too much water concentrates the cells and proteins: TMP climbs and the fibres can clot. A high haematocrit lowers the limit further."},
-    {ch:8,q:"A patient's blood flow is limited and their circuit keeps clotting on post-dilution. Which change might help?",a:["Switching to pre-dilution","Raising the substitution rate","Stopping the anticoagulant","Raising the UF goal"],c:0,
-     e:"Diluting the blood before the dialyser makes it filter easily and clot less. The prescriber decides, but it's a common reason for pre-dilution."},
+    {ch:8,q:"Under the Trust guideline, when is pre-dilution HDF considered?",a:["When the circuit is clotting, or adequate anticoagulation isn't possible because of an allergy or bleeding risk","Whenever the blood flow is below 300 mL/min","For every patient starting HDF","When the patient is over 70"],c:0,
+     e:"Low blood flow is different: below 300 mL/min, HDF is suspended in the dialysis orders until the access problem is resolved."},
     {ch:8,q:"Why does pre-dilution need more substitution fluid for the same clearance?",a:["Some of it leaks","The dialyser is smaller","The waste is diluted before it reaches the membrane, so each litre filtered carries less","It doesn't; the volumes are the same"],c:2,
      e:"Roughly 1.5 to 2 times the volume is needed, and more at lower blood flows."},
     {ch:8,q:"A patient asks whether they're 'being given 25 litres of fluid'. What's the answer?",a:["Yes, and it's removed at the next session","No: the machine only replaces what it filters, so the net fluid removed is just the UF goal","Yes, which is why they feel thirsty","Only in pre-dilution"],c:1,
@@ -3146,10 +3481,30 @@ input[type=range]::-moz-range-thumb{border-color:var(--accent)}
     {ch:8,q:"Why is ultrapure water essential for online HDF?",a:["The substitution fluid is made from dialysate and goes straight into the blood","It makes the machine quieter","It lowers potassium","It's only needed for HD"],c:0,
      e:"Substitution fluid enters the bloodstream directly, so bacteria and endotoxin must be removed completely. It's filtered again before infusion."},
     {ch:8,q:"In post-dilution HDF, a steadily rising TMP most likely means…",a:["The patient's blood pressure is falling","The membrane is clogging, or filtration is too high for the blood","The water plant has failed","The venous needle is out"],c:1,
-     e:"Check the circuit and the anticoagulation. On Fresenius 5008 and 6008 machines, AutoSub plus adjusts the substitution rate automatically."},
-    {ch:8,q:"What convection volume did the CONVINCE trial use for high-dose HDF?",a:["About 2 litres per session","About 5 litres per session","At least 23 litres per session","About 100 litres per session"],c:2,
-     e:"In 2023 it found fewer deaths with high-dose HDF than with high-flux HD: 17.3% against 21.9% over a median of 30 months."}
-  ];;
+     e:"Check the circuit and the anticoagulation, and escalate a dark dialyser or clot in the bubble trap to the senior nurse. With HDF Auto Sub ticked, the 5008 and 6008 adjust the substitution rate automatically."},
+    {ch:8,q:"What substitution volume does the Trust guideline look for as high-volume HDF?",a:["More than 5 litres per treatment","More than 10 litres per treatment","More than 20 litres per treatment","More than 40 litres per treatment"],c:2,
+     e:"Record and review it at every treatment. The CONVINCE trial's 23 litres was convection volume, which also counts the fluid removed."},
+    {ch:8,q:"What blood flow does a patient need to be considered for HDF here?",a:["200 mL/min or more","250 mL/min or more","300 mL/min or more, consistently and without frequent alarms","450 mL/min or more"],c:2,
+     e:"On any access type. Frequent arterial, venous or air alarms make the prescribed blood flow hard to deliver."},
+    {ch:8,q:"An access problem drops a patient's blood flow to 260 mL/min during HDF. What does the nurse do?",a:["Switch to pre-dilution HDF","Suspend HDF in the dialysis orders screen until the problem is resolved","Raise the substitution rate","Carry on and record it"],c:1,
+     e:"HDF needs 300 mL/min or more. A clinical support worker who spots this tells the nurse in charge."},
+    {ch:8,q:"A clinical support worker sees the machine screen shows a different treatment mode from the prescription. What should they do?",a:["Change the machine settings themselves","Tell the nurse in charge","Wait until the end of the session","Change the dialysis orders"],c:1,
+     e:"Nurses change the dialysis orders when settings differ from the prescription; clinical support workers escalate to the nurse in charge."},
+    {ch:8,q:"How does the guideline say to raise blood flow when optimising high-flow HDF?",a:["In 50 mL/min steps, aiming for 350 mL/min or more","In one jump to 450 mL/min","In 10 mL/min steps to 300","Only at the start of the session"],c:0,
+     e:"Alongside larger AVF needles where appropriate, and regular access surveillance."},
+    {ch:8,q:"Which dialyser is not suitable for HDF?",a:["A high-flux dialyser","A medium cut-off dialyser, such as Theranova","A dialyser with a large surface area","A new dialyser from a different batch"],c:1,
+     e:"Medium cut-off membranes are designed for a different treatment, expanded haemodialysis. HDF uses high-flux dialysers."},
+    {ch:8,q:"When prescribing HDF in the computerised record, which setting must be ticked so the machine sets the substitution rate itself?",a:["Auto Dialysate Flow","HDF Auto Sub","HDF Auto Bolus Rate","UF Profile"],c:1,
+     e:"Auto Dialysate Flow is ticked too, with an Auto Flow Ratio of 1.5, and the treatment method is HDF_Post or HDF_Pre."},
+    {ch:8,q:"What does an Auto Flow Ratio of 1.5 mean?",a:["Dialysate flow runs at 1.5 times the blood flow","Blood flow runs at 1.5 times the dialysate flow","Substitution runs at 1.5 litres an hour","The session runs 1.5 times longer"],c:0,
+     e:"At a blood flow of 350 mL/min, that's about 525 mL/min of dialysate."},
+    {ch:8,q:"After taking a patient off HDF, you see a dark dialyser and clot in the bubble trap. What should you do?",a:["Nothing: it's expected","Escalate to the senior nurse","Switch them to HD next time yourself","Raise the substitution rate next session"],c:1,
+     e:"Clotting is escalated so the anticoagulation and settings can be reviewed. Pre-dilution may be considered."},
+    {ch:8,q:"Which patients are likely to benefit most from HDF?",a:["Those with very little residual kidney function","Those who pass the most urine","Those on the shortest sessions","Those with the lowest blood flow"],c:0,
+     e:"Working kidneys also clear β2-microglobulin, so patients with little residual function gain most."},
+    {ch:8,q:"What does the consultant check about HDF at the QA meeting?",a:["That blood flow and treatment mode match the HDF criteria","The water plant results","The patient's transport","Only the potassium"],c:0,
+     e:"Treatment is reviewed there, and this check makes sure each patient's blood flow and mode still match the criteria."}
+  ];
 
   var MIXED_N=10;
   var host=document.getElementById('quizHost');
@@ -3409,7 +3764,7 @@ input[type=range]::-moz-range-thumb{border-color:var(--accent)}
     function clean(s){
       s=String(s).replace(/<[^>]+>/g,' ');
       s=s.replace(/[\u2019]/g,"'").replace(/[\u2018]/g,"'");
-      var map=[[/CFU\/mL/g,'colony-forming units per mil'],[/EU\/mL/g,'endotoxin units per mil'],[/mg\/L/g,'milligrams per litre'],
+      var map=[[/HDF_(post|pre)/gi,function(_,m){ return 'H-D-F '+m.toLowerCase(); }],[/\bREN (\d+)/g,function(_,d){ return 'R-E-N '+d.split('').join(' '); }],[/\bDoc (\d+)/g,'document $1'],[/\bMCO\b/g,'M-C-O'],[/\bBTM\b/g,'B-T-M'],[/\bHb\b/g,'haemoglobin'],[/\bENHT\b/g,'E-N-H-T'],[/\bBFR\b/g,'blood flow rate'],[/CFU\/mL/g,'colony-forming units per mil'],[/EU\/mL/g,'endotoxin units per mil'],[/mg\/L/g,'milligrams per litre'],
         [/\bmmHg\b/g,'millimetres of mercury'],[/\bTMP\b/g,'T-M-P'],[/\bHDF\b/g,'H-D-F'],[/\bISO\b/g,'I-S-O'],[/\bRO\b/g,'R-O'],
         [/\u2212/g,'minus '],[/\beGFR\b/g,'e-G-F-R'],[/\bAEIOU\b/g,'A E I O U'],[/\bAKI\b/g,'A-K-I'],
         [/\bCKD-MBD\b/gi,'C-K-D bone mineral disorder'],[/\bCKD\b/g,'C-K-D'],
@@ -3433,7 +3788,7 @@ input[type=range]::-moz-range-thumb{border-color:var(--accent)}
       var out=m ? m.map(function(x){return x.trim()}).filter(Boolean) : (s?[s]:[]);
       return out.map(function(x){ return x.replace(/\u2024/g,'.'); });
     }
-    function txt(el){ return el?el.textContent:''; }
+    function txt(el){ if(!el) return ''; if(!el.querySelector||!el.querySelector('.tp-mini,.tp-flag')) return el.textContent; var c=el.cloneNode(true); c.querySelectorAll('.tp-mini,.tp-flag').forEach(function(x){ x.remove(); }); return c.textContent; }
 
     function detailBlocks(scope){
       var out=[];
@@ -3444,7 +3799,7 @@ input[type=range]::-moz-range-thumb{border-color:var(--accent)}
         var sub=small?small.textContent:'';
         if(st){ Array.prototype.forEach.call(st.childNodes,function(nd){ if(nd.nodeType===3) main+=nd.textContent; }); }
         var rev=d.querySelector('.reveal');
-        var text=main.trim()+(sub?'. '+sub:'')+'. '+(rev?rev.textContent:'');
+        var text=main.trim()+(sub?'. '+sub:'')+'. '+(rev?txt(rev):'');
         out.push({el:d, text:text, open:d});
       });
       return out;
@@ -3553,24 +3908,35 @@ input[type=range]::-moz-range-thumb{border-color:var(--accent)}
         var c8=ch.querySelectorAll('.card');
         B.push({el:c8[0],text:txt(c8[0].querySelector('h3'))+'. A short film in six scenes.'});
         filmBlocks().forEach(function(b){B.push(b)});
-        var vs=[txt(c8[1].querySelector('h3'))];
-        c8[1].querySelectorAll('.vs-row:not(.vs-head)').forEach(function(r){ var k=r.children; vs.push(txt(k[0])+': H-D, '+txt(k[1])+'; H-D-F, '+txt(k[2])); });
-        B.push({el:c8[1],text:vs.join('. ')+'.',fx:function(){ filmRelease(); }});
-        B.push({el:c8[2],text:txt(c8[2].querySelector('h3'))+'. '+txt(c8[2].querySelector(':scope > p'))});
-        c8[2].querySelectorAll('.lad-row').forEach(function(r){ B.push({el:r,text:r.getAttribute('data-say')}); });
-        var ln=c8[2].querySelector('.hs-note'); if(ln) B.push({el:ln,text:txt(ln)});
+        B.push({el:c8[1],text:txt(c8[1].querySelector('h3'))+'. '+txt(c8[1].querySelector(':scope > p')),fx:function(){ filmRelease(); }});
+        c8[1].querySelectorAll('.tpt').forEach(function(t){ B.push({el:t,text:t.getAttribute('data-say')}); });
+        var vs=[txt(c8[2].querySelector('h3'))];
+        c8[2].querySelectorAll('.vs-row:not(.vs-head)').forEach(function(r){ var k=r.children; vs.push(txt(k[0])+': H-D, '+txt(k[1])+'; H-D-F, '+txt(k[2])); });
+        B.push({el:c8[2],text:vs.join('. ')+'.'});
         B.push({el:c8[3],text:txt(c8[3].querySelector('h3'))+'. '+txt(c8[3].querySelector(':scope > p'))});
-        [['post',400,90],['post',400,160],['post',300,60],['pre',300,160],['hd',400,0]].forEach(function(x){ B.push({el:c8[3],text:hdfSay(x[0],x[1],x[2]),fx:fxHdf(x[0],x[1],x[2])}); });
-        B.push({el:c8[3],text:'Back to post-dilution, at 400 and 90.',fx:fxHdf('post',400,90)});
-        B.push({el:c8[4],text:txt(c8[4].querySelector('h3'))+'.'});
-        detailBlocks(c8[4]).forEach(function(b){B.push(b)});
-        var nd=[txt(c8[5].querySelector('h3'))];
-        c8[5].querySelectorAll('.panel-note').forEach(function(pn){ var cl=pn.cloneNode(true); cl.querySelectorAll('button').forEach(function(x){ x.remove(); }); nd.push(cl.textContent); });
-        B.push({el:c8[5],text:nd.join('. ')});
+        c8[3].querySelectorAll('.lad-row').forEach(function(r){ B.push({el:r,text:r.getAttribute('data-say')}); });
+        var ln=c8[3].querySelector('.hs-note'); if(ln) B.push({el:ln,text:txt(ln)});
+        B.push({el:c8[4],text:txt(c8[4].querySelector('h3'))+'. '+txt(c8[4].querySelector(':scope > p'))});
+        [['post',350,90],['post',350,140],['post',300,85],['post',280,85],['pre',350,160],['hd',350,0]].forEach(function(x){ B.push({el:c8[4],text:hdfSay(x[0],x[1],x[2]),fx:fxHdf(x[0],x[1],x[2])}); });
+        B.push({el:c8[4],text:'Back to post-dilution, at 350 and 90.',fx:fxHdf('post',350,90)});
+        B.push({el:c8[5],text:txt(c8[5].querySelector('h3'))+'. '+txt(c8[5].querySelector(':scope > p')),fx:fxWalk([])});
+        B.push({el:c8[5],text:'First: '+WALK.q1.q+' If not: '+WALK.r1.t+'. '+WALK.r1.x,fx:fxWalk(['no'])});
+        B.push({el:c8[5],text:'If it is, the next question: '+WALK.q2.q+' If so: '+WALK.r2.t+'. '+WALK.r2.x,fx:fxWalk(['yes','yes'])});
+        B.push({el:c8[5],text:'If not, the last question: '+WALK.q3.q+' If so: '+WALK.r3.t+'. '+WALK.r3.x,fx:fxWalk(['yes','no','yes'])});
+        B.push({el:c8[5],text:'Otherwise: '+WALK.r4.t+'. '+WALK.r4.x,fx:fxWalk(['yes','no','no'])});
         B.push({el:c8[6],text:txt(c8[6].querySelector('h3'))+'.'});
         detailBlocks(c8[6]).forEach(function(b){B.push(b)});
-        B.push({el:c8[7],text:txt(c8[7].querySelector('h3'))+'.'});
-        c8[7].querySelectorAll(':scope > p').forEach(function(p){ B.push({el:c8[7],text:txt(p)}); });
+        B.push({el:c8[7],text:txt(c8[7].querySelector('h3'))+'. '+txt(c8[7].querySelector(':scope > p'))});
+        ['con','pn','hd','csw'].forEach(function(r){ B.push({el:c8[7],text:ROLES[r].n+'. '+ROLES[r].d.map(function(d){ return d[1]; }).join(' '),fx:fxRole(r)}); });
+        B.push({el:c8[7],text:txt(c8[7].querySelector('.hs-note')),fx:fxRole('pn')});
+        B.push({el:c8[8],text:txt(c8[8].querySelector('h3'))+'. '+txt(c8[8].querySelector(':scope > p'))});
+        ['method','autosub','autoflow','ratio'].forEach(function(k,i){ B.push({el:c8[8],text:'Setting '+(i+1)+', '+rxName(k)+'. '+RX_INFO[k].x,fx:fxRx(k)}); });
+        B.push({el:c8[9],text:txt(c8[9].querySelector('h3'))+'. '+txt(c8[9].querySelector(':scope > p'))});
+        c8[9].querySelectorAll('.opt').forEach(function(o){ var t=[]; o.querySelectorAll('li').forEach(function(li){ t.push(txt(li)); }); B.push({el:o,text:txt(o.querySelector('b'))+'. '+t.join(' ')}); });
+        B.push({el:c8[10],text:txt(c8[10].querySelector('h3'))+'.'});
+        detailBlocks(c8[10]).forEach(function(b){B.push(b)});
+        B.push({el:c8[11],text:txt(c8[11].querySelector('h3'))+'.'});
+        c8[11].querySelectorAll(':scope > p').forEach(function(p){ B.push({el:c8[11],text:txt(p)}); });
         var n8=directChild(ch,'panel-note'); if(n8) B.push({el:n8,text:txt(n8)});
       } else if(n===9){
         detailBlocks(ch.querySelector('.acc')).forEach(function(b){B.push(b)});
@@ -3578,6 +3944,8 @@ input[type=range]::-moz-range-thumb{border-color:var(--accent)}
         card.querySelectorAll('.panel-note').forEach(function(pn){parts.push(txt(pn))});
         var it=card.querySelector('p[style]'); if(it) parts.push(txt(it));
         B.push({el:card,text:parts.join('. ')});
+        var ac=ch.querySelectorAll('.card')[1];
+        if(ac){ var ap=[txt(ac.querySelector('h3')),txt(ac.querySelector(':scope > p'))]; ac.querySelectorAll('.panel-note').forEach(function(pn){ ap.push(txt(pn)); }); B.push({el:ac,text:ap.join(' ')}); }
       } else if(n===10){
         B.push({el:ch.querySelector('#acuteList'),text:'First, what can happen during a session.', fx:fxSeg('#compToggle','acute')});
         detailBlocks(ch.querySelector('#acuteList')).forEach(function(b){B.push(b)});
