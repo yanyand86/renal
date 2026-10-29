@@ -892,6 +892,53 @@ button.rx-f:hover{border-color:#005EB8}
 .wfix b{color:#7A5200}
 .uw-links{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:6px}
 @media (prefers-reduced-motion: reduce){.cal .c b,.tgt.on b,.nst-c.u{animation:none}}
+
+/* ================= v9 · fluid removal calculator ================= */
+.tool-card{display:flex;align-items:center;gap:14px;width:100%;margin:-8px 0 24px;padding:14px 16px;border-radius:20px;text-align:left;color:#fff;background:linear-gradient(135deg,#7A1E48 0%,#C2385A 58%,#FF7A45 125%);box-shadow:0 14px 28px -16px #7A1E48,0 2px 6px rgba(16,36,43,.08);transition:transform .18s,box-shadow .18s}
+.tool-card:hover,.tool-card:focus-visible{transform:translateY(-2px);box-shadow:0 18px 32px -16px #7A1E48}
+.tool-i{flex:none;width:46px;height:46px;border-radius:14px;display:grid;place-items:center;background:rgba(255,255,255,.18)}
+.tool-i svg{width:25px;height:25px;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.tool-t{flex:1;min-width:0}
+.tool-t small{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;opacity:.85}
+.tool-t b{display:block;margin-top:1px;font-family:var(--serif);font-size:19px;font-weight:600;line-height:1.2}
+.tool-t span{display:block;margin-top:1px;font-size:13px;line-height:1.35;opacity:.92}
+.tool-go{flex:none;opacity:.9}
+.menu-tool{margin-top:6px;border-top:1px dashed var(--mist);border-radius:0 0 14px 14px}
+.menu-tool .n{color:#E0485F}
+
+#ufCalc{scroll-margin-top:calc(var(--topbar) + env(safe-area-inset-top) + 18px)}
+.fc-ex .chip{padding:7px 12px;font-size:12.5px}
+.fc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px 12px;margin-top:16px;align-items:end}
+.fc-in label{display:block;margin-bottom:6px;font-family:var(--mono);font-size:11.5px;letter-spacing:.03em;color:var(--ink-soft)}
+.fc-in label small{display:block;margin-top:1px;font-family:var(--sans);font-size:11px;letter-spacing:0;color:var(--ink-faint)}
+.fc-step{display:flex;align-items:center;height:48px;border:1.5px solid var(--mist);border-radius:14px;background:var(--card);overflow:hidden;transition:border-color .2s,box-shadow .2s}
+.fc-step:focus-within{border-color:var(--accent-2);box-shadow:0 0 0 3px var(--accent-soft)}
+.fc-step button{flex:none;width:36px;height:100%;font-size:20px;font-weight:600;line-height:1;color:var(--accent);background:var(--card-2)}
+.fc-step button:active{background:var(--accent-soft)}
+.fc-step input{flex:1;min-width:0;width:100%;height:100%;border:0;background:transparent;text-align:right;font:600 16px var(--mono);color:var(--ink);padding:0 2px 0 4px;outline:none;-moz-appearance:textfield;appearance:textfield}
+.fc-step input::-webkit-outer-spin-button,.fc-step input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.fc-step span{flex:none;padding:0 6px 0 3px;font:500 11.5px var(--mono);color:var(--ink-faint)}
+.fc-in select{width:100%;height:48px;padding:0 34px 0 12px;border:1.5px solid var(--mist);border-radius:14px;background:var(--card) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23455A61' stroke-width='2.4' stroke-linecap='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") no-repeat right 12px center;font:600 15px var(--mono);color:var(--ink);-webkit-appearance:none;appearance:none}
+.fc-in select:focus{outline:none;border-color:var(--accent-2);box-shadow:0 0 0 3px var(--accent-soft)}
+.fc-sw{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:14px}
+.chip.fc-first{margin:0}
+.chip.fc-first[aria-pressed="true"]{background:#FFF5F5;border-color:#D32F2F;color:#B71C1C}
+.chip.fc-first[aria-pressed="true"]::before{content:"\2713\00a0"}
+.fc-jug{margin-top:16px}
+.fc-jbar{position:relative;height:26px;margin-top:30px;border-radius:99px;background:var(--mist-2)}
+.fc-jbar i{position:absolute;left:0;top:0;bottom:0;width:0;border-radius:99px;background:linear-gradient(90deg,#2E7D32,#66BB6A 50%,#2E7D32);background-size:200% 100%;transition:width .45s ease;animation:fcFlow 3s linear infinite}
+.fc-jbar.over i{background:linear-gradient(90deg,#C62828,#FF7043 50%,#C62828);background-size:200% 100%}
+@keyframes fcFlow{from{background-position:0 0}to{background-position:-200% 0}}
+.fc-jbar em{position:absolute;top:-7px;bottom:-7px;width:3px;margin-left:-1.5px;border-radius:2px;background:var(--ink);transition:left .45s ease}
+.fc-jbar em span{position:absolute;bottom:100%;left:50%;transform:translateX(-50%);margin-bottom:4px;white-space:nowrap;font:600 11px var(--mono);font-style:normal;color:var(--ink);background:var(--card);padding:2px 7px;border-radius:7px;box-shadow:0 1px 4px rgba(16,36,43,.18)}
+.fc-jbar em.end span{left:auto;right:-4px;transform:none}
+.fc-jbar em.start span{left:-4px;transform:none}
+.fc-jlab{margin-top:9px;font-size:13px;line-height:1.45;color:var(--ink-soft);text-align:center}
+.fc-stats .hstat b{font-size:19px}
+#fcMsg .hs-msg b{color:var(--ink)}
+.fc-work{margin:8px 0 0;padding:12px 14px 12px 32px;border-radius:var(--r-sm);background:var(--card-2);border:1px dashed var(--mist);font:500 12.5px/1.75 var(--mono);color:var(--ink-soft)}
+.fc-work b{font-weight:600;color:var(--ink)}
+@media (prefers-reduced-motion: reduce){.fc-jbar i{animation:none}}
 </style>
 </head>
 <body>
@@ -944,6 +991,12 @@ button.rx-f:hover{border-color:#005EB8}
       </svg>
     </div>
   </div>
+
+  <button class="tool-card" id="toolUf" data-go="10" data-target="ufCalc">
+    <span class="tool-i" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/><path d="M12 10.5v6M9.6 14.2L12 16.6l2.4-2.4"/></svg></span>
+    <span class="tool-t"><small>Quick tool</small><b>UF calculator</b><span>How much fluid to take off, and how fast</span></span>
+    <span class="tool-go" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></span>
+  </button>
 
   <div class="path-head"><h2>Chapters</h2><span id="pathCount"></span></div>
   <nav class="chapter-list" id="homeList"></nav>
@@ -1747,7 +1800,7 @@ button.rx-f:hover{border-color:#005EB8}
   <div class="ch-head">
     <div class="ch-kicker"><span>10 · Complications</span><span class="line"></span></div>
     <h2>What can go wrong</h2>
-    <p class="lede">Two timescales to know: things that happen <em>during</em> a session, and the longer-term effects of living with kidney failure.</p>
+    <p class="lede">Two timescales to know: things that happen <em>during</em> a session, and the longer-term effects of living with kidney failure. Then a calculator for the most common cause of trouble in the chair: fluid coming off too fast.</p>
   </div>
 
   <div class="seg" id="compToggle" style="margin-bottom:12px">
@@ -1756,7 +1809,7 @@ button.rx-f:hover{border-color:#005EB8}
   </div>
 
   <div class="acc" id="acuteList">
-    <details class="item"><summary><span class="tag t-blood">↓</span><span class="summary-txt">Hypotension<small>The most common intradialytic event</small></span><span class="chev">›</span></summary><div class="reveal"><p>Removing fluid too fast, or more than the patient can refill from the tissues, drops the blood pressure — causing dizziness, nausea or cramps. Managed by adjusting fluid removal and the target weight. The Trust keeps the UF rate under 10 mL/kg/hour &mdash; 700 mL an hour for a 70 kg patient &mdash; and adds time, or an extra session, rather than speed when more fluid has to come off.<span class="tp-mini">Doc 2434</span></p></div></details>
+    <details class="item"><summary><span class="tag t-blood">↓</span><span class="summary-txt">Hypotension<small>The most common intradialytic event</small></span><span class="chev">›</span></summary><div class="reveal"><p>Removing fluid too fast, or more than the patient can refill from the tissues, drops the blood pressure — causing dizziness, nausea or cramps. Managed by adjusting fluid removal and the target weight. The Trust keeps the UF rate under 10 mL/kg/hour &mdash; 700 mL an hour for a 70 kg patient &mdash; and adds time, or an extra session, rather than speed when more fluid has to come off.<span class="tp-mini">Doc 2434</span></p><button class="xlink" data-go="10" data-target="ufCalc">Plan it with the UF calculator</button></div></details>
     <details class="item"><summary><span class="tag t-fluid">✱</span><span class="summary-txt">Muscle cramps<small>Often legs, late in the session</small></span><span class="chev">›</span></summary><div class="reveal"><p>Linked to rapid fluid and electrolyte shifts. Common alongside hypotension.</p></div></details>
     <details class="item"><summary><span class="tag t-amber">◐</span><span class="summary-txt">Nausea, headache &amp; fatigue<small>The "washed-out" feeling</small></span><span class="chev">›</span></summary><div class="reveal"><p>Frequently follow blood-pressure and fluid changes during and just after treatment.</p></div></details>
     <details class="item"><summary><span class="tag t-violet">≈</span><span class="summary-txt">Disequilibrium syndrome<small>Clearing waste too fast</small></span><span class="chev">›</span></summary><div class="reveal"><p>If urea is removed very quickly — usually early in a patient's dialysis life — fluid shifts into the brain, causing headache and confusion. Prevented by starting gently.</p></div></details>
@@ -1769,6 +1822,40 @@ button.rx-f:hover{border-color:#005EB8}
     <details class="item"><summary><span class="tag t-blood">♥</span><span class="summary-txt">Cardiovascular disease<small>The leading cause of death</small></span><span class="chev">›</span></summary><div class="reveal"><p>Fluid load, high blood pressure and mineral changes strain the heart and vessels over time.</p></div></details>
     <details class="item"><summary><span class="tag t-fluid">◇</span><span class="summary-txt">Fluid &amp; diet limits<small>Living between sessions</small></span><span class="chev">›</span></summary><div class="reveal"><p>Patients often limit fluid, potassium, phosphate and salt to stay safe between treatments — a big part of daily life on dialysis.</p></div></details>
     <details class="item"><summary><span class="tag t-amber">⌘</span><span class="summary-txt">Infection risk<small>Especially with lines</small></span><span class="chev">›</span></summary><div class="reveal"><p>Repeated access to the bloodstream and an altered immune response raise infection risk — a major reason to protect and prefer fistulas.</p></div></details>
+  </div>
+
+  <div class="card tp-card" id="ufCalc">
+    <span class="tp-flag" role="note" aria-label="From the Trust document Doc 2434"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 3h8l4 4v14h-12z"/><path d="M14.5 3v4h4"/><path d="M9.5 12h6M9.5 16h4"/></svg>Trust <b>Doc 2434</b></span>
+    <h3>Planning the fluid removal</h3>
+    <p style="font-size:14.5px;color:var(--ink-soft);line-height:1.6">Hypotension and cramps usually start with fluid coming off too fast. Enter the weights and the session time to see how much comes off, how fast, and whether it stays within the Trust&rsquo;s limit of 10 mL/kg/hour. The working shows underneath. Start with an example.</p>
+    <div class="chips fc-ex" id="fcEx" role="group" aria-label="Load an example"><button class="chip" data-ex="a" aria-pressed="false">105 kg &middot; 3 L &middot; 3 h 15</button><button class="chip" data-ex="b" aria-pressed="false">Over the limit</button><button class="chip" data-ex="c" aria-pressed="false">Anuric, short session</button><button class="chip" data-ex="d" aria-pressed="false">First dialysis</button></div>
+    <div class="fc-grid">
+      <div class="fc-in"><label for="fcPre">Pre-dialysis weight</label><div class="fc-step"><button type="button" data-for="fcPre" data-d="-0.1" aria-label="Pre-dialysis weight down 0.1 kg">&minus;</button><input id="fcPre" type="number" inputmode="decimal" min="20" max="300" step="0.1" value="108.0"><span>kg</span><button type="button" data-for="fcPre" data-d="0.1" aria-label="Pre-dialysis weight up 0.1 kg">+</button></div></div>
+      <div class="fc-in"><label for="fcTw">Target weight</label><div class="fc-step"><button type="button" data-for="fcTw" data-d="-0.1" aria-label="Target weight down 0.1 kg">&minus;</button><input id="fcTw" type="number" inputmode="decimal" min="20" max="300" step="0.1" value="105.0"><span>kg</span><button type="button" data-for="fcTw" data-d="0.1" aria-label="Target weight up 0.1 kg">+</button></div></div>
+      <div class="fc-in"><label for="fcTime">Session time</label><select id="fcTime"></select></div>
+      <div class="fc-in"><label for="fcExtra">Extra on the UF goal<small>Washback or drinks, if your unit adds them</small></label><div class="fc-step"><button type="button" data-for="fcExtra" data-d="-50" aria-label="Extra on the UF goal down 50 mL">&minus;</button><input id="fcExtra" type="number" inputmode="decimal" min="0" max="2000" step="50" value="0"><span>mL</span><button type="button" data-for="fcExtra" data-d="50" aria-label="Extra on the UF goal up 50 mL">+</button></div></div>
+    </div>
+    <div class="fc-sw">
+      <div class="seg" id="fcUrine" role="group" aria-label="Urine output"><button class="on" data-t="yes" aria-pressed="true">Passes urine</button><button data-t="no" aria-pressed="false">Anuric</button></div>
+      <button class="chip fc-first" id="fcFirst" aria-pressed="false">First ever dialysis</button>
+    </div>
+    <div class="fc-jug" aria-hidden="true"><div class="fc-jbar" id="fcJbar"><i id="fcFill"></i><em id="fcMark"><span id="fcMarkL">limit</span></em></div><p class="fc-jlab" id="fcJlab"></p></div>
+    <div class="hdf-stats fc-stats">
+      <div class="hstat" id="fcSGoal"><span class="hs-k">Fluid to remove</span><b></b><small></small></div>
+      <div class="hstat" id="fcSRate"><span class="hs-k">UF rate</span><b></b><small></small></div>
+      <div class="hstat" id="fcSKg"><span class="hs-k">Per kg of target weight</span><b></b><small></small><div class="hs-bar"><i></i><em style="left:66.67%"></em></div></div>
+      <div class="hstat" id="fcSMax"><span class="hs-k">Most within the limit</span><b></b><small></small></div>
+    </div>
+    <div class="alarm-card" id="fcMsg" aria-live="polite"></div>
+    <h4 class="cal-h">The working</h4>
+    <ol class="fc-work" id="fcWork"></ol>
+    <div class="acc">
+      <details class="item"><summary><span class="tag t-sage">TW</span><span class="summary-txt">Setting the target weight<small>Assess, then adjust gradually</small></span><span class="chev">&rsaquo;</span></summary><div class="reveal"><p>Assess the patient&rsquo;s fluid status and set the target weight from what you find, with a body composition monitor (BCM) assessment at the earliest opportunity. If a patient is significantly overloaded, the target can be set below their current weight and brought down slowly over several weeks, with regular reassessment.</p></div></details>
+      <details class="item"><summary><span class="tag t-blood">10</span><span class="summary-txt">When it&rsquo;s too much for one session<small>Time, not speed</small></span><span class="chev">&rsaquo;</span></summary><div class="reveal"><p>If the fluid can&rsquo;t come off within 10 mL/kg/hour, the answer is a longer or an extra session, not a faster rate. Large volumes are discussed with a senior renal nurse and/or the haemodialysis CNS, with a plan to bring the weight down gradually. Fluid-removal profiling can help when large volumes need to come off, or when linear removal causes problems.</p></div></details>
+      <details class="item"><summary><span class="tag t-violet">1st</span><span class="summary-txt">First ever dialysis<small>No fluid off unless instructed</small></span><span class="chev">&rsaquo;</span></summary><div class="reveal"><p>Two hours, with the blood flow no higher than 250 mL/min, and no fluid removal unless a doctor or the haemodialysis CNS has asked for the target weight to come down, or the patient is very symptomatically overloaded and needs fluid off now. If fluid is removed, record it in the dialysis session and the progress notes, with the reasoning.</p></div></details>
+      <details class="item"><summary><span class="tag t-amber">3h</span><span class="summary-txt">Session time: the floors<small>Shorter sessions push the UF rate up</small></span><span class="chev">&rsaquo;</span></summary><div class="reveal"><p>Once adequacy is established, sessions shouldn&rsquo;t drop below 3 hours if the patient passes urine, or 3.5 hours if they&rsquo;re anuric, palliative dialysis aside. New patients dialyse for 3.5 to 4 hours until UKM QA and KRU tests have established their adequacy.</p><div class="why"><b>The trade-off:</b> the shorter the session, the faster the same fluid has to come off.</div></div></details>
+    </div>
+    <p class="hs-note">Per kg uses the target weight, the lower and safer figure. Anything added to the UF goal, such as the washback or drinks, counts towards the UF rate too. A teaching aid: always check against the prescription, the machine and your unit&rsquo;s practice.</p>
   </div>
 </section>
 
@@ -1834,7 +1921,7 @@ button.rx-f:hover{border-color:#005EB8}
       <details class="item" data-say="Set the frequency right in Clinical Vision. The kidneys&rsquo; share is converted differently for twice- and thrice-weekly dialysis, so whenever a schedule changes, the frequency in the record changes with it."><summary><span class="tag t-blue">CV</span><span class="summary-txt">Set the frequency right in Clinical Vision<small>It changes the sum</small></span><span class="chev">&rsaquo;</span></summary><div class="reveal"><p>Clinical Vision converts KRU into a per-session equivalent using the prescribed frequency, and the conversion is different for twice- and thrice-weekly dialysis. If the frequency in the record is wrong, the kidneys&rsquo; share is wrong, and so is the total.</p><div class="why"><b>So:</b> whenever a patient&rsquo;s schedule changes, the frequency in Clinical Vision changes with it.</div></div></details>
       <details class="item" data-say="Who can dialyse twice a week. It can be considered when the first KRU is 3 mL/min or more, and rarely works below 2. The patient also needs at least 500 mL of urine a day, a total eKt/V of 2.0 or more, potassium, fluid gains and acidosis under control, a UF rate under 10 mL/kg/hour, and good nutrition. And they must understand it&rsquo;s temporary, and agree to the urine collections."><summary><span class="tag t-violet">2&times;</span><span class="summary-txt">Who can dialyse twice a week<small>Incremental dialysis</small></span><span class="chev">&rsaquo;</span></summary><div class="reveal"><p>Twice weekly can be considered when the patient&rsquo;s first KRU is 3 mL/min or more. It may continue below that, but under 2 mL/min adequate twice-weekly dialysis is unlikely. The other criteria:</p><ul class="crit"><li>Urine output of at least 500 mL in 24 hours.</li><li>A total eKt/V per session of 2.0 or more.</li><li>Potassium above 5.5 mmol/L only occasionally, and readily managed.</li><li>Limited fluid gain: under 2.5 kg, or under 5% of target weight, over 3 to 4 days without dialysis.</li><li>A UF rate under 10 mL/kg/hour.</li><li>Acidosis controlled, with or without sodium bicarbonate.</li><li>Good nutrition, without a hypercatabolic state.</li></ul><div class="why"><b>And the patient:</b> incremental dialysis has been discussed, they understand twice weekly is temporary and will increase as their kidney function falls, and they agree to do the urine collections. Once-weekly isn&rsquo;t used for incremental dialysis, and more than three sessions a week is agreed individually with the consultant.</div></div></details>
       <details class="item" data-say="Session time: the floors. New patients dialyse 3.5 to 4 hours until their adequacy is established. After that, no less than 3 hours if they pass urine, or 3.5 hours if anuric, and shorter sessions only for patients beating their target with everything else well controlled."><summary><span class="tag t-amber">3h</span><span class="summary-txt">Session time: the floors<small>Once adequacy is established</small></span><span class="chev">&rsaquo;</span></summary><div class="reveal"><p>New patients dialyse for 3.5 to 4 hours until UKM QA and KRU tests have established their adequacy. After that, sessions shouldn&rsquo;t drop below <b>3 hours</b> if the patient still passes urine, or <b>3.5 hours</b> if they&rsquo;re anuric, palliative dialysis aside.</p><div class="why"><b>Shorter sessions</b> are only for patients beating their target whose fluid, potassium, acidosis and nutrition are all well controlled &mdash; and a shorter session pushes the UF rate up.</div></div></details>
-      <details class="item" data-say="UF rate: under 10 mL/kg/hour, which is 700 mL an hour for a 70 kg patient. Faster removal is linked with higher mortality, so a patient who needs more comes off over a longer or an extra session, not at a faster rate."><summary><span class="tag t-blood">UF</span><span class="summary-txt">UF rate: under 10 mL/kg/hour<small>700 mL an hour for a 70 kg patient</small></span><span class="chev">&rsaquo;</span></summary><div class="reveal"><p>Removing fluid faster than 10 mL/kg/hour is linked with worse outcomes, including higher mortality. If a patient keeps needing more than that, the answer is a longer or an extra session, not a faster rate. Large volumes are discussed with a senior renal nurse or the haemodialysis CNS, with a plan to bring the weight down gradually; a body composition monitor (BCM) assessment and fluid-removal profiling can help.</p><div class="why"><b>Try it:</b> in the dose sum below, open &ldquo;Time, fluid and weight&rdquo; and the UF rate shows live.</div></div></details>
+      <details class="item" data-say="UF rate: under 10 mL/kg/hour, which is 700 mL an hour for a 70 kg patient. Faster removal is linked with higher mortality, so a patient who needs more comes off over a longer or an extra session, not at a faster rate."><summary><span class="tag t-blood">UF</span><span class="summary-txt">UF rate: under 10 mL/kg/hour<small>700 mL an hour for a 70 kg patient</small></span><span class="chev">&rsaquo;</span></summary><div class="reveal"><p>Removing fluid faster than 10 mL/kg/hour is linked with worse outcomes, including higher mortality. If a patient keeps needing more than that, the answer is a longer or an extra session, not a faster rate. Large volumes are discussed with a senior renal nurse or the haemodialysis CNS, with a plan to bring the weight down gradually; a body composition monitor (BCM) assessment and fluid-removal profiling can help.</p><div class="why"><b>Try it:</b> the UF calculator in chapter 10 works it out from the weights and the session time. <button class="xlink" data-go="10" data-target="ufCalc">Open the UF calculator</button></div></div></details>
     </div>
     <p class="hs-note">Exceptions: pregnancy isn&rsquo;t covered by the protocol, so the unit consultant sets an individual prescription, and palliative dialysis can sit outside the time floors and the twice-weekly criteria.</p>
   </div>
@@ -2156,7 +2243,7 @@ button.rx-f:hover{border-color:#005EB8}
     {t:"Water treatment", d:"From the tap to the dialysate", c:['#005C70','#36C5E8']},
     {t:"HD and HDF", d:"Convection, dilution and the Trust guideline", c:['#5B1A8E','#C850F0']},
     {t:"Vascular access", d:"Fistula, graft and line", c:['#1E5E2A','#4CB050']},
-    {t:"Complications", d:"During dialysis and long-term", c:['#7A1E48','#FF7A45']},
+    {t:"Complications", d:"During dialysis, long-term, and a UF calculator", c:['#7A1E48','#FF7A45']},
     {t:"Medications", d:"By the problem they solve", c:['#3B1C8C','#8C6CF2']},
     {t:"QA bloods & urine", d:"Dose targets, sampling and KRU", c:['#8B1E3F','#F25C7A']},
     {t:"Test yourself", d:"Quiz for trainees", c:['#6B4A00','#F2B705']}
@@ -2735,6 +2822,139 @@ button.rx-f:hover{border-color:#005EB8}
     acuteList.style.display=acute?'flex':'none';
     chronicList.style.display=acute?'none':'flex';
   });
+
+  // ================= FLUID REMOVAL CALCULATOR (v9 · Trust Doc 2434) =================
+  var FC_EX={
+    a:{pre:'108.0',tw:'105.0',t:195,x:'0',urine:'yes',first:false},
+    b:{pre:'73.2',tw:'70.0',t:240,x:'0',urine:'yes',first:false},
+    c:{pre:'92.0',tw:'90.0',t:195,x:'0',urine:'no',first:false},
+    d:{pre:'82.5',tw:'80.0',t:120,x:'0',urine:'yes',first:true}
+  };
+  var fcEl={pre:qid('fcPre'),tw:qid('fcTw'),t:qid('fcTime'),x:qid('fcExtra')}, fcState={urine:'yes',first:false}, fcLast=null;
+  function fcHm(m){ var h=Math.floor(m/60), r=m%60; return h+'\u00a0h\u00a0'+(r<10?'0':'')+r; }
+  function fcHmS(m){ var h=Math.floor(m/60), r=m%60; return r ? h+'\u00a0h\u00a0'+(r<10?'0':'')+r : h+'\u00a0h'; }
+  function fcHmSay(m){ var h=Math.floor(m/60), r=m%60; return (h===1?'1 hour':h+' hours')+(r?' '+r:''); }
+  function fcHrs(th){ return String(parseFloat(th.toFixed(2))); }
+  function fcFmt(n){ return Math.round(n).toLocaleString('en-GB'); }
+  function fcL(ml){ return (ml/1000).toFixed(1)+'\u00a0L'; }
+  function fcNum(v){ var n=parseFloat(String(v).replace(',','.')); return isFinite(n)?n:NaN; }
+  (function(){ var h=''; for(var m=60;m<=360;m+=15){ h+='<option value="'+m+'"'+(m===240?' selected':'')+'>'+fcHm(m)+'</option>'; } fcEl.t.innerHTML=h; })();
+  // the sums, from a plain set of values (so narration and tests use exactly what the screen uses)
+  function fcCalcFrom(v){
+    var pre=fcNum(v.pre), tw=fcNum(v.tw), tmin=+v.t, x=fcNum(v.x);
+    if(!isFinite(x)||x<0) x=0;
+    if(!(isFinite(pre)&&isFinite(tw)&&pre>=20&&pre<=300&&tw>=20&&tw<=300&&tmin>0)) return {ok:false,tmin:tmin};
+    var gain=Math.round((pre-tw)*10)/10;
+    var goal=Math.max(0,Math.round(gain*1000))+Math.round(x);
+    var th=tmin/60, rate=goal/th, perKg=rate/tw, maxRate=10*tw, maxVol=Math.floor(maxRate*th+1e-9);
+    var floor=v.urine==='no'?210:180;
+    return {ok:true,pre:pre,tw:tw,tmin:tmin,th:th,x:Math.round(x),gain:gain,goal:goal,rate:rate,perKg:perKg,maxRate:maxRate,maxVol:maxVol,room:maxVol-goal,
+      over:Math.round(perKg*10)>100,need:goal>0?Math.ceil(goal/maxRate*60/15-1e-9)*15:0,pct:gain/tw*100,first:!!v.first,urine:v.urine,floor:floor,short:!v.first&&tmin<floor};
+  }
+  function fcRead(){ return {pre:fcEl.pre.value,tw:fcEl.tw.value,t:fcEl.t.value,x:fcEl.x.value,urine:fcState.urine,first:fcState.first}; }
+  function fcCalc(){ return fcCalcFrom(fcRead()); }
+  function fcTile(id,b,s,cls){ var t=qid(id); t.className='hstat'+(cls?' '+cls:''); t.querySelector('b').textContent=b; t.querySelector('small').textContent=s; }
+  function fcRender(){
+    var r=fcCalc(); fcLast=r;
+    var msg=qid('fcMsg'), work=qid('fcWork'), bar=qid('fcSKg').querySelector('.hs-bar i'), jb=qid('fcJbar'), fill=qid('fcFill'), mk=qid('fcMark');
+    if(!r.ok){
+      ['fcSGoal','fcSRate','fcSKg','fcSMax'].forEach(function(id){ fcTile(id,'—','',''); });
+      bar.style.width='0'; fill.style.width='0'; mk.style.left='0'; qid('fcJlab').textContent='';
+      msg.className='alarm-card bypass'; msg.innerHTML='<div class="ac-title">Enter both weights</div><p class="hs-msg">The pre-dialysis weight and the target weight, in kg.</p>';
+      work.innerHTML=''; return;
+    }
+    fcTile('fcSGoal',fcL(r.goal),(r.gain>0?'gain '+r.gain.toFixed(1)+' kg, '+r.pct.toFixed(1)+'% of target weight':(r.gain<0?(-r.gain).toFixed(1)+' kg under target weight':'at target weight'))+(r.x?' · plus '+fcFmt(r.x)+' mL extra':''),'');
+    fcTile('fcSRate',fcFmt(r.rate)+' mL/h','over '+fcHmS(r.tmin),'');
+    fcTile('fcSKg',r.perKg.toFixed(1),'mL/kg/hour · the limit is 10',r.goal?(r.over?'bad':'ok'):'');
+    fcTile('fcSMax',fcL(r.maxVol),fcFmt(r.maxRate)+' mL/hour for '+fcHmS(r.tmin),r.over?'warn':'');
+    bar.style.width=Math.min(r.perKg/15,1)*100+'%'; bar.style.background=r.over?'#E53935':'#43A047';
+    // the jug: what's to come off, against the most this session allows
+    var S=Math.max(r.maxVol,r.goal)/0.86, pf=r.goal/S*100, pm=r.maxVol/S*100;
+    fill.style.width=pf.toFixed(2)+'%'; mk.style.left=pm.toFixed(2)+'%';
+    mk.className=pm>78?'end':(pm<22?'start':'');
+    qid('fcMarkL').textContent='limit '+fcL(r.maxVol);
+    jb.classList.toggle('over',r.over);
+    qid('fcJlab').textContent=r.goal ? fcL(r.goal)+' to remove · up to '+fcL(r.maxVol)+' fits within the limit in '+fcHmS(r.tmin) : 'Nothing to remove · up to '+fcL(r.maxVol)+' would fit in '+fcHmS(r.tmin);
+    // the verdict, from Doc 2434
+    var cls='alarm-card', t, p=[];
+    if(r.first){
+      cls+=' danger'; t='First ever dialysis';
+      p.push('No fluid removal unless a doctor or the haemodialysis CNS has asked for it, or the patient is very symptomatically overloaded and needs fluid off now. If fluid does come off, record why in the dialysis session and the progress notes.');
+      p.push('The first session is 2 hours, with the blood flow no higher than 250 mL/min.'+(r.tmin!==120?' This one is set to '+fcHmS(r.tmin)+'.':''));
+    } else if(r.gain<0&&r.goal===0){
+      cls+=' bypass'; t='Below target weight';
+      p.push('The patient is '+(-r.gain).toFixed(1)+' kg under their target weight, so there’s nothing to remove. Check the weighing, and whether the target weight needs reassessing.');
+    } else if(r.goal===0){
+      t='Nothing to remove'; p.push('The patient is at their target weight.');
+    } else if(r.over){
+      cls+=' danger'; t='Over the limit';
+      p.push(r.perKg.toFixed(1)+' mL/kg/hour is over the Trust’s 10. To take all '+fcL(r.goal)+' within the limit, the session would need '+fcHmS(r.need)+'. In '+fcHmS(r.tmin)+', no more than '+fcL(r.maxVol)+' should come off.');
+      p.push('Discuss it with a senior renal nurse or the haemodialysis CNS, and plan to bring the weight down gradually.');
+    } else {
+      t='Within the limit';
+      p.push(r.perKg.toFixed(1)+' mL/kg/hour is under the Trust’s 10. There’s room for about '+fcFmt(r.room)+' mL more in this session.');
+    }
+    if(r.short){
+      p.push('<b>Check the time:</b> '+fcHmS(r.tmin)+' is under the '+(r.urine==='no'?'3.5-hour minimum for an anuric patient':'3-hour minimum for a patient who passes urine')+' once adequacy is established, palliative dialysis aside.');
+      if(cls==='alarm-card'){ cls+=' bypass'; t+=', but check the time'; }
+    }
+    msg.className=cls;
+    msg.innerHTML='<div class="ac-title">'+t+'</div>'+p.map(function(x){ return '<p class="hs-msg">'+x+'</p>'; }).join('');
+    // the working
+    var w=[];
+    w.push('Fluid to remove: '+r.pre.toFixed(1)+' − '+r.tw.toFixed(1)+' = <b>'+r.gain.toFixed(1)+' kg</b>'+(r.gain>0?' = '+fcFmt(r.gain*1000)+' mL':'')+(r.x?', plus '+fcFmt(r.x)+' mL extra = <b>'+fcFmt(r.goal)+' mL</b>':''));
+    w.push('Session: '+fcHmS(r.tmin)+' = <b>'+fcHrs(r.th)+' hours</b>');
+    w.push('UF rate: '+fcFmt(r.goal)+' ÷ '+fcHrs(r.th)+' = <b>'+fcFmt(r.rate)+' mL/hour</b>');
+    w.push('Per kg: '+fcFmt(r.rate)+' ÷ '+r.tw.toFixed(1)+' = <b>'+r.perKg.toFixed(1)+' mL/kg/hour</b>');
+    w.push('Limit: 10 × '+r.tw.toFixed(1)+' = <b>'+fcFmt(r.maxRate)+' mL/hour</b>, × '+fcHrs(r.th)+' = <b>'+fcFmt(r.maxVol)+' mL</b> in this session');
+    work.innerHTML=w.map(function(x){ return '<li>'+x+'</li>'; }).join('');
+  }
+  function fcExMark(k){ qid('fcEx').querySelectorAll('.chip').forEach(function(b){ var on=b.dataset.ex===k; b.classList.toggle('on',on); b.setAttribute('aria-pressed',on?'true':'false'); }); }
+  function fcSet(v){
+    if(v.pre!==undefined) fcEl.pre.value=v.pre;
+    if(v.tw!==undefined) fcEl.tw.value=v.tw;
+    if(v.t!==undefined) fcEl.t.value=String(v.t);
+    if(v.x!==undefined) fcEl.x.value=v.x;
+    if(v.urine) fcState.urine=v.urine;
+    if(v.first!==undefined) fcState.first=!!v.first;
+    segOn(qid('fcUrine'),fcState.urine);
+    qid('fcFirst').setAttribute('aria-pressed',fcState.first?'true':'false');
+    fcRender();
+  }
+  function fcLoad(k){ fcSet(FC_EX[k]); fcExMark(k); }
+  ['pre','tw','x'].forEach(function(k){ fcEl[k].addEventListener('input',function(){ fcExMark(null); fcRender(); }); });
+  fcEl.t.addEventListener('change',function(){ fcExMark(null); fcRender(); });
+  qid('fcUrine').addEventListener('click',function(e){ var b=e.target.closest('button'); if(b){ fcExMark(null); fcSet({urine:b.dataset.t}); } });
+  qid('fcFirst').addEventListener('click',function(){ fcExMark(null); fcSet({first:!fcState.first}); });
+  qid('fcEx').addEventListener('click',function(e){ var b=e.target.closest('.chip'); if(b) fcLoad(b.dataset.ex); });
+  qid('ufCalc').addEventListener('click',function(e){
+    var b=e.target.closest('.fc-step button'); if(!b) return;
+    var inp=qid(b.dataset.for), d=parseFloat(b.dataset.d), v=fcNum(inp.value);
+    if(!isFinite(v)) v=(inp===fcEl.x)?0:(fcNum(inp===fcEl.pre?fcEl.tw.value:fcEl.pre.value)||70);
+    v=Math.min(parseFloat(inp.max),Math.max(parseFloat(inp.min),Math.round((v+d)*10)/10));
+    inp.value=Math.abs(d)>=1?String(Math.round(v)):v.toFixed(1);
+    fcExMark(null); fcRender();
+  });
+  function fcSay(k){
+    var r=fcCalcFrom(FC_EX[k]), L=function(ml){ return String(parseFloat((ml/1000).toFixed(1))); };
+    if(k==='a') return 'Take a patient with a target weight of '+r.tw+' kilograms who weighs '+r.pre+' before dialysis, on a '+fcHmSay(r.tmin)+' session. That is '+L(r.goal)+' litres to remove: '+fcFmt(r.rate)+' millilitres an hour, or '+r.perKg.toFixed(1)+' millilitres per kilogram per hour, within the limit. The most this session could take is about '+L(r.maxVol)+' litres.';
+    if(k==='b') return 'A '+r.tw+' kilogram patient with '+L(r.goal)+' litres to remove in '+fcHmSay(r.tmin)+' would need '+r.perKg.toFixed(1)+' millilitres per kilogram per hour: over the limit. Taking it all within the limit would need '+fcHmSay(r.need)+', or no more than '+L(r.maxVol)+' litres comes off in this session, and the plan is discussed with a senior renal nurse or the haemodialysis CNS.';
+    if(k==='c') return 'For an anuric patient on a '+fcHmSay(r.tmin)+' session, '+L(r.goal)+' litres is '+r.perKg.toFixed(1)+' millilitres per kilogram per hour, within the limit. But '+fcHmSay(r.tmin)+' is under the three and a half hour minimum for an anuric patient once adequacy is established.';
+    return 'And on a first ever dialysis, no fluid comes off unless a doctor or the haemodialysis CNS has asked for it, or the patient is very symptomatically overloaded. The session is 2 hours, with the blood flow no higher than 250 mL/min.';
+  }
+  // shortcuts: home card, menu, and links from other chapters
+  function goTarget(n,id){ go(n); setTimeout(function(){ var t=qid(id); if(t) t.scrollIntoView({block:'start',behavior:reduce?'auto':'smooth'}); },90); }
+  document.querySelectorAll('[data-target]').forEach(function(b){ b.addEventListener('click',function(){
+    if(b.classList.contains('xlink')){ setTimeout(function(){ var t=qid(b.dataset.target); if(t) t.scrollIntoView({block:'start',behavior:reduce?'auto':'smooth'}); },90); }
+    else goTarget(+b.dataset.go,b.dataset.target);
+  }); });
+  var mtool=document.createElement('button');
+  mtool.className='menu-item menu-tool';
+  mtool.innerHTML='<span class="n">≋</span><span class="t">UF calculator</span>';
+  mtool.addEventListener('click',function(){ closeMenu(); goTarget(10,'ufCalc'); });
+  menuList.appendChild(mtool);
+  window.renalFluid={calc:fcCalc,from:fcCalcFrom,load:fcLoad,set:fcSet,say:fcSay,ex:FC_EX};
+  fcLoad('a');
 
   // ================= THE MACHINE: parts =================
   var machineData={
@@ -3758,6 +3978,16 @@ button.rx-f:hover{border-color:#005EB8}
      e:"Fluid load, hypertension and mineral disturbance strain the heart and vessels over years."},
     {ch:10,q:"Why do dialysis patients often limit potassium and phosphate in their diet?",a:["To lose weight","The kidneys can no longer clear them between sessions","To reduce the anticoagulant needed","To help the fistula mature"],c:1,
      e:"Dialysis is intermittent, but eating isn't. Between sessions there's nothing clearing the load, so intake has to be managed."},
+    {ch:10,q:"What's the highest UF rate allowed for a patient with a target weight of 70 kg?",a:["500 mL/hour","700 mL/hour","1,000 mL/hour","1,400 mL/hour"],c:1,
+     e:"The Trust's limit is 10 mL/kg/hour: 10 × 70 kg = 700 mL an hour."},
+    {ch:10,q:"A patient with a target weight of 105 kg has 3 L to remove over 3 h 15 min. What's the UF rate?",a:["About 6.5 mL/kg/hour","About 8.8 mL/kg/hour","About 10.5 mL/kg/hour","About 12 mL/kg/hour"],c:1,
+     e:"3,000 mL ÷ 3.25 hours = 923 mL an hour, and 923 ÷ 105 kg = 8.8 mL/kg/hour: within the limit of 10."},
+    {ch:10,q:"Within the limit, what's the most an 80 kg patient (target weight) can have removed in a 3.5-hour session?",a:["2.0 L","2.4 L","2.8 L","3.5 L"],c:2,
+     e:"10 × 80 = 800 mL an hour, × 3.5 hours = 2,800 mL."},
+    {ch:10,q:"A 70 kg patient needs 3.2 L off in 4 hours: 11.4 mL/kg/hour. What does the protocol point to?",a:["Run it faster to finish on time","A longer or an extra session, with large volumes discussed with a senior renal nurse or the HD CNS","Take it all off and give saline if the blood pressure drops","Remove it and recheck next week"],c:1,
+     e:"Stay under 10 mL/kg/hour: add time or a session rather than speed, with a plan to bring the weight down gradually."},
+    {ch:10,q:"How much fluid comes off on a patient's first ever dialysis?",a:["None, unless a doctor or the HD CNS asks for it, or the patient is very symptomatically overloaded","At least 1 litre","Up to 10 mL/kg/hour","Enough to reach target weight"],c:0,
+     e:"The first session is gentle: 2 hours, a blood flow no higher than 250 mL/min, and no fluid off unless instructed. If fluid is removed, record why."},
 
     // --- 10 Medications ---
     {ch:11,q:"When should phosphate binders be taken?",a:["On an empty stomach","With meals","At bedtime","Only on dialysis days"],c:1,
@@ -4184,7 +4414,7 @@ button.rx-f:hover{border-color:#005EB8}
     function clean(s){
       s=String(s).replace(/<[^>]+>/g,' ');
       s=s.replace(/[\u2019]/g,"'").replace(/[\u2018]/g,"'");
-      var map=[[/mL\/kg\/hour/g,'millilitres per kilogram per hour'],[/\beKt\/V\b/g,'e K-T over V'],[/\bspKt\/V\b/g,'single-pool K-T over V'],[/\bCNSs\b/g,'C-N-Ss'],[/\bCNS\b/g,'C-N-S'],[/\bLFTs\b/g,'L-F-Ts'],[/\bBCM\b/g,'B-C-M'],[/\bSACH\b/g,'S-A-C-H'],[/\bCKC\b/g,'C-K-C'],[/\bCRE\b/g,'C-R-E'],[/\bVRE\b/g,'V-R-E'],[/\bPCR\b/g,'P-C-R'],[/\bBBV\b/g,'B-B-V'],[/\bHEMO\b/g,'Hemo'],[/\bKPI\b/g,'K-P-I'],[/(\d)\s*kg\b/g,'$1 kilograms'],[/(\d)\s*[–—]\s*(\d)/g,'$1 to $2'],[/(\d)\s*×/g,'$1 times'],[/×/g,' times '],[/÷/g,' divided by '],[/≥\s*/g,'at least '],[/≤\s*/g,'up to '],[/HDF_(post|pre)/gi,function(_,m){ return 'H-D-F '+m.toLowerCase(); }],[/\bREN (\d+)/g,function(_,d){ return 'R-E-N '+d.split('').join(' '); }],[/\bDoc (\d+)/g,'document $1'],[/\bMCO\b/g,'M-C-O'],[/\bBTM\b/g,'B-T-M'],[/\bHb\b/g,'haemoglobin'],[/\bENHT\b/g,'E-N-H-T'],[/\bBFR\b/g,'blood flow rate'],[/CFU\/mL/g,'colony-forming units per mil'],[/EU\/mL/g,'endotoxin units per mil'],[/mg\/L/g,'milligrams per litre'],
+      var map=[[/mL\/kg\/hour/g,'millilitres per kilogram per hour'],[/mL\/hour/g,'millilitres an hour'],[/\beKt\/V\b/g,'e K-T over V'],[/\bspKt\/V\b/g,'single-pool K-T over V'],[/\bCNSs\b/g,'C-N-Ss'],[/\bCNS\b/g,'C-N-S'],[/\bLFTs\b/g,'L-F-Ts'],[/\bBCM\b/g,'B-C-M'],[/\bSACH\b/g,'S-A-C-H'],[/\bCKC\b/g,'C-K-C'],[/\bCRE\b/g,'C-R-E'],[/\bVRE\b/g,'V-R-E'],[/\bPCR\b/g,'P-C-R'],[/\bBBV\b/g,'B-B-V'],[/\bHEMO\b/g,'Hemo'],[/\bKPI\b/g,'K-P-I'],[/(\d)\s*kg\b/g,'$1 kilograms'],[/\bPer kg\b/g,'Per kilogram'],[/\bper kg\b/g,'per kilogram'],[/\bkg\b/g,'kilograms'],[/(\d)\s*[–—]\s*(\d)/g,'$1 to $2'],[/(\d)\s*×/g,'$1 times'],[/×/g,' times '],[/÷/g,' divided by '],[/≥\s*/g,'at least '],[/≤\s*/g,'up to '],[/HDF_(post|pre)/gi,function(_,m){ return 'H-D-F '+m.toLowerCase(); }],[/\bREN (\d+)/g,function(_,d){ return 'R-E-N '+d.split('').join(' '); }],[/\bDoc (\d+)/g,'document $1'],[/\bMCO\b/g,'M-C-O'],[/\bBTM\b/g,'B-T-M'],[/\bHb\b/g,'haemoglobin'],[/\bENHT\b/g,'E-N-H-T'],[/\bBFR\b/g,'blood flow rate'],[/CFU\/mL/g,'colony-forming units per mil'],[/EU\/mL/g,'endotoxin units per mil'],[/mg\/L/g,'milligrams per litre'],
         [/\bmmHg\b/g,'millimetres of mercury'],[/\bTMP\b/g,'T-M-P'],[/\bHDF\b/g,'H-D-F'],[/\bISO\b/g,'I-S-O'],[/\bRO\b/g,'R-O'],
         [/\u2212/g,'minus '],[/\beGFR\b/g,'e-G-F-R'],[/\bAEIOU\b/g,'A E I O U'],[/\bAKI\b/g,'A-K-I'],
         [/\bCKD-MBD\b/gi,'C-K-D bone mineral disorder'],[/\bCKD\b/g,'C-K-D'],
@@ -4208,7 +4438,7 @@ button.rx-f:hover{border-color:#005EB8}
       var out=m ? m.map(function(x){return x.trim()}).filter(Boolean) : (s?[s]:[]);
       return out.map(function(x){ return x.replace(/\u2024/g,'.'); });
     }
-    function txt(el){ if(!el) return ''; if(!el.querySelector||!el.querySelector('.tp-mini,.tp-flag')) return el.textContent; var c=el.cloneNode(true); c.querySelectorAll('.tp-mini,.tp-flag').forEach(function(x){ x.remove(); }); return c.textContent; }
+    function txt(el){ if(!el) return ''; if(!el.querySelector||!el.querySelector('.tp-mini,.tp-flag,.xlink')) return el.textContent; var c=el.cloneNode(true); c.querySelectorAll('.tp-mini,.tp-flag,.xlink').forEach(function(x){ x.remove(); }); return c.textContent; }
 
     function detailBlocks(scope){
       var out=[];
@@ -4245,6 +4475,7 @@ button.rx-f:hover{border-color:#005EB8}
     function fxQaRole(r){ return function(){ var b=document.querySelector('#qaRoleChips [data-r="'+r+'"]'); if(b) b.click(); }; }
     function fxNst(s){ return function(){ var b=document.querySelector('#nstTrack [data-s="'+s+'"]'); if(b) b.click(); }; }
     function fxUw(a){ return function(){ uwSet(a); }; }
+    function fxFluid(k){ return function(){ fcLoad(k); }; }
 
     function chapterScript(n){
       var ch=document.getElementById('ch-'+n), B=[];
@@ -4374,6 +4605,15 @@ button.rx-f:hover{border-color:#005EB8}
         detailBlocks(ch.querySelector('#acuteList')).forEach(function(b){B.push(b)});
         B.push({el:ch.querySelector('#chronicList'),text:'Now the longer term picture, living with kidney failure.', fx:fxSeg('#compToggle','chronic')});
         detailBlocks(ch.querySelector('#chronicList')).forEach(function(b){B.push(b)});
+        // the fluid removal calculator, driven through its examples
+        var uc=document.getElementById('ufCalc');
+        if(uc){
+          B.push({el:uc,text:txt(uc.querySelector('h3'))+'. '+txt(uc.querySelector('p')),fx:fxFluid('a')});
+          ['a','b','c','d'].forEach(function(k){ B.push({el:uc,text:fcSay(k),fx:fxFluid(k)}); });
+          B.push({el:document.getElementById('fcWork'),text:'The working shows each step: the weight to lose, the time in hours, the hourly rate, the rate per kilogram, and the limit for this patient.',fx:fxFluid('a')});
+          detailBlocks(uc).forEach(function(b){B.push(b)});
+          var un=directChild(uc,'hs-note'); if(un) B.push({el:un,text:txt(un)});
+        }
       } else if(n===11){
         detailBlocks(ch.querySelector('.acc')).forEach(function(b){B.push(b)});
         var note=ch.querySelector('.panel-note'); if(note) B.push({el:note,text:txt(note)});
